@@ -1,0 +1,30 @@
+\usepackage{csvsimple,booktabs,longtable}
+% Produces a multipage CSV table.
+% \csvtable{file}
+%          {caption}
+%          {tab:label}
+%          {alignments}
+%          {assignedheaderrows}
+%          {presentedheaderrows}
+%          {presentedatarows}
+\newcommand{\csvtable}[7]{
+  \csvreader[
+    longtable=#4,
+    table head=
+      \caption{#2.}
+      \label{#3}\\
+      \toprule
+      #6 \\
+      \midrule
+      \endfirsthead
+      \caption*{\cref{#3} (\textit{continued from Page~\pageref{#3}}): #2}\\\toprule
+      #6 \\
+      \midrule
+      \endhead
+      \bottomrule
+      \textit{Continued on next page...}
+      \endfoot
+      \bottomrule
+      \endlastfoot
+  ]{#1}{#5}{#7}
+}

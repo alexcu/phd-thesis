@@ -1,0 +1,28 @@
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% Redefine section number in header
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+\fancypagestyle{newfancy}{
+    \fancyhf{}
+    \fancyhead[LO]{\rightmark} % Odd pages have section on left
+    \fancyhead[LE]{\thepage}   % Even pages have page number on left
+    \fancyhead[RO]{\thepage}   % Odd pages have page number on right
+    \fancyhead[RE]{\leftmark}  % Even pages have chapter on right
+    \renewcommand{\chaptermark}[1]{\markboth{##1}{}}
+    % Remove rules
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% Chapter pages use plain
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LE]{\thepage}
+    \fancyfoot[RO]{\thepage}
+    % Remove rules
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{newfancy}

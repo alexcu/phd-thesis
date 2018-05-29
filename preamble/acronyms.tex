@@ -1,0 +1,11 @@
+\usepackage[acronym]{glossaries}
+
+\renewcommand{\acronymname}{List of Abbreviations}
+
+% Re-expand glossary term
+\newcommand{\glsx}[1]{\glsreset{#1}\gls{#1}}
+\newcommand{\glsplx}[1]{\glsreset{#1}\glspl{#1}}
+\newcommand{\glsac}[1]{\acrshort{#1}}
+\newcommand{\glsacpl}[1]{\acrshort{#1}s}
+
+\makeglossaries
