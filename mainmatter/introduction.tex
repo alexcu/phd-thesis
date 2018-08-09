@@ -2,7 +2,26 @@
 
 \section{Background}
 
+As the rise of \gls{ai} increases, the need for engineering model interpretability around AI becomes paramount. Model interpretability has been stressed since early machine learning research in the late 1980s and 1990s (such as \citet{Quinlan:1999ue} and \citet{Michie:1988te}), and while there has since been a significant body of work in the area \citep{Singh:2016wu,Baehrens:2010tj,Ribeiro:2016gg,Bussone:2015wm,Ross:2017vn,Lipton:2016if,Boz:2002uv,Johansson:2009uo,Augasta:2012wx,Fung:2005we,Dejaeger:2012up,VanAssche:2007wc,BenDavid:1995up,Feelders:2000ve,Lima:2009tm,Martens:2011uh,Pazzani:1997vp,Verbeke:2011vo}, it is evident that `accuracy' or model `confidence' is still used as a primary criterion for AI evaluation \citep{Huang:2005tc,Japkowicz:2011vy,Sokolova:2009vu}. Indeed, much research into \gls{nn} or \gls{svm} development stresses that `good' models are those with high accuracy. However, is accuracy enough to justify a model's quality?
+
+To answer this, we revisit what it means for a model to be accurate. Accuracy is an indicator for estimating how well a model's algorithm will work with future or unforeseen data. It is quantified in the \gls{ai} testing stage, whereby the algorithm is tested against cases known by humans to have ground truth but such cases are unknown by the algorithm. In production, however, all cases are unknown by both the algorithm \textit{and} the humans behind it, and therefore a single value of quality is ``not reliable if the future dataset has a probability distribution significantly different from past data'' \citep{Freitas:2014ic}, a problem commonly referred to as the \textit{datashift} problem \citep{Sugiyama:2017ud}. Analogously, \citet{Freitas:2014ic} provides the following description of the problem:
+
+\begin{quote}
+\itshape
+The military trained [a \gls{nn}] to classify images of tanks into enemy and friendly tanks. However, when the [\gls{nn}] was deployed in the field (corresponding to ``future data''), it had a very poor accuracy rate. Later, users noted that all photos of friendly (enemy) tanks were taken on a sunny (overcast) day. I.e., the [\gls{NN}] learned to discriminate between the colors of the sky in sunny vs. overcast days! \textbf{If the [\gls{NN}] had output a comprehensible model (explaining that it was discriminating between colors at the top of the images), such a trivial mistake would immediately be noted.} \citep{Freitas:2014ic}
+\end{quote}
+
+
+So, why must we interpret models? While the trade-off between accuracy and interpretability is critical \citep{Freitas:2004vv,Jin:2006uf,Kaufman:1999vg,Grunwald:2007vg,Domingos:1998ug,Zahalka:2011ux}, a quantifiable value cannot satisfy more subjective needs of end-users: trust, anomaly detection, legality and insight. The ever-growing domains of applied \gls{ml} in areas such as medicine \citep{Bellazzi:2008tv,Lavrac:1999tf,Pazzani:2001tw,Richards:2001vw,Zupan:2000tp,VanAssche:2007wc,Johansson:2009uo,Elazmeh:2007tp,Wong:2006ve}, bioinformatics \citep{Freitas:2010vk,Szafron:2004uf,Karwath:2002tv,Doderer:2006vt,Jiang:2005ua}, finance \citep{Baehrens:2010tj,Huysmans:2011gq,Dhar:2000vo} and customer analytics \citep{Verbeke:2011vo,Lima:2009tm} engages application-end needs....
+
+How do we interpret models? Methods for developing interpretation models include: decision trees \citep{Breiman:1984tu,Hastie:2001wp,Craven:1995wg,Quinlan:1993vi,Rokach:2008wc}, decision tables \citep{Lima:2009tm,Baesens:2004we} and decision sets \citep{Lakkaraju:2016ka,Narayanan:2018ud}; input gradients, gradient vectors or sensitivity analysis \citep{Selvaraju:2017bk,Ribeiro:2016gg,Lei:2016wi,Ross:2017vn,Baehrens:2010tj}; exemplars \citep{Kim:2014ui,Frey:2007hs}; generalised additive models \citep{Caruana:2015jk}; classification (\textit{if-then}) rules \citep{Thrun:1996wh,Bramer:2007vg,Clark:1991vi,Otero:2013ul,Witten:2016ut} and falling rule lists \citep{Singh:2016wu}; nearest neighbours \citep{Martens:2011uh,Sen:1995uk,Suri:2007wl,Zhang:1992vl,Wettschereck:1997vw} and Na\"{i}ve Bayes analysis \citep{Bellazzi:2008tv,Lavrac:1999tf,Kononenko:1993td,Zupan:2000tp,Michie:1994wi,Friedman:1997vs,Cheng:2001vw,Heckerman:2000uw}. Several cross-domain studies have assessed the interpretability of these techniques against end-users, measuring response time, accuracy in model response and user confidence \citep{Huysmans:2011gq,Hayete:2005tn,Allahyari:2011ud,Subramanian:1992ue,Schwabacher:2001wc,Freitas:2010vk,Martens:2011uh,Verbeke:2011vo}, although it is generally agreed that decision rules and decision tables provide the most interpretation in non-linear models such as \glspl{svm} or \glspl{nn} \citep{Freitas:2010vk,Martens:2011uh,Verbeke:2011vo}. For an extensive survey of the benefits and fallbacks of these techniques, we refer to \citet{Freitas:2014ic} and \citet{DoshiVelez:2017wu}.
+
+
+
+
 \subsection{Problem}
+
+As it stands, \gls{ai} presents an issue with. (For a detailed discussion, see \citet{DoshiVelez:2017vm}.
 
 \section{Motivation}
 
