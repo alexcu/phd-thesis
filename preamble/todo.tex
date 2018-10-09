@@ -1,2 +1,4 @@
 \usepackage{xcolor}
-\newcommand{\todo}[1]{{\color{red} \slshape $\langle$~\textsc{TODO}: #1~$\rangle$}}
+\newcommand{\todo}[2][]{{\color{red} \slshape $\langle$~\textsc{\small\underline{todo}}: \textbf{#2}~{\color{darkgray}\textit{#1}}$\rangle$}}
+\newcommand{\tonote}[1]{\textbf{\sffamily\footnotesize[#1]}}
+\newcommand{\tocite}[1]{\tonote{cite:{#1}}}
