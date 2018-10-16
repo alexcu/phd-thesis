@@ -1,9 +1,11 @@
 \section{Motivation: Current Developer Mindsets'}
+\label{sec:introduction:motivation}
 
 \cref{fig:introduction:stackoverflow-trends} shows an increasing trend to the adoption and discussion of \glspl{cis} with developers. As aforementioned, these services are accessible through \glspl{api} and consist of an `intelligence' black box (\cref{fig:introduction:cloud-intelliegnce-service}). When a term `black box' is used, the input (or stimulus) is transformed to its to outputs (or response) without any understanding of the internal architecture by which this transformation occurs; indeed, this well-understood theory derives from electronic sciences since the 1950s--60s \tocite{Bunge, Mario 1963; Ashby, W. Ross, 1956, chapter 6}. In many cases, these black boxes are inherently probabilistic and stochastic: for instance, a computer vision \gls{cis} usually returns the \textit{probability} that a particular object (the response) exists in the raw pixels (the stimulus), and thus we must stochastically retrieve hundreds of these results to get an interpretation of the \textit{distribution of overall confidence} returned from the service. There are thus therefore three factors to consider when implementing and using a \gls{cis}: (i) \gls{api} usability, (ii) the nature of stochastic and probabilistic systems, and (iii) how both impact on software quality.
 
 % TODO: Copied from ml inconsistency paper
 \subsection{The Impact on Software Quality}
+\label{ssec:introduction:motivation:impact}
 
 \glspl{api} reflect a set of design choices made by their providers. Evaluations of \gls{api} usability advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation \citep{Piccioni:2013em,Robillard:2009uk} written by providers, while providers should consider mismatches between the developer's conceptual knowledge of the \gls{api} its implementation \citep{Ko:2011fb}. It is therefore imperative that \gls{cis} providers consider the impact of their \gls{api} usability. Poor \gls{api} usability, therefore, hinders on the internal quality of development practices, slowing developers down to produce the software they need to create.
 
@@ -13,6 +15,7 @@ In order to fully understand this problem, there are multiple dimensions one mus
 
 % TODO: Copied from ml inconsistency paper
 \subsection{Motivating Scenario}
+\label{ssec:introduction:motivation:scenario}
 
   How do developers work with a \gls{cis}? How usable are these \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a deep-learning cloud-based \gls{api}? To motivate such a scenario, let us introduce a fictional software developer named Pam.
 
