@@ -1,0 +1,35 @@
+\section{Motivation: Current Developer Mindsets'}
+
+\cref{fig:introduction:stackoverflow-trends} shows an increasing trend to the adoption and discussion of \glspl{cis} with developers. As aforementioned, these services are accessible through \glspl{api} and consist of an `intelligence' black box (\cref{fig:introduction:cloud-intelliegnce-service}). When a term `black box' is used, the input (or stimulus) is transformed to its to outputs (or response) without any understanding of the internal architecture by which this transformation occurs; indeed, this well-understood theory derives from electronic sciences since the 1950s--60s \tocite{Bunge, Mario 1963; Ashby, W. Ross, 1956, chapter 6}. In many cases, these black boxes are inherently probabilistic and stochastic: for instance, a computer vision \gls{cis} usually returns the \textit{probability} that a particular object (the response) exists in the raw pixels (the stimulus), and thus we must stochastically retrieve hundreds of these results to get an interpretation of the \textit{distribution of overall confidence} returned from the service. There are thus therefore three factors to consider when implementing and using a \gls{cis}: (i) \gls{api} usability, (ii) the nature of stochastic and probabilistic systems, and (iii) how both impact on software quality.
+
+% TODO: Copied from ml inconsistency paper
+\subsection{The Impact on Software Quality}
+
+\glspl{api} reflect a set of design choices made by their providers. Evaluations of \gls{api} usability advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation \citep{Piccioni:2013em,Robillard:2009uk} written by providers, while providers should consider mismatches between the developer's conceptual knowledge of the \gls{api} its implementation \citep{Ko:2011fb}. It is therefore imperative that \gls{cis} providers consider the impact of their \gls{api} usability. Poor \gls{api} usability, therefore, hinders on the internal quality of development practices, slowing developers down to produce the software they need to create.
+
+Moreover, developers need to be wary of the probabilistic nature of probabilistic systems. These \glspl{api} become inherently non-deterministic in nature, but developers are still taught with the deterministic mindset that all \gls{api} calls are the same. Simple arithmetic representations (e.g., $2+2=4$) will \textit{always} result in 4; but a multi-layer perceptron neural network performing similar arithmetic representation \citep{Blake:1998vd} gives the probability where the target output (\textit{exactly} 4) and the output inferred (\textit{possibly} 4) matches as a percentage (or as an error where it does not match). That is, instead of an exact output, there is instead a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 with a confidence of $n$. External quality must therefore be considered in the outcome of these systems, such as in the case of thresholding values, to consider whether or not the inference has a high enough confidence to justify its result to end-users.
+
+In order to fully understand this problem, there are multiple dimensions one must consider: the impact of software quality; the fact that these systems underneath are probabilistic and are stochastic; the cognitive biases of determinism in developers; the issue of consistency in \gls{api} usage. While existing literature does extensively explore software quality and \gls{api} usability, these studies have only had emphasis on deterministic systems and thus little work to date has investigated such factors on probabilistic systems that make up the core of computer vision \glspl{cis}. We explore more of these facets in the motivating scenario below.
+
+% TODO: Copied from ml inconsistency paper
+\subsection{Motivating Scenario}
+
+  How do developers work with a \gls{cis}? How usable are these \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a deep-learning cloud-based \gls{api}? To motivate such a scenario, let us introduce a fictional software developer named Pam.
+
+Pam wants to develop a social media photo-sharing mobile app that analyses her and her friends photos. Pam wants the app to categorise photos into scenes (e.g., day vs. night, landscape vs. indoors), generate brief descriptions of each photo, and catalogue photos of her friends as well as common objects (e.g., all photos with her Border Collie dog, all photos taken on a beach on a sunny day).
+
+Rather than building a computer vision engine from scratch, which would take far too much time and effort, Pam thinks she can achieve this using one of the common computer vision \glspl{cis}. Pam comes from a typical software engineering background and has insufficient knowledge of key computer vision terminology and no understanding of the processes behind deep-learning. She ultimately believes all are \glspl{api} alike and internalises a deterministic mindset of them; when she decides on one of the three \glspl{api}, she expects a static result always. As she expects the same for whenever she calls, for example, any substring \gls{api} with the call (or similar) of \texttt{substring("doggy", 0, 2)} and would expect the response \texttt{`dog'} as its output.
+
+To make an assessment of these \glspl{api}, she tries her best to read through the documentation of some computer vision \glspl{api}, but she has no guiding framework to help her choose the right one. Some of the questions that may come to mind include:
+
+\begin{itemize}
+  \item What does confidence mean? Aren't these APIs consistent?
+  \item Will she need a combination of many computer vision \glspl{api} to solve this task?
+  \item How does she know when there is a defect in the response? How can she report it?
+  \item How does she know what labels the \gls{api} can pick up, and what labels it can't?
+  \item How does she know when the models update? What is the release cycle?
+  \item How does it describe her photos and detect the faces?
+  \item How can she interpret the results if she disagrees with it to help improve her app?
+\end{itemize}
+
+Dazzled by this, she does some brief reading on Wikipedia but is confused by the immense technical detail to take in. She would like some form of guiding framework to assist her and in software engineering terms she can understand.
