@@ -1,26 +1,103 @@
-\section{Research Goals}
-\label{sec:introduction:goals}
+\section{Research Outcomes}
+\label{sec:introduction:hypohtesis}
 
 \itshape
-In this thesis, we explore the effect stochastic and probabilistic systems play on the usability of \glspl{api} with respect to computer vision \glspl{cis}. Our perspective is software quality---specifically, validation and verification---within such systems and what best practices within the field of software engineering can be applied to assist in operationalisation such systems.
+In this thesis, we explore the probabilistic ripple-effect with relation to the development usability of `intelligent' \glspl{api}; specifically, we contextualise within computer vision \glspl{cis}. Our anchoring perspective is software quality---specifically, validation and verification---within such systems and what best practices within the field of software engineering can be applied to assist in operationalisation such systems.
 \upshape
 
-The goals of this study aim to provide a snapshot of current developer best practices towards the usage of \glspl{cis} to provide a guiding framework and recommendations for software developers and \glspl{cis} providers alike. We propose three major bodies of work below.
+The goals of this study aim to provide a snapshot of current developer best practices towards the usage of \glspl{cis} to provide a guiding framework and recommendations for software developers and \glspl{cis} providers alike. Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below.
 
-\subsubsection*{Goal 1: \textit{Understand developers' mindsets towards computer vision \glspl{cis}}.}
+\begin{titled-frame}{\underline{RH1}: \textit{Existing \glspl{cis} present insufficient \gls{api} documentation for general use.} }
+\vspace{-12pt}
+\paragraph{Research Hypothesis}
+\gls{api} documentation of intelligent services are inadequate and insufficient given the disparity of mindsets between the software engineer and data scientist. Chiefly, software engineers---all with varied experience of using AI-based development tooling, if any---may have very limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation.
 
-\subsubsection*{Goal 2: \textit{Explore quality factors and assurances required for building computer vision \glspl{cis}}.}
+\paragraph{Research Goal}
+To improve the documentation of existing \gls{cis} providers, specifically of computer vision \glspl{api}.
 
-\subsubsection*{Goal 3: \textit{Provide an evaluation framework developers wishing to use computer vision \glspl{cis}.}}
-
-Chiefly, we can specify the following high-level research questions:
-
-\begin{enumerate}[label=\textbf{RQ\arabic*}., leftmargin=4\parindent]
-  \item How do software engineers understand and evaluate computer vision \glspl{cis} for use in both generic and specific applications?
-  \item Do software engineers follow best practices when evaluating computer vision \glspl{cis}? How does this compare to actual practice?
-  \item What is needed to improve the state-of-the-art of computer vision \glspl{cis} in terms of \gls{api} documentation?
-  \item What aspects of validation and verification can be improved in the field of computer vision \glspl{cis}?
+\paragraph{Research Questions}
+\begin{enumerate}[label=\textbf{RQ1.\arabic*.}, ref=RQ1.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
+  \item What practices are in use for intelligent services' \gls{api} documentation?
+  \label{rqs:apidoc:what-is-in-use}
+  
+  \item How do developers currently understand and interpret the documentation given a lack of formal training in artificial intelligence? That is, what do they understand and not understand , and what key aspects of the \gls{api} documentation matter do developers as they see it?
+  \label{rqs:apidoc:how-do-devs-understand-it}
+  
+  \item What additional information or attributes need to be included in the \gls{api} documentation?
+  \label{rqs:apidoc:what-additional-information-needed}
 \end{enumerate}
+
+\paragraph{Research Contribution} An intelligent service \gls{api} documentation quality assessment framework to evaluate how well the service has been documented for software engineers to use.
+
+\paragraph{Research Method}
+
+Problem identification and discovery to validate our hypothesis in the \textit{general context} of \gls{api} usage will begin with a literature review to help inform what prior works have been done in the \gls{api} documentation space. We will follow this with repository and question mining, i.e., searching on developer communities such as Quora, Stack Overflow, and GitHub Issues to find out what developers complain about and mine this knowledge into a framework.
+
+We then will conduct an internal pre-controlled survey within our research group (we refer to as the `pilot' survey study) and will use findings from the literature review and mining to help inform us of the kinds of questions to ask. 
+
+Findings from the pilot survey to help inform a wider structured survey and unstructured interview, where we will recruit external software engineers in industry through contacts of our research group. A quantitative (survey) and qualitative (interview) analysis will help begin to shape our research outcome of an API documentation quality assessment framework and help stabilise a general understanding of how developers use the existing \glspl{api}.
+\end{titled-frame}
+
+\begin{titled-frame}{\underline{RH2}: \textit{Existing \glspl{cis} present insufficient metadata for context-specificity.} }
+\vspace{-12pt}
+\paragraph{Research Hypothesis}
+Intelligent service \glspl{api} respond with insufficient information for developers to operationalise the service into a business-driven application and, thus, additional metadata is needed to assist developers. Such metadata is likely to be added to the response objects of the \gls{api}.
+
+\paragraph{Research Goal}
+To improve the quality of \textit{context-specific response data} from the \gls{api} endpoints of intelligent services.
+
+\paragraph{Research Questions}
+\begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
+  \item What are current problems due to lack of return metadata?
+  \label{rqs:metadata:what-problems-due-to-lack-of-metadata}
+  
+  \item What kind of metadata do developers want? Why do they want this metadata?
+  \label{rqs:metadata:what-metadata-do-devs-want-and-why}
+  
+  \item How does the metadata assist developers in developing applications that use intelligent services of varying contexts?
+  \label{rqs:metadata:how-does-metadata-assist-devs}
+\end{enumerate}
+
+\paragraph{Research Contributions} A list of metadata key-value-pairs that assist developers in using these \glspl{api} during the development of software that consume these services. In essence, improvements to the framework of Research Outcome 1: ``\textit{An intelligent service \gls{api} documentation \underline{\upshape and metadata} quality assessment framework}''.
+
+\paragraph{Research Method} To confirm findings of the method within RH1 is genuine, we shift from reviewing the documentation from a general stance to a specialised (context-specific) stance in the use of these \glspl{api}.
+
+Thus, we will use context-specific action research to develop basic `prototypes' of varying contexts to help identify where any potential gaps are in the findings of RH1.
+To validate the findings of developer opinion in the surveys and interviews of RH1 are indeed genuine, this helps ensure that there is nothing missing by adding in further context to such opinions.
+\end{titled-frame}
+
+\begin{titled-frame}{\underline{RH3}: \textit{RH1 and RH2 improve quality,  productivity or developer informativeness.} }
+\vspace{-12pt}
+\paragraph{Research Hypothesis}
+The implication of hypotheses 1 and 2 suggest that improving both the documentation and providing further metadata will improve product quality (internal or external), and/or developer productivity and/or developer education in developing software with intelligent components.
+
+\paragraph{Research Goal}
+ To confirm if improvements to \gls{api} documentation and response metadata  are reflected as improvements to product quality, developer productivity and/or developer education.
+ 
+ \paragraph{Research Questions}
+\begin{enumerate}[label=\textbf{RQ3.\arabic*.}, ref=RQ3.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
+  \item  What metrics are improved when the intelligent service documentation or metadata is improved?
+  \label{rqs:implications:what-metrics-improve}
+  
+  \item With respect to \ref{rqs:implications:what-metrics-improve}, the three aspects are explored:
+
+  \begin{enumerate}
+  \item Are improvements reflected in product quality (i.e., improve avoiding common pitfalls; external quality)?
+  \item Are improvements reflected in developer productivity (e.g., faster, better, fewer bugs; internal quality)?
+  \item Are improvements reflected as a subjective `feel-good' factor for the developer (e.g., is the developer better informed or more confidence in what they do)?
+  \end{enumerate}
+  \label{rqs:implications:aspects}  
+\end{enumerate}
+
+\paragraph{Research Contribution}
+A concrete sample solution or framework that improves such metrics, thereby confirming that our documentation and metadata quality assessment framework improves these facets.
+
+\paragraph{Research Method}
+
+To confirm that the framework is valid, we will provide a fictitious \gls{api} that is documented with the additional metadata and information organised using our framework.
+
+We then ask 20 developers to complete five tasks under an observational, comparative controlled study, 10 of which will (a) develop with the new framework, and the other 10 will (b) develop with the as-is/existing documentation. From this, we compare if the framework makes improvements by capturing metrics and recording the observational sessions for qualitative and quantitative analysis.
+\end{titled-frame}
 
 Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
 
