@@ -1,11 +1,12 @@
 \section{Research Outcomes}
 \label{sec:introduction:hypohtesis}
 
+\todo{AC: ***Rewrote all of \cref{sec:introduction:hypohtesis} for review; \today.***}\\
 \itshape
 In this thesis, we explore the probabilistic ripple-effect with relation to the development usability of `intelligent' \glspl{api}; specifically, we contextualise within computer vision \glspl{cis}. Our anchoring perspective is software quality---specifically, validation and verification---within such systems and what best practices within the field of software engineering can be applied to assist in operationalisation such systems.
 \upshape
 
-The goals of this study aim to provide a snapshot of current developer best practices towards the usage of \glspl{cis} to provide a guiding framework and recommendations for software developers and \glspl{cis} providers alike. Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below.
+The goals of this study aim to provide a snapshot of current developer best practices towards the usage of \glspl{cis} to provide a guiding framework and recommendations for software developers and \glspl{cis} providers alike. Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below and eight Research Questions (RQs) based on  both empirical and non-empirical software engineering methodology \citep{Shull:2007vh,Simon:1996uw}.
 
 \begin{titled-frame}{\underline{RH1}: \textit{Existing \glspl{cis} present insufficient \gls{api} documentation for general use.} }
 \vspace{-12pt}
@@ -17,13 +18,16 @@ To improve the documentation of existing \gls{cis} providers, specifically of co
 
 \paragraph{Research Questions}
 \begin{enumerate}[label=\textbf{RQ1.\arabic*.}, ref=RQ1.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-  \item What practices are in use for intelligent services' \gls{api} documentation?
+  \item What practices are in use for intelligent services' \gls{api} documentation? 
+  % KQ: Exploratory question to understand phenomena: Description and Classification question.
   \label{rqs:apidoc:what-is-in-use}
   
-  \item How do developers currently understand and interpret the documentation given a lack of formal training in artificial intelligence? That is, what do they understand and not understand , and what key aspects of the \gls{api} documentation matter do developers as they see it?
+  \item How do developers currently understand and interpret the documentation given a lack of formal training in artificial intelligence? That is, what do they understand and not understand, and what key aspects of the \gls{api} documentation matter do developers as they see it?
+  % KQ: Base-rate question to understand normal patterns of the occurrence of the phenomena: Descriptive-Process questions.
   \label{rqs:apidoc:how-do-devs-understand-it}
   
   \item What additional information or attributes need to be included in the \gls{api} documentation?
+  % DQ: Design question
   \label{rqs:apidoc:what-additional-information-needed}
 \end{enumerate}
 
@@ -31,9 +35,9 @@ To improve the documentation of existing \gls{cis} providers, specifically of co
 
 \paragraph{Research Method}
 
-Problem identification and discovery to validate our hypothesis in the \textit{general context} of \gls{api} usage will begin with a literature review to help inform what prior works have been done in the \gls{api} documentation space. We will follow this with repository and question mining, i.e., searching on developer communities such as Quora, Stack Overflow, and GitHub Issues to find out what developers complain about and mine this knowledge into a framework.
+Problem identification and discovery to validate our hypothesis in the \textit{general context} of \gls{api} usage will begin with a background to help inform what prior works have been done in the \gls{api} documentation space. We will follow this with repository and question mining, i.e., searching on developer communities such as Quora, Stack Overflow, and GitHub Issues to find out what developers complain about and mine this knowledge into a framework.
 
-We then will conduct an internal pre-controlled survey within our research group (we refer to as the `pilot' survey study) and will use findings from the literature review and mining to help inform us of the kinds of questions to ask. 
+We then will conduct an internal pre-controlled survey within our research group (we refer to as the `pilot' survey study) and will use findings from the background and mining to help inform us of the kinds of questions to ask. 
 
 Findings from the pilot survey to help inform a wider structured survey and unstructured interview, where we will recruit external software engineers in industry through contacts of our research group. A quantitative (survey) and qualitative (interview) analysis will help begin to shape our research outcome of an API documentation quality assessment framework and help stabilise a general understanding of how developers use the existing \glspl{api}.
 \end{titled-frame}
@@ -49,12 +53,16 @@ To improve the quality of \textit{context-specific response data} from the \gls{
 \paragraph{Research Questions}
 \begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
   \item What are current problems due to lack of return metadata?
+  % KQ; Exploratory question to understand phenomena: Description and Classification question
   \label{rqs:metadata:what-problems-due-to-lack-of-metadata}
   
+  
   \item What kind of metadata do developers want? Why do they want this metadata?
+  % KQ; Base-rate question to understand normal patterns of the occurrence of the phenomena: Descriptive-Process questions.
   \label{rqs:metadata:what-metadata-do-devs-want-and-why}
   
-  \item How does the metadata assist developers in developing applications that use intelligent services of varying contexts?
+  \item Does additional metadata assist developers in developing applications that use intelligent services of varying contexts, and if so, how?
+  % KQ; relationship question to understand the correlation between two phenomena
   \label{rqs:metadata:how-does-metadata-assist-devs}
 \end{enumerate}
 
@@ -77,10 +85,11 @@ The implication of hypotheses 1 and 2 suggest that improving both the documentat
  \paragraph{Research Questions}
 \begin{enumerate}[label=\textbf{RQ3.\arabic*.}, ref=RQ3.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
   \item  What metrics are improved when the intelligent service documentation or metadata is improved?
+  % KQ; relationship question to understand the correlation between two phenomena
   \label{rqs:implications:what-metrics-improve}
   
   \item With respect to \ref{rqs:implications:what-metrics-improve}, the three aspects are explored:
-
+  % KQ; relationship question to understand the correlation between two phenomena
   \begin{enumerate}
   \item Are improvements reflected in product quality (i.e., improve avoiding common pitfalls; external quality)?
   \item Are improvements reflected in developer productivity (e.g., faster, better, fewer bugs; internal quality)?

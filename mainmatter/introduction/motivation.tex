@@ -21,8 +21,8 @@ In order to fully understand this problem, there are multiple dimensions one mus
 \subsection{Motivating Scenarios}
 \label{ssec:introduction:motivation:scenario}
 
-\todo{AC: Rewrote \cref{ssec:introduction:motivation:scenario} on \today.}
-Before introducing our research questions in \cref{sec:introduction:goals}, let us summarise what has been claimed so far: intelligence-based services are increasing rapidly (\cref{fig:introduction:ai-products}), and as is developer uptake and discussion in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). As introduced in the previous section, the impact on our claimed developer mindset mismatch on software quality is a gap in literature to be investigated. How do developers work with a \gls{cis}, how usable are these \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a deep-learning cloud-based \gls{api}? 
+\todo{AC: ***Rewrote all of \cref{ssec:introduction:motivation:scenario} for review; \today.***}\\
+Before introducing our research questions in \cref{sec:introduction:hypohtesis}, let us summarise what has been claimed so far: intelligence-based services are increasing rapidly (\cref{fig:introduction:ai-products}), and as is developer uptake and discussion in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). As introduced in the previous section, the impact on our claimed developer mindset mismatch on software quality is a gap in literature to be investigated. How do developers work with a \gls{cis}, how usable are these \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a deep-learning cloud-based \gls{api}? 
 
 To motivate these questions, let us contextualise the usage of a \gls{cis} with two scenarios of varying risk: (i) a fictional software developer named Pam who wishes to develop an inherently low-risk photo detection application for her friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend to surgeons if the patient should be sent to surgery.
   
@@ -55,18 +55,28 @@ She understands that the app is not always going to be perfect: perhaps a few ph
 \subsubsection{Motivating Scenario II: Cancer Detection \gls{cdss}}
 \label{ssec:introduction:motivation:scenario:cancer}
 
-Recent works in the oncology domain have used deep-learning \glspl{cnn} to detect regions of interest in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach. Some studies have suggested that practitioner over-reliance may erode independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh}; therefore the risks in developing \glspl{cdss} powered by intelligent services become paramount.
+Recent works in the oncology domain have used deep-learning \glspl{cnn} to detect \glspl{roi} in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach. Some studies have suggested that practitioner over-reliance may erode independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh}; therefore the risks in developing \glspl{cdss} powered by intelligent services become paramount.
 
-In \cref{} we present a context diagram for a fictional \gls{cdss} named \textit{CancerAssist}. CancerAssist is used by a team of busy pathologists who review patient lymph node scans and discuss and recommend, on consensus, if the patient should or should not be sent to surgery. When consensus is made, the lead pathologist enters the verdict into CancerAssist---running passively in the background---to ensure no oversight has been made in the team's discussions. When a conflict exists between the team's verdict and CancerAssist's verdict, the system produces the scan with regions of interest it thinks the team should review. Where the team override the output of CancerAssist, this helps to reinforce CancerAssist's internal model.
+In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagram for a fictional \gls{cdss} named \textit{CancerAssist}. CancerAssist is used by a team of busy pathologists who review patient lymph node scans and discuss and recommend, on consensus, if the patient should or should not be sent to surgery. When consensus is made, the lead pathologist enters the verdict into CancerAssist---running passively in the background---to ensure no oversight has been made in the team's discussions. When a conflict exists between the team's verdict and CancerAssist's verdict, the system produces the scan with regions of interest it thinks the team should review. Where the team override the output of CancerAssist, this helps to reinforce CancerAssist's internal model as a \gls{hitl} learning process.
 
-Powering CancerAssist is Google AI's Lymph Node Assistant (LYNA) \citep{Liu:2018fa}, a \gls{cnn} based on the Inception-v3 model \citep{Szegedy:2016ws,Krizhevsky:2012wl}. Assuming LYNA is hosted on a \gls{cis}, the developer of CancerAssist calls the relevant \gls{cis} \gls{api} endpoints, in conjunction with extra information such as patient data and medical history, to produce its verdict; in the case of a positive verdict, the relevant regions of interest CancerAssist has found are highlighted with their respective bounding boxes and their respective cancer detection accuracies.
+\begin{figure}[th]
+  \includegraphics[width=\linewidth]{cancer-assist}
+  \caption{CancerAssist Context Diagram}
+  \label{fig:introduction:motivation:scenario:cancer}
+\end{figure}
 
-Who is the data team behind maintaining the LYNA \gls{cis}? 
+Powering CancerAssist is Google AI's Lymph Node Assistant (LYNA) \citep{Liu:2018fa}, a \gls{cnn} based on the Inception-v3 model \citep{Szegedy:2016ws,Krizhevsky:2012wl}. To provide intelligence to CancerAssist, LYNA is hosted on a \gls{cis}, and thus the developers of CancerAssist call the relevant \gls{cis} \gls{api} endpoints, in conjunction with extra information such as patient data and medical history, to produce the verdict. In the case of a positive verdict, the relevant \glspl{roi} CancerAssist has found are highlighted with their respective bounding boxes and their respective cancer detection accuracies.
 
-The default assumptions are that the training data used to power the intelligence is near-perfect for universal situations; that is the algorithm chosen is correct, the 
+The developer of CancerAssist has no interaction with the Data Science team maintaining the LYNA \gls{cis}. As a result, they are unaware when updates to the model occur, nor do they know what training data they could provide to test their own system. The default assumptions are that the training data used to power the intelligence is near-perfect for universal situations; i.e., the algorithm chosen is the correct one for all the ontology tests that need to be assessed in the given use case of CancerAssist. Thus, unlike deterministic systems---where the developer can manually test and validate the outcomes of the \glspl{api}---this is impossible for non-deterministic systems such as CancerAssist and its underlying \gls{cis}. The ramifications of not being able to test such a system and putting it out into production may prove fatal to patients.
 
-Unlike deterministic systems where the developer can manually test and validate the outcomes of the APIs, this is impossible for these non-deterministic systems.
+Several questions in the production of CancerAssist and its use of a \gls{cis} may come into mind:
 
-Thus metadata is needed in the response object....
+\begin{itemize}
+  \item When is the model updated and how do the Data Science team communicate that the model is updated?
+  \item What benchmark test set of data do I use to ensure that the changed model doesn't affect other results?
+  \item How do we know that the assumptions made by the Data Science team in training the model are correct?
+\end{itemize}
+
+Thus, it may be the case the improved documentation to communicate with the \gls{cis} and additional metadata is needed in the response object may prove useful. Such claims are further expanded upon in the following section.
 
 %Context diagram
