@@ -1,38 +1,118 @@
-\chapter{Methodology}
+\chapter{Research Strategy}
 
-Empirically investigating software engineering is often a complex task as it is imperative to understand the social and cognitive processes around software engineers and not just the tools and processes used \citep[ch. 11]{Shull:2007vh}. 
+Investigating software engineering practices is oft a complex task as it is imperative to understand the social and cognitive processes around software engineers and not just the tools and processes used \citep{Easterbrook:2007ws}. This chapter explores the research design utilised in this study by exploring six key elements of empirical software engineering research: firstly, we provide an extended focus to the study by reviewing our research questions (see \cref{sec:introduction:hypohtesis}) anchored under the context of an existing classification taxonomy \c, characterise our research goals through an explicit philosophical stance, explain how the stance selected impacts our selection of research methods and data collection techniques, discuss a set of criteria for assessing the validity of our study design and the findings of our research, discuss practical considerations of our methods, and lastly use explain a theory to review our data and relate it other studies in literature and our research questions. The foundations for developing this research strategy is expanded from that proposed by \citet{Easterbrook:2007ws}.
 
-For this study, we propose running several experiments involving developers and several computer vision \glspl{cis}, using action-based mixed method approaches and involving documentary analysis. This study will organically evolve by observing phenomena surrounding computer vision \gls{api} internal quality, chiefly their documentation and responses. We adopt a mixed methods approach, performing both qualitative and quantitative data collection on these two key aspects by using documentary research methods for inspecting the \gls{api} documentation and structured observations to quantitatively analyse the results over time (RQs 3 and 4).
 
- Our first proposal for usability studies will survey a number of developers from various levels of seniority and experience (gathering such demographical data to assess a wider sample size) to provide insight into how these developers perceive the non-deterministic nature of computer vision \glspl{api}, asking them specific questions about their conceptual understanding of computer vision to identify any outstanding gaps in their knowledge and factor this into known literature (RQs 1 and 2).
+\section{Research Questions Revisited}
 
-We will then conduct a structured interview with a `mock' computer vision \gls{api} to remove any developer bias toward any one particular computer vision \gls{api} that already exists and by which the developer may have already used in the past. Here, we will investigate if developers have any patterns of practice and if they conform to software engineering best practices (RQs 1, 2 and 3).
+In \cref{sec:introduction:hypohtesis}, we introduce three hypothesis of this study (RH1--3), namely: (i) existing \gls{cis} \glspl{api} are poorly documented for general use (RH1); (ii) existing \gls{cis} \glspl{api} do not provide sufficient metadata when used in context-specific use cases (RH2); and (iii) the combination of improving documentation and metadata will ultimately improve one of software quality, developer productivity and/or developer understanding (RH3).
 
-From these insights, we can then develop a series of assistive recommendations that aide in improving the validation and verification of the existing computer vision \gls{api} tooling. This may involve a third party tool that helps developers evaluate which particular \gls{api} is right for their specific computer vision use case.
+To discuss our research strategy, we revisit our research questions through the classification technique discussed by \citet{Easterbrook:2007ws}, a technique originally proposed in the field of psychology by \citet{Meltzoff:1998wg} but adapted to software engineering. Our research study involves a mix of five \textit{knowledge questions}, that focus on existing practices and the ways in which they work, and two \textit{design questions}, that that focuses on designing better ways to approach software engineering tasks \citep{Simon:1996uw}. Both classes of questions are respectively concerned with empirical and non-empirical software engineering that, in practice, are best combined in long-term software engineering research studies (such as this one) as they assist in tackling the investigation of a specific problem, approaches to solve that problem and finding what solutions work best \citep{Wieringa:2006vd}.
 
-\section{Discussion of Methodology}
+\subsection{Knowledge Questions}
+In total, five knowledge questions are posed in this study to help us understand the way developers currently interact and work with a \gls{cis} \gls{api}; two exploratory, one base-rate, and two relationship and causality questions.
+
+We begin by formulating two \textit{exploratory questions} to attempt to better understand the phenomena of poor API documentation and metadata; both \ref{rqs:apidoc:what-is-in-use} and \ref{rqs:metadata:what-problems-due-to-lack-of-metadata} respectively describe and classify what practices are in use for existing \gls{cis} \gls{api} documentation and what problems currently exist when no metadata is returned. Answering these two questions assists in refining preciser terms of the phenomena, ways in which we find evidence for them and ensuring the data found is valid.
+
+By answering these questions, we have a clearer understanding of the phenomena; we then follow up by posing an additional \textit{base-rate question} that helps provide a basis to confirm that the phenomena occurring is normal (or unusual) behaviour by investigating the patterns of phenomena's occurrence. \ref{rqs:apidoc:how-do-devs-understand-it} is a descriptive-process question to help us understand how the developer currently understands existing \gls{cis} \gls{api} documentation, given their lack of formal extended training in artificial intelligence. This achieves us an insight into the developer's mindset and regular thought patterns toward these \glspl{api}.
+%Lack of formal training = exlusion critiera
+
+Lastly, we investigate the relationship between the improved documentation and improvements to other aspects of the software development process. Chiefly, \ref{rqs:implications:do-metrics-improve} is concerned with whether any improvements to metadata or documentation correlate to improvements in software quality, developer productivity, or developer education (and is a \textit{relationship establishment question}). If we establish such a relationship, we refine the question and investigate the specific causes using three \textit{causality questions} defined under \ref{rqs:implications:aspects}, namely by associating three classes of measurable metrics (internal quality metrics, external quality metrics, developer education insight metrics) to the improved documentation.
+
+\subsection{Design Questions}
+
+\ref{rqs:apidoc:what-additional-information-needed} and \ref{rqs:metadata:what-metadata-do-devs-want-and-why} are both \textit{design questions}; they are concerned with ways in which we can improve a \gls{cis} by investigating what additional attributes are needed in both the documentation and metadata that assist developers to achieve their goals.  They are not classified as knowledge questions as we investigate what \textit{will be} and not \textit{what is}. By understanding the process by which developers desire additional attributes of metadata and documentation, we can help shape improvements to the existing design of a \gls{cis}. 
+
+
+\section{Philosophical Stances}
+
+\citet{Creswell:2017vn} characterise four dominant philosophical stances that help us constitute what is valid knowledge: positivism, constructivism, pragmatism and critical theory. To construct such a `validity of truth', we will review these four philosophical stances in this section, and state the stance that we explicitly adopt and our reasoning for this.
+
+Positivists claim truth to be all observable facts, reduced piece-by-piece to smaller components which is incrementally verifiable to form truth. We do not base our work on the positivistic stance as the theories governing verifiable hypothesis must be precise from the start of the research. Moreover, due to its reductionist approach, it is quite difficult to isolate these hypotheses and study them in isolation from context. As our hypotheses are not context-agnostic, we steer clear from this stance.
+
+Constructivists see knowledge embedded within the human context; truth is the \textit{interpretive} observation by understanding the differences in human thought between meaning and action \tocite{Klein and Myers 1999}. That is, the interpretation of the theory is just as important to the empirical observation itself. We patricianly adopt a constructivist stance as we attempt to model the developer's mindset, being an approach that is rich in qualitative data on human activity.
+
+Pragmatism is a less dogmatic approach that encourages the incomplete and approximate nature of knowledge and is dependent on the methods in which the knowledge was extracted. The utility of consensually agreed knowledge is the key outcome, and is therefore relative to those who seek utility in the knowledge---what is the useful for one person is not so for the other. While we value the utility of knowledge, it is difficult to obtain consensus especially on an ill-researched topic such as ours, and therefore we do not adopt this stance.
+
+This study, therefore, chiefly adopts the philosophy of critical theory \tocite{Calhoun:1995}. A key outcome of the study is to shift the developer's restrictive deterministic mindset and shed light on developing a new framework actively with the developer community that seeks to improve the process of using such \glspl{api}. In software engineering, critical theory is used to ``actively [seek] to challenge existing perceptions about software practice'' \citep{Easterbrook:2007ws}, and this study utilises such an approach to shift the mindset of \gls{cis} consumers and providers alike on how the documentation and metadata should not be written with the `traditional' deterministic mindset at heart. Thus, our key philosophical approach is critical theory to seek out \textit{what-can-be} using  partial constructivism to model the current \textit{what-is}.
+
+\section{Research Design}
+
+\subsection{Review of Research Methods}
+
+\todo{Discuss brief survey of research methods}\\
+\todo{Discuss which methods I will chose and why}\\
+
+\subsection{Experiment 1: Developer survey and interview on CIS API usage}
+%\todo{Discuss how I will come up with survey+interview/observational study design (more detail)}\\
+
+\subsubsection{Overview}
+
+\todo{Discuss how I will conduct the experiment}
+
+\subsubsection{Relevance and Motivation}
+
+\todo{Relate to back to research hypotheses}
+
+\subsubsection{Data Collection \& Analysis}
+
+\todo{Discuss data collection techniques}\\
+\todo{Discuss data analysis techniques}
+
+\subsection{Experiment 2: Observation of improved API}
+
+Action research
+
+\subsubsection{Overview}
+
+\todo{Discuss how I will conduct the experiment}
+
+\subsubsection{Relevance and Motivation}
+
+\todo{Relate to back to research hypotheses}
+
+\subsubsection{Data Collection \& Analysis}
+
+\todo{Discuss data collection techniques}\\
+\todo{Discuss data analysis techniques}
+
+\section{Empirical Validity}
+\todo{Discuss empirical validity of both methods}
+
+Threats to Validity...
+
+
+%For this study, we propose running several experiments involving developers and several computer vision \glspl{cis}, using action-based mixed method approaches and involving documentary analysis. This study will organically evolve by observing phenomena surrounding computer vision \gls{api} internal quality, chiefly their documentation and responses. We adopt a mixed methods approach, performing both qualitative and quantitative data collection on these two key aspects by using documentary research methods for inspecting the \gls{api} documentation and structured observations to quantitatively analyse the results over time (RQs 3 and 4).
+%
+% Our first proposal for usability studies will survey a number of developers from various levels of seniority and experience (gathering such demographical data to assess a wider sample size) to provide insight into how these developers perceive the non-deterministic nature of computer vision \glspl{api}, asking them specific questions about their conceptual understanding of computer vision to identify any outstanding gaps in their knowledge and factor this into known literature (RQs 1 and 2).
+%
+%We will then conduct a structured interview with a `mock' computer vision \gls{api} to remove any developer bias toward any one particular computer vision \gls{api} that already exists and by which the developer may have already used in the past. Here, we will investigate if developers have any patterns of practice and if they conform to software engineering best practices (RQs 1, 2 and 3).
+%
+%From these insights, we can then develop a series of assistive recommendations that aide in improving the validation and verification of the existing computer vision \gls{api} tooling. This may involve a third party tool that helps developers evaluate which particular \gls{api} is right for their specific computer vision use case.
+
 
 % Ground based on works in Guide to Empitricial SE...%
 % Rexplain RQs in the context
 % Discuss all methods from GtAESE and why which ones are good/bad
 % 
 
-\section{Pilot Study on DSTIL Engineers}
+
+
 
 % Get feedback on the first round of survey
 % Bypass ethics on this -- find out how/where
 % 
 
-\section{Data Collection and Ethics}
+%\section{Data Collection and Ethics}
+%
+%\section{Approach}
+%
+%\section{Evaluation Methods}
 
-\section{Approach}
-
-\section{Evaluation Methods}
-
-\section{Threats to Validity}
-
-\subsection{Internal Threats}
-
-\subsection{External Threats}
-
-\subsection{Construct}
+%\section{Threats to Validity}
+%
+%\subsection{Internal Threats}
+%
+%\subsection{External Threats}
+%
+%\subsection{Construct}
