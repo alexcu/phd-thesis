@@ -1,0 +1,32 @@
+\begin{table}[b!]
+  \centering
+  \caption[Varying confidence changes over time between 3 CV APIs]{First six responses of image analysis for a Border Collie sent to three computer vision \gls{cis} \glspl{api} providers five months apart. The specificity (to 3 s.f.) and vocabulary of each label in the response varies between all services, and---except for Provider B---changes over time. Any confidence changes greater than 1 per cent are highlighted in red.}
+  \label{tab:introduction:motivation:scenario:pam:confchanges}
+  \begin{tabular}{l|c|c|c|c|c|c}
+    \toprule
+    \multirow{2}{*}{\bfseries Label} &
+    \multicolumn{2}{c}{\bfseries Provider A} &
+    \multicolumn{2}{c}{\bfseries Provider B} &
+    \multicolumn{2}{c}{\bfseries Provider C} \\
+    &
+    Aug 2018 & Jan 2019 &
+    Aug 2018 & Jan 2019 &
+    Aug 2018 & Jan 2019 \\
+    \midrule
+    Dog             & 0.990 & \textcolor{red}{0.986} & 0.999 & 0.999 & 0.992 & \textcolor{red}{0.970} \\
+    Dog Like Mammal & 0.960 & 0.962 & -     & -     & -     & -     \\
+    Dog Breed       & 0.940 & 0.943 & -     & -     & -     & -     \\
+    Border Collie   & 0.850 & 0.852 & -     & -     & -     & -     \\
+    Dog Breed Group & 0.810	& 0.811 & -     & -     & -     & -     \\
+    Carnivoran      & 0.810 & \textcolor{red}{0.680} & -     & -     & -     & -     \\
+    Black           & -     & -     & 0.992 & 0.992 & -     & -     \\
+    Indoor          & -     & -     & 0.965 & 0.965 & -     & -     \\
+    Standing        & -     & -     & 0.792 & 0.792 & -     & -     \\
+    Mammal          & -     & -     & 0.929 & 0.929 & 0.992 & \textcolor{red}{0.970} \\
+    Animal          & -     & -     & 0.932 & 0.932 & 0.992 & \textcolor{red}{0.970} \\
+    Canine          & -     & -     & -     & -     & 0.992 & \textcolor{red}{0.970} \\
+    Collie          & -     & -     & -     & -     & 0.992 & \textcolor{red}{0.970} \\
+    Pet             & -     & -     & -     & -     & 0.992 & \textcolor{red}{0.970} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
