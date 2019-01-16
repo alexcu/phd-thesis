@@ -29,10 +29,12 @@ This story analogously describes the issues with the cost of quality \citep{Boeh
 
 Formally, we refer to the IEEE Standard Glossary of Software Engineering Terminology~\citep{IEEE:1990wp} for to define \gls{vv}:
 
+\begin{samepage}
 \begin{description}[font=\itshape,style=multiline,leftmargin=3cm]
   \item[verification] The process of evaluating a system or component to determine whether the products of a given development phase satisfy the conditions imposed at the start of that phase.
   \item[validation] The process of evaluating a system or component during or at the end of the development process to determine whether it satisfies specified requirements. 
 \end{description} 
+\end{samepage}
 
 \noindent
 Thus, in the context of a \gls{cis}, we have two perspectives on \gls{vv}: that of the \gls{api} provider and consumer (\cref{fig:background:software-quality:v-and-v:leakage}).
@@ -56,6 +58,8 @@ Now that a developer is using  a probabilistic system behind a deterministic \gl
 
 As we follow on from \gls{vv}, we investigate similar approaches to the quality models that are used to try and capture some of the internal and external quality attributes via measurable metrics. There is no `one' definition of quality and different perspectives on the issue has lead to different users placing varying value on disparate attributes.
 
+\input{mainmatter/background/figures/quality-models}
+
 Quality attribute assessment models are an early concept in software engineering, and systematically evaluating software quality appears as early as \citeyear{Rubey:1968fg} \citep{Rubey:1968fg}. This study introduced `attributes' as a ``prose expression of the particular quality of desired software'' (as worded by \citet{Boehm:1978vv}) and `metrics' as mathematical parameters on a scale of 0 to 100. 
 Early attempts to categorise wider factors under a framework was proposed by \citeauthor*{McCall:1977uy} in the late 1970s~\citep{McCall:1977wm,Cavano:1978gz}. This model described quality from the three perspectives of product revision (\textit{how can we keep the system operational?}), transition (\textit{how can we migrate the system as needed?}) and operation (\textit{how effective is the system at achieving its tasks?}) (\cref{fig:background:software-quality:quality-models:development:mccall}). The model also introduced 11 attributes alongside numerous direct and indirect measures to help quantify quality.
 This model was further developed by \citet{Boehm:1978vv} who independently developed a model resembling McCall's, starting from an initial set of 11 software characteristics similar to that of McCall's but then diving deeper by defining candidate measurements of Fortran code to such characteristics, taking shape in a tree-like structure as in \cref{fig:background:software-quality:quality-models:development:boehm}. 
@@ -63,40 +67,8 @@ In the mid-1990s, Dromey's interpretation \citep{Dromey:1995wy} defined a set of
 As the need for quality models became prevalent, the \citeauthor{ISO9126:1999} standardised software quality under ISO/IEC-9126 \citep{ISO9126:1999} (the Software Product Evaluation Characteristics, \cref{fig:background:software-quality:quality-models:development:iso}), which has since recently been revised to ISO/IEC-25010 with the introduction of the \gls{SQuaRE} model \citep{ISO25010:2011}, separating quality into \textit{Product Quality} (consisting of eight quality characteristics and 31 sub-characteristics) and \textit{Quality In Use} (consisting of five quality characteristics and 9 sub-characteristics).
 An extensive review on the development of quality models in software engineering is given in \citep{AlQutaish:2010vua}.
 
-\begin{figure}[htp]
-  \centering
-  \begin{subfigure}[b]{0.49\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{mcalls-quality-software-factors}
-    \caption{McCall's quality software factors (\citeyear{McCall:1977wm}) \citep{McCall:1977wm}.}
-    \label{fig:background:software-quality:quality-models:development:mccall}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[b]{0.49\linewidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{bohems-software-quality-characteristics-tree}
-    \caption{Bohem's software quality characteristics tree (\citeyear{Boehm:1978vv}) \citep{Boehm:1978vv}.}
-    \label{fig:background:software-quality:quality-models:development:boehm}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[t]{0.49\linewidth}
-    \centering
-    \includegraphics[width=0.8\linewidth]{dromey-quality-carrying-properites}
-    \caption{Dromey's quality-carrying properties and programming languages (\citeyear{Dromey:1995wy}) \citep{Dromey:1995wy}.}
-    \label{fig:background:software-quality:quality-models:development:dromey}
-  \end{subfigure}
-  ~
-  \begin{subfigure}[t]{0.49\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{iso-software-product-evaluation-characteristics}
-    \caption{ISO/IEC software product evaluation characteristics (\citeyear{ISO9126:1999}) \citep{ISO9126:1999}.}
-    \label{fig:background:software-quality:quality-models:development:iso}
-  \end{subfigure}
-  \caption{The brief overview of the development of software quality models since \citeyear{McCall:1977wm}.}
-  \label{fig:background:software-quality:quality-models:development}
-\end{figure}
-
 Of all the models described, there is one quality attribute that relates most with our narrative of \gls{cis} quality: reliability. The definition of reliability is largely the same among all quality models:
+
 
 \begin{description}[font=\itshape,style=multiline,leftmargin=3cm]
   \item[\citeauthor{McCall:1977uy}] Extent to which a program can be expected to perform its intended function with required precision \citep{McCall:1977uy}.
@@ -104,6 +76,7 @@ Of all the models described, there is one quality attribute that relates most wi
   \item[\citeauthor{Dromey:1995wy}] Functionality implies reliability. The reliability of software is therefore largely dependent on the same properties as functionality, that is, the correctness properties of a program \citep{Dromey:1995wy}.
   \item[ISO/IEC-9126] The capability of the software product to maintain a specified level of performance when used under specified conditions \citep{ISO9126:1999}.
 \end{description}
+\end{samepage}
 
 These definitions strongly relate to the solution description (\cref{ssec:background:software-quality:solution-description}) in that reliability is the ability to maintain functionality under given conditions. But what defines reliability when the nature of a \gls{cis} in itself is inherently unpredictable due to its probabilistic implementation? Can a non-deterministic system ever be considered reliable when the output of the system is uncertain? How do developers perceive these quality aspects of reliability in the context of such systems? Therefore, we believe the literature of quality models does not suffice in the context of \gls{cis} reliability; a \gls{cvcis} can interpret an image of a dog as a `Dog' one day, but what if the next it interprets such image more specifically to the breed, such as `Border Collie'? Does this now mean the system is unreliable? 
 
