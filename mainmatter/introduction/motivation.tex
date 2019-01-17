@@ -34,7 +34,7 @@ Rather than building a computer vision engine from scratch, which would take far
 
 \input{mainmatter/introduction/tables/changing-confidence}
 
-More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges}, we illustrate how three \gls{cvcis} providers (anonymised) fail to provide similar consistency to that of the substring example above. If Tom uploads a photo of a border collie\footnote{The image used for these results can be found at \url{https://www.akc.org/dog-breeds/border-collie/}.} to three different in August 2018 and January 2019, he would find that each provider is different in both the vocabulary used between them and the confidence values and labels within the \textit{same} provider vary within a matter of five months. But what does a change in confidence mean? The tautological nature of the definition of these changing confidence values (as presented in the \gls{api} documentation) provides no insight for Tom to understand why there a change in confidence, which we show in \cref{tab:introduction:motivation:scenario:pam:tautological}, unless he \textit{knows} that the underlying models change with them. Thus, the deterministic problem of a substring compared to the nondeterministic nature of the \gls{cis} is not so simple to comprehend unless he is explicity told.
+More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges}, we illustrate how three \gls{cvcis} providers (anonymised) fail to provide similar consistency to that of the substring example above. If Tom uploads a photo of a border collie\footnote{The image used for these results can be found at \url{https://www.akc.org/dog-breeds/border-collie/}.} to three different in August 2018 and January 2019, he would find that each provider is different in both the vocabulary used between them and the confidence values and research-methodology within the \textit{same} provider vary within a matter of five months. But what does a change in confidence mean? The tautological nature of the definition of these changing confidence values (as presented in the \gls{api} documentation) provides no insight for Tom to understand why there a change in confidence, which we show in \cref{tab:introduction:motivation:scenario:pam:tautological}, unless he \textit{knows} that the underlying models change with them. Thus, the deterministic problem of a substring compared to the nondeterministic nature of the \gls{cis} is not so simple to comprehend unless he is explicity told.
 
 
 \input{mainmatter/introduction/tables/tautological-definitions}
@@ -46,7 +46,7 @@ To make an assessment of these \glspl{api}, he tries his best to read through th
   \item Are these APIs consistent in how they respond?
   \item Will he need a combination of many \gls{cvcis} \glspl{api} to solve this task?
   \item How does he know when there is a defect in the response? How can he report it?
-  \item How does he know what labels the \gls{api} can pick up, and what labels it can't?
+  \item How does he know what research-methodology the \gls{api} can pick up, and what research-methodology it can't?
   \item How does it describe his photos and detect the faces?
   \item How can he interpret the results if he disagrees with it to help improve his app?
   \item Does he understand that the API uses a machine learnt model? Does he know what a \gls{ml} model even is?
