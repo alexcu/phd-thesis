@@ -1,8 +1,52 @@
 \section{Empirical Validity}
 \label{sec:research-methodology:empirical-validity}
-\todo{Discuss empirical validity of both methods}
 
-Threats to Validity...
+In \cref{sec:research-methodology:philosophical-stances}, we state that this study primarily adopts a critical theorist stance. Critical theorists assess research quality by the utility of the knowledge gained \citep{Easterbrook:2007ws}. \citet{Lau:1999vs} established criteria on validating information systems research specifically for action research unifying four dimensions of the research (conceptual foundation, study design, research process, and role expectations) against 22 varying criteria. We also partially adopt constructivism as we attempt to model the developer mindset rich in qualitative data, to which eight strategies identified by \citet{Creswell:2017vn} cover.
+
+We identify possible threats to internal- (study design), external- (generality of results), and construct-validity (theoretical understanding) in the following sections, and describe how we mitigate these threats.
+
+\subsection{Threats to Internal Validity}
+
+\subsubsection{Hawthorne Effect}
+
+Observational field techniques involving participants often run a risk producing misaligned results from laboratory versus environmental (practical) conditions. This is commonly known as the Hawthorne effect \tocite{Draper:2004,Robbins:1994} and careful consideration of this effect must be reflected when designing our controlled observation (\cref{sec:research-methodology:experiments:2}). We aim to carefully explain the purpose and protocol to research participants, encouraging them to act as much as possible as in their practical conditions. We also encourage the `think-aloud' to participants protocol to reinforce this. By highlighting the Hawthorne effect to them, we anticipate that participants will be aware of the condition, and therefore avoid doing things that do not reflect real-world action.
+
+\subsubsection{Misleading Statements in Interviews}
+
+Similarly, threats to the interview survey instrument exist where participants do not often report differences in behaviour from what they actually do in practice \citep{Singer:2007tu}. We anticipate that conducting several interviews in a semi-structured manner may assist in following up with unexpected statements (as opposed to structured interviews) and additionally corroborate findings using \citeauthor{Jick:1979el}'s concurrent triangulation method \citep{Jick:1979el} to verify potentially misleading statements from participants with questionnaire results and observation findings.
+
+\subsubsection{Participant Observation Accuracy}
+
+Conducting participant observations is a skill that requires training. While every effort will be instilled to ensure all relevant observations are noted, it is impossible for a single observer to note every possible interaction that occurs in all observations made. Therefore, it may required to validate the consistency of data collected using rater agreement exercises \tocite{Judd:1991} and we will likely use a form of recording device (with participant consent) to ensure all information is transcribed correctly in the interview.
+
+\subsubsection{Unintended Interviewee Bias}
+
+Interviewers should introduce the research by which participants are involved in by describing an expiation of the research being conducted. However, the amount of information described may impact the bias instilled on the interviewee. For example, if the participant does not understand the goals of the study or feel that they are of the `right target', then it is likely that they may choose not to be involved in the study or give misleading answers. On the other hand, if interviewees are told too much information, then they may filter responses and leave out vital data that the interviewer may be interested in. To mitigate this, varying levels of information will be `tested' against colleagues to determine the right level of how much information is divulged at the beginning of the interview.
+
+\subsubsection{Poor Questionnaire Responses}
+
+Unless significant inducements are offered, \citet{Singer:2007tu} report that a consistent response rate of 5\% has been found in software engineering questionnaires distributed and in information systems the median response rates for surveys are 60\% \tocite{Baruch 1999}. We observe that low response rates may adversely effect the findings of our survey, typically as software engineers find little time to do them. Tackling this issue can be resolved by carefully designing succinct, unambiguous and well-worded questions that we will verify against our colleagues and within the pilot study in \gls{a2i2}, wherein any adjustments made due to the pilot study due to unexpected poor quality of the questionnaire will be reported and explained. We also adopt research conducted in the field of questionnaire design, such as ensuring all scales are worded with labels \tocite{Krosnick:1990} or using a summating rating scale \tocite{Spector:1992} to address a specific topic of interest if people are to make mistakes in their response or answer in different ways at different times. Similar effects exist to that above where what occurs in reality is not what is reflected in our results; we refer to our concurrent triangulation approach to gap this risk.
+
+\subsection{Threats to External Validity}
+
+\subsubsection{Representative Sample Size}
+
+Our results must generalise by ensuring a representative subset of the target population is found. If results do not generalise, then all that is found is potentially of little more value than personal anecdote \citep{Kitchenham:2007ux}. Therefore, designing a well-defined sample frame to determine which developers we wish to target is empirical. For this, we refer to \citet{Kitchenham:2007ux}.
+
+\subsubsection{Student Cohorts}
+
+External validity is typically undermined when students are recruited in software engineering research, which is common practice \citep{Easterbrook:2007ws}. Analytical argument is required to describe why results on students are reflective of results found of developers in industry. Therefore, we anticipate that---through industry contacts at \gls{a2i2}---we will be able to contact developers in industry, thereby minimising our reliance to use students as participants. 
+
+\subsubsection{Concurrent Triangulation Strategy}
+
+A drawback with the concurrent triangulation strategy is that multiple sources of data are concurrently collected within the same time. Collecting and analysing data \textit{sequentially}, instead of concurrently, allows for time to analyse data between studies, thus allowing each analysis to adapt as more emerging results are explored. \citet{Easterbrook:2007ws} states that the challenge in this approach is that it may be difficult for researchers to compare results of multiple analyses or resolve contradictions that begin to arise when this performed concurrently. A mitigation strategy, should this occur, would be to seek out further sources of evidence, or even reconduuct a follow-up study if time permits.
+
+\subsection{Threats to Construct Validity}
+
+\subsubsection{Developer Informativeness}
+
+\rh{3} describes that if we improve the documentation of \gls{cis} \glspl{api}, then developers are more informed/educated in what they do. This therefore increases their productivity and the quality of the applications they build. However, the construct of `informativeness' is difficult to capture with standalone metrics, and using simple quantitative metrics such as time taken to complete a task or lines of code to implement it may not reflect that a developer is more `informed'. Therefore, we propose further investigation into understanding how to measure informativeness of software engineers to ensure that this construct validity does not impact our results too greatly.
+
 
 
 %For this study, we propose running several experiments involving developers and several \glspl{cvcis}, using action-based mixed method approaches and involving documentary analysis. This study will organically evolve by observing phenomena surrounding computer vision \gls{api} internal quality, chiefly their documentation and responses. We adopt a mixed methods approach, performing both qualitative and quantitative data collection on these two key aspects by using documentary research methods for inspecting the \gls{api} documentation and structured observations to quantitatively analyse the results over time (RQs 3 and 4).
