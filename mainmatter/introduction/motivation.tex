@@ -68,7 +68,7 @@ In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagr
 
 \begin{figure}[th]
   \includegraphics[width=\linewidth]{cancer-assist}
-  \caption{CancerAssist Context Diagram}
+  \caption[CancerAssist Context Diagram]{CancerAssist Context Diagram. \textit{\textbf{Key:} Red Arrows~=~Scan Input; Yellow Arrows~=~Decision Output; Blue Arrows~=~\gls{hitl} Feedback Input.}}
   \label{fig:introduction:motivation:scenario:cancer}
 \end{figure}
 
@@ -79,9 +79,9 @@ The developer of CancerAssist has no interaction with the Data Science team main
 Several questions in the production of CancerAssist and its use of a \gls{cis} may come into mind:
 
 \begin{itemize}
-  \item When is the model updated and how do the Data Science team communicate that the model is updated?
+  \item When is the model updated and how do the \gls{cis} team communicate that the model is updated?
   \item What benchmark test set of data do I use to ensure that the changed model doesn't affect other results?
-  \item How do we know that the assumptions made by the Data Science team in training the model are correct?
+  \item How do we know that the assumptions made by the \gls{cis} team in training the model are correct?
 \end{itemize}
 
 Thus, it may be the case the improved documentation to communicate with the \gls{cis} and additional metadata is needed in the response object may prove useful. Such claims are further expanded upon in the following section.
