@@ -18,8 +18,10 @@
 \input{preamble/enumitem}
 \input{preamble/cleverref}
 
-\title{A framework to document Cloud Intelligence Services
-       using insights from Software Engineers}
+\title{\textit{Don't Forget the Developer:}\\
+    Documenting Cloud Intelligence Services\\
+    with Software Engineering insight
+}
 \author{Alex Cummaudo}
 \date{\today}
 \def \thedegree {Doctor of Philosophy}
@@ -42,15 +44,19 @@
 \input{mainmatter/background}
 \input{mainmatter/research-methodology}
 \input{mainmatter/project-status}
-\input{mainmatter/conclusion}
+%\input{mainmatter/conclusion}
 \input{mainmatter/references}
 
 \appendix
-\chapter{Submitted Ethics Application}
-\label{appx:ethics}
-%TODO: Insert ethics application
- 
 \chapter{Technical Report Manuscript}
-%TODO: Insert manuscript here
+\label{appx:tech-report}
+\cleardoublepage
+\includepdf[pages=-]{../ml-api-inconsistencies/ml-api-inconsistencies.pdf}
+
+\chapter{Ethics Application Draft}
+\label{appx:ethics}
+\cleardoublepage
+%TODO: Insert ethics application
+
 
 \end{document}
