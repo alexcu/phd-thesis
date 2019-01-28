@@ -1,0 +1,63 @@
+\begin{table}[p]
+\centering
+\caption[Comparison of the machine learning spectrum]{Comparison of the machine learning spectrum.}
+\label{tab:introduction:comparison-of-ml-spectrum}
+\begin{tabular}{@{}l|ccccc@{}}
+\toprule
+  % Heading
+  \textbf{Comparator} &
+  \textbf{\glsac{byoml}} &
+  \textbf{\glsac{ml} F'work} &
+  \textbf{Cloud \glsac{ml}} &
+  \textbf{Auto-Cloud \glsac{ml}} &
+  \textbf{\glsac{cis} \glsac{api}} 
+  \\ 
+  \midrule
+  \thinrule
+  % Hosting
+  \textbf{Hosting} & & & & & \\
+  \thinrule
+    Locally & \checkmark & \checkmark &  &  &  \\
+    Cloud &  &  & \checkmark & \checkmark & \checkmark \\
+  \midrule
+  \thinrule
+  % Output Type
+  \textbf{Output} &  &  &  &  &  \\
+  \thinrule
+    Custom Model & \checkmark & \checkmark & \checkmark & \checkmark &  \\
+    \glsac{http} Response &  &  &  &  & \checkmark \\
+  \midrule
+  \thinrule
+  % Autonomy
+  \textbf{Autonomy} &  &  &  &  &  \\
+  \thinrule
+    Low &  &  &  &  & \checkmark \\
+    Medium &  &  &  & \checkmark &  \\
+    High &  & \checkmark & \checkmark &  &  \\ 
+    Highest & \checkmark &  &  &  &  \\
+  \midrule
+  \thinrule
+  % TTM
+  \textbf{Time To Market} &  &  &  &  &  \\
+  \thinrule
+    Medium & \checkmark & \checkmark &  &  &  \\
+    High &  &  & \checkmark & \checkmark &  \\
+    Highest &  &  &  &  & \checkmark \\
+  \midrule
+  \thinrule
+  % Data Source
+  \textbf{Data} &  &  &  &  &  \\ 
+  \thinrule
+    Self-Sourced & \checkmark & \checkmark & \checkmark & \checkmark &  \\
+    Pre-Trained &  & \checkmark &  &  & \checkmark \\
+  \midrule
+  \thinrule
+  % Intended User
+  \textbf{Intended User} &  &  &  &  &  \\
+  \thinrule  
+    Academics & \checkmark & \checkmark &  &  &  \\
+    Data Scientist & \checkmark & \checkmark & \checkmark & \checkmark &  \\
+    Developers &  &  &  & \checkmark & \checkmark \\
+  \bottomrule
+\end{tabular}
+\end{table}
