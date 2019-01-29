@@ -33,49 +33,6 @@ While it is rich in metadata and verbosity, discussions on whether this was a be
 \noindent
 Consider the equivalent example of \cref{lst:background:apis:soap-request,lst:background:apis:soap-response} but in a \glsac{rest}ful architecture (\cref{lst:background:apis:rest-request,lst:background:apis:rest-response}) and it is clear why this style has grown more popular with developers (as we highlight in \cref{fig:background:apis:rest-vs-soap}). Developers have since embraced \gls{rest}ful \gls{api} development, though the major drawback of \gls{rest}ful services is its lack of a uniform \gls{idl} to facilitate development (though it is possible to achieve this using \gls{wadl} \citep{Mandel:2008ww}).  Therefore, no RESTful service uses a standardised response document or invocation syntax. While there are proposals, such as \gls{wadl} \citep{Hadley:2006vv}, \glsac{raml}\footnoteurl{https://raml.org}{25 January 2019}, \gls{api} Blueprint\footnoteurl{https://apiblueprint.org}{25 January 2019}, and the OpenAPI\footnoteurl{https://www.openapis.org}{25 January 2019} specification (initially based on Swagger\footnoteurl{https://swagger.io}{25 January 2019}), there is still no consensus as there was for \gls{soap} and convergence of these \glspl{idl} is still underway.
 
-
-\begin{lstlisting}[language=xml,label=lst:background:apis:soap-request,caption={[An example SOAP request]A \gls{soap} \glsac{http} POST consumer request to retrieve customer record \#43456 from a web service provider. Source: \citep{Ballinger:2014aa}.}]
-POST /customers HTTP/1.1
-Host: www.example.org
-Content-Type: application/soap+xml; charset=utf-8
-
-<?xml version="1.0"?>
-<soap:Envelope 
-  xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
-  <soap:Body>
-    <m:GetCustomer 
-      xmlns:m="http://www.example.org/customers">
-      <m:CustomerId>43456</m:CustomerId>
-    </m:GetCustomer>
-  </soap:Body>
-</soap:Envelope>
-\end{lstlisting}
-\begin{lstlisting}[language=xml,label=lst:background:apis:soap-response,caption={[An example SOAP response]The \gls{soap} \glsac{http} service provider response for \cref{lst:background:apis:soap-request}. Source: \citep{Ballinger:2014aa}.}]
-HTTP/1.1 200 OK
-Content-Type: application/soap+xml; charset=utf-8
-
-<?xml version='1.0' ?>
-<env:Envelope 
-  xmlns:env="http://www.w3.org/2003/05/soap-envelope" >
-  <env:Body>
-    <m:GetCustomerResponse 
-      xmlns:m="http://www.example.org/customers">
-      <m:Customer>Foobar Quux, inc</m:Customer>
-    </m:GetCustomerResponse>
-  </env:Body>
-</env:Envelope>
-\end{lstlisting}
-\begin{lstlisting}[label=lst:background:apis:rest-request,caption={[An example RESTful request]An equivalent \glsac{http} consumer request to that of \cref{lst:background:apis:soap-request}, but using \gls{rest}. Source: \citep{Ballinger:2014aa}.}]
-GET /customers/43456 HTTP/1.1
-Host: www.example.org
-\end{lstlisting}
-\begin{lstlisting}[language=json,label=lst:background:apis:rest-response,caption={[An example RESTful response]The \gls{rest} \glsac{http} service provider response for \cref{lst:background:apis:rest-request}. Source: \citep{Ballinger:2014aa}.}]
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{"Customer": "Foobar Quux, inc"}
-\end{lstlisting}
-
 %\cref{sec:background:probabilistic-stochastic} 
 %For you to assign agency to a machine, the machine has to communicate back to you an assurance—that's how to frame it
 %If you increasingly give it more agency, what is the two-way comms between user and machine look like?
