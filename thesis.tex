@@ -18,8 +18,11 @@
 \input{preamble/enumitem}
 \input{preamble/cleverref}
 
-\title{\textit{Do developers understand the magic within?}\\
-    A documentation framework for intelligent cloud services
+\title{
+  \itshape Magic beyond the method call:            % Why?
+  \upshape A communication framework                % What?
+           for application developers               % Who?
+           using `friendly' machine learning        % When?
 }
 \author{Alex Cummaudo}
 \date{\today}
@@ -47,18 +50,6 @@
 \input{mainmatter/references}
 
 \appendix
-\chapter{Additional Material}
-\cleardoublepage
-\input{appendix/additional-material}
-
-\chapter{Technical Report Manuscript}
-\label{appx:tech-report}
-\cleardoublepage
-\includepdf[pages=-]{../ml-api-inconsistencies/ml-api-inconsistencies.pdf}
-
-\chapter{Ethics Application Draft}
-\label{appx:ethics}
-\cleardoublepage
-%TODO: Insert ethics application
+\input{appendix/appendix.tex}
 
 \end{document}

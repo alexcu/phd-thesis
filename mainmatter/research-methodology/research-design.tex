@@ -13,7 +13,7 @@ Therefore, studies in software engineering are typically performed as field stud
 Below we review some of the research methods most relevant to our research questions as refined in \cref{sec:research-methodology:research-questions} as presented by \citet{Easterbrook:2007ws}.
 
 \paragraph{Controlled Experiments}
-A controlled experiment is an investigation of a clear, testable hypothesis that guides the researcher to decide and precisely measure how at least one independent variable can be manipulated effect at least one other dependent variable. They determine if the two variables are related and if a cause-effect relationship exists between them. The combination of independent variable values is a \textit{treatment}. It is common to recruit human subjects to perform a task and measure the effect of a randomly assigned treatment on the subjects, though it is not always possible to achieve full randomisation in real-life software engineering contexts, in which case a \textit{quasi-experiment} may be employed where subjects are not randomly assigned to treatments.
+A controlled experiment is an investigation of a clear, testable hypothesis that guides the researcher to decide and precisely measure how at least one independent variable can be manipulated and effect at least one other dependent variable. They determine if the two variables are related and if a cause-effect relationship exists between them. The combination of independent variable values is a \textit{treatment}. It is common to recruit human subjects to perform a task and measure the effect of a randomly assigned treatment on the subjects, though it is not always possible to achieve full randomisation in real-life software engineering contexts, in which case a \textit{quasi-experiment} may be employed where subjects are not randomly assigned to treatments.
 
 While we have defined hypotheses (\rh{1}--\rh{3}), refining them into precise, measurable variables is challenging due to the qualitative nature they present. A well-defined population is also critical and must be easily accessible; the varied range of beginner to expert software engineers with varied understanding of artificial intelligence concepts is required to perform controlled experiments, and thus recruitment may prove challenging. Lastly, the controlled experiment is essentially reductionist by affecting a small amount of variables of interest and controlling all others. This approach is too clinical for the practical outcomes by which our research goals aim for, and is therefore closely tied to the positivist stance.
 
@@ -51,7 +51,7 @@ This section discusses two proposed experiments that we conduct in this study. F
 \begin{figure}[t!]
   \centering
   \includegraphics[width=0.9\linewidth]{experiment-activity-diagram}
-  \caption[High-level overview of the proposed experiments]{High-level activity diagram of the proposed experiments in this study.}
+  \caption[High-level overview of the proposed experiments]{High-level activity diagram of the proposed experiments in this study. Literature review is ongoing.}
   \label{fig:research-methodology:review:activity-diagram}
 \end{figure}
 
@@ -65,7 +65,7 @@ Experiment I shapes a context-agnostic approach to understand current usage patt
 
 Experiment I aims to better understand the existing mindsets that developers have when approaching to use \glsplx{cvcis}. This work therefore ties in to \rh{1}; by understanding the developer mindset in how they interpret \gls{cvcis} \glspl{api}, we are better informed to produce a framework that increases the effectiveness of the documentation of those existing \gls{cvcis} providers.
 
-\rh{1} postulates that the software engineering community do not fully understand the `magic' behind \gls{cis} \glspl{api}. As described in \cref{sec:introduction:hypohtesis}, they face a gap in their understanding around the underlying architecture of pre-built, machine learnt \glspl{api} (\ref{rqs:apidoc:how-do-devs-understand-it}). Software developers are therefore not well supported by the \gls{cis} providers, and therefore do not have a consistent set of common best practices when approaching to use these \glspl{api} (\ref{rqs:apidoc:what-is-in-use}). It is therefore necessary that \gls{cis} providers provide additional information to gap this mismatched understanding (\ref{rqs:apidoc:what-additional-information-needed}). 
+\rh{1} postulates that the software engineering community do not fully understand the `magic' behind \gls{cis} \glspl{api}. As described in \cref{sec:introduction:hypohtesis}, they face a gap in their understanding around the underlying architecture of pre-built, machine learnt \glspl{api} (\ref{rqs:apidoc:how-do-devs-understand-it}). Software developers are not well-supported by the \gls{cis} providers, and therefore do not have a consistent set of common best practices when approaching to use these \glspl{api} (\ref{rqs:apidoc:what-is-in-use}). It is therefore necessary that \gls{cis} providers provide additional information to gap this mismatched understanding (\ref{rqs:apidoc:what-additional-information-needed}). 
 
 \subsubsection{Data Collection \& Analysis}
 
@@ -96,7 +96,7 @@ Experiment II extends the \textit{generalised} context of Experiment I by evalua
 
 Experiment II aims to contextualise the findings from Experiment I; that is, if we add \textit{varying contexts} to the applications we write using \gls{cis} \glspl{api}, what is needed to extend the \textit{context-agnostic} framework developed in Experiment I? This work relates back to \rh{2}; adding context-specific metadata to the endpoints of these \glspl{api}, we can highlight what issues exist when such metadata is not present (\ref{rqs:metadata:what-problems-du                                                                e-to-lack-of-metadata}) and what types of metadata developers seek (\ref{rqs:metadata:what-metadata-do-devs-want-and-why}).
 
-Moreover, the implication of the first two hypotheses suggest that applying an \gls{api} documentation and metadata quality assessment framework may have an effect on other aspects within the software engineering process (\rh{3}). Thus, this experiment also confirms if our framework makes an improvement the areas if software quality, developer productivity and/or developer informativeness (\ref{rqs:implications:do-metrics-improve} and \ref{rqs:implications:aspects}).
+Moreover, the implication of the first two hypotheses suggest that applying an \gls{api} documentation and metadata quality assessment framework may have an effect on other aspects within the software engineering process (\rh{3}). Thus, this experiment also confirms if our framework makes an improvement to software quality, developer productivity and/or developer informativeness (\ref{rqs:implications:do-metrics-improve} and \ref{rqs:implications:aspects}).
 
 \subsubsection{Data Collection \& Analysis}
 
@@ -110,9 +110,9 @@ We then recruit 20 developers of varying experience (from beginner programmer to
 
 %To validate the findings of developer opinion in the surveys and interviews of \rh{1} are indeed genuine, this helps ensure that there is nothing missing by adding in further context to such opinions.
 
-\subsection{Primary Contributions arising from Experiments I and II}
-\label{ssec:research-methodology:experiments:contribution}
-
-Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
-
-It is anticipated that the findings from this study in the \glspl{cvcis} space will be generalisable to other areas, such as time-series information, natural language processing and others.
+%\subsection{Primary Contributions arising from Experiments I and II}
+%\label{ssec:research-methodology:experiments:contribution}
+%
+%Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
+%
+%It is anticipated that the findings from this study in the \glspl{cvcis} space will be generalisable to other areas, such as time-series information, natural language processing and others.

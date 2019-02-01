@@ -1,7 +1,7 @@
 \section{Motivation: Current Developer Mindsets'}
 \label{sec:introduction:motivation}
 
-\cref{fig:introduction:stackoverflow-trends} shows an increasing trend to the adoption and discussion of \glspl{cis} with developers. These services are accessible through \glspl{api} and consist of an `intelligence' black box (\cref{fig:introduction:cloud-intelliegnce-service}). When a term `black box' is used, the input (or stimulus) is transformed to its to outputs (or response) without any understanding of the internal architecture by which this transformation occurs, a theory arising from the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. 
+\cref{fig:introduction:stackoverflow-trends} shows an increasing trend to the adoption and discussion of \glspl{cis} with developers. These services are accessible through \glspl{api} and consist of an `intelligence' black box (\cref{fig:introduction:cloud-intelliegnce-service}). When a term `black box' is used, the input (or stimulus) is transformed to its outputs (or response) without any understanding of the internal architecture by which this transformation occurs, a theory arising from the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. 
 
 In the world of machine learning and data mining, where we develop algorithms to make predictions in our datasets or discover patterns within them, these black boxes are inherently probabilistic and stochastic; there is little room for certainty in these results as such insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. As an example, a \gls{cvcis} returns the \textit{probability} that a particular object (the response) exists in the raw pixels (the stimulus), and thus for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made. Developers (at present) do not need to treat their programs in any such stochastic way given their rule-driven mindset that computers will always make certain outcomes.
 
@@ -34,26 +34,26 @@ Rather than building a computer vision engine from scratch, which would take far
 
 \input{mainmatter/introduction/tables/changing-confidence}
 
-More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges}, we illustrate how three \gls{cvcis} providers (anonymised) fail to provide similar consistency to that of the substring example above. If Tom uploads a photo of a border collie\footnote{The image used for these results can be found at \url{https://www.akc.org/dog-breeds/border-collie/}.} to three different in August 2018 and January 2019, he would find that each provider is different in both the vocabulary used between them and the confidence values and research-methodology within the \textit{same} provider vary within a matter of five months. The evolution of the confidence changes is not explicitly documented by the providers (i.e., when the models change) nor do they document what confidence even means. Their current tautological nature of the definition of these changing confidence values (as presented in the \gls{api} documentation) provides no insight for Tom to understand why there a change in confidence, which we show in \cref{tab:introduction:motivation:scenario:pam:tautological}, unless he \textit{knows} that the underlying models change with them. Thus, the deterministic problem of a substring compared to the nondeterministic nature of the \gls{cis} is not so simple to comprehend unless he is explicitly told.
+More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges}, we illustrate how three \gls{cvcis} providers (anonymised) fail to provide similar consistency to that of the substring example above. If Tom uploads a photo of a border collie\footnote{The image used for these results can be found at \url{https://www.akc.org/dog-breeds/border-collie/}.} to three different providers in August 2018 and January 2019, he would find that each provider is different in both the vocabulary used between. The confidence values and labels within the \textit{same} provider also vary within a matter of five months. The evolution of the confidence changes is not explicitly documented by the providers (i.e., when the models change) nor do they document what confidence even means. Their current tautological nature of the definition of these changing confidence values (as presented in the \gls{api} documentation) provides no insight for Tom to understand why there was a change in confidence, which we show in \cref{tab:introduction:motivation:scenario:pam:tautological}, unless he \textit{knows} that the underlying models change with them. Thus, the deterministic problem of a substring compared to the nondeterministic nature of the \gls{cis} is not so simple to comprehend unless he is explicitly told.
 
 
 \input{mainmatter/introduction/tables/tautological-definitions}
 
-To make an assessment of these \glspl{api}, he tries his best to read through the documentation of some \gls{cvcis} \glspl{api}, but he has no guiding framework to help his choose the right one. Some of the questions that come to mind include:
+To make an assessment of these \glspl{api}, he tries his best to read through the documentation of some \gls{cvcis} \glspl{api}, but he has no guiding framework to help him choose the right one. Some of the questions that come to mind include:
 
 \begin{itemize}
   \item What does confidence mean? 
   \item Are these APIs consistent in how they respond?
   \item Will he need a combination of multiple \gls{cvcis} \glspl{api} to solve this task?
   \item How does he know when there is a defect in the response? How can he report it?
-  \item How does he know what research-methodology the \gls{api} can pick up, and what research-methodology it can't?
+  \item How does he know what labels the \gls{api} can pick up, and what labels it can't?
   \item How does it describe his photos and detect the faces?
   \item How can he interpret the results if he disagrees with it to help improve his app?
   \item Does he understand that the API uses a machine learnt model? Does he know what a \gls{ml} model even is?
   \item If so, does he know when the models update? What is the release cycle?
 \end{itemize}
 
-Dazzled by this, he does some brief reading on Wikipedia but is confused by the immense technical detail to take in. He would like some form of guiding framework to assist his and in software engineering terms aligned to his background.
+Dazzled by this, he does some brief reading on Wikipedia but is confused by the immense technical detail to take in. He would like some form of guiding communication framework to assist him and in software engineering terms aligned to his background.
 
 Although Tom generally anticipates some imperfections, he has no prior benchmark to guide him on what to expect. He understands that the app is not always going to be perfect: perhaps some photos of his dog may be missed because the dog is in the background and not the foreground, or his friends can't find the photos of their recent trip to the beach because it wasn't sunny enough for the beach to be recognised. These imperfections appear to be low-risk, but may become socially awkward when in use; for instance, if some of Tom's friends have low self-esteem and use the app, they may be sensitive to being misidentified or even mislabelled. Privacy issues also come into play especially if certain friends have only access to certain photos that they are (supposedly) in; e.g., photos from a holiday with Tom and his partner, however if the \gls{api} identifies Tom's partner as a work colleague, then Tom's partner's privacy is at risk.
 
@@ -64,7 +64,7 @@ Although Tom generally anticipates some imperfections, he has no prior benchmark
 
 Recent works in the oncology domain have used deep-learning \glspl{cnn} to detect \glspl{roi} in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach. Some studies have suggested that practitioner over-reliance may erode independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh}; therefore the risks in developing \glspl{cdss} powered by intelligent services become paramount.
 
-In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagram for a fictional \gls{cdss} named \textit{CancerAssist}. CancerAssist is used by a team of busy pathologists who review patient lymph node scans and discuss and recommend, on consensus, if the patient should or should not be sent to surgery. When consensus is made, the lead pathologist enters the verdict into CancerAssist---running passively in the background---to ensure no oversight has been made in the team's discussions. When a conflict exists between the team's verdict and CancerAssist's verdict, the system produces the scan with regions of interest it thinks the team should review. Where the team override the output of CancerAssist, this helps to reinforce CancerAssist's internal model as a \gls{hitl} learning process.
+In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagram for a fictional \gls{cdss} named \textit{CancerAssist}. CancerAssist is used by a team of busy pathologists who review patient lymph node scans and discuss and recommend, on consensus, if the patient should or should not be sent to surgery. When consensus is made, the lead pathologist enters the verdict into CancerAssist---running passively in the background---to ensure no oversight has been made in the team's discussions. When a conflict exists between the team's verdict and CancerAssist's verdict, the system produces the scan with \glspl{roi} it thinks the team should review. Where the team override the output of CancerAssist, this helps to reinforce CancerAssist's internal model as a \gls{hitl} learning process.
 
 \begin{figure}[th]
 \centering
@@ -82,9 +82,9 @@ Certain questions in the production of CancerAssist and its use of a \gls{cis} m
 \begin{itemize}
   \item When is the model updated and how do the \gls{cis} team communicate that the model is updated?
   \item What benchmark test set of data do I use to ensure that the changed model doesn't affect other results?
-  \item How do we know that the assumptions made by the \gls{cis} team in training the model are correct?
+  \item How do we know that the assumptions made by the \gls{cis} team who train model are correct?
 \end{itemize}
 
-Thus, it may be the case the improved documentation to communicate with the \gls{cis} and additional metadata is needed in the response object may prove useful. Such claims are further expanded upon in the following section.
+Thus, improved documentation and additional metadata may be needed to better improve communication between developers and \gls{cis} providers. Such claims are further expanded upon in the following section.
 
 %Context diagram
