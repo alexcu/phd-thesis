@@ -1,0 +1,9 @@
+[submodule "publications/icwe2019"]
+	path = publications/icwe2019
+	url = git@github.com:alexcu/icwe2019.git
+[submodule "publications/icsme2019"]
+	path = publications/icsme2019
+	url = git@github.com:alexcu/icsme2019.git
+[submodule "publications/esem2019"]
+	path = publications/esem2019
+	url = git@github.com:alexcu/esem2019.git
