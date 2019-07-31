@@ -23,6 +23,9 @@
 \graphicspath{publications/#1/images}
 \begin{bibunit}
   \import{publications/#1/}{mainmatter}
-  \import{publications/#1/}{references}
+  %\import{publications/#1/}{references}
+  \renewcommand{\bibname}{References}
+  \addcontentsline{toc}{section}{References}
+  \putbib
 \end{bibunit}
 }
