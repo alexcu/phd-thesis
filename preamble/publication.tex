@@ -1,0 +1,28 @@
+\newcommand\publication[4]{
+
+{
+  \Large\bigskip\itshape#2
+}
+
+\begin{titled-frame}{Publication Details}
+  \footnotesize
+
+  \noindent
+  \textbf{Authors:} {#3}
+  \bigskip
+  
+  \noindent
+  \textbf{Venue:} {#4}
+  \bigskip
+  
+  \noindent
+  \textbf{Abstract:} \import{publications/#1/}{abstract}
+\end{titled-frame}
+
+\cleardoublepage
+\graphicspath{publications/#1/images}
+\begin{bibunit}
+  \import{publications/#1/}{mainmatter}
+  \import{publications/#1/}{references}
+\end{bibunit}
+}

@@ -1,5 +1,7 @@
 \documentclass[twoside,12pt,titlepage]{book}
 
+\usepackage{import}
+
 \input{preamble/other}
 \input{preamble/font}
 \input{preamble/bibliography}
@@ -17,6 +19,7 @@
 \input{preamble/frames}
 \input{preamble/enumitem}
 \input{preamble/cleverref}
+\input{preamble/publication}
 
 \title{
   \itshape Magic beyond the method call:            % Why?
@@ -32,22 +35,37 @@
 \def \thelocation {Melbourne, Australia}
 \def \theauthorspostnominals {BSc \textit{Swinburne}, BIT(Hons)}
 
+% Publications Macros
+\input{publications/icsme2019/macros}
+\input{publications/esem2019/macros}
+
 \begin{document}
 
 \frontmatter
 \input{frontmatter/titlepage}
 \input{frontmatter/abstract}
-%\input{frontmatter/declarations}
-%\input{frontmatter/acknowledgements}
+\input{frontmatter/declarations}
+\input{frontmatter/acknowledgements}
 \input{frontmatter/contents}
 
 \mainmatter
-\input{mainmatter/introduction}
-\input{mainmatter/background}
-\input{mainmatter/research-methodology}
-\input{mainmatter/project-status}
-%\input{mainmatter/conclusion}
-\input{mainmatter/references}
+
+\part{Preface}
+\begin{bibunit}
+  \input{mainmatter/introduction}
+  \input{mainmatter/background}
+  \input{mainmatter/research-methodology}
+  \input{mainmatter/references}
+\end{bibunit}
+
+\part{Publications}
+\input{mainmatter/publications/icsme2019}
+\input{mainmatter/publications/esem2019}
+
+\part{Postface}
+\begin{bibunit}
+  \input{mainmatter/conclusion}
+\end{bibunit}
 
 \appendix
 \input{appendix/appendix.tex}
