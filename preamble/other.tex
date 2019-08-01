@@ -7,3 +7,14 @@
 \usepackage{hyperref}   % URLs
 \usepackage{pdfpages}   % Include PDFs
 \usepackage{pdflscape}  % Landscape PDF
+
+
+\newcommand{\includepdfframed}[1]{\includepdf[
+    keepaspectratio,
+    trim=3mm 3mm 3mm 3mm,
+    frame,
+    pages=-,
+    scale=.8,
+    offset=.9cm 0cm,
+    pagecommand={}
+ ]{#1}}

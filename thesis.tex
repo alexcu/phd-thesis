@@ -43,6 +43,7 @@
 \begin{document}
 
 \frontmatter
+
 \input{frontmatter/titlepage}
 \input{frontmatter/abstract}
 \input{frontmatter/declarations}
@@ -70,6 +71,12 @@
 \end{bibunit}
 
 \appendix
-\input{appendix/appendix.tex}
+
+\part{Appendices}
+\begin{bibunit}
+  \input{appendix/additional-material}
+  \input{appendix/authorship-statements}
+  \input{appendix/ethics}
+\end{bibunit}
 
 \end{document}
