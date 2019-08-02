@@ -4,7 +4,7 @@
 
 cat **/*.bib > allrefs.bib
 
-pdflatex thesis
+pdflatex thesis.tex
 
 # bibtex bu1.aux, bu2.aux ... buN.aux
 foreach auxfile (bu*.aux)
@@ -12,9 +12,8 @@ foreach auxfile (bu*.aux)
   bibtex ‘basename $auxfile .aux‘
 end
 
-# need to compile for each buN.aux
-foreach auxfile (bu*.aux)
-  pdflatex thesis
-end
+pdflatex thesis.tex
+pdflatex thesis.tex
+
 
 
