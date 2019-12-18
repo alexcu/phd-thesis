@@ -1,5 +1,9 @@
 % Bibliography
-\usepackage[numbers,compress]{natbib}
-\usepackage{bibunits}
-\defaultbibliography{allrefs}
-\defaultbibliographystyle{IEEEtranSN}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+\renewcommand{\bibfont}{\footnotesize}
+\setlength{\bibsep}{0pt plus 0.3ex}
+\bibliographystyle{IEEEtranSN}
+\usepackage{multibib}
+\newcites{web}{Online Artefacts}

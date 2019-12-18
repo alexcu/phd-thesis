@@ -7,8 +7,9 @@
 \usepackage{hyperref}   % URLs
 \usepackage{pdfpages}   % Include PDFs
 \usepackage{pdflscape}  % Landscape PDF
+\usepackage{siunitx}    % SI Units
 
-
+\ifpdf
 \newcommand{\includepdfframed}[1]{\includepdf[
     keepaspectratio,
     trim=3mm 3mm 3mm 3mm,
@@ -18,3 +19,8 @@
     offset=.9cm 0cm,
     pagecommand={}
  ]{#1}}
+ \else
+ \newcommand{\includepdfframed}[1]{\texttt{DRAFT: #1 will be inserted here}}
+ \fi
+ 
+ \sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}

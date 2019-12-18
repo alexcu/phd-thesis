@@ -1,6 +1,4 @@
-\documentclass[twoside,12pt,titlepage]{book}
-
-\usepackage{import}
+\documentclass[twoside,11pt,titlepage]{book}
 
 \input{preamble/other}
 \input{preamble/font}
@@ -8,6 +6,7 @@
 \input{preamble/graphics}
 \input{preamble/geometry}
 \input{preamble/fancyhdr}
+\input{preamble/fncychap}
 \input{preamble/todo}
 \input{preamble/acronyms}
 \input{preamble/footnotes}
@@ -21,12 +20,10 @@
 \input{preamble/cleverref}
 \input{preamble/publication}
 
-\title{
-  \itshape Magic beyond the method call:            % Why?
-  \upshape A communication framework                % What?
-           for application developers               % Who?
-           using `friendly' machine learning        % When?
-}
+\def \thesubtitle {Taming the evolving black box}
+\def \themaintitle {A new architectural model for intelligent services}
+
+\title{\thesubtitle: \themaintitle}
 \author{Alex Cummaudo}
 \date{\today}
 \def \thedegree {Doctor of Philosophy}
@@ -34,11 +31,6 @@
 \def \theinstitution {Deakin University}
 \def \thelocation {Melbourne, Australia}
 \def \theauthorspostnominals {BSc \textit{Swinburne}, BIT(Hons)}
-
-% Publications Macros
-\input{publications/icsme2019/macros}
-\input{publications/esem2019/macros}
-\input{publications/icwe2019/macros}
 
 \begin{document}
 
@@ -53,30 +45,23 @@
 \mainmatter
 
 \part{Preface}
-\begin{bibunit}
-  \input{mainmatter/introduction}
-  \input{mainmatter/background}
-  \input{mainmatter/research-methodology}
-  \input{mainmatter/references}
-\end{bibunit}
+\input{mainmatter/introduction}
+\input{mainmatter/background}
+\input{mainmatter/research-methodology}
 
 \part{Publications}
 \input{mainmatter/publications/icsme2019}
 \input{mainmatter/publications/esem2019}
-\input{mainmatter/publications/icwe2019}
 
 \part{Postface}
-\begin{bibunit}
-  \input{mainmatter/conclusion}
-\end{bibunit}
+\input{mainmatter/conclusion}
+\input{mainmatter/references}
 
 \appendix
 
 \part{Appendices}
-\begin{bibunit}
-  \input{appendix/additional-material}
-  \input{appendix/authorship-statements}
-  \input{appendix/ethics}
-\end{bibunit}
+\input{appendix/additional-material}
+\input{appendix/authorship-statements}
+\input{appendix/ethics}
 
 \end{document}
