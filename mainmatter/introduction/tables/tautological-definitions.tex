@@ -1,56 +1,42 @@
 \begin{table}[hbt]
   \centering
-  \caption[Tautological definitions of confidence found in API documentation]{Tautological definitions of `confidence' found in the \gls{api} documentation of three common \gls{cvcis} providers.}
+  \caption[Definitions of `confidence' in CV documentation]{Tautological definitions of `confidence' found in the \gls{api} documentation of three common \gls{cvcis} providers.}
   \label{tab:introduction:motivation:scenario:pam:tautological}
-  \begin{tabular}{l|p{0.8\linewidth}}
+  \tablefit{\begin{tabular}{l|p{0.8\linewidth}}
     \toprule
     \bfseries \gls{api} Provider &
     \bfseries Definition(s) of Confidence \\
     \midrule
     Provider A &
       \itshape  
-      ``Score is the confidence score, which ranges from 0 (no confidence) to 1 (very high confidence).''
-      \upshape
-      \citepweb{Google:ConfidenceScore_DocsLabel}
+      ``Score is the confidence score, which ranges from 0 (no confidence) to 1 (very high confidence).''~\upshape\citepweb{Google:ConfidenceScore_DocsLabel}
       \bigskip
       
       \itshape  
-      ``Deprecated. Use score instead. The accuracy of the entity detection in an image. For example, for an image in which the `Eiffel Tower' entity is detected, this field represents the confidence that there is a tower in the query image. Range [0, 1].'' 
-      \upshape
-      \citepweb{Google:ConfidenceScore_DotNet} 
+      ``Deprecated. Use score instead. The accuracy of the entity detection in an image. For example, for an image in which the `Eiffel Tower' entity is detected, this field represents the confidence that there is a tower in the query image. Range [0, 1].''~\upshape\citepweb{Google:ConfidenceScore_DotNet} 
       \bigskip
       
       \itshape  
-      ``The overall score of the result. Range [0, 1]''
-      \upshape
-      \citepweb{Google:ConfidenceScore_DotNet} 
+      ``The overall score of the result. Range [0, 1]''~\upshape\citepweb{Google:ConfidenceScore_DotNet} 
       \bigskip
     \\ 
     Provider B &
       \itshape  
-        ``Confidence score, between 0 and 1... if there insufficient confidence in the ability to produce a caption, the tags maybe [sic] the only information available to the caller.''
-      \upshape
-      \citepweb{Azure:ConfidenceScore_HowToCall}
+        ``Confidence score, between 0 and 1... if there insufficient confidence in the ability to produce a caption, the tags maybe [sic] the only information available to the caller.''~\upshape\citepweb{Azure:ConfidenceScore_HowToCall}
       \bigskip
       
       \itshape  
-        ``The level of confidence the service has in the caption.''
-      \upshape
-      \citepweb{Azure:ConfidenceScore_JavaDocs}    
+        ``The level of confidence the service has in the caption.''~\upshape\citepweb{Azure:ConfidenceScore_JavaDocs}    
       \bigskip
     \\
     Provider C &
       \itshape  
-        ``The response shows that the operation detected five labels (that is, beacon, building, lighthouse, rock, and sea). Each label has an associated level of confidence. For example, the detection algorithm is 98.4629\% confident that the image contains a building.''
-      \upshape
-      \citepweb{AWS:ConfidenceScore_DetectLabel}
+        ``The response shows that the operation detected five labels (that is, beacon, building, lighthouse, rock, and sea). Each label has an associated level of confidence. For example, the detection algorithm is 98.4629\% confident that the image contains a building.''~\upshape\citepweb{AWS:ConfidenceScore_DetectLabel}
       \bigskip
       
       \itshape  
-        ``[Provider C] also provide[s] a percentage score for how much confidence [Provider C] has in the accuracy of each detected label.''
-      \upshape
-      \citepweb{AWS:ConfidenceScore_DetectObjScene}
+        ``[Provider C] also provide[s] a percentage score for how much confidence [Provider C] has in the accuracy of each detected label.''~\upshape\citepweb{AWS:ConfidenceScore_DetectObjScene}
     \\
     \bottomrule
-  \end{tabular}
+  \end{tabular}}
 \end{table}

@@ -29,7 +29,7 @@ As a thought exercise, consider if the sub-string function were created using ML
 Myriad software quality models and SE practices advocate maintainability and reliability as primary characteristics; stability, testability, fault tolerance, changeability and maturity are all concerns for quality in software components~\citep{Pressman:2005vf,Sommerville:2011uc,Horch:2003uv} and one must factor these in with consideration to software evolution challenges~\citep{demeyer2008software,4659256,tu2000evolution,1572302,THOMAS2014457}. However, the effect this non-deterministic behaviour has on quality when masked behind  an intelligent service is still under-explored to date in SE literature, to our knowledge. Where software depends on intelligent services to achieve functionality, these quality characteristics may not be achieved, and developers need to be wary of the unintended side effects and inconsistency that exists when using non-deterministic components. A computer vision service may encapsulate deep-learning strategies or stochastic methods to perform image analysis, but developers are more likely to approach intelligent services with a mindset that anticipates consistency. Although the documentation does hint at this non-deterministic behaviour (i.e., the descriptions of `confidence' in various computer vision services suggest the they are not always confident, and thus not deterministic  \citepweb{Google:DocsLabel,AWS:DetectLabel,Azure:HowToCall}), the integration mechanisms offered by popular vendors do not seem to fully expose the nuances, and developers are not yet familiar with the trade-offs.
 
 Do popular computer vision services, as they currently stand, offer consistent behaviour, and if not, how is this conveyed to developers (if it is at all)? If computer vision services are to be used in production services, do they ensure quality under rigorous Software Quality Assurance (SQA) frameworks~\citep{Horch:2003uv}? What evolution risk~\citep{demeyer2008software,4659256,tu2000evolution,1572302} do they pose if these services change?
-To our knowledge, few studies have been conducted to investigate these claims. This paper assesses the consistency, evolution risk and consequent maintenance issues that may arise when developers use intelligent services. We introduce a motivating example in \cref{icsme2019:sec:motivating-example}, discussing related work and our methodology in \cref{icsme2019:sec:related-work,sec:method}. We present and interpret our findings in \cref{icsme2019:sec:findings}. We argue with quantified evidence that these intelligent services can only be considered with a mature appreciation of risks, and we make a set of recommendations in \cref{icsme2019:sec:recommendations}.
+To our knowledge, few studies have been conducted to investigate these claims. This paper assesses the consistency, evolution risk and consequent maintenance issues that may arise when developers use intelligent services. We introduce a motivating example in \cref{icsme2019:sec:motivating-example}, discussing related work and our methodology in \cref{icsme2019:sec:related-work,icsme2019:sec:method}. We present and interpret our findings in \cref{icsme2019:sec:findings}. We argue with quantified evidence that these intelligent services can only be considered with a mature appreciation of risks, and we make a set of recommendations in \cref{icsme2019:sec:recommendations}.
 
 \section{Motivating Example}
 \label{icsme2019:sec:motivating-example}
@@ -101,24 +101,21 @@ This study organically evolved by observing phenomena surrounding computer visio
 We conducted two experiments to address these hypotheses against three popular computer vision services: AWS Rekognition~\citepweb{AWS:Home}, Google Cloud Vision~\citepweb{GoogleCloud:Home}, Azure Computer Vision~\citepweb{Azure:Home}. Specifically, we targeted the AWS \texttt{DetectLabels} endpoint~\citepweb{AWS:DetectLabel}, the Google Cloud Vision \texttt{annotate:images} endpoint~\citepweb{Google:DocsLabel} and Azure's \texttt{analyze} endpoint~\citepweb{Azure:HowToCall}. For the remainder of this paper, we de-identify our selected computer vision services by labelling them as services A, B and C but do not reveal mapping to prevent any implicit bias.
 Our selection criteria for using these particular three services are based on the weight behind each service provider given their prominence in the industry (Amazon, Google and Microsoft), the ubiquity of their hosting cloud platforms as industry leaders of cloud computing (i.e., AWS, Google Cloud and Azure), being in the top three most adopted cloud vendors in enterprise applications in 2018~\citep{RightScaleInc:2018kJ} and the consistent popularity of discussion amongst developers in developer communities such as Stack Overflow. While we choose these particular cloud computer vision services, we  acknowledge that similar services~\citepweb{IBM:Home,Pixlab:Home,Clarifai:Home,Cloudsight:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home} also exist, including other popular services used in Asia~\citepweb{Megvii:Home,TupuTech:Home,YiTuTech:Home,SenseTime:Home} (some offering 3D image analysis~\citepweb{DeepGlint:Home}). We reflect on the impacts this has to our study design in \cref{icsme2019:sec:limitations}.
 
-Our study involved an 11-month longitudinal study which consisted of two 13 week and 17 week experiments from April to August 2018 and November 2018 to March 2019, respectively. Our investigation into documentation occurred on August 28 2018. In total, we assessed the services with three data sets; we first ran a pilot study using a smaller pool of 30 images to confirm the end-points remain stable, re-running the study with a larger pool of images of 1,650 and 5,000 images. Our selection criteria for these three data sets were that the images had to have varying objects, taken in various scenes and various times. Images also needed to contain disparate objects. Our small data set was sourced by the first author by taking photos of random scenes in an afternoon, whilst our second data set was sourced from various members of our research group from their personal photo libraries. We also wanted to include a data set that was publicly available prior to running our study, so for this data set we chose the COCO 2017 validation data set~\citep{Lin:2014vma}. We have made our other two data sets available online (\citepweb{Dataset:Large}). We collected results and their responses from each service's API endpoint  using a  python script~\citepweb{Tooling:Scraper} that sent requests to each service periodically via cron jobs. \cref{icsme2019:tab:dataset} summarises various characteristics about the data sets used in these experiments.
+Our study involved an 11-month longitudinal study which consisted of two 13 week and 17 week experiments from April to August 2018 and November 2018 to March 2019, respectively. Our investigation into documentation occurred on August 28 2018. In total, we assessed the services with three data sets; we first ran a pilot study using a smaller pool of 30 images to confirm the end-points remain stable, re-running the study with a larger pool of images of 1,650 and 5,000 images. Our selection criteria for these three data sets were that the images had to have varying objects, taken in various scenes and various times. Images also needed to contain disparate objects. Our small data set was sourced by the first author by taking photos of random scenes in an afternoon, whilst our second data set was sourced from various members of our research group from their personal photo libraries. We also wanted to include a data set that was publicly available prior to running our study, so for this data set we chose the COCO 2017 validation data set~\citep{Lin:2014vma}. We have made our other two data sets available online (\citepweb{Dataset:Large}). We collected results and their responses from each service's API endpoint  using a  python script~\citepweb{Tooling:Scraper} that sent requests to each service periodically via cron jobs. \Cref{icsme2019:tab:dataset} summarises various characteristics about the data sets used in these experiments.
 
 \begin{table}[t]
-\caption{Characteristics of our data sets and responses.}
+\caption[Characteristics of data in CV evolution assessment]{Characteristics of our datasets and responses.}
 \label{icsme2019:tab:dataset}
 \centering
-\begin{tabular}{|c||c|c|c|}
-  \hline
+\begin{tabular}{c||c|c|c}
+  \toprule
   \textbf{Data set} & \textbf{Small} & \textbf{Large} & \textbf{COCOVal17} \\
-  \hline\hline
+  \midrule
   \# Images/data set & 30 & 1,650 & 5000 \\
-  \hline
   \# Unique labels found & 307 & 3506 & 4507\\
-  \hline
   Number of snapshots & 9 & 22 & 22 \\
-  \hline
   Avg. days b/n requests & 12 Days & 8 Days & 8 Days \\
-  \hline
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -154,27 +151,23 @@ For the above aspects of consistency, we calculated the spread of variation for 
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.5\linewidth]{000000009590}    
-  \caption{The only consistent label for the above image is `people' for services \awsapi{} and \azureapi{}. The top label for \googleapi{} is `conversation' and this label is not registered amongst the other two services.}
+  \caption[Consistency of labels in CV services is rare]{The only consistent label for the above image is `people' for services \awsapi{} and \azureapi{}. The top label for \googleapi{} is `conversation' and this label is not registered amongst the other two services.}
   \label{icsme2019:fig:sample-images:people}
 \end{figure}
 
 \begin{table}[t]
-\caption{Ratio of the top labels (to images) that intersect in each data set for each permutation of service.}
+\caption[Ratio of consistent labels in CV services]{Ratio of the top labels (to images) that intersect in each data set for each permutation of service.}
 \label{icsme2019:tab:intersect-of-labels}
 \centering
-\begin{tabular}{|c||c|c|c||c|c|}
-  \hline
+\begin{tabular}{c||c|c|c||c|c}
+  \toprule
   \textbf{Service} & \textbf{Small} & \textbf{Large} & \textbf{COCOVal17} & \textbf{$\mu$} & \textbf{$\sigma$} \\
-  \hline
-  \hline
+  \midrule
   \googleapi{} $\cap$ \azureapi{} $\cap$ \awsapi{}  & 3.33\%   & 2.73\%   & 4.68\%   & 2.75\%  & 0.0100  \\
-  \hline
   \googleapi{} $\cap$ \azureapi{}                   & 6.67\%   & 11.27\%  & 12.26\%  & 10.07\% & 0.0299 \\
-  \hline
   \googleapi{} $\cap$ \awsapi{}                     & 20.00\%  & 13.94\%  & 17.28\%  & 17.07\% & 0.0304 \\
-  \hline
   \azureapi{} $\cap$ \awsapi{}                      & 6.67\%   & 12.97\%  & 20.90\%  & 13.51\% & 0.0713 \\
-  \hline
+  \bottomrule
 \end{tabular}
 \end{table}
 
@@ -199,7 +192,7 @@ The implication here is that, without semantic comparison (see \cref{icsme2019:s
     \caption{}
     \label{icsme2019:fig:sample-images:carrot}
   \end{subfigure}
-  \caption{
+  \caption[Top labels for images between CV services do not intersect]{
     \textit{Left:} The top labels for each service do not intersect, with each having a varied ontology:~$T_{i}$~=~\{~\googleapi{} = \{`black'\}, \azureapi{} = \{`indoor'\}, \awsapi{} = \{`slide', `toy'\}~\}. (Service \awsapi{} returns \textit{both} `slide' and `toy' with equal confidence.)
     \textit{Right:} The top labels for each service focus on disparate subjects in the image: $T_{i} = $~\{~\googleapi{}~=~\{ `carrot' \}, \azureapi{} = \{ `indoor'~\}, \awsapi{} = \{ `spoon'~\}~\}.
     }
@@ -209,7 +202,7 @@ Should she decide if the performance of a particular service isn't to her needs,
 
 Hence, developers should ensure that the vocabulary used by a particular service is right for them before implementation. As each service does not work to the same standardised model, trained with disparate training data, and tuned differently, results will differ despite the same input. This is unlike deterministic systems: for example, switching from AWS Object Storage to Google Cloud Object storage will conceptually provide the same output (storing files) for the same input (uploading files). However, computer vision services do not agree on the top label for images, and therefore developers are likely to be vendor locked, making changes between services non-trivial.
 
-\paragraph{Semantic consistency where $|T_{i}| > 1$}
+\paragraph{Semantic consistency where $\boldsymbol{|T_{i}| > 1}$}
 
 \begin{figure}[t]
   \centering
@@ -226,7 +219,7 @@ Hence, developers should ensure that the vocabulary used by a particular service
     \caption{}
     \label{icsme2019:fig:sample-images:books}
   \end{subfigure}
-  \caption{
+  \caption[CV services can return multiple top labels]{
     \textit{Left:} Service \awsapi{} is 98.49\% confident of the following labels:~\{~`beverage', `chocolate', `cup', `dessert', `drink', `food', `hot chocolate'~\}. However, it is up to the developer to decide which label to persist with as all are returned.
     \textit{Right:} Service \azureapi{} persistently returns a top label set of \{~`book', `several'~\}. Both are semantically correct for the image, but disparate in what the label is to describe.
     }
@@ -249,7 +242,7 @@ Thus, a taxonomy of ontologies is unknown; if a `border collie' is detected in a
 \begin{figure}[p]
   \centering
   \includegraphics[width=0.75\linewidth]{topconfidence-cdf}
-  \caption{Cumulative distribution of the top labels' confidences. One in nine images return a top label(s) confident to $\gtrapprox97\%$, though there is a wider distribution for service \googleapi{}.}  
+  \caption[Cumulative distribution of top label confidences]{Cumulative distribution of the top labels' confidences. One in nine images return a top label(s) confident to $\gtrapprox97\%$, though there is a wider distribution for service \googleapi{}.}  
   \label{icsme2019:fig:topconfidence-cdf}
 \end{figure}
 
@@ -262,20 +255,17 @@ In \cref{icsme2019:fig:topconfidence-cdf}, we see that there is high probability
 Therefore, Rosa could generally expect that the top labels she receives in her images do have high confidence. That is, each service will return a top label that they are confident about. This result is expected, considering that the `top' label is measured by the highest confidence, though it is interesting to note that some services are generally more confident than others in what they present back to users.
 
 \begin{table}[t!]
-\caption{Ratio of the top labels (to images) that remained the top label but changed confidence values between intervals.}
+\caption[Evolution of top labels and confidence values]{Ratio of the top labels (to images) that remained the top label but changed confidence values between intervals.}
 \label{icsme2019:tab:delta-confidences}
 \centering
-\tablefit{\begin{tabular}{|c||c|c|c||c|c|c|c|}
-  \hline
-  \textbf{Service} & \textbf{Small} & \textbf{Large} & \textbf{COCOVal17} & \textbf{$\mu(\delta_{c})$} & \textbf{$\sigma(\delta_{c})$} & Median$(\delta_{c})$ & Range$(\delta_{c})$ \\
-  \hline
-  \hline
+\tablefit{\begin{tabular}{c||c|c|c||c|c|c|c}
+  \toprule
+  \textbf{Service} & \textbf{Small} & \textbf{Large} & \textbf{COCOVal17} & $\boldsymbol{\mu(\delta_{c})}$ & $\boldsymbol{\sigma(\delta_{c})}$ & \textbf{Median}$\boldsymbol{(\delta_{c})}$ & \textbf{Range}$\boldsymbol{(\delta_{c})}$ \\
+  \midrule
   \googleapi{} & 53.33\%  & 59.19\%  & 44.92\% & \num{9.62E-08} & \num{6.84E-08} & \num{5.96E-08} & $[\num{5.96E-08}, \num{6.56E-07}]$  \\
-  \hline
   \azureapi{}  & 0.00\%  & 0.00\%    & 0.02\%  & - & - & - & -  \\
-  \hline
   \awsapi{}    & 33.33\%  & 41.36\%  & 15.60\% &  \num{5.35E-07} & \num{8.76E-07} & \num{3.05E-07} & $[\num{1.27E-07}, \num{1.13E-05}]$  \\
-  \hline
+  \bottomrule
 \end{tabular}}
 \end{table}
 
@@ -283,18 +273,18 @@ Therefore, Rosa could generally expect that the top labels she receives in her i
 \begin{figure}
   \centering
   \includegraphics[width=0.75\linewidth]{intersecting-cdf}
-  \caption{Cumulative distribution of intersecting labels top labels' confidences. The small data set is intentionally removed due to low intersections of labels (see \cref{icsme2019:tab:intersect-of-labels}).}
+  \caption[Cumulative distribution of intersecting top label confidences]{Cumulative distribution of intersecting top labels' confidences. The small data set is intentionally removed due to low intersections of labels (see \cref{icsme2019:tab:intersect-of-labels}).}
   \label{icsme2019:fig:intersecting-cdf}
 \end{figure}
 
 \paragraph{Consistency of intersecting top label's confidence}
 
-Even where all three services do agree on a set of top labels, the disparity of how much they agree by is still of importance. Just because three services agree that an image contains consistent top labels, they do not always have a small spread of confidence. In \cref{icsme2019:fig:sample-images:cake}, the three services agree with $\sigma~=~0.277$, significantly larger than that of all images in general $\sigma~=~0.0831$. \cref{icsme2019:fig:intersecting-cdf} displays the cumulative distribution of all intersecting top labels' confidence values, presenting slightly similar results to that of \cref{icsme2019:fig:topconfidence-cdf}.
+Even where all three services do agree on a set of top labels, the disparity of how much they agree by is still of importance. Just because three services agree that an image contains consistent top labels, they do not always have a small spread of confidence. In \cref{icsme2019:fig:sample-images:cake}, the three services agree with $\sigma~=~0.277$, significantly larger than that of all images in general $\sigma~=~0.0831$. \Cref{icsme2019:fig:intersecting-cdf} displays the cumulative distribution of all intersecting top labels' confidence values, presenting slightly similar results to that of \cref{icsme2019:fig:topconfidence-cdf}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.55\linewidth]{000000095707}    
-  \caption{All three services agree the top label for the above image is `food', but the confidences to which they agree by vary significantly. Service \awsapi{} is most confident to 94.93\% (in addition with the label `bread'); service \googleapi{} is the second most confident to 84.32\%; service \azureapi{} is the least confident with 41.39\%.}
+  \caption[Agreement of labels between multiple CV services do not share similar confidences]{All three services agree the top label for the above image is `food', but the confidences to which they agree by vary significantly. Service \awsapi{} is most confident to 94.93\% (in addition with the label `bread'); service \googleapi{} is the second most confident to 84.32\%; service \azureapi{} is the least confident with 41.39\%.}
   \label{icsme2019:fig:sample-images:cake}
 \end{figure}
 
@@ -306,7 +296,7 @@ Generally, the top label(s) did not evolve in the evaluation period. 16.19\% and
 
 \paragraph{Confidence Stability}
 
-Similarly, where the top label(s) remained the same from one interval to the next, the confidence values were stable. \cref{icsme2019:tab:delta-confidences} displays the proportion of images that changed their top label's confidence values with various statistics on the confidence deltas between snapshots ($\delta_{c}$). However, this delta is so minuscule that we attribute such changes to statistical noise.
+Similarly, where the top label(s) remained the same from one interval to the next, the confidence values were stable. \Cref{icsme2019:tab:delta-confidences} displays the proportion of images that changed their top label's confidence values with various statistics on the confidence deltas between snapshots ($\delta_{c}$). However, this delta is so minuscule that we attribute such changes to statistical noise.
 
 \section{Recommendations}
 \label{icsme2019:sec:recommendations}

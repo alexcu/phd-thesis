@@ -5,3 +5,36 @@
 \newcommand{\tablefit}[1]{\resizebox{\textwidth}{!}{#1}}
 \newcommand{\tablefitlandscape}[1]{\resizebox{1.2\paperwidth}{!}{#1}}
 \newcommand{\thinrule}[0]{\specialrule{.8pt}{0pt}{0pt}}
+\usepackage{csvsimple,longtable}
+% Produces a multipage CSV table.
+% \csvtable{file}
+%          {caption}
+%          {tab:label}
+%          {alignments}
+%          {assignedheaderrows}
+%          {presentedheaderrows}
+%          {presentedatarows}
+\newcommand{\csvtable}[7]{
+  \csvreader[
+    longtable=#4,
+    table head=
+      \caption{#2.}
+      \label{#3}\\
+      \toprule
+      #6 \\
+      \midrule
+      \endfirsthead
+      \caption*{\cref{#3} (\textit{continued from Page~\pageref{#3}}): #2}\\\toprule
+      #6 \\
+      \midrule
+      \endhead
+      \bottomrule
+      \textit{Continued on next page...}
+      \endfoot
+      \bottomrule
+      \endlastfoot
+  ]{#1}{#5}{#7}
+}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular}{\small}

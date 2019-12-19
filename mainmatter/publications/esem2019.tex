@@ -141,25 +141,24 @@ Our final search string was:
 The query was then executed on all available metadata (title, abstract and keywords) on three primary sources to search for relevant studies in May 2019. Web of Science\footnoteurl{http://apps.webofknowlegde.com}{23 May 2019}  (WoS), Compendex/Inspec\footnoteurl{http://www.engineeringvillage.com}{23 May 2019} (C/I) and Scopus\footnoteurl{http://www.scopus.com}{23 May 2019} were chosen due to their relevance in SE literature (containing the IEEE, ACM, Springer and Elsevier databases) and their ability to support advanced queries \citep{Brereton:2007by,Kitchenham:2007dd}. A total 4,501 results\footnote{Raw results can be located at \url{http://bit.ly/2KxBLs4}} were found, with 549 being duplicates. \Cref{esem2019:tab:search-results} displays our results in further detail (duplicates not omitted).%; \cref{esem2019:fig:slr-years} shows an exponential trend of API documentation publications produced within the last two decades.
 
 \begin{table}[tb]
-  \caption{Summary of our search results and publication types}
+  \caption[Summary of search results in API documentation knowledge]{Summary of our search results and publication types}
   \label{esem2019:tab:search-results}
   \centering
-  \begin{tabular}{|l||lll||l|}
-    \hline
+  \begin{tabular}{l|lll|l}
+    \toprule
     \textbf{Publication type} &
     \textbf{WoS} &
     \textbf{C/I} &
     \textbf{Scopus} &
     \textbf{Total} \\
-    \hline
-    \hline
+    \midrule
     Conference Paper & 27 & 442 & 2353 & 2822 \\
     Journal Article & 41 & 127 & 1236 & 1404\\
     Book & 23 & 17 & 224 & 264\\
     Other & 0 & 5 & 6 & 11\\
-    \hline
+    \midrule
     \textbf{Total} & 91 & 591 & 3819 & 4501\\
-    \hline
+    \bottomrule
   \end{tabular}
 \end{table}
 
@@ -198,7 +197,7 @@ A follow-up manual filtering to select primary studies was performed on the 4,50
 
 After exporting metadata of search results to a spreadsheet, a three-phase curation process was conducted. The first author read the publication source (to omit non-SE papers quickly), author keywords and title of all 4,501 studies (514 that were duplicates), and abstract. As we considered multiple databases, some studies were repeated. However, the DOIs and titles were sorted and reviewed, retaining only one copy of the paper from a single database. Moreover, as there was no limit to the year range in our query, some studies were republished in various venues. These, too, were handled with title similarity matching, wherein only the first paper was considered. Where the inclusion or exclusion criteria could not be determined from the abstract alone, the paper was automatically shortlisted. Any doubt in a study automatically included it into the second phase. This resulted in 133 studies being shortlisted to the second phase. We rejected 427 studies that were unrelated to SE, 3,235 were not directly related to documenting APIs (e.g., to enhance coding techniques that improve the overall developer usability of the API), 182 proposed new tools to enhance API documentation or used machine learning to mine developer's discussion of APIs, and 10 were not in English.
 
-The shortlisted studies were then re-evaluated by re-reading the abstract, the introduction and conclusion. Performing this second phase removed a further 64 studies that were on API usability or non API-related  documentation (i.e., code commenting); we further refined our exclusion criteria to better match the research outcomes of this goal (chiefly including the word `natural language' documentation in EC2) which removed studies focused to improve technical documentation of APIs such as data types and communication schemas. Additionally, 26 studies were removed as they were related to introducing new tools (EC3), 3 were focused on tools to mine API documentation, 7 studies where no recommendations were provided, 2 further duplicate studies, and a further 10 studies where the full text was not available, not peer reviewed or in English. Books are commonly not peer-reviewed (EC5), however no books were shortlisted within these results. \textbf{This resulted in 21 primary studies for further analysis. The mapping of primary study identifiers to references S1--21 can be found at \url{http://bit.ly/2MtsIuE}}.
+The shortlisted studies were then re-evaluated by re-reading the abstract, the introduction and conclusion. Performing this second phase removed a further 64 studies that were on API usability or non API-related  documentation (i.e., code commenting); we further refined our exclusion criteria to better match the research outcomes of this goal (chiefly including the word `natural language' documentation in EC2) which removed studies focused to improve technical documentation of APIs such as data types and communication schemas. Additionally, 26 studies were removed as they were related to introducing new tools (EC3), 3 were focused on tools to mine API documentation, 7 studies where no recommendations were provided, 2 further duplicate studies, and a further 10 studies where the full text was not available, not peer reviewed or in English. Books are commonly not peer-reviewed (EC5), however no books were shortlisted within these results. \textbf{This resulted in 21 primary studies for further analysis. The mapping of primary study identifiers to references S1--21 can be found in \cref{ch:sms-primary-sources}}.
 
 Intra-rater reliability of our 133 shortlisted papers was tested using the test-retest approach \citep{Kitchenham:2007dd} by re-evaluating a random sample of 10\% (13 total) of the studies shortlisted above a week after initial studies were shortlisted. Using the Cohen's kappa coefficient as a metric for reliability, $\kappa=0.7547$, indicating substantial agreement \citep{Landis:1977kv}.
 %THREAT To VALIDITY: While \citep{Kitchenham} describes that single researcher (e.g., PhD student) should discuss externally, wasn't possible. Does suggest the test-retest method which was chosen. No inter-rater reliability is yet determined at this stage but open for future work.
@@ -214,16 +213,15 @@ After all primary studies had been assigned keywords, we noticed that \textbf{al
 \Cref{esem2019:tab:extraction} describes our data extraction form, which was used to collect relevant data from each paper. \Cref{esem2019:fig:sms} maps each study to one (or more, if applicable) of methodologies plotted against \citeauthor{Wieringa:2006vd}'s research approaches.
 
 \begin{table}[tb]
-  \caption{Data extraction form}
+  \caption[Data extraction in API documentation knowledge study]{Data extraction form}
   \label{esem2019:tab:extraction}
   \centering
-  \begin{tabular}{|l|p{0.6\linewidth}|}
-    \hline
+  \begin{tabular}{l|p{0.6\linewidth}}
+    \toprule
     \textbf{Data item(s)} &
     \textbf{Description}
     \\
-    \hline
-    \hline
+    \midrule
     Citation metadata & Title, author(s), years, publication venue, publication type \\
     Key recommendation(s) & As per IC2, the study must propose at least one recommendation on what should be captured in API documentation \\
     Evaluation method & Did the authors evaluate their recommendations? If so, how? \\
@@ -231,14 +229,14 @@ After all primary studies had been assigned keywords, we noticed that \textbf{al
     Secondary technique & As above, if a second study was conducted \\
     Tertiary technique & As above, if a third study was conducted \\
     Research type & The research type employed in the study as defined by \citeauthor{Wieringa:2006vd}'s taxonomy \\
-    \hline
+    \bottomrule
   \end{tabular}
 \end{table}
 
 \begin{figure}
   \centering
   \includegraphics[width=.55\linewidth]{sms}
-  \caption{Systematic map: field study technique vs research type}
+  \caption[A systematic map of API documentation knowledge studies]{Systematic map: field study technique vs research type}
   \label{esem2019:fig:sms}
 \end{figure}
 
@@ -326,268 +324,6 @@ After all primary studies had been assigned keywords, we noticed that \textbf{al
 
 %\end{enumerate}
 
-
-
-\def\cn{}
-\def\cy{\checkmark}
-
-\begin{table*}[hbt]
-  \caption{An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy.}
-  \label{esem2019:tab:taxonomy}
-  \begin{tabular}{|rp{0.58\linewidth}||p{0.2\linewidth}|c|}
-    \hline
-
-    \textbf{Key} &
-    \textbf{Description: Dimensions A=\dima{}; B=\dimb{}; C=\dimc{}; D=\dimd{}; E=\dime{}} &
-    \textbf{Primary Studies } &
-    \textbf{Total (\%)} \\
-
-    \hline
-    \hline
-    [A1]&
-    Quick-start guides to rapidly get started using the API in a specific programming language.
-    &
-    [S4, S9, S10] &
-    3/21 (14\%)\\
-
-    \hline
-    \textbf{[A2]}&
-    \textbf{Low-level reference manual documenting all API components to review fine-grade detail.}
-    &
-    \textbf{[S1, S3, S4, S8, S9, S10, S11, S12, S15, S16, S17]} &
-    \textbf{11/21 (52\%)}\\
-
-    \hline
-    [A3]&
-    Explanations of the API's high-level architecture to better understand intent and context.
-    &
-    [S1, S2, S4, S11, S14, S16, S19, S20] &
-    8/21 (38\%)\\
-
-    \hline
-    [A4]&
-    Source code implementation and code comments (where applicable) to understand the API author's mindset.
-    &
-    [S1, S4, S7, S12, S13, S17, S20] &
-    7/21 (33\%)\\
-
-    \hline
-    \textbf{[A5]}&
-    \textbf{Code snippets (with comments) of no more than 30 LoC to understand a basic component functionality within the API.}
-    &
-    \textbf{[S1, S2, S4, S5, S6, S7, S9, S10, S11, S14, S15, S16, S18, S20, S21]} &
-    \textbf{15/21 (71\%)}\\
-
-    \hline
-    \textbf{[A6]}&
-    \textbf{Step-by-step tutorials, with screenshots to understand  how to build a non-trivial piece of functionality with multiple components of the API.}
-    &
-    \textbf{[S1, S2, S4, S5, S7, S9, S10, S15, S16, S18, S20, S21]} &
-    \textbf{12/21 (57\%)}\\
-
-    \hline
-    [A7]&
-    Downloadable source code of production-ready applications that use the API to understand implementation in a large-scale solution.
-    &
-    [S1, S2, S5, S9, S15] &
-    5/21 (24\%)\\
-
-    \hline
-    [A8]&
-    Best-practices of implementation to assist with debugging and efficient use of the API.
-    &
-    [S1, S2, S4, S5, S7, S8, S9, S14] &
-    8/21 (38\%)\\
-
-    \hline
-    [A9]&
-    An exhaustive list of all major components that exist within the API.
-    &
-    [S4, S16, S19] &
-    3/21 (14\%)\\
-
-    \hline
-    [A10]&
-    Minimum system requirements and dependencies to use the API.
-    &
-    [S4, S7, S13, S17, S19] &
-    5/21 (24\%)\\
-
-    \hline
-    [A11]&
-    Instructions to install or begin using the API and details on its release cycle and updating it.
-    &
-    [S4, S7, S8, S9, S11, S13, S16, S19] &
-    8/21 (38\%)\\
-
-    \hline
-    [A12]&
-    Error definitions that describe how to address a specific problem.
-    &
-    [S1, S2, S4, S5, S9, S11, S13] &
-    7/21 (33\%)\\
-
-    \hline
-    \hline
-    \textbf{[B1]}&
-    \textbf{A brief description of the purpose or overview of the API as a low barrier to entry.}
-    &
-    \textbf{[S1, S2, S4, S5, S6, S8, S10, S11, S15, S16]} &
-    \textbf{10/21 (48\%)}\\
-
-    \hline
-    [B2]&
-    Descriptions of the types of applications the API can develop.
-    &
-    [S2, S4, S9, S11, S15, S18] &
-    6/21 (29\%)\\
-
-    \hline
-    [B3]&
-    Descriptions of the types of users who should use the API.
-    &
-    [S4, S9] &
-    2/21 (10\%)\\
-
-    \hline
-    [B4]&
-    Descriptions of the types of users who will use the product the API creates.
-    &
-    [S4] &
-    1/21 (5\%)\\
-
-    \hline
-    [B5]&
-    Success stories about the API used in production.
-    &
-    [S4] &
-    1/21 (5\%)\\
-
-    \hline
-    [B6]&
-    Documentation to compare similar APIs within the context to this API.
-    &
-    [S2, S6, S13, S18] &
-    4/21 (19\%)\\
-
-    \hline
-    [B7]&
-    Limitations on what the API can and cannot provide.
-    &
-    [S4, S5, S8, S9, S14, S16] &
-    6/21 (29\%)\\
-
-    \hline
-    \hline
-    [C1]&
-    Descriptions of the relationship between API components and domain concepts.
-    &
-    [S3, S10] &
-    2/21 (10\%)\\
-
-    \hline
-    [C2]&
-    Definitions of domain-terminology and concepts, with synonyms if applicable.
-    &
-    [S2, S3, S4, S6, S7, S10, S14, S16] &
-    8/21 (38\%)\\
-
-    \hline
-    [C3]&
-    Generalised documentation for non-technical audiences regarding the API and its domain.
-    &
-    [S4, S8, S16] &
-    3/21 (14\%)\\
-
-    \hline
-    \hline
-    [D1]&
-    A list of FAQs.
-    &
-    [S4, S7] &
-    2/21 (10\%)\\
-
-    \hline
-    [D2]&
-    Troubleshooting suggestions.
-    &
-    [S4, S8] &
-    2/21 (10\%)\\
-
-    \hline
-    [D3]&
-    Diagrammatically representing API components using visual architectural representations.
-    &
-    [S6, S13, S20] &
-    3/21 (14\%)\\
-
-    \hline
-    [D4]&
-    Contact information for technical support.
-    &
-    [S4, S8, S19] &
-    3/21 (14\%)\\
-
-    \hline
-    [D5]&
-    A printed/printable resource for assistance.
-    &
-    [S4, S6, S7, S9, S16] &
-    5/21 (24\%)\\
-
-    \hline
-    [D6]&
-    Licensing information.
-    &
-    [S7] &
-    1/21 (5\%)\\
-
-    \hline
-    \hline
-    [E1]&
-    Searchable knowledge base.
-    &
-    [S3, S4, S6, S10, S14, S17, S18] &
-    7/21 (33\%)\\
-
-    \hline
-    [E2]&
-    Context-specific discussion forum.
-    &
-    [S4, S10, S11] &
-    3/21 (14\%)\\
-
-    \hline
-    [E3]&
-    Quick-links to other relevant documentation frequently viewed by developers.
-    &
-    [S6, S16, S20] &
-    3/21 (14\%)\\
-
-    \hline
-    [E4]&
-    Structured navigational style (e.g., breadcrumbs).
-    &
-    [S6, S10, S20] &
-    3/21 (14\%)\\
-
-    \hline
-    [E5]&
-    Visualised map of navigational paths to certain API components in the website.
-    &
-    [S6, S14, S20] &
-    3/21 (14\%)\\
-
-    \hline
-    \textbf{[E6]}&
-    \textbf{Consistent look and feel of documentation.}
-    &
-    \textbf{[S1, S2, S3, S5, S6, S8, S10, S15, S20]} &
-    \textbf{9/21 (43\%)}\\
-    \hline
-  \end{tabular}
-\end{table*}
-
 \section{Taxonomy}
 \label{esem2019:sec:findings}
 
@@ -647,3 +383,245 @@ In future revisions of this work, we intend use our results as the input to a re
 
 
 We believe the results of this preliminary empirical work may provide further insight for future follow-up user studies with developers. Whilst our aim is to eventually improve the quality of API documentation, the ultimate goal is  improving the developer's experience when producing systems and, therefore, improving the efficacy and productivity at which software is produced within industry.   We hope that API designers will utilise the taxonomy produced in this paper as a weighted checklist for what should be considered in their own APIs.
+
+\def\cn{}
+\def\cy{\checkmark}
+
+\begin{small}
+\begin{longtable}{rp{0.5\linewidth}|p{0.175\linewidth}|c}
+  \caption[Taxonomy proposed in API documentation knowledge study]{An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy.}%
+  \label{esem2019:tab:taxonomy}\\
+  \toprule
+  \textbf{Key} &
+  \textbf{Description} &
+  \textbf{Primary Sources} &
+  \textbf{Total (\%)} \\
+  \midrule
+  \endfirsthead
+  \caption{An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy \textit{(Continued)}.}
+  \label{esem2019:tab:taxonomy}\\
+  \toprule
+  \textbf{Key} &
+  \textbf{Description} &
+  \textbf{Primary Sources} &
+  \textbf{Total (\%)} \\
+  \midrule
+  \endhead
+  \bottomrule
+  
+  \multicolumn{4}{r}{\textit{Continued on next page...}}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  A1&
+  Quick-start guides to rapidly get started using the API in a specific programming language.&
+  S4, S9, S10 &
+  3/21 (14\%)\\
+  
+  A2&
+  Low-level reference manual documenting all API components to review fine-grade detail.&
+  S1, S3, S4, S8, S9, S10, S11, S12, S15, S16, S17 &
+  11/21 (52\%)\\
+  
+  A3&
+  Explanations of the API's high-level architecture to better understand intent and context.
+  &
+  S1, S2, S4, S11, S14, S16, S19, S20 &
+  8/21 (38\%)\\
+
+  A4&
+  Source code implementation and code comments (where applicable) to understand the API author's mindset.
+  &
+  S1, S4, S7, S12, S13, S17, S20 &
+  7/21 (33\%)\\
+
+  {A5}&
+  {Code snippets (with comments) of no more than 30 LoC to understand a basic component functionality within the API.}
+  &
+  {S1, S2, S4, S5, S6, S7, S9, S10, S11, S14, S15, S16, S18, S20, S21} &
+  {15/21 (71\%)}\\
+
+  {A6}&
+  {Step-by-step tutorials, with screenshots to understand  how to build a non-trivial piece of functionality with multiple components of the API.}
+  &
+  {S1, S2, S4, S5, S7, S9, S10, S15, S16, S18, S20, S21} &
+  {12/21 (57\%)}\\
+
+  A7&
+  Downloadable source code of production-ready applications that use the API to understand implementation in a large-scale solution.
+  &
+  S1, S2, S5, S9, S15 &
+  5/21 (24\%)\\
+
+  A8&
+  Best-practices of implementation to assist with debugging and efficient use of the API.
+  &
+  S1, S2, S4, S5, S7, S8, S9, S14 &
+  8/21 (38\%)\\
+
+  A9&
+  An exhaustive list of all major components that exist within the API.
+  &
+  S4, S16, S19 &
+  3/21 (14\%)\\
+
+  A10&
+  Minimum system requirements and dependencies to use the API.
+  &
+  S4, S7, S13, S17, S19 &
+  5/21 (24\%)\\
+  
+  A11&
+  Instructions to install or begin using the API and details on its release cycle and updating it.
+  &
+  S4, S7, S8, S9, S11, S13, S16, S19 &
+  8/21 (38\%)\\
+
+  A12&
+  Error definitions that describe how to address a specific problem.
+  &
+  S1, S2, S4, S5, S9, S11, S13 &
+  7/21 (33\%)\\
+
+  \midrule
+  
+  {B1}&
+  {A brief description of the purpose or overview of the API as a low barrier to entry.}
+  &
+  {S1, S2, S4, S5, S6, S8, S10, S11, S15, S16} &
+  {10/21 (48\%)}\\
+
+  B2&
+  Descriptions of the types of applications the API can develop.
+  &
+  S2, S4, S9, S11, S15, S18 &
+  6/21 (29\%)\\
+
+  B3&
+  Descriptions of the types of users who should use the API.
+  &
+  S4, S9 &
+  2/21 (10\%)\\
+
+
+  B4&
+  Descriptions of the types of users who will use the product the API creates.
+  &
+  S4 &
+  1/21 (5\%)\\
+
+
+  B5&
+  Success stories about the API used in production.
+  &
+  S4 &
+  1/21 (5\%)\\
+
+
+  B6&
+  Documentation to compare similar APIs within the context to this API.
+  &
+  S2, S6, S13, S18 &
+  4/21 (19\%)\\
+
+
+  B7&
+  Limitations on what the API can and cannot provide.
+  &
+  S4, S5, S8, S9, S14, S16 &
+  6/21 (29\%)\\
+
+  \midrule
+  C1&
+  Descriptions of the relationship between API components and domain concepts.
+  &
+  S3, S10 &
+  2/21 (10\%)\\
+
+  C2&
+  Definitions of domain-terminology and concepts, with synonyms if applicable.
+  &
+  S2, S3, S4, S6, S7, S10, S14, S16 &
+  8/21 (38\%)\\
+
+  C3&
+  Generalised documentation for non-technical audiences regarding the API and its domain.
+  &
+  S4, S8, S16 &
+  3/21 (14\%)\\
+
+  \midrule
+  D1&
+  A list of FAQs.
+  &
+  S4, S7 &
+  2/21 (10\%)\\
+
+  D2&
+  Troubleshooting suggestions.
+  &
+  S4, S8 &
+  2/21 (10\%)\\
+
+  D3&
+  Diagrammatically representing API components using visual architectural representations.
+  &
+  S6, S13, S20 &
+  3/21 (14\%)\\
+
+  D4&
+  Contact information for technical support.
+  &
+  S4, S8, S19 &
+  3/21 (14\%)\\
+
+  D5&
+  A printed/printable resource for assistance.
+  &
+  S4, S6, S7, S9, S16 &
+  5/21 (24\%)\\
+
+  D6&
+  Licensing information.
+  &
+  S7 &
+  1/21 (5\%)\\
+
+  \midrule
+  E1&
+  Searchable knowledge base.
+  &
+  S3, S4, S6, S10, S14, S17, S18 &
+  7/21 (33\%)\\
+
+  E2&
+  Context-specific discussion forum.
+  &
+  S4, S10, S11 &
+  3/21 (14\%)\\
+
+  E3&
+  Quick-links to other relevant documentation frequently viewed by developers.
+  &
+  S6, S16, S20 &
+  3/21 (14\%)\\
+
+  E4&
+  Structured navigational style (e.g., breadcrumbs).
+  &
+  S6, S10, S20 &
+  3/21 (14\%)\\
+
+  E5&
+  Visualised map of navigational paths to certain API components in the website.
+  &
+  S6, S14, S20 &
+  3/21 (14\%)\\
+
+  {E6}&
+  {Consistent look and feel of documentation.}
+  &
+  {S1, S2, S3, S5, S6, S8, S10, S15, S20} &
+  {9/21 (43\%)}\\
+\end{longtable}
+\end{small}
