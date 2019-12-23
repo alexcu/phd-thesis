@@ -16,7 +16,7 @@ So, how does the application developer approach her \gls{ai}-first application? 
 \begin{enumerate}
   \item She writes her own \gls{ml} classifier from scratch and trains it from her own curated dataset. This approach is laborious in time and demands formal training in \gls{ml} and mathematical knowledge, but the tradeoff is that she has full autonomy over the models she creates.
   \item She downloads a pre-trained model and `plugs' it into an existing \gls{ml} framework, such as Tensorflow \citep{Abadi:2016vn}. While this approach is less demanding in time, it still requires her to revise and understand the `glue' of the \gls{ml} framework code\footnote{Thus introducing a verbose list of \gls{ml} terminology to her already-required developer vocabulary. See a list of 328 terms provided by Google here: \url{https://developers.google.com/machine-learning/glossary/}.} with her own application code.
-  \item She uploads her data to a pre-existing cloud-based service: a \textit{Friendly  \acrlong{ml}} service. She doesn't need to know anything behind the underlying `intelligence' and how it works, is fast to integrate into her application and all abstracted behind a web-based \gls{api} call.
+  \item She uploads her data to a pre-existing cloud-based service: a \textit{`Friendly' \acrlong{ml}} service. She doesn't need to know anything behind the underlying `intelligence' and how it works, is fast to integrate into her application and all abstracted behind a web-based \gls{api} call.
 \end{enumerate}
 
 \noindent
@@ -48,8 +48,11 @@ All techniques in this spectrum are data-driven, and we illustrate their slightl
 
 \input{mainmatter/introduction/tables/machine-learning-spectrum}
 
+\begin{framed}
 \itshape
+\noindent
 In this study, we advocate that the (i)~integration, (ii)~documentation, and (iii)~quality attributes of data-driven cloud services juxtaposes the rule-driven nature of end-applications as these intelligent cloud services are vastly different to their traditional counterparts, and great care must therefore be considered by application developers.
+\end{framed}
 \upshape
 \bigskip
 
