@@ -13,7 +13,7 @@ There are thus therefore three key factors to consider when implementing, testin
 
 Do traditional techniques for documenting deterministic \glspl{api} also apply to non-deterministic systems? As \glspl{api} reflect a set of design choices made by their providers intended for use by the developer, does the mindset between the machine learning architect and the novice programmer match? Evaluations of \gls{api} usability advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation \citep{Piccioni:2013em,Robillard:2009uk} written by providers, while providers should consider mismatches between the developer's conceptual knowledge of the \gls{api} its implementation \citep{Ko:2011fb}. However, consistency cannot be guaranteed in probabilistic systems, and the conceptual knowledge of such systems are still treated like black boxes. It is therefore imperative that \gls{iws} providers consider the impact of their \gls{api} usability; if not, poor \gls{api} usability hinders on the internal quality of development practices, slowing developers down to produce the software they need to create.
 
-Moreover, \gls{iws} \glspl{api} are inherently non-deterministic in nature, but developers are still taught with the deterministic mindset that all \gls{api} calls are the same. Simple arithmetic representations (e.g., $2+2=4$) will \textit{always} result in 4; but a multi-layer perceptron neural network performing similar arithmetic representation \citep{Blake:1998vd} gives the probability where the target output (\textit{exactly} 4) and the output inferred (\textit{possibly} 4) matches as a percentage (or as an error where it does not match). That is, instead of an exact output, there is instead a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 with a confidence of $n$. External quality must therefore be considered in the outcome of these systems, such as in the case of thresholding values, to consider whether or not the inference has a high enough confidence to justify its result to end-users.
+Moreover, \gls{iws} \glspl{api} are inherently non-deterministic in nature, but developers are still taught with the deterministic mindset that all \gls{api} calls are the same. Simple arithmetic representations (e.g., $2+2=4$) will \textit{always} result in 4; but a multi-layer perceptron \glslong{nn} performing similar arithmetic representation \citep{Blake:1998vd} gives the probability where the target output (\textit{exactly} 4) and the output inferred (\textit{possibly} 4) matches as a percentage (or as an error where it does not match). That is, instead of an exact output, there is instead a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 with a confidence of $n$. External quality must therefore be considered in the outcome of these systems, such as in the case of thresholding values, to consider whether or not the inference has a high enough confidence to justify its result to end-users.
 
 In order to fully understand this problem, there are multiple dimensions one must consider: the impact of software quality; the fact that these systems underneath are probabilistic and are stochastic; the cognitive biases of determinism in developers; the issue of consistency in \gls{api} usage. While existing literature does extensively explore software quality and \gls{api} usability, these studies have only had emphasis on deterministic systems and thus little work to date has investigated such factors on probabilistic systems that make up the core of \glspl{cvs}. We explore more of these facets in the motivating scenarios below.
 
@@ -21,7 +21,7 @@ In order to fully understand this problem, there are multiple dimensions one mus
 \subsection{Motivating Scenarios}
 \label{ssec:introduction:motivation:scenario}
 
-The market for intelligent services is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). We investigate the impact of the mismatch between the developer's mindset and the service provider's mindset as little work has been presented in literature. How do developers work with an \gls{iws}, how usable are these cloud \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a services backed by machine-learnt models? 
+The market for \glspl{iws} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). We investigate the impact of the mismatch between the developer's mindset and the service provider's mindset as little work has been presented in literature. How do developers work with an \gls{iws}, how usable are these cloud \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a services backed by machine-learnt models? 
 
 To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend to surgeons if the patient should be sent to surgery.
   
@@ -42,14 +42,15 @@ More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges},
 To make an assessment of these \glspl{api}, he tries his best to read through the documentation of some \gls{cvs} \glspl{api}, but he has no guiding framework to help him choose the right one. Some of the questions that come to mind include:
 
 \begin{itemize}
-  \item What does confidence mean?
-  \item Are these APIs consistent in how they respond?
+  \item What does `confidence' mean? How does he use it?
+  \item Are these \glspl{api} consistent in how they respond?
+  \item Are the responses in \glspl{api} static and deterministic?
   \item Will he need a combination of multiple \gls{cvs} \glspl{api} to solve this task?
   \item How does he know when there is a defect in the response? How can he report it?
   \item How does he know what labels the \gls{api} can pick up, and what labels it can't?
   \item How does it describe his photos and detect the faces?
   \item How can he interpret the results if he disagrees with it to help improve his app?
-  \item Does he understand that the API uses a machine learnt model? Does he know what a \gls{ml} model even is?
+  \item Does he understand that the \gls{api} uses a machine learnt model? Does he know what a \gls{ml} model even is?
   \item If so, does he know when the models update? What is the release cycle?
 \end{itemize}
 
@@ -62,7 +63,7 @@ Although Tom generally anticipates some imperfections, he has no prior benchmark
 \subsubsection{Motivating Scenario II: Cancer Detection \gls{cdss}}
 \label{ssec:introduction:motivation:scenario:cancer}
 
-Recent works in the oncology domain have used deep-learning \glspl{cnn} to detect \glspl{roi} in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach. Some studies have suggested that practitioner over-reliance may erode independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh}; therefore the risks in developing \glspl{cdss} powered by intelligent services become paramount.
+Recent works in the oncology domain have used deep-learning \glspl{cnn} to detect \glspl{roi} in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach. Some studies have suggested that practitioner over-reliance may erode independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh}; therefore the risks in developing \glspl{cdss} powered by \glspl{iws} become paramount.
 
 In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagram for a fictional \gls{cdss} named \textit{CancerAssist}. CancerAssist is used by a team of busy pathologists who review patient lymph node scans and discuss and recommend, on consensus, if the patient should or should not be sent to surgery. When consensus is made, the lead pathologist enters the verdict into CancerAssist---running passively in the background---to ensure no oversight has been made in the team's discussions. When a conflict exists between the team's verdict and CancerAssist's verdict, the system produces the scan with \glspl{roi} it thinks the team should review. Where the team override the output of CancerAssist, this helps to reinforce CancerAssist's internal model as a \gls{hitl} learning process.
 
@@ -85,6 +86,7 @@ Certain questions in the production of CancerAssist and its use of an \gls{iws} 
   \item How do we know that the assumptions made by the \gls{iws} team who train model are correct?
 \end{itemize}
 
-Thus, improved documentation and additional metadata may be needed to better improve communication between developers and \gls{iws} providers. Such claims are further expanded upon in the following section.
+Thus, improved documentation, additional metadata, and guidance tooling may be needed to better improve communication between developers and \gls{iws} providers. Such claims are further expanded upon in the following section.
 
-%Context diagram
+%\subsection{Motivation Summary}
+
