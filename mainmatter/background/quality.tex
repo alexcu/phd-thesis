@@ -16,7 +16,7 @@ Using this sentence, what characteristics exist for non-deterministic \glspl{iws
   \item \textbf{adding value to both the producer and user}, where quality software provides a tangible value to the community or organisation using it to expedite a business process (increasing profitability or availability of information) \textit{and} provides value to the software producers creating it whereby  customer support, maintenance effort, and bug fixes are all reduced in production.
 \end{itemize}
 
-In the context of a non-deterministic \gls{iws}, however, are any of the above actually guaranteed? Given that the core of a system built using a \gls{iws} is fully dependent on the \textit{probability} that an outcome is true, what assurances must be put in place to provide developers with the checks and balances needed to ensure that their software is built with quality? For this answer, we re-explore the concept of \glsx{vv}.
+In the context of a non-deterministic \gls{iws}, however, are any of the above actually guaranteed? Given that the core of a system built using an \gls{iws} is fully dependent on the \textit{probability} that an outcome is true, what assurances must be put in place to provide developers with the checks and balances needed to ensure that their software is built with quality? For this answer, we re-explore the concept of \glsx{vv}.
 
 \subsection{Validation and Verification}
 \label{ssec:background:software-quality:v-and-v}
@@ -35,7 +35,7 @@ Formally, we refer to the IEEE Standard Glossary of Software Engineering Termino
 \end{samepage}
 
 \noindent
-Thus, in the context of a \gls{iws}, we have two perspectives on \gls{vv}: that of the \gls{api} provider and consumer (\cref{fig:background:software-quality:v-and-v:leakage}).
+Thus, in the context of an \gls{iws}, we have two perspectives on \gls{vv}: that of the \gls{api} provider and consumer (\cref{fig:background:software-quality:v-and-v:leakage}).
 
 The verification process of \gls{api} providers `leak' out to the context of the developer's project dependent on the \gls{iws}. Poor verification in the \textit{internal quality} of the \gls{iws} will entail poor process standards, such as poor definitions and terminology used, support tooling and description of documentations \citep{Sommerville:2011uc}. Though it is commonplace for providers to have a `ship-first-fix-later' mentality of `good-enough' software \citep{Venners:2003vw}, the consequence of doing so leads to consumers absorbing the cost. Thus \gls{api} providers must ensure that their verification strategies are rigorous enough for the consumers in the myriad contexts they wish to use it in. Studies have considered \gls{vv} in the context of web services on the cloud \citep{Nakajima:2002ut,Narayanan:2002ti,Foster:2003ur,Heckel:2005uk,Canfora:2006vk,Canfora:2005vd,Yi:2004ve,Bai:2007tl}, though little have recently considered how adding `intelligence' to these services affects existing proposed frameworks and solutions. For a \gls{cvs}, what might this entail? Which assurances are given to the consumers, and how is that information communicated? To verify if the service is working correctly, does that mean that we need to deploy the system first to get a wider range of data, given the stochastic nature of the black box?
 
@@ -44,7 +44,7 @@ Likewise, the validation perspective comes from that of the consumer. While the 
 \begin{figure}[hbt]
   \centering
   \includegraphics[width=0.8\linewidth]{leakage}
-  \caption[Leakage of internal and external quality in CISs]{The `leakage' of internal quality into the API consumer's product and external quality imposing on the API provider.}
+  \caption[Leakage of internal and external quality in ]{The `leakage' of internal quality into the API consumer's product and external quality imposing on the API provider.}
   \label{fig:background:software-quality:v-and-v:leakage}
 \end{figure}
 
@@ -75,7 +75,7 @@ Of all the models described, there is one quality attribute that relates most wi
   \item[ISO/IEC-9126] The capability of the software product to maintain a specified level of performance when used under specified conditions \citep{ISO9126:1999}.
 \end{description}
 
-These definitions strongly relate to the system's solution description in that reliability is the ability to maintain its \textit{functionality} under given conditions. But what defines reliability when the nature of a \gls{iws} in itself is inherently unpredictable due to its probabilistic implementation? Can a non-deterministic system ever be considered reliable when the output of the system is uncertain? How do developers perceive these quality aspects of reliability in the context of such systems? A system cannot be perceived as `reliable' if the system cannot reproduce the same results due to a probabilistic nature. Therefore, we believe the literature of quality models does not suffice in the context of \gls{iws} reliability; a \gls{cvs} can interpret an image of a dog as a `Dog' one day, but what if the next it interprets such image more specifically to the breed, such as `Border Collie'? Does this now mean the system is unreliable? 
+These definitions strongly relate to the system's solution description in that reliability is the ability to maintain its \textit{functionality} under given conditions. But what defines reliability when the nature of an \gls{iws} in itself is inherently unpredictable due to its probabilistic implementation? Can a non-deterministic system ever be considered reliable when the output of the system is uncertain? How do developers perceive these quality aspects of reliability in the context of such systems? A system cannot be perceived as `reliable' if the system cannot reproduce the same results due to a probabilistic nature. Therefore, we believe the literature of quality models does not suffice in the context of \gls{iws} reliability; a \gls{cvs} can interpret an image of a dog as a `Dog' one day, but what if the next it interprets such image more specifically to the breed, such as `Border Collie'? Does this now mean the system is unreliable? 
 
 Moreover, defining these systems in themselves is challenging when requirements specifications and solution descriptions are dependent on nondeterministic and probabilistic algorithms. We discuss this further in \cref{sec:background:probabilistic-stochastic}.
 

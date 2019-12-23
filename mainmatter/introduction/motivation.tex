@@ -5,7 +5,7 @@
 
 In the world of machine learning and data mining, where we develop algorithms to make predictions in our datasets or discover patterns within them, these black boxes are inherently probabilistic and stochastic; there is little room for certainty in these results as such insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. As an example, a \gls{cvs} returns the \textit{probability} that a particular object (the response) exists in the raw pixels (the stimulus), and thus for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made. Developers (at present) do not need to treat their programs in any such stochastic way given their rule-driven mindset that computers will always make certain outcomes.
 
-There are thus therefore three key factors to consider when implementing, testing and developing with a \gls{iws}: (i) the \gls{api} usability, (ii) the nature of nondeterministic and probabilistic systems, and (iii) how both impact on software quality.
+There are thus therefore three key factors to consider when implementing, testing and developing with an \gls{iws}: (i) the \gls{api} usability, (ii) the nature of nondeterministic and probabilistic systems, and (iii) how both impact on software quality.
 
 % TODO: Copied from ml inconsistency paper
 \subsection{The Impact on Software Quality}
@@ -21,7 +21,7 @@ In order to fully understand this problem, there are multiple dimensions one mus
 \subsection{Motivating Scenarios}
 \label{ssec:introduction:motivation:scenario}
 
-The market for intelligent services is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). We investigate the impact of the mismatch between the developer's mindset and the service provider's mindset as little work has been presented in literature. How do developers work with a \gls{iws}, how usable are these cloud \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a services backed by machine-learnt models? 
+The market for intelligent services is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). We investigate the impact of the mismatch between the developer's mindset and the service provider's mindset as little work has been presented in literature. How do developers work with an \gls{iws}, how usable are these cloud \glspl{api}, and how well do developers understand the non-deterministic and stochastic nature of a services backed by machine-learnt models? 
 
 To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend to surgeons if the patient should be sent to surgery.
   
@@ -42,7 +42,7 @@ More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges},
 To make an assessment of these \glspl{api}, he tries his best to read through the documentation of some \gls{cvs} \glspl{api}, but he has no guiding framework to help him choose the right one. Some of the questions that come to mind include:
 
 \begin{itemize}
-  \item What does confidence mean? 
+  \item What does confidence mean?
   \item Are these APIs consistent in how they respond?
   \item Will he need a combination of multiple \gls{cvs} \glspl{api} to solve this task?
   \item How does he know when there is a defect in the response? How can he report it?
@@ -73,11 +73,11 @@ In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagr
   \label{fig:introduction:motivation:scenario:cancer}
 \end{figure}
 
-Powering CancerAssist is Google AI's Lymph Node Assistant (LYNA) \citep{Liu:2018fa}, a \gls{cnn} based on the Inception-v3 model \citep{Szegedy:2016ws,Krizhevsky:2012wl}. To provide intelligence to CancerAssist, LYNA is hosted on a \gls{iws}, and thus the developers of CancerAssist call the relevant \gls{iws} \gls{api} endpoints, in conjunction with extra information such as patient data and medical history, to produce the verdict. In the case of a positive verdict, the relevant \glspl{roi} CancerAssist has found are highlighted with their respective bounding boxes and their respective cancer detection accuracies.
+Powering CancerAssist is Google AI's Lymph Node Assistant (LYNA) \citep{Liu:2018fa}, a \gls{cnn} based on the Inception-v3 model \citep{Szegedy:2016ws,Krizhevsky:2012wl}. To provide intelligence to CancerAssist, LYNA is hosted on an \gls{iws}, and thus the developers of CancerAssist call the relevant \gls{iws} \gls{api} endpoints, in conjunction with extra information such as patient data and medical history, to produce the verdict. In the case of a positive verdict, the relevant \glspl{roi} CancerAssist has found are highlighted with their respective bounding boxes and their respective cancer detection accuracies.
 
-The developer of CancerAssist has no interaction with the Data Science team maintaining the LYNA \gls{iws}. As a result, they are unaware when updates to the model occur, nor do they know what training data they could provide to test their own system. The default assumptions are that the training data used to power the intelligence is near-perfect for universal situations; i.e., the algorithm chosen is the correct one for all the ontology tests that need to be assessed in the given use case of CancerAssist. Thus, unlike deterministic systems---where the developer can manually test and validate the outcomes of the \glspl{api}---this is impossible for non-deterministic systems such as CancerAssist and its underlying \gls{iws}. The ramifications of not being able to test such a system and putting it out into production may prove fatal to patients.
+The developer of CancerAssist has no interaction with the Data Science team maintaining the LYNan \gls{iws}. As a result, they are unaware when updates to the model occur, nor do they know what training data they could provide to test their own system. The default assumptions are that the training data used to power the intelligence is near-perfect for universal situations; i.e., the algorithm chosen is the correct one for all the ontology tests that need to be assessed in the given use case of CancerAssist. Thus, unlike deterministic systems---where the developer can manually test and validate the outcomes of the \glspl{api}---this is impossible for non-deterministic systems such as CancerAssist and its underlying \gls{iws}. The ramifications of not being able to test such a system and putting it out into production may prove fatal to patients.
 
-Certain questions in the production of CancerAssist and its use of a \gls{iws} may come into mind:
+Certain questions in the production of CancerAssist and its use of an \gls{iws} may come into mind:
 
 \begin{itemize}
   \item When is the model updated and how do the \gls{iws} team communicate that the model is updated?
