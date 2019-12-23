@@ -1,5 +1,7 @@
 \documentclass[twoside,11pt,titlepage]{book}
 
+\def\review{Y}
+
 \input{preamble/other}
 \input{preamble/font}
 \input{preamble/bibliography}
@@ -43,6 +45,8 @@
 
 \mainmatter
 
+\ifdefined\review\begin{linenumbers}\else\fi
+
 \part{Preface}
 \input{mainmatter/introduction}
 \input{mainmatter/background}
@@ -55,6 +59,8 @@
 \part{Postface}
 \input{mainmatter/conclusion}
 \input{mainmatter/references}
+
+\ifdefined\review\end{linenumbers}\else\fi
 
 \appendix
 

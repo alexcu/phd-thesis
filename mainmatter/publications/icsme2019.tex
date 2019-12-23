@@ -128,7 +128,7 @@ Typically, the top labels returned is a set containing only one element---that i
 We measure response consistency under 6 aspects:
 
 
-\begin{enumerate}[label=\textbf{\arabic*)}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
   \item \textbf{Consistency of the top label between each service.} Where the same image of, for example, a dog is sent to the three services, the top label for service A may be `animal', B `canine' and C `animal'. Therefore, service B is inconsistent.
   \item \textbf{Semantic consistency of the top labels.} Where a service has returned multiple top labels ($| T_{i} | > 1$), there may lie semantic differences in what the service thinks the image best represents. Therefore, there is conceptual inconsistency in the top labels for a service even when the confidences are equal.
   \item \textbf{Consistency of the top label's confidence per service.} The top label for an image does not guarantee a high confidence. Therefore, there may be inconsistencies in how confident the top labels for all images in a service is.
