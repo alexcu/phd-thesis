@@ -12,14 +12,10 @@ The goals of this study aim to provide a snapshot of current developer practices
 Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below and seven Research Questions (RQs) based on  both empirical and non-empirical software engineering methodology \citep{Shull:2007vh,Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
 \newcommand{\rh}[1]{\hyperref[rh#1]{RH#1}}
-\newcommand{\qualattr}[1]{{\upshape\sffamily\itshape\scshape~#1~}}
-
-\ifdefined\review\else\begin{titled-frame}\fi
-{$\blacksquare$~\bfseries \underline{RH1}: \textit{Existing \glspl{cvs} present \qualattr{ineffective} \gls{api} documentation.}}
-\phantomsection
+\subsection[Research Hypothesis 1]{\underline{RH1}: Existing \glspl{cvs} present ineffective \gls{api} documentation.}
 \label{rh1}
-\vspace{-12pt}
-\paragraph{Research Hypothesis}
+
+\paragraph{Hypothesis Description}
 \gls{api} documentation of \glspl{cvs} are inadequate and insufficient given the disparity of mindsets between the application developers and \gls{cvs} providers. Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation. Applying rigorous \gls{se} documentation knowledge approaches, as defined from existing literature and aligned to the practical needs of software engineers, can help improve existing \glspl{cvs} documentation knowledge.
 
 \paragraph{Research Goal}
