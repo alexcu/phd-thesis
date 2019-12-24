@@ -1,10 +1,10 @@
-\ifdefined\review
 \usepackage{xcolor}
 \newcommand{\todo}[2][]{{\color{red} \slshape $\langle$~\textsc{\small\underline{todo}}: \textbf{#2}~{\color{darkgray}\textit{#1}}$\rangle$}}
 \newcommand{\tonote}[1]{\textbf{\sffamily\footnotesize[#1]}}
 \newcommand{\tocite}[1]{{\color{red}\tonote{cite:{#1}}}}
 \newcommand{\comnum}[1]{(Comment\##1)}
+\ifdefined\review
 \usepackage{lineno}
 \renewcommand\thelinenumber{\color{red}\arabic{linenumber}}
-\linespread{2}
+\linespread{1.5}
 \else\fi

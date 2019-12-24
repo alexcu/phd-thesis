@@ -1,77 +1,75 @@
 \section{Research Outcomes}
 \label{sec:introduction:hypohtesis}
 
-\begin{framed}
+The goals of this study aim to provide a snapshot of current developer practices towards the usage of \glsplx{iws}, specifically the subset that provides \glslong{cv} intelligence referred to as \glsplx{cvs}. Our anchoring perspective is software quality---specifically, validation and verification---and the quality attributes of effectiveness and reliability, where we explore  what best practices within the field of software engineering can be applied to assist in consumption of \glspl{iws}.
+
+\ifdefined\review\else\begin{framed}\fi{
 \itshape
 \noindent
-In this thesis, we present an architectural facade to help assist  framework to improve the documentation quality of \glsplx{cvs} and their \glspl{api}. We demonstrate that developers currently lack the understanding of how these services function and our framework mitigates this by presenting a solution to improve the documentation quality of the \glspl{api} and improve the existing techniques used to integrate these services into developer's end-applications.
-\end{framed}
+\textbf{This thesis investigates:} (i)~specific characteristics of \glspl{cvs} that may adversely affect internal and external quality of applications consuming them; (ii)~the nature of \gls{api} documentation knowledge, what should be documented, and which documentation attributes \gls{iws} can better express in their own \gls{api} documentation; (iii)~pain-points developers face when developing with \gls{cvs}; and (iv)~several solutions to help mitigate these issues.
+}\ifdefined\review\else\end{framed}\fi
 
-%In this thesis, we explore the probabilistic ripple-effect with relation to the development usability of `intelligent' \glspl{api}; specifically, we contextualise within \glspl{cvs}. Our anchoring perspective is software quality---specifically, validation and verification---within such systems and what best practices within the field of software engineering can be applied to assist in operationalisation such systems.
-\upshape
-\bigskip
-
-The goals of this study aim to provide a snapshot of current developer practices towards the usage of \glspl{iws}. This allows us to develop a guiding framework and recommendations for application developers and \glspl{iws} providers alike. Our anchoring perspective is software quality---specifically, validation and verification---within such systems and what best practices within the field of software engineering can be applied to assist in consumption of \glspl{iws}.
- Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below and seven Research Questions (RQs) based on  both empirical and non-empirical software engineering methodology \citep{Shull:2007vh,Simon:1996uw}.
+Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below and seven Research Questions (RQs) based on  both empirical and non-empirical software engineering methodology \citep{Shull:2007vh,Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
 \newcommand{\rh}[1]{\hyperref[rh#1]{RH#1}}
+\newcommand{\qualattr}[1]{{\upshape\sffamily\itshape\scshape~#1~}}
 
-\begin{titled-frame}{\underline{RH1}: \textit{Existing \glspl{iws} present insufficient \gls{api} documentation for general use.} }
+\ifdefined\review\else\begin{titled-frame}\fi
+{$\blacksquare$~\bfseries \underline{RH1}: \textit{Existing \glspl{cvs} present \qualattr{ineffective} \gls{api} documentation.}}
 \phantomsection
 \label{rh1}
 \vspace{-12pt}
 \paragraph{Research Hypothesis}
-\gls{api} documentation of \glspl{iws} are inadequate and insufficient given the disparity of mindsets between the application developers and \gls{iws} providers. Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation.
+\gls{api} documentation of \glspl{cvs} are inadequate and insufficient given the disparity of mindsets between the application developers and \gls{cvs} providers. Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation. Applying rigorous \gls{se} documentation knowledge approaches, as defined from existing literature and aligned to the practical needs of software engineers, can help improve existing \glspl{cvs} documentation knowledge.
 
 \paragraph{Research Goal}
-To improve the effectiveness of the documentation in existing \gls{iws} providers, specifically of \gls{cvs} \glspl{api}.
+To improve the \qualattr{effectiveness} of the documentation in existing \gls{iws} providers, specifically of \gls{cvs} \glspl{api}, by using existing \gls{se} API documentation knowledge aligned to the needs of developers.
 
 \paragraph{Research Questions}
 \begin{enumerate}[label=\textbf{RQ1.\arabic*.}, ref=RQ1.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-  \item What practices are in use for \glspl{iws}' \gls{api} documentation? 
-  % KQ: Exploratory question to understand phenomena: Description and Classification question.
-  \label{rqs:apidoc:what-is-in-use}
+  \item What \textit{guidelines} do a range of \gls{se} literature into \gls{api} documentation knowledge suggest \gls{api} providers document, and how is it best studied? \todo{This is answered by the ESEM paper}
+  \label{rqs:apidoc:what-is-in-use}% KQ: Exploratory question to understand phenomena: Description and Classification question.
   
-  \item How do developers currently understand and interpret the documentation given a lack of formal training in artificial intelligence? That is, what do they understand and not understand, and what key aspects of the \gls{api} documentation matter do developers as they see it?
-  % KQ: Base-rate question to understand normal patterns of the occurrence of the phenomena: Descriptive-Process questions.
+  \item How \textit{well} do \gls{cvs} providers follow these guidelines in documenting their own \glspl{api}, and what additional information or attributes would developers prefer to be included in the \gls{cvs} \gls{api} documentation? \todo{This is answered by my assessment against the three CV services against the ESEM taxonomy AND triangulated against the survey that finds out what developers find practically important---HOWEVER this is NOT YET PUBLISHED or WRITTEN UP (i.e., 20\% extension to my ESEM paper as suggested).}
+  \label{rqs:apidoc:what-additional-information-needed}% DQ: Design question
+ 
+  \item How do developers currently \textit{comprehend} \gls{cvs} given a lack of formal training in \gls{ai}? What are their pain-points arise as a result and what key aspects of the \gls{api} documentation matter do developers as they see it? \todo{This is answered by the ICSE paper, based on an analysis of Stack Overflow complaints.}% KQ: Base-rate question to understand normal patterns of the occurrence of the phenomena: Descriptive-Process questions.
   \label{rqs:apidoc:how-do-devs-understand-it}
-  
-  \item What additional information or attributes would developers prefer to be included in the \gls{api} documentation?
-  % DQ: Design question
-  \label{rqs:apidoc:what-additional-information-needed}
 \end{enumerate}
 
-\paragraph{Research Contribution} An intelligent service \gls{api} documentation quality assessment framework to evaluate how well the service has been documented for software engineers to use.
+\paragraph{Research Contribution} An intelligent service \gls{api} documentation quality assessment framework to evaluate how well existing \glspl{cvs} have been documented for software engineers to use, and where improvements can be made.
+\ifdefined\review\else\end{titled-frame}\fi
 
-\end{titled-frame}
-
-\begin{titled-frame}{\underline{RH2}: \textit{Existing \glspl{iws} present insufficient metadata for context-specificity.} }
+\ifdefined\review\else\begin{titled-frame}\fi
+{$\blacksquare$~\bfseries \underline{RH2}: \textit{Existing \glspl{cvs} are \qualattr{unreliable} for context-specific use.} }
 \phantomsection
 \label{rh2}
 \vspace{-12pt}
 \paragraph{Research Hypothesis}
-Intelligent service \glspl{api} respond with insufficient information for developers to operationalise the service into a business-driven application and, thus, additional metadata is needed to assist developers. Such metadata is likely to be needed as part of the response objects of the \gls{api}.
+\glspl{cvs} are non-deterministic, evolving, and inconsistent. They are not yet ready to be operationalised into large-scale business-driven applications and, thus, additional protections, guards and development workflows must be considered during pre-development, development, testing and production to protect applications from such concerns.
 
 \paragraph{Research Goal}
-To improve the quality of \textit{context-specific response data} from the \gls{api} endpoints of \glspl{iws}.
+To improve the \qualattr{reliability} of applications built using \gls{api} endpoints of \glspl{iws} by guarding for domain-specific considerations of the application.
 
 \paragraph{Research Questions}
 \begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-  \item What are current problems due to lack of return metadata?
+  \item What current reliability problems present in \glspl{cvs}? \todo{This is answered with ICSME paper}
   % KQ; Exploratory question to understand phenomena: Description and Classification question
   \label{rqs:metadata:what-problems-du                                                                e-to-lack-of-metadata}
-  
-  
-  \item What additional metadata do developers desire to achieve implementing context-specific applications?
-  % DQ: design question
-  \label{rqs:metadata:what-metadata-do-devs-want-and-why}
+    
+  \item What additional tooling and workflows can be implemented when designing context-specific applications against \glspl{cvs}? \todo{This is answered with Threshy + ASE paper (and possibly Tomohiro's work).}
+  \label{rqs:metadata:what-metadata-do-devs-want-and-why}  % DQ: design question
 \end{enumerate}
 
-\paragraph{Research Contributions} A list of metadata key-value-pairs that assist developers in using these \glspl{api} during the development of software that consume these services. In essence, improvements to the framework of Research Outcome 1: ``\textit{An intelligent service \gls{api} documentation \underline{\upshape and metadata} quality assessment framework}''.
+\paragraph{Research Contributions} A new architectural design that can benchmark a service against a specific, application-specific dataset and then identify if substantial evolution has occurred, thus mitigating the \glspl{cvs} from having unintended side effects when the application is deployed in production.
+\ifdefined\review\else\end{titled-frame}\fi
 
-\end{titled-frame}
+\noindent
+\todo{Considering removing RH3... I do not have publications to support this}
+\color{red}
 
-\begin{titled-frame}{\underline{RH3}: \textit{\rh{1} and \rh{2} improve quality,  productivity or developer informativeness.}}
+\ifdefined\review\else\begin{titled-frame}\fi
+{$\blacksquare$~\bfseries \underline{RH3}: \textit{\rh{1} and \rh{2} improve quality,  productivity or developer informativeness.}}
 \phantomsection
 \label{rh3}
 \vspace{-12pt}
@@ -99,13 +97,25 @@ The implication of hypotheses 1 and 2 suggest that improving both the documentat
 
 \paragraph{Research Contribution}
 A concrete sample solution or framework that improves such metrics, thereby confirming that our documentation and metadata quality assessment framework improves these facets.
-\end{titled-frame}
+\ifdefined\review\else\end{titled-frame}\fi
+\color{black}
 
-\section{Concluding Remarks}
+\section{Thesis Contributions}
 
-Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
+This thesis offers four major contributions:
 
-It is anticipated that the findings from this study in the \glspl{cvs} space will be generalisable to other areas, such as time-series information, natural language processing and others.
+\begin{enumerate}[label=(\roman*),leftmargin=2\parindent]
+  \item an improved systems integration strategy to better incorporate off-the-shelf \gls{ai} components into end-applications;
+  \item general recommendations for application developers and \glspl{iws} providers to alleviate developer productivity issues when working with \glspl{cvs};
+  \item an architectural facade strategy designed to guard against potential evolution risk within these services; and,
+  \item support tooling and software development workflows to assist in alleviating issues arising from poor documentation.
+\end{enumerate}
+
+%\section{Concluding Remarks}
+%
+%Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
+%
+%It is anticipated that the findings from this study in the \glspl{cvs} space will be generalisable to other areas, such as time-series information, natural language processing and others.
 
 %  Paper 2:
 %* RQ1. How do software engineers evaluate (knowledge representation) machine learning APIs for use in an application?
