@@ -1,22 +1,47 @@
-\section{Research Outcomes}
+\section{Research Goals}
 \label{sec:introduction:hypohtesis}
 
-The goals of this study aim to provide a snapshot of current developer practices towards the usage of \glsplx{iws}, specifically the subset that provides \glslong{cv} intelligence referred to as \glsplx{cvs}. Our anchoring perspective is software quality---specifically, validation and verification---and the quality attributes of effectiveness and reliability, where we explore  what best practices within the field of software engineering can be applied to assist in consumption of \glspl{iws}.
+\Cref{ssec:introduction:motivation:scenario} describes two instances where an \gls{iws} can have either minor or substantiative impact when the software engineers developing with them misunderstand (or unappreciate) the nuances of \gls{ml}. This hinders the developer experience, productivity, and understanding/appreciation of \gls{ai}-based components. Thus, both the internal and external quality of applications using these components may have real-world consequences.
 
-\ifdefined\review\else\begin{framed}\fi{
-\itshape
-\noindent
-\textbf{This thesis investigates:} (i)~specific characteristics of \glspl{cvs} that may adversely affect internal and external quality of applications consuming them; (ii)~the nature of \gls{api} documentation knowledge, what should be documented, and which documentation attributes \gls{iws} can better express in their own \gls{api} documentation; (iii)~pain-points developers face when developing with \gls{cvs}; and (iv)~several solutions to help mitigate these issues.
-}\ifdefined\review\else\end{framed}\fi
+The goals of this study aim to provide a snapshot of current developer practices towards the usage of \glsplx{iws}, specifically the subset that provides \glslong{cv} intelligence referred to as \glsplx{cvs}. Our anchoring perspective is software quality---specifically, validation and verification---and the quality attributes of effectiveness and reliability, where we explore  how best practices within the field of software engineering apply in the consumption of \glspl{iws}.
+
+\begin{callout}
+Within the context of \gls{cvs}, this thesis investigates: (i)~specific characteristics that influence the internal and external quality of applications consuming \glspl{iws}; (ii)~the nature of \gls{api} documentation knowledge and how best to document \gls{cvs}; (iii)~pain-points developers face when developing with \gls{cvs}.
+\end{callout}
 
 Based on the motivating case studies in \cref{sec:introduction:motivation}, we articulate three Research Hypotheses (RH1--3) below and seven Research Questions (RQs) based on  both empirical and non-empirical software engineering methodology \citep{Shull:2007vh,Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
+
 \newcommand{\rh}[1]{\hyperref[rh#1]{RH#1}}
-\subsection[Research Hypothesis 1]{\underline{RH1}: Existing \glspl{cvs} present ineffective \gls{api} documentation.}
+\subsection[Research Hypothesis 1]{\underline{RH1}: \glspl{iws} indirectly influences software quality.}
 \label{rh1}
 
+\paragraph{Null Hypothesis}
+Large-scale, domain-specific, production systems maintain good reliability (further discussed in \cref{ch:background}), an attribute of good quality software. Reliable software is consistent, fault-tolerant and deterministic. \Glspl{iws} are, therefore, reliable and ready for large-scale use.
+
+\paragraph{Research Claim}
+Additional protections, guards and development workflows during pre-development, development, testing and production protect applications maintain internal and external reliability.
+
+\paragraph{Research Goal}
+To improve the reliability of applications built using \gls{api} endpoints of \glspl{iws} by guarding for domain-specific considerations of the application. We aim to achieve this in the context of \gls{cvs}.
+
+\paragraph{Research Questions}
+\begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ1.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
+  \item Are \glspl{cvs} consistent between services given the same domain-specific subject matter?
+  \item What long-term attributes do \gls{cvs} present and do these attributes impact software quality?
+\end{enumerate}
+
+\paragraph{Research Contributions} A novel architectural design and development workflow designed for consuming \glspl{cvs} to help monitor and guard against unintended post-production side effects.
+
+\subsection[Research Hypothesis 2]{\underline{RH2}: \glspl{iws} indirectly influences developer experience}
+\label{rh2}
+
+
+% Null hypothesis on DevX and unintended side effects, productivity etc.
+%  \item What concerns do developers face when using \gls{cvs}, and how does this compare to more established \gls{se} fields?
+
 \paragraph{Hypothesis Description}
-\gls{api} documentation of \glspl{cvs} are inadequate and insufficient given the disparity of mindsets between the application developers and \gls{cvs} providers. Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation. Applying rigorous \gls{se} documentation knowledge approaches, as defined from existing literature and aligned to the practical needs of software engineers, can help improve existing \glspl{cvs} documentation knowledge.
+\gls{api} documentation of \glspl{cvs} present problems given the disparity of mindsets between the application developers (deterministic) and \gls{cvs} providers (nondeterministic). Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation. Applying rigorous \gls{se} documentation knowledge approaches, as defined from existing literature and aligned to the practical needs of software engineers, can help improve existing \glspl{cvs} documentation knowledge.
 
 \paragraph{Research Goal}
 To improve the \qualattr{effectiveness} of the documentation in existing \gls{iws} providers, specifically of \gls{cvs} \glspl{api}, by using existing \gls{se} API documentation knowledge aligned to the needs of developers.
@@ -34,67 +59,6 @@ To improve the \qualattr{effectiveness} of the documentation in existing \gls{iw
 \end{enumerate}
 
 \paragraph{Research Contribution} An intelligent service \gls{api} documentation quality assessment framework to evaluate how well existing \glspl{cvs} have been documented for software engineers to use, and where improvements can be made.
-\ifdefined\review\else\end{titled-frame}\fi
-
-\ifdefined\review\else\begin{titled-frame}\fi
-{$\blacksquare$~\bfseries \underline{RH2}: \textit{Existing \glspl{cvs} are \qualattr{unreliable} for context-specific use.} }
-\phantomsection
-\label{rh2}
-\vspace{-12pt}
-\paragraph{Research Hypothesis}
-\glspl{cvs} are non-deterministic, evolving, and inconsistent. They are not yet ready to be operationalised into large-scale business-driven applications and, thus, additional protections, guards and development workflows must be considered during pre-development, development, testing and production to protect applications from such concerns.
-
-\paragraph{Research Goal}
-To improve the \qualattr{reliability} of applications built using \gls{api} endpoints of \glspl{iws} by guarding for domain-specific considerations of the application.
-
-\paragraph{Research Questions}
-\begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-  \item What current reliability problems present in \glspl{cvs}? \todo{This is answered with ICSME paper}
-  % KQ; Exploratory question to understand phenomena: Description and Classification question
-  \label{rqs:metadata:what-problems-du                                                                e-to-lack-of-metadata}
-    
-  \item What additional tooling and workflows can be implemented when designing context-specific applications against \glspl{cvs}? \todo{This is answered with Threshy + ASE paper (and possibly Tomohiro's work).}
-  \label{rqs:metadata:what-metadata-do-devs-want-and-why}  % DQ: design question
-\end{enumerate}
-
-\paragraph{Research Contributions} A new architectural design that can benchmark a service against a specific, application-specific dataset and then identify if substantial evolution has occurred, thus mitigating the \glspl{cvs} from having unintended side effects when the application is deployed in production.
-\ifdefined\review\else\end{titled-frame}\fi
-
-\noindent
-\todo{Considering removing RH3... I do not have publications to support this}
-\color{red}
-
-\ifdefined\review\else\begin{titled-frame}\fi
-{$\blacksquare$~\bfseries \underline{RH3}: \textit{\rh{1} and \rh{2} improve quality,  productivity or developer informativeness.}}
-\phantomsection
-\label{rh3}
-\vspace{-12pt}
-\paragraph{Research Hypothesis}
-The implication of hypotheses 1 and 2 suggest that improving both the documentation and providing further metadata will improve product quality (internal or external), and/or developer productivity and/or developer education in developing software with intelligent components.
-
-\paragraph{Research Goal}
- To confirm if improvements to \gls{api} documentation and response metadata  are reflected as improvements to product quality, developer productivity and/or developer education.
-
-\paragraph{Research Questions}
-\begin{enumerate}[label=\textbf{RQ3.\arabic*.}, ref=RQ3.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-  \item  Does an improvement of documentation or metadata correlate to an improvement in software quality, developer productivity and/or developer informativeness?
-  % KQ; relationship question to understand the correlation between two phenomena
-  \label{rqs:implications:do-metrics-improve}
-  
-  \item With respect to \ref{rqs:implications:do-metrics-improve}, the three aspects are explored:
-  % KQ; causality questions...
-  \begin{enumerate}
-  \item Does the improvement cause increased product quality, as measured through improved external quality metrics?
-  \item Does the improvement cause increased developer productivity, as measured through improved internal quality metrics?
-  \item Does the improvement cause increased developer informativeness or increased confidence in developing \gls{iws}-powered applications?
-  \end{enumerate}
-  \label{rqs:implications:aspects}  
-\end{enumerate}
-
-\paragraph{Research Contribution}
-A concrete sample solution or framework that improves such metrics, thereby confirming that our documentation and metadata quality assessment framework improves these facets.
-\ifdefined\review\else\end{titled-frame}\fi
-\color{black}
 
 \section{Thesis Contributions}
 
