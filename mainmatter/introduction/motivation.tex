@@ -21,13 +21,12 @@ Developers must appreciate such a critical principle of \gls{ml} software when b
 %Moreover, \gls{iws} \glspl{api} are inherently non-deterministic in nature, but 
 %In order to fully understand this problem, there are multiple dimensions one must consider: the impact of software quality; the fact that these systems underneath are probabilistic and are stochastic; the cognitive biases of determinism in developers; the issue of consistency in \gls{api} usage. While existing literature does extensively explore software quality and \gls{api} usability, these studies have only had emphasis on deterministic systems and thus little work to date has investigated such factors on probabilistic systems that make up the core of \glspl{cvs}. We explore more of these facets in the motivating scenarios below.
 
-% TODO: %%%%% Alex up to here %%%%
 \subsection{Motivating Scenarios}
 \label{ssec:introduction:motivation:scenario}
 
-The market for \glspl{iws} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
+The market for \glspl{iws} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
 
-To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery.
+To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-first components has substantiative impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to lack of compression, this hinders developer experience, productivity, and understanding/appreciation of \gls{ai}-based components.
   
 \subsubsection{Motivating Scenario I: Tom's \textit{PhotoSharer} App}
 \label{ssec:introduction:motivation:scenario:pam}
@@ -89,7 +88,7 @@ Certain questions in the production of CancerAssist and its use of an \gls{iws} 
   \item Are assumptions made by the \gls{iws} team who train the model correct?
 \end{itemize}
 
-Thus, to improve communication between developers and \gls{iws} providers, developers require enhanced documentation, additional metadata, and guidance tooling.
+Thus, to improve communication between developers and \gls{iws} providers, developers require enhanced documentation, additional metadata, and guidance tooling. 
 
 %While developers are expected to use these services as they would any other traditional software component, the marketed promise is that such services are forever-learning and, therefore, `improve' in their accuracies and judgements. But what are the real-world consequences if this `black box' evolves with time and has materially substantiate impacts on both the software that is built on top of them, and (more importantly) the \textit{people} using that software? If the impact is substantial, the robustness of applications dependent on these services can have drastic effects, and---depending of the context of the application---the real-world damage it may do could be catastrophic. Should we consider this an `error' of the service?
 %
