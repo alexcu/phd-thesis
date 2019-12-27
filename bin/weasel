@@ -30,6 +30,9 @@ if [ "$1" = "" ]; then
  exit
 fi
 
-latexpand --empty-comments $* | egrep -i -n --color=always "\\b($weasels)\\b" | less -R
+cat $* |\
+    gsed '/^\s*%/c\%' |\
+    egrep -i -n --color=always "\\b($weasels)\\b" |\
+    less -R
 
 exit $?
