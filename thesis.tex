@@ -22,7 +22,7 @@
 \input{preamble/publication}
 
 \def \thesubtitle {Taming the evolving black box}
-\def \themaintitle {A novel architectural model for Intelligent Web Services}
+\def \themaintitle {Towards Improved Reliability and Documentation of Intelligent Web Services}
 
 \title{\thesubtitle: \themaintitle}
 \author{Alex Cummaudo}
@@ -47,16 +47,19 @@
 
 \ifdefined\review\begin{linenumbers}\else\fi
 
-\part{Preface}
+\part{Preface}\label{part:preface}
 \input{mainmatter/introduction}
 \input{mainmatter/background}
 \input{mainmatter/research-methodology}
 
-\part{Publications}
+\part{Publications}\label{part:publications}
 \input{mainmatter/publications/icsme2019}
 \input{mainmatter/publications/esem2019}
+\input{mainmatter/publications/icse2020}
+\input{mainmatter/publications/icse2020-demo}
+\input{mainmatter/publications/ase2020}
 
-\part{Postface}
+\part{Postface}\label{part:postface}
 \input{mainmatter/conclusion}
 \input{mainmatter/references}
 
@@ -64,7 +67,7 @@
 
 \appendix
 
-\part{Appendices}
+\part{Appendices}\label{part:appendices}
 \input{appendix/additional-material}
 \input{appendix/authorship-statements}
 \input{appendix/ethics}

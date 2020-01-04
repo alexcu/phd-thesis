@@ -26,11 +26,11 @@ If so, how can the service providers improve their documentation to alleviate th
 Do these data-driven services share similarities to the runtime behaviour of traditional cloud services?
 And if not, how best can the application developer integrate the data-driven service into their a rule-driven application to produce \gls{ai}-first software?
 
-\begin{callout}
-In this thesis, we advocate that the \textbf{(i)~integration}, \textbf{(ii)~developer comprehension}, \textbf{(iii)~documentation}, and \textbf{(iv)~quality attributes} of data-driven cloud services differ from the rule-driven nature of end-applications. As `intelligent' components contrast to traditional counterparts, and application developers need to take into account a greater appreciation of these factors.
-\end{callout}
-
 \Cref{fig:introduction:rule-vs-data} provides an illustrative overview between the context clashing of rule-driven applications and data-driven cloud services, and we contrast characteristics of typical cloud systems and data-driven ones in \cref{tab:introduction:characteristics-of-cloud}.
+
+\begin{callout}
+In this thesis, we advocate that the integration and developer comprehension of data-driven cloud services differ from the rule-driven nature of end-applications. As `intelligent' components contrast to traditional counterparts, and application developers need to take into account a greater appreciation of these factors.
+\end{callout}
 
 \begin{figure}
 \centering
@@ -63,8 +63,7 @@ We illustrate the slightly varied characteristics within this spectrum in \cref{
 
 These data-driven `friendly' services are gaining traction within developer circles: we show an increasing trend of \glslong{so} posts mentioning a mix of intelligent \gls{cv} services in \cref{fig:introduction:stackoverflow-trends}.\footnote{Query run on 12 October 2018 using StackExchange Data Explorer. Refer to \url{https://data.stackexchange.com/stackoverflow/query/910188} for full query.}
 Academia provides varied nomenclature for these services, such as \textit{Cognitive Applications} and \textit{Machine Learning Services} \citep{Hwang:2017tr} or \textit{Machine Learning as a Service} \citep{Ribeiro:2015dz}. 
-For the context of this thesis, we will refer to such services under broader term of \textit{\glspl{iws}}, and diagrammatically express their usage within \cref{fig:introduction:cloud-intelliegnce-service}.
-
+For the context of this thesis, we will refer to such services under broader term of \textbf{\glspl{iws}}, and diagrammatically express their usage within \cref{fig:introduction:cloud-intelliegnce-service}.
 
 \begin{figure}[h!]
 \centering
@@ -73,12 +72,13 @@ For the context of this thesis, we will refer to such services under broader ter
 \includegraphics{cloud-intelliegnce-service}
 \end{figure}
 
- 
-The general workflow of an \gls{iws} is  simple: a developer accesses an \gls{iws} component via \glsac{rest}/\glsac{soap} \gls{api}(s), which is (typically) available as a cloud-based \gls{paas}.\footnote{We note, however, that a development team may use a similar approach \textit{internally} within a product line or service that may not necessarily reflect a \gls{paas} model.}\footnote{A number of services provide the platform infrastructure to rapidly begin training from custom datasets, such as Google's AutoML (\url{https://cloud.google.com/automl/}, last accessed 7 December 2018). Others provide pre-trained datasets `ready-for-use' in production without the need to train data.} For a given input, developers receive an `intelligent' response and an associated confidence value that represents the likelihood of that result. This is typically serialised as a \glsac{json}/\glsac{xml} response object. 
+
+While there are many types of \glspl{iws} available to software developers,\footnote{Such as optical character recognition, text-to-speech and speech-to-text transcription, object categorisation, facial analysis and recognition, natural language processing etc.}, the general workflow of using an \gls{iws} is more-or-less the same: a developer accesses an \gls{iws} component via \glsac{rest}/\glsac{soap} \gls{api}(s), which is (typically) available as a cloud-based \gls{paas}.\footnote{We note, however, that a development team may use a similar approach \textit{internally} within a product line or service that may not necessarily reflect a \gls{paas} model.}\footnote{A number of services provide the platform infrastructure to rapidly begin training from custom datasets, such as Google's AutoML (\url{https://cloud.google.com/automl/}, last accessed 7 December 2018). Others provide pre-trained datasets `ready-for-use' in production without the need to train data.} For a given input, developers receive an `intelligent' response and an associated confidence value that represents the likelihood of that result. This is typically serialised as a \glsac{json}/\glsac{xml} response object. 
+
 %We note the intelligence component masks its `intelligence' through a black-box: in recent years, there is a rise in providing human-level intelligence via crowdsourcing Internet marketplaces such as Amazon Mechanical Turk~\citepweb{MTurk:Home} or ScaleAPI~\citepweb{ScaleAPI:Home}. Thus, an \gls{iws} may be powered by varying degrees of intelligence: human intelligence, machine learning, data mining or intelligence by brute-force.
 
 \begin{callout}
-There are different types of \glspl{iws} offered by service providers (such as optical character recognition, text-to-speech and speech-to-text transcription, object categorisation, facial analysis and recognition, natural language processing etc.). We scope the type of \glspl{iws} in this thesis to that of intelligent \gls{cv} analysis, which we refer to as \textbf{\glspl{cvs}}~\citepweb{GoogleCloud:Home,Azure:Home,AWS:Home,Pixlab:Home,IBM:Home,Cloudsight:Home,Clarifai:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home,Kairos:Home,Cognitec:Home,Affectiva:Home}. Evermore applications are using \glspl{cvs} as demonstrated by ubiquious examples: aiding the vision-impaired \citep{Reis:2018cp,daMotaSilveira:2017vp}, accounting  \citep{Marshall:2018uj}, data analytics \citep{Iyengar:2017fb}, and student education \citep{Dibia:2017iy}.
+Within this thesis, we scope our investigation to a mature \textup{subset} of \glspl{iws} that provide \glslong{cv} intelligence~\citepweb{GoogleCloud:Home,Azure:Home,AWS:Home,Pixlab:Home,IBM:Home,Cloudsight:Home,Clarifai:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home,Kairos:Home,Cognitec:Home,Affectiva:Home}. For the context of this thesis, we will refer to such services as \textbf{\glspl{cvs}}. 
 \end{callout}
 
 \input{mainmatter/introduction/motivation}
