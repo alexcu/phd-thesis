@@ -19,21 +19,65 @@ We organise the thesis into four parts. \textbf{\Cref{part:preface}, (\textit{Th
 
 \paragraph{\cref{ch:icse2020}: Understanding developer struggles when using \glspl{cvs}} This chapter has been accepted for presentation at the 2020 International Conference on Software Engineering (ICSE) \citep{Cummaudo:2019vi}. We conduct a mining study of 1,425 \glslong{so} posts that provide indications of the types frustrations that developers face when integrating \glspl{cvs} into their applications. To gather what their pain-points are, we use two classification taxonomies that also use \glslong{so} to understand generalised and documentation-specific pain-points in mature \gls{se} domains. This study answers \ref{rq:icse} in detail and provides a validation to our motivation of \ref{rq:esem}: we validate that the \textit{completeness} of current \gls{cvs} \gls{api} documentation is a main concern for developers and there is insufficient explanation into the errors and limitations of the service. We find that the documentation does not adequately cover all aspects of the technical domain. In terms of integrating with the service, developers struggle most with simple errors and ways in which to use the \glspl{api}; this is in stark contrast to mature software domains. Our interpretation is that developers fail to understand the \gls{iws} lifecycle and the `whole' system that wraps such services. We also interpret that developers have a shallower understanding of the core issues within \glspl{cvs} (likely due to the nuances of \gls{ml} as suggested in a discussion in the paper), which warrants an avenue for future work in \glslong{se} education.
 
-\paragraph{\cref{ch:icse2020-demo}: Developing a confidence thresholding tool} This chapter has been submitted to the demonstrations track of the ICSE 2020. In this paper, we develop a tool---Threshy---that helps alleviate one of the primary issues in integrating \gls{cvs}: selecting an appropriate confidence threshold in a particular use-case. 
+\paragraph{\cref{ch:icse2020-demo}: Developing a confidence thresholding tool} This chapter has been submitted to the demonstrations track of the ICSE 2020. When integrating with a \gls{cvs}, developers need to select an appropriate confidence threshold suited to their use case and determine whether a decision should be made. An issue, however, is that these \glspl{cvs} are not calibrated to the specific problem-domain datasets and it is difficult for software developers to determine an appropriate confidence threshold on their problem domain. This tool presents a workflow and supporting tool for application developers to select decision thresholds suited to their domain that---unlike existing tooling---is designed to be used in pre-development, pre-release and production. This tooling forms part of a solution to \ref{rq:ase} for developers to maintain robustness and reliability in their systems.
 
-\paragraph{\cref{ch:ase2020}: Developing a \gls{cvs} integration architecture} Discusses evaluation strategies used to assess the accuracy of our processing pipeline, and presents the implications and limitations found from the results of our findings.
+\paragraph{\cref{ch:ase2020}: Developing a \gls{cvs} integration architecture} \todo{Summary of this paper and the associated answers to \ref{rq:ase}.}
 
 \subsubsection{\Cref{part:postface}: Postface}
 
-\paragraph{\cref{ch:conclusion} - Conclusions} Draws conclusions and alleviates gaps in the findings of this work by proposing future studies.
+\paragraph{\cref{ch:conclusions} - Conclusions} In this chapter, we review the contributions made in this thesis and the relevance and significance to identifying and resolving key issues when application developers integrate with \gls{cvs}. We evaluate these outcomes with reference to the research goals, and discuss threats to validity of the work. Lastly, we discuss the various avenues of research arising from this work.
 
 \subsubsection{\Cref{part:appendices}: Appendices}
 
+\Cref{ch:additional-materials} provides additional material referenced within this thesis but not provided in the body. We provide mandatory coauthor declaration forms describing the contribution breakdown for each publication within \cref{ch:authorship-statements}. \Cref{ch:ethics} contains copies of the ethics clearance for various experiments within this thesis. We describe the list of primary sources arising in the \glslong{sms} we conduct in \cref{ch:esem2019} within \cref{ch:sms-primary-sources}.
+
+
 \subsection{Coherency of Publications}
 
-In this section, we detail how each publication forms a coherent body of work, thus, illustrates the overall `journey' of this PhD. A recommendation arising from this study was to 
+In this section, we detail how each publication forms a coherent body of work. After our exploratory analysis on the nature of \glspl{cvs} (\cref{ch:icsme2019}), we proposed two sets of recommendations targeted towards two \gls{cvs} stakeholders: (i) \gls{cvs} consumers (i.e., application developers) and (ii) \gls{cvs} providers. Our subsequent publications arose as a two-fold investigation to develop two strategies in which developers and providers can, respectively, (i) better integrate \glspl{cvs} into their applications, and (ii) how \glspl{cvs} can be better documented. \Cref{tab:introduction:structure:list-of-pubs} provides a tabulated form of the publications and research questions addressed within this thesis. We also provide abbreviations for easier reference in this section. A high-level overview of the cohesiveness of our publications is provided in \cref{fig:introduction:structure:publications-overview}.
 
-\subsection{Organisation}
+\begin{table}
+  \centering
+  \caption{List of publications resulting from this thesis}
+  \label{tab:introduction:structure:list-of-pubs}
+  \begin{tabular}{cccc}
+    \toprule
+    \textbf{Chapter} & \textbf{Reference} & \textbf{Abbreviation} & \textbf{RQs Addressed}\\
+    \midrule
+    \cref{ch:icsme2019} &
+    \citep{Cummaudo:2019va} & 
+    ICSME &
+    \ref{rq:icsme} \\
+    
+    \textit{Excluded}\tablefootnote{The extended version of this conference proceeding is provided in \cref{ch:esem2019}.} &
+    \citep{Cummaudo:2019th} &
+    ESEM &
+    \ref{rq:esem:rq1} \\
+    
+    \cref{ch:esem2019} & \todo{ref} & JSS & \ref{rq:esem} \\
 
-In this introductory chapter I have motivated this research and given an overview of it. As noted earlier, the body (i.e., Chapters 2-11) of this dissertation comprise the published papers that have resulted from this research. The papers are presented in chronological order, by date of publication, verbatim as they were accepted for publication by the referees (except for changes to formatting and bibliographic references, which have been consolidated to all use the same style). In the final chapter of this dissertation—Chapter 12 Conclusions and Future Work—I review the contributions of this work, its significance and relevance, I evaluate its outcomes in terms of my stated goals for it, I self-identify some possible criticisms of it, and I discuss future directions of this work, which despite the many works it has led to, there are still many.
+    \cref{ch:icse2020} & \citep{Cummaudo:2019vi} & ICSE & \ref{rq:icse} \\
+    \cref{ch:icse2020-demo} & \todo{ref} & ICSE(d)\tablefootnote{We abbreviate this with an added `d' (for the demonstrations track) to distinguish this paper from our full ICSE 2020 paper.}
+     & \ref{rq:ase} \\
+     
+    \cref{ch:icsme2019} &
+    \todo{ref} &
+    ASE &
+    \ref{rq:ase} \\
+    \bottomrule
+  \end{tabular}  
+\end{table}
 
+
+\begin{figure}[hbt]
+  \includegraphics[width=\linewidth]{publications-overview}
+  \caption[Overview publication coherency]{Overview of the coherency of publications included within this thesis and their connections.}
+  \label{fig:introduction:structure:publications-overview}
+\end{figure}
+
+
+\paragraph{Improved \gls{cvs} \gls{api} documentation} In our ICSME paper, we found that evolutionary and non-deterministic behavioural profile of are not adequately documented in the service's \glspl{api} documentation, and recommended that service providers improve their documentation. This led to two follow-up further investigations as presented in our ICSE and ESEM papers. One aspect of our ICSE paper was to confirm whether developers are actually frustrated with the service's limited \gls{api} documentation. By mining \glslong{so} posts with reference to documentation issues, we adopted a \citeyear{Aghajani:2019bo} documentation-related taxonomy by \citet{Aghajani:2018et} to classify posts, and found that 47.87\% of posts classified fell under the `completeness' dimension of \citeauthor{Aghajani:2018et}'s taxonomy. This interpretation, therefore, helped to validate the recommendation we proposed in the ICSME paper. This warranted further investigation: we needed to understand \textit{what} makes a `complete' \gls{api} document. By conducting a \glslong{sms} resulting in 4,501 results, we curated 21 primary studies that outline the facets of \gls{api} documentation knowledge. From these studies, we distilled a documentation framework describing a prioritised order of the documentation assets \gls{api}'s should document that is described in our ESEM short paper. After receiving community feedback, we extended this short paper with a follow-up experiment submitted to JSS. By conducting a survey with developers, we assessed our \gls{api} documentation taxonomy's efficacy with practitioner opinions, thereby producing a weighted taxonomy against \textit{both} literature and developer sources. Lastly, we triangulated both weightings against a heuristic evaluation against common \gls{cvs} providers' documentation. This allowed us to deduce which specific areas in existing \gls{cvs} providers' \gls{api} documentation needed improvement, which was a primary contribution from our JSS article.
+
+\paragraph{Improved \gls{cvs} integration techniques} Two recommendations from our ICSME study encouraged developers to test their applications with a representative ontology for their problem domain and to incorporate a specialised testing and monitoring techniques into their workflow. Strategies on \textit{how} to achieve this were explored in later studies.  Following a similar approach to our solution of improved \gls{api} documentation, we validated the substantiveness of our recommendations using our mining study of \glslong{so} (our ICSE paper) to help inform us of generalised issues developers face whilst integrating \glspl{cvs} into their applications. To achieve this, we used a \glslong{so} post classification taxonomy proposed by \citet{Beyer:2018fm} into seven categories, where 28.9\% and 20.37\% of posts asked issues regarding how to use the \gls{cvs} \gls{api} and conceptual issues behind \glspl{cvs}, respectively. Developers presented an insufficient understanding of the non-deterministic runtime behaviour, functional capability, and limitations of these services and are not aware of key \glslong{cv} terminology. When contrasted to more conventional domains such as mobile-app development, the spread of these issues vary substantially. We proposed two technical solutions in ICSE(d) and ASE, respectively, to help alleviate this issue. \todo{Revise this... needs to be fleshed out} Firstly, our ICSE(d) paper provides a workflow for developers to better select an appropriate confidence threshold, and thus decision boundary, calibrated for their particular use case. In our ASE paper, we provide a reference architecture for developers to guard against the non-deterministic issues that may `leak' into their applications. These two primary contributions further serve as an answer to \ref{rq:ase}.
+
+% RQ3.3 -- range is diff == existing strategies are not enough!
