@@ -1,0 +1,151 @@
+\begin{table*}[tb]
+  \centering
+  \caption{Descriptions of dimensions ($\blacksquare$) and sub-categories ($\hookrightarrow$) from both taxonomies used.}
+  \label{icse2020:tab:taxonomies}
+  \tablefitlandscape{.9}{\begin{tabular}{l|p{.25\linewidth}p{.75\linewidth}}
+    \toprule
+
+    \textbf{A} &
+    \multicolumn{2}{l}{
+      \textbf{Documentation-specific classification (\citet{Aghajani:2019bo})}
+    } \\
+
+    \midrule
+
+    \textbf{A-1} &
+    \textbf{$\blacksquare$ Information Content (What)\dotfill} &
+    Issues related to what is written in the documentation \\
+    \textbf{A-1a} &
+    \textbf{$\hookrightarrow$ \textit{Correctness} \dotfill} &
+    What exists in the documentation actually matches what is implemented in code \\
+    \textbf{A-1b} &
+    \textbf{$\hookrightarrow$ \textit{Completeness}\dotfill} &
+    The documentation fully covers all aspects of the API's components\\
+    \textbf{A-1c} &
+    \textbf{$\hookrightarrow$ \textit{Up-to-dateness}\dotfill} &
+    What is documented is accurate to the current version of the API \\
+
+
+    \textbf{A-2} &
+    \textbf{$\blacksquare$ Information Content (How)\dotfill} &
+    Issues related to how the document is written and organised \\
+    \textbf{A-2a} &
+    \textbf{$\hookrightarrow$ \textit{Maintainability}\dotfill} &
+    The upkeep effort to ensure the documentation remains up to date\\
+    \textbf{A-2b} &
+    \textbf{$\hookrightarrow$ \textit{Readability}\dotfill} &
+    The extent to which the documentation is interpretable \\
+    \textbf{A-2c} &
+    \textbf{$\hookrightarrow$ \textit{Usability}\dotfill} &
+    How useable the organisation, look and feel of the documentation is \\
+    \textbf{A-2d} &
+    \textbf{$\hookrightarrow$ \textit{Usefulness}\dotfill} &
+    The usefulness of the documentation, avoiding misinformation. \\
+
+
+    \textbf{A-3} &
+    \textbf{$\blacksquare$ Process-Related\dotfill} &
+    Issues related to the documentation process \\
+    \textbf{A-3a} &
+    \textbf{$\hookrightarrow$ \textit{Internationalisation}\dotfill} &
+    Translating the documentation into other languages \\
+    \textbf{A-3b} &
+    \textbf{$\hookrightarrow$ \textit{Contribution-Related}\dotfill} &
+    Contribution issues encountered when people contribute to the documentation \\
+    \textbf{A-3c} &
+    \textbf{$\hookrightarrow$ \textit{Configuration-Related}\dotfill} &
+    Configuration issues of the documentation tool \\
+    \textbf{A-3d} &
+    \textbf{$\hookrightarrow$ \textit{Implementation-Related}\dotfill} &
+    Unwanted development issues caused by (poor) documentation \\
+    \textbf{A-3e} &
+    \textbf{$\hookrightarrow$ \textit{Traceability}\dotfill} &
+    Tracing documentation changes (when, when, who and why)\\
+
+
+    \textbf{A-4} &
+    \textbf{$\blacksquare$ Tool-Related\dotfill} &
+    Issues related to documentation tools (e.g., Javadoc) \\
+    \textbf{A-4a} &
+    \textbf{$\hookrightarrow$ \textit{Tooling Bugs}\dotfill} &
+    Bugs that exist within the documentation tooling \\
+    \textbf{A-3b} &
+    \textbf{$\hookrightarrow$ \textit{Tooling Discrepancy}\dotfill} &
+    Support as expectations not being fulfilled by these documentation tools\\
+    \textbf{A-3c} &
+    \textbf{$\hookrightarrow$ \textit{Tooling Help Required}\dotfill} &
+    Help required due to improper usage of the tools \\
+    \textbf{A-3d} &
+    \textbf{$\hookrightarrow$ \textit{Tooling Migration}\dotfill} &
+    Issues migrating the tool to a new version or another tool \\
+
+    \midrule
+    \midrule
+
+    \textbf{B} &
+    \multicolumn{2}{l}{
+      \textbf{Generalised classification (\citet{Beyer:2018fm})}
+    }
+
+    \\
+    \midrule
+
+    \textbf{B-1} &
+    \textbf{$\blacksquare$ API usage\dotfill} &
+    Issue on how to implement something using a specific component provided by the API
+    \\
+
+    \textbf{B-2} &
+    \textbf{$\blacksquare$ Discrepancy\dotfill} &
+    The questioner's \textit{expected behaviour} of the API does not reflect the API's \textit{actual behaviour}
+    \\
+
+    \textbf{B-3} &
+    \textbf{$\blacksquare$ Errors\dotfill} &
+    Issue regarding some form of error when using the API, and provides an exception and/or stack trace to help understand why it is occurring
+    \\
+
+    \textbf{B-4} &
+    \textbf{$\blacksquare$ Review\dotfill} &
+    The questioner is seeking insight from the developer community on what the best practices are using a specific API or decisions they should make given their specific situation
+    \\
+
+    \textbf{B-5} &
+    \textbf{$\blacksquare$ Conceptual\dotfill} &
+    The questioner is trying to ascertain limitations of the API and its behaviour and rectify issues in their conceptual understanding on the background of the API's functionality
+    \\
+
+    \textbf{B-6} &
+    \textbf{$\blacksquare$ API change\dotfill} &
+    Issue regarding changes in the API from a previous version
+    \\
+
+    \textbf{B-7} &
+    \textbf{$\blacksquare$ Learning\dotfill} &
+    The questioner is seeking for learning resources to self-learn further functionality in the API, and unlike discrepancy, there is no specific problem they are seeking a solution for
+    \\
+    \bottomrule
+  \end{tabular}}
+  \vspace{-2mm}
+\end{table*}
+
+%%% Tabulated this as per above
+
+%\paragraph{Generalised classification}
+%
+%\citeauthor{Beyer:2018fm}'s SO post classification taxonomy \citep{Aghajani:2019bo} consists of seven dimensions:
+%(1)~\textit{API usage}---the questioner is asking for instructions on how to implement something using a specific component provided by the API (e.g., ``In Amazon Rekognition for image processing how do I get the caption for an image?''\solink{52746720});
+%(2)~\textit{Discrepancy}---the questioner is confused when the \textit{expected behaviour} does not reflect the API's \textit{actual behaviour} (e.g., ``I'm using Microsoft Face API for a small project and I was trying to detect a face inside a .jpg... but it does not seem to work for local path address''\solink{40714481});
+%(3)~\textit{Errors}---the questioner is receiving some form of error when using the API, and provides an exception and/or stack trace to help understand why it is occurring (e.g., ``I'm using the Java Google Vision API to run through a batch of images... I'm now getting a \texttt{channel closed} and \texttt{ClosedChannelException} error on the request.''\solink{51142340});
+%(4)~\textit{Review}---the questioner is seeking insight from the developer community on what the best practices are when using a specific API or what decisions they should make given their specific situation (e.g., ``So far Google Cloud Vision and Clarifai are the best API's [sic] to detect objects from images and videos, but both API's [sic] doesn't support object detection from 360 degree images and videos. Is there any solution for this problem?''\solink{47671289});
+%(5)~\textit{Conceptual}---the questioner is trying to ascertain the limitations of the API and its behaviour and rectify issues in their own conceptual understanding of on the background of the API's functionality (e.g., ``Is it even possible to send an image created using p5 via http request [to Azure Custom Vision]?''\solink{54813301});
+%(6)~\textit{API change}---the questioner is dealing with an issue due to changes in the API (e.g., ); and
+%(7)~\textit{Learning}---the questioner is seeking for learning resources to self-learn further functionality in the API, and unlike discrepancy, there is no specific problem they are seeking a solution for (e.g., ``Is there a full list of potential labels that Google's Vision API will return?''\solink{38363182}).
+%
+%\paragraph{Documentation-specific classification}
+%
+%The documentation-specific taxonomy is multi-layered \citep{Aghajani:2019bo} consisting of four dimensions and 16 sub-categories. We code each dimension with a number, $X$, and each sub-category with a letter $y$: $(Xy)$.
+%(1)~\textit{Information Content (What)}---issues related to what is written in the documentation, including (1a) accuracy (where what is documented matches what is actually implemented), (1b) completeness (where the documentation fully covers all aspects of the API's components), and (1c) up-to-dateless (where what is documented is accurate to the current version of the API);
+%(2)~\textit{Information Content (How)}---issues related to how the document is written and organised, including the (2a) usability of the documentation, (2b) the maintainability of keep the documentation up to date, (2c) the extent to which the documentation is readable, and (2d) the usefulness of the documentation;
+%(3)~\textit{Process Related}---issues related to the documentation process, including (3a) translating the documentation into other languages, (3b) tracing documentation changes (when, when, who and why), (3c) unwanted development issues caused by documentation, and (3d) issues encountered when people contribute to the documentation; and
+%(4)~\textit{Tool Related}---issues related to documentation tools (e.g., Javadoc), such as (4a) bugs in these tools, (4b) expectations not being fulfilled by the tools, (4c) help required due to improper usage of the tools, and (4d) migrating the tool to a new version or another tool.

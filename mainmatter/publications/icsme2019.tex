@@ -93,14 +93,11 @@ However, while target audiences for these documents may be of a more technical \
 
 This study organically evolved by observing phenomena surrounding \glspl{cvs} by assessing both their documentation and responses. We adopted a mixed methods approach, performing both qualitative and quantitative data collection on these two key aspects by using documentary research methods for inspecting the documentation and structured observations to quantitatively analyse the results over time. This, ultimately, helped us shape the following research hypotheses which this paper addresses:
 
-\begin{framed}
 \begin{enumerate}[label=\textbf{[RH\arabic*]}, leftmargin=2\parindent]
 \item \glspl{cvs} do not respond with consistent outputs between services, given the same input image.
 \item The responses from \glspl{cvs} are non-deterministic and evolving, and the same service can change its top-most response over time given the same input image.
 \item \glspl{cvs} do not effectively communicate this evolution and instability, introducing risk into engineering these systems.
 \end{enumerate}
-\end{framed}
-
 
 We conducted two experiments to address these hypotheses against three popular \glspl{cvs}: \glsac{aws} Rekognition~\citepweb{AWS:Home}, Google Cloud Vision~\citepweb{GoogleCloud:Home}, Azure Computer Vision~\citepweb{Azure:Home}. Specifically, we targeted the \glsac{aws} \texttt{DetectLabels} endpoint~\citepweb{AWS:DetectLabel}, the Google Cloud Vision \texttt{annotate:images} endpoint~\citepweb{Google:DocsLabel} and Azure's \texttt{analyze} endpoint~\citepweb{Azure:HowToCall}. For the remainder of this paper, we de-identify our selected \glspl{cvs} by labelling them as services A, B and C but do not reveal mapping to prevent any implicit bias.
 Our selection criteria for using these particular three services are based on the weight behind each service provider given their prominence in the industry (Amazon, Google and Microsoft), the ubiquity of their hosting cloud platforms as industry leaders of cloud computing (i.e., \glsac{aws}, Google Cloud and Azure), being in the top three most adopted cloud vendors in enterprise applications in 2018~\citep{RightScaleInc:2018kJ} and the consistent popularity of discussion amongst developers in developer communities such as \glslong{so}. While we choose these particular cloud \glspl{cvs}, we  acknowledge that similar services~\citepweb{IBM:Home,Pixlab:Home,Clarifai:Home,Cloudsight:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home} also exist, including other popular services used in Asia~\citepweb{Megvii:Home,TupuTech:Home,YiTuTech:Home,SenseTime:Home} (some offering 3D image analysis~\citepweb{DeepGlint:Home}). We reflect on the impacts this has to our study design in \cref{icsme2019:sec:limitations}.

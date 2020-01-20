@@ -1,47 +1,71 @@
 \section{Research Goals \& Outcomes}
 \label{sec:introduction:hypohtesis}
 
+\subsection{Research Overview}
+
 This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}.\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.} 
 We identify the maturity, viability and risks of \glspl{cvs} through the anchoring perspective of \textit{reliability} that affects the internal and external quality of software. We adopt the McCall \citep{McCall:1977uy} and Boehm \citep{Boehm:1978vv} interpretations of reliability via the sub-characteristics of a service's \textit{consistency} and \textit{robustness} (or fault/error tolerance), and the \textit{completeness}\footnote{We treat the \gls{api} documentation of a \gls{cvs} as a first-class citizen.} of its documentation. (A detailed discussion is further provided in \cref{sec:background:software-quality}.)
 This thesis explores and contributes towards \textit{four} key facets regarding reliability in \gls{cvs} usage and the completeness of its associated documentation. We formulate four primary research questions (RQs) with six sub-RQs, based on both empirical and non-empirical \glslong{se} methodology \citep{Shull:2007vh,Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
+\subsection{Research Questions}
+
 Firstly, we investigate adverse implications that arise when using \glspl{cvs} that affects consistency and robustness~(\textbf{\cref{ch:icsme2019}}). We show how \glspl{cvs} have a non-deterministic runtime behaviour and evolve with unintended and non-trivial consequences to developers. We demonstrate that these services have inconsistent behaviour despite offering the same functionality and pose evolution risk that effects robustness of consuming applications when responses change given the same (consistent) inputs. Thus, we conclude how the nature of these services (at present) are not fully robust, consistent, and thus not reliable. Formally, we structure the following RQs:
 
-\begin{enumerate}[label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
+\begin{leftbar}
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent]
     \item \textbf{What is the nature of cloud-based \gls{cvs}?}\label{rq:icsme}
     \begin{enumerate}[label=\textit{RQ1.\arabic*.}, ref=RQ1.\arabic*]
       \item What is their runtime behaviour?\label{rq:icsme:rq1}%KQ: Exploratory question to understand phenomena: Description and Classification question.
       \item What is their evolution profile?\label{rq:icsme:rq2}%KQ: Exploratory question to understand phenomena: Description and Classification question.
     \end{enumerate}
 \end{enumerate}
+\end{leftbar}
 
 Secondly, we investigate the reliability of the documentation these services offer through the lenses of its completeness. We collate prior knowledge of good \gls{api} documentation and assess the efficacy of such knowledge against practitioners~(\textbf{\cref{ch:esem2019}}). We show that these service's behaviour and evolution is not reliably documented adequately against this knowledge. Formally, we develop the following RQs:
 
-\begin{enumerate}[label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent,start=2]
+\begin{leftbar}
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=2]
     \item \textbf{How complete is current \gls{cvs} \glspl{api} documentation?}\label{rq:esem}%KQ: [Exploratory question] to understand phenomena: Description and Classification question.
     \begin{enumerate}[label=\textit{RQ2.\arabic*.}, ref=RQ2.\arabic*]
       \item What are the dimensions of `\textit{complete}' \gls{api} documentation, according to both literature and practitioners?\label{rq:esem:rq1}%KQ: [Exploratory question] to understand phenomena: Description and Classification question.
       \item What additional information or attributes do developers need in \gls{cvs} \gls{api} documentation to make it more complete?\label{rq:esem:rq2}% Non-Empirical: [Design Question]
     \end{enumerate}
 \end{enumerate}
+\end{leftbar}
 
 Thirdly, we investigate how software developers approach using these services and directly assess developer pain-points resulting from the nature of \glspl{cvs} and their documentation~(\textbf{\cref{ch:icse2020}}). We show that there is a statistically significant difference in these complaints when contrasted against more established \glslong{se} domains (such as web or mobile development) as expressed as posts on \glslong{so}. We provide a number of exploratory avenues for researchers, educators, software engineers and \gls{iws} providers to alleviate these complaints based on this analysis. We formulate the following RQs:
 
-\begin{enumerate}[label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent,start=3]
+\begin{leftbar}
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=3]
   \item \textbf{How does the developer's comprehension of \glspl{cvs} differ to conventional \glslong{se} domains?}\label{rq:icse} %KQ: [Exploratory question] to understand phenomena: Descriptive-Comparative question.
   \begin{enumerate}[label=\textit{RQ3.\arabic*.}, ref=RQ3.\arabic*]
     \item What aspects of \glspl{cvs} and its documentation do developers struggle with, as expressed as pain-points within \glslong{so} posts?\label{rq:icse:rq1}% %KQ: [Exploratory question] to understand phenomena: Description and Classification question.
     \item Is the distribution of the struggles within these posts different to established \glslong{cvs} fields?\label{rq:icse:rq2}% KQ: [Relationship Question] between two different phenomenon to assess relations
   \end{enumerate}
 \end{enumerate}
+\end{leftbar}
 
 
-Lastly, based on our analysis of the documentation, runtime and evolution profiles of \glspl{cvs}, in conjunction with our assessment of developer complaints, we developed two specific solutions to address documentation weaknesses and another to ensure greater reliability when developing using \gls{cvs}~(\textbf{\cref{ch:icse2020-demo,ch:ase2020}}). Our first solution, via synthesis of a documentation template, proposes recommendations on where current \gls{cvs} documentation needs improvement to make the documentation more reliable. Our second solution consists of an integration architecture style (or facade) that guards against the runtime and evolution issues identified of \glspl{cvs} to make integrating with a \gls{cvs} more reliable. Our final RQ is:
+Lastly, based on our analysis of the documentation, runtime and evolution profiles of \glspl{cvs}, in conjunction with our assessment of developer complaints, we developed two specific solutions to address documentation weaknesses and another to ensure greater reliability when developing using \gls{cvs}~(\textbf{\cref{ch:icse-demo2020,ch:ase2020}}). Our first solution, via synthesis of a documentation template, proposes recommendations on where current \gls{cvs} documentation needs improvement to make the documentation more reliable. Our second solution consists of an integration architecture style (or facade) that guards against the runtime and evolution issues identified of \glspl{cvs} to make integrating with a \gls{cvs} more reliable. Our final RQ is:
 
-\begin{enumerate}[label=\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent,start=4]
+\begin{leftbar}
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=4]
   \item \textbf{What strategies can developers use to integrate with and use \glspl{cvs}, while preserving robustness and reliability?}\label{rq:ase}% Non-Empirical: [Design Question]
 \end{enumerate}
+\end{leftbar}
 
+\subsection{Research Contributions}
+
+The outcomes of answering these four primary research questions helps shape the three primary contributions this thesis offers to software engineering knowledge:
+
+\begin{itemize}
+  \item An improved understanding in the landscape of \glspl{cvs}, with respect to their runtime behaviour and evolutionary profiles.
+  \item A service integration architecture that helps developers with integrating their applications with \glspl{cvs}.
+  \item A list of attributes that should be documented to assist \gls{cvs} providers to better document their services.
+\end{itemize}
+
+\noindent
+These contributions are detailed further within \cref{ch:conclusions}.
 
 %
 %    \item 

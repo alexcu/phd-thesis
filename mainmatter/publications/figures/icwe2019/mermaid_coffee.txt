@@ -1,0 +1,98 @@
+graph LR
+subgraph Connected Component 2
+n-3147509[cup]
+n-3133538[crockery]
+n-3147509--"Hypernym"-->n-3133538
+n-4381994[tableware]
+n-3133538--"Hypernym"-->n-4381994
+n-3153375[cutlery]
+n-3153375--"Part meronym"-->n-3485997
+n-3485997[handle]
+n-3153375--"Hypernym"-->n-4381994
+n-3063073[coffee_cup]
+n-3063073--"Hypernym"-->n-3147509
+n-3063073--"Part meronym"-->n-3485997
+n-4397452[teacup]
+n-4397452--"Hypernym"-->n-3147509
+n-4397452--"Part meronym"-->n-3485997
+r0["Cup"]
+style r0 fill:#E27171
+r0-.->n-3147509
+r1["cup"]
+style r1 fill:#EFEF77
+r1-.->n-3147509
+r3["tableware"]
+style r3 fill:#EFEF77
+r3-.->n-4381994
+r4["Coffee Cup"]
+style r4 fill:#E27171
+r4-.->n-3063073
+r5["coffee cup"]
+style r5 fill:#EFEF77
+r5-.->n-3063073
+n-3174731[demitasse]
+n-3174731--"Hypernym"-->n-3063073
+end
+subgraph  Connected Component 1
+n-7881800[beverage]
+n-21265[food]
+n-7881800--"Hypernym"-->n-21265
+n-7570720[nutriment]
+n-7570720--"Hypernym"-->n-21265
+n-7556970[course]
+n-7556970--"Hypernym"-->n-7570720
+n-7609840[dessert]
+n-7609840--"Hypernym"-->n-7556970
+n-7566340[foodstuff]
+n-7566340--"Hypernym"-->n-21265
+n-7755089[cocoa]
+n-7755089--"Hypernym"-->n-7566340
+n-7922764[cocoa]
+n-7922764--"Hypernym"-->n-7881800
+n-7922764--"Substance meronym"-->n-7755089
+n-7935504[water]
+n-7935504--"Hypernym"-->n-21265
+n-7936263[drinking_water]
+n-7936263--"Hypernym"-->n-7881800
+n-7936263--"Hypernym"-->n-7935504
+n-7929519[coffee]
+n-7929519--"Substance meronym"-->n-14761122
+n-7929519--"Hypernym"-->n-7881800
+n-14761122[caffeine]
+n-7933274[tea]
+n-7933274--"Substance meronym"-->n-14761122
+n-7933274--"Hypernym"-->n-7881800
+l0["Beverage"]
+style l0 fill:#E27171
+l0-.->n-7881800
+l1["Drink"]
+style l1 fill:#E27171
+l1-.->n-7881800
+l2["drink"]
+style l2 fill:#EFEF77
+l2-.->n-7881800
+l3["Food"]
+style l3 fill:#E27171
+l3-.->n-21265
+l4["Dessert"]
+style l4 fill:#E27171
+l4-.->n-7609840
+l5["Chocolate"]
+style l5 fill:#E27171
+l5-.->n-7922764
+l6["Hot Chocolate"]
+style l6 fill:#E27171
+l6-.->n-7922764
+l7["hot chocolate"]
+style l7 fill:#EFEF77
+l7-.->n-7922764
+l8["coffee"]
+style l8 fill:#EFEF77
+l8-.->n-7929519
+l9["caffeine"]
+style l9 fill:#EFEF77
+l9-.->n-14761122
+l10["tea"]
+style l10 fill:#EFEF77
+l10-.->n-7933274
+end

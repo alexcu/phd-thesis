@@ -8,6 +8,7 @@
 \usepackage{pdfpages}   % Include PDFs
 \usepackage{pdflscape}  % Landscape PDF
 \usepackage{siunitx}    % SI Units
+\usepackage{fontawesome}% Fontawesome icons
 
 \ifpdf
 \newcommand{\includepdfframed}[1]{\includepdf[
@@ -24,3 +25,7 @@
  \fi
  
  \sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+ 
+ \usepackage{tikz}
+ \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
