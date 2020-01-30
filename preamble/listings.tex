@@ -38,7 +38,7 @@
   \ttfamily#1\bgroup\color{#3}\aftergroup\endlstdelim%
 }
 
-\lstdefinestyle{xml_style}
+\lstdefinestyle{xmlstyle}
 {
   morestring=[b]",
   moredelim=*[s][\bfseries\color{maroon}]{<}{>},
@@ -47,7 +47,7 @@
   morecomment=[s]{<!--}{-->},
 }
 
-\lstdefinestyle{json_style}
+\lstdefinestyle{jsonstyle}
 {
   morestring=[b]",
   comment=[l]{//},
@@ -56,10 +56,10 @@
 
 \lstdefinelanguage{JSON}
 {
-  style=json_style
+  style=jsonstyle
 }
 
 \lstdefinelanguage{XML}
 {
-  style=xml_style
+  style=xmlstyle
 }

@@ -4,6 +4,13 @@
 \nobibliography*
 \renewcommand{\bibfont}{\footnotesize}
 \setlength{\bibsep}{0pt plus 0.3ex}
-\bibliographystyle{IEEEtranSN}
+
+\usepackage{doi}
+\bibliographystyle{./IEEEtranDOI}
+
 \usepackage{multibib}
 \newcites{web}{List of Online Artefacts}
+\bibliographystyleweb{plain}
+
+\usepackage[normalem]{ulem}
+\renewcommand{\doitext}{DOI:~}

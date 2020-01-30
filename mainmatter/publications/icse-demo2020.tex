@@ -15,7 +15,7 @@ Demo: \url{\demolink}.
 \begin{figure}[t]
     \centering
     \includegraphics[width=.7\linewidth]{scatter}
-    \caption{Predictions for 100 emails from two spam classifiers. Decision thresholds are classifier-dependent:  a single threshold for both classifiers is \textit{not} appropriate as ham emails are clustered at 0.12 (model\_1) and at 0.65 (model\_2). Developers must evaluate  performance for \textit{both} thresholds.}
+    \caption[Example case study of evaluating model performance in two different models]{Predictions for 100 emails from two spam classifiers. Decision thresholds are classifier-dependent:  a single threshold for both classifiers is \textit{not} appropriate as ham emails are clustered at 0.12 (model\_1) and at 0.65 (model\_2). Developers must evaluate  performance for \textit{both} thresholds.}
     \label{icse-demo2020:fig:example}
 \end{figure}
 
@@ -56,7 +56,7 @@ Threshy improves developer productivity through automation of the threshold sele
     \includegraphics[width=.5\textwidth]{2c}~
     \includegraphics[width=.5\textwidth]{2d}
   \end{subfigure}
-  \caption{Pipeline of Nina's harvesting robot. \textit{Left:}~Photo from harvesting robot's webcam. \textit{Centre:}~Classification detecting different types of tomatoes. \textit{Right:}~Binary classification for ripeness (ripe/unripe) based on (R, G, B values).}% Bottom row is selected as ripe.}%, and sorted into sizes 1--10 using scale classification.}
+  \caption[Example pipeline of a computer vision system]{Pipeline of Nina's harvesting robot. \textit{Left:}~Photo from harvesting robot's webcam. \textit{Centre:}~Classification detecting different types of tomatoes. \textit{Right:}~Binary classification for ripeness (ripe/unripe) based on (R, G, B values).}% Bottom row is selected as ripe.}%, and sorted into sizes 1--10 using scale classification.}
   \label{icse-demo2020:fig:tomatoes}
 \end{figure}
 
@@ -81,7 +81,7 @@ To assist in developing Nina's pipeline, Lucy sampled a section of 1000 tomatoes
 \begin{figure*}[t!]
     \centering
     \includegraphics[width=\linewidth]{workflow}
-    \caption{UI workflow for interacting with Threshy to optimise the thresholds for classification problem.}
+    \caption[UI workflow of Threshy]{UI workflow for interacting with Threshy to optimise the thresholds for classification problem.}
     \label{icse-demo2020:fig:workflow}
 \end{figure*}
 
@@ -171,7 +171,7 @@ However, these tools are largely focused toward pre-development model evaluation
     \centering
     \includegraphics[width=\linewidth]{architecture}
     % \includegraphics[width=0.55\linewidth]{domain-model}
-    \caption{Architecture of Threshy.}
+    \caption[Architecture of Threshy]{Architecture of Threshy.}
     \label{icse-demo2020:fig:implementation}
     \vspace{-2em}
 \end{figure}
