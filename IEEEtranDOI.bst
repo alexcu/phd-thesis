@@ -2059,6 +2059,9 @@ FUNCTION {article}
   format.pages output
   format.date "year" output.warn
   format.note output
+  format.doi output
+  format.isbn output
+  format.issn output
   format.url output
   fin.entry
   if.url.std.interword.spacing
@@ -2082,6 +2085,7 @@ FUNCTION {book}
   format.address.publisher.date output
   format.volume output
   format.number output
+  format.doi output
   format.isbn output
   format.note output
   format.url output

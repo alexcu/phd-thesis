@@ -5,9 +5,9 @@
 
 
 \todo{ is it JUST CVS, or they one exemplar of intelligent APIs/services?? }
-This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}.\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.} 
+This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}.\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.}
 We identify the maturity, viability and risks of \glspl{cvs} through the anchoring perspective of \textit{reliability} that affects the internal and external quality of software. We adopt the McCall \citep{McCall:1977uy} and Boehm \citep{Boehm:1978vv} interpretations of reliability via the sub-characteristics of a service's \textit{consistency} and \textit{robustness} (or fault/error tolerance), and the \textit{completeness}\footnote{We treat the \gls{api} documentation of a \gls{cvs} as a first-class citizen.} of its documentation. (A detailed discussion is further provided in \cref{sec:background:software-quality}.)
-This thesis explores and contributes towards \textit{four} key facets regarding reliability in \gls{cvs} usage and the completeness of its associated documentation. We formulate four primary research questions (RQs) with six sub-RQs, based on both empirical and non-empirical \glslong{se} methodology \citep{Shull:2007vh,Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
+This thesis explores and contributes towards \textit{four} key facets regarding reliability in \gls{cvs} usage and the completeness of its associated documentation. We formulate four primary research questions (RQs) with six sub-RQs, based on both empirical and non-empirical \glslong{se} methodology \citep{Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
 \subsection{Research Questions}
 
@@ -63,7 +63,7 @@ Lastly, based on our analysis of the documentation, runtime and evolution profil
 \todo{Short section on research methodology... greater described in chapter}
 
 %
-%    \item 
+%    \item
 %    \begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*]
 %      \item What makes good \gls{api} documentation, accordingly to both literature and practitioners?
 %      \item To what extent do \gls{cvs} providers follow these guidelines in documenting their own \glspl{api}?
@@ -79,18 +79,18 @@ Lastly, based on our analysis of the documentation, runtime and evolution profil
 
 %
 %Research questions:
-% 
-%   (ii) how developers currently approach using these services; and (iii) where their existing documentation artefacts need improvement. 
 %
-%In this thesis, we show that . We also show that these 
+%   (ii) how developers currently approach using these services; and (iii) where their existing documentation artefacts need improvement.
+%
+%In this thesis, we show that . We also show that these
 %
 %\begin{callout}
 %This thesis aims to investigate and better understand the nature of cloud-based \glspl{cvs}.\end{callout}
 %
-%Based on the motivating case studies in \cref{sec:introduction:motivation}, our investigation 
+%Based on the motivating case studies in \cref{sec:introduction:motivation}, our investigation
 %
 %
-% we articulate two Research Hypotheses (RH1--2) below 
+% we articulate two Research Hypotheses (RH1--2) below
 %
 %
 %
@@ -132,7 +132,7 @@ Lastly, based on our analysis of the documentation, runtime and evolution profil
 %Pain-points on community discussion forums---such as \glslong{so}---reflect the clash of mindsets between application developers and  \gls{cvs} providers, and both poor documentation and education in the area results in lost productivity and poor internal quality.
 %
 %\paragraph{Research Goal}
-%To improve the effectiveness of the usability and documentation of \gls{iws} \glspl{api}---specifically of \gls{cvs} \glspl{api}---by using existing \gls{se} \gls{api} documentation knowledge aligned to the needs of developers, and identifying how developers complaints differ to more established fields. 
+%To improve the effectiveness of the usability and documentation of \gls{iws} \glspl{api}---specifically of \gls{cvs} \glspl{api}---by using existing \gls{se} \gls{api} documentation knowledge aligned to the needs of developers, and identifying how developers complaints differ to more established fields.
 %
 %\paragraph{Research Questions}
 %\begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
@@ -155,9 +155,9 @@ Lastly, based on our analysis of the documentation, runtime and evolution profil
 %Based on the findings and recommendations of the studies conducted in this thesis, we offer a two-fold solution that resolves critical issues arising from our investigation. The first is a  technical solution while the second offers an educational perspective on improvements in the understanding of \glspl{iws}. The thesis offers six major contributions:
 %
 %\begin{enumerate}[label=(\roman*),leftmargin=2\parindent]
-%  \item \tonote{ASE} a novel architectural facade to guard against unintended post-production side effects of \glspl{iws}; 
+%  \item \tonote{ASE} a novel architectural facade to guard against unintended post-production side effects of \glspl{iws};
 %  \item \tonote{ASE} a reference implementation of the architecture within the context of \glspl{cvs};
-%  \item \tonote{ICSE-Demo} a tool to help fine-tune confidence thresholds against domain-specific datasets when using \glspl{iws}; 
+%  \item \tonote{ICSE-Demo} a tool to help fine-tune confidence thresholds against domain-specific datasets when using \glspl{iws};
 %  \item \tonote{ASE+ICSE-Demo} a software development workflow designed to evaluate and consume \glspl{cvs} in pre-development, development, testing and production;
 %  \item \tonote{ESEM} a documentation quality assessment taxonomy, based on \todo{number of primary studies} studies, to evaluate the quality of documentation of \glspl{api};
 %  \item \tonote{ESEMx+ICSE} knowledge for both educators and practitioners to improve understanding  \glspl{api} within the context of \glspl{cvs}.
