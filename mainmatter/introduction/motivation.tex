@@ -1,43 +1,13 @@
-\section{Research Motivation}%: The Nondeterministic Impact to Quality}
-\label{sec:introduction:motivation}
-
-\todo{This section describes deterministic mindset clashing against probabilistic behaviour}
-
-\todo{MA: It is useful to highlight the takeaways of each paragraph - e.g. probabilistic nature of ML, Choosing a threshold problem, lack of understanding of how ml works, documentation style of ml models. then at the end of the section, clearly state the problem/gap  considered}
-
-\glspl{iws} are accessible through \glspl{api} consisting of `black box' intelligence (\cref{fig:introduction:cloud-intelliegnce-service}).\footnote{The `black box' refers to a system that transforms input (or stimulus)  to outputs (or response) without any understanding of the internal architecture by which this transformation occurs. This arises from a theory in the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. }
-Data scientists produce \gls{ml} algorithms to make predictions in our datasets and discover patterns within them. These black boxes are inherently probabilistic and stochastic; there is little room for certainty in these results, as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. 
-
-Evermore applications are using \glspl{cvs} as demonstrated by ubiquitous examples: aiding the vision-impaired \citep{Reis:2018cp,daMotaSilveira:2017vp}, accounting  \citep{Marshall:2018uj}, data analytics \citep{Iyengar:2017fb}, and student education \citep{Dibia:2017iy}.
-However, developers who build these applications do not need to treat their programs in a stochastic or probabilistic mindset manner, given a rule-driven mindset that computers make certain outcomes.
-A \gls{cvs}, for example, may return the \textit{probability} that a particular object exists in an input images' pixels, and thus for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made. 
-
-Unless a change in \gls{api} version occurs, educators teach application developers a deterministic mindset that an \gls{api} call returns the same outputs for the same inputs. As an example, consider simple arithmetic representations (e.g., $2+2=4$). The deterministic (rule-driven) mindset suggests that the result will \textit{always} be 4. However, the non-deterministic (data-driven) mindset suggests that results are probable: target output (\textit{exactly} 4) and the output inferred (\textit{a likelihood of} 4) matches as a probable percentage (or as an error where it does not match).\footnote{\citet{Blake:1998vd} produces a multi-layer perceptron \glslong{nn} performing arithmetic representation.} Instead of an exact output, there is a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 to a confidence of $n$. 
-
-Developers must appreciate such a critical principle of \gls{ml} software when building quality \gls{ai}-first applications, particularly reliability. The external quality of such software needs to consider reliability in the case of thresholding confidence values, that is whether the inference has an appropriate level of confidence to justify a predicted (and reliable) result to end-users. Selecting this confidence threshold is non-trivial; a \gls{ml} course from Google suggests that ``it is tempting to assume that [a] classification threshold should always be 0.5, but thresholds are problem-dependent, and are therefore values that you must tune.''~\citepweb{GoogleClassifcation:Thresholding}. Approaches to turning these values are considered for data scientists, but are not yet well-understood for application developers with little appreciation of the nuances of \gls{ml}. Similarly, developers should consider the internal quality of building \gls{ai}-first software. Reliable \gls{api} usability and documentation advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation~\citep{Piccioni:2013em,Robillard:2009uk} and providers should consider mismatches between a developer's conceptual knowledge of the \gls{api} its implementation~\citep{Ko:2011fb}. Unreliable \glspl{api} ultimately hinder developer performance and thus reduces productivity. \Cref{ssec:introduction:motivation:scenario} provides two motivating scenarios describing these concerns in greater detail.
-%
-%% TODO: Copied from ml inconsistency paper
-%\subsection{The Impact on Software Quality}
-%\label{ssec:introduction:motivation:impact}
-%
-%Do traditional techniques for documenting deterministic \glspl{api} apply to non-deterministic systems? As \glspl{api} reflect a set of design choices made by their providers intended for use by the developer, does the mindset between the machine learning architect and the novice programmer match? 
-%
-%Moreover, \gls{iws} \glspl{api} are inherently non-deterministic in nature, but 
-%In order to fully understand this problem, there are multiple dimensions one must consider: the impact of software quality; the fact that these systems underneath are probabilistic and are stochastic; the cognitive biases of determinism in developers; the issue of consistency in \gls{api} usage. While existing literature does extensively explore software quality and \gls{api} usability, these studies have only had emphasis on deterministic systems and thus little work to date has investigated such factors on probabilistic systems that make up the core of \glspl{cvs}. We explore more of these facets in the motivating scenarios below.
-
-\subsection{Motivating Scenarios}
-\label{ssec:introduction:motivation:scenario}
+\section{Motivating Scenarios}
+\label{ssec:introduction:motivation}
 
 \todo{Could move this into the appendix to keep introduction chapter tighter}
-
 \todo{JG: or could use one of these at start of section 1.2 to help clarify/motivate...}
-
 \todo{yes too long in this chapter - use one, simplify a bit. Could put other one in appendix... }
-
 \todo{MA: i guess the discussion related to Table1.3 and Table1.4 could be moved to 1.2 as one of the challenges}
 \todo{MA: after reading the section, it looks like you could move it before 1.2}
 
-The market for \glspl{iws} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
+The market for \glsplx{cvs} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
 
 To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-first components has substantiative impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to lack of comprehension, this hinders developer experience, productivity, and understanding/appreciation of \gls{ai}-based components.
   
@@ -84,7 +54,7 @@ In \cref{fig:introduction:motivation:scenario:cancer} we present a context diagr
 
 \begin{figure}[th]
 \centering
-  \includegraphics[width=0.85\linewidth]{cancer-assist}
+  \includegraphics[width=0.8\linewidth]{cancer-assist}
   \caption[CancerAssist Context Diagram]{CancerAssist Context Diagram. \textit{\textbf{Key:} Red Arrows~=~Scan Input; Yellow Arrows~=~Decision Output; Blue Arrows~=~\gls{hitl} Feedback Input.}}
   \label{fig:introduction:motivation:scenario:cancer}
 \end{figure}
@@ -103,6 +73,52 @@ Certain questions in the production of CancerAssist and its use of an \gls{iws} 
 
 Thus, to improve communication between developers and \gls{iws} providers, developers require enhanced documentation, additional metadata, and guidance tooling. 
 
+\section{Research Motivation}%: The Nondeterministic Impact to Quality}
+\label{sec:introduction:motivation}
+
+\todo{MA: It is useful to highlight the takeaways of each paragraph - e.g. probabilistic nature of ML, Choosing a threshold problem, lack of understanding of how ml works, documentation style of ml models. then at the end of the section, clearly state the problem/gap  considered} \todo{AC: Have re-done a substantial part of this section}
+
+\newcontent
+Evermore applications are using \glspl{iws} as demonstrated by ubiquitous examples: aiding the vision-impaired \citep{Reis:2018cp,daMotaSilveira:2017vp}, accounting  \citep{Marshall:2018uj}, data analytics \citep{Iyengar:2017fb}, and student education \citep{Dibia:2017iy}.
+As our motivating examples have illustrated, these \gls{ai}-based components---specifically \glspl{cvs}---are accessible through \glspl{api} consisting of `black box' intelligence (\cref{fig:introduction:cloud-intelliegnce-service}).\footnote{The `black box' refers to a system that transforms input (or stimulus)  to outputs (or response) without any understanding of the internal architecture by which this transformation occurs. This arises from a theory in the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. }
+Data science teams produce \gls{ml} algorithms to make predictions in our datasets and discover patterns within them. As these algorithms are data-dependent, they are therefore inherently probabilistic and stochastic, which results in four critical issues that motivate our thesis: (i) certainty in results, (ii) evolution of datasets, (iii) selecting appropriate decision boundaries, and (iv) the clarity of \gls{ml} documentation that address items i--iii.
+
+% Certainty
+There is little room for certainty in these results as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. Developers who build these applications do not to treat their programs with a stochastic or probabilistic mindset, given that they are trained with a rule-driven mindset that computers make certain outcomes. 
+However, \glspl{cvs} are data-driven, and therefore return the \textit{probability} that a particular object exists in an input images' pixels via confidence values.
+As an example, consider simple arithmetic representations (e.g., $2+2=4$). The deterministic (rule-driven) mindset suggests that the result will \textit{always} be 4. However, the non-deterministic (data-driven) mindset suggests that results are probable: target output (\textit{exactly} 4) and the output inferred (\textit{a likelihood of} 4) matches as a probable percentage (or as an error where it does not match).\footnote{\citet{Blake:1998vd} produces a multi-layer perceptron \glslong{nn} performing arithmetic representation.} Instead of an exact output, there is a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 to a confidence of $n$. 
+Thus, for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made and ensure reliability in its outcome.
+
+% Evolution
+Traditional software engineering principles advocate for software systems to be versioned upon substantial change, but unfortunately we find that the most prominent cloud vendors providing these intelligent services (e.g., Microsoft Azure, Google Cloud and Amazon Web Services) do not release new versioned endpoints of the APIs when the \textit{internal model} changes~\citep{Cummaudo:2019icsme}. In the context of computer vision, new labels may be introduced or dropped, confidence values may differ, entire ontologoies or specific training parameters may change, but we hypothesise that is not effectively communicated to developers. Broadly speaking, this can be attributed to a dichotomy of release cycles from the data science and software engineering communities: the data science iterations and work by which new models are trained and released runs at a faster cycle than the maintenance cycle of traditional software engineering. Thus we see cloud vendors integrating model changes without the \textit{need} to update the \gls{api} version unless substantial code or schema changes are also introduced---the nuance changes in the internal model does not warrant a shift in the \gls{api} itself, and therefore the version shift in a new model does not always propagate to a version shift in the \gls{api} endpoint.
+%Furthermore, unless a change in \gls{api} version occurs, educators teach application developers a deterministic mindset that an \gls{api} call returns the same outputs for the same inputs each and every time the \gls{api} is called. As mentioned, these services are dependent on their training dataset, and it is common to see them marketed as `continually learning' without offering a proper versioning system. Hence, if their training dataset evolves, this impacts the distribution of future results.
+As demonstrated in \cref{tab:introduction:motivation:scenario:pam:confchanges}, whatever input is uploaded at one time may not necessarily be the same when uploaded at a later time. This again contrasts the rule-driven mindset, where $2+2$ \textit{always} equals 4. Therefore, in addition to the certainty of a result in a single instance, the certainty of a result in \textit{multiple instances} may differ with time, which again impacts on the developers notion of reliable software.
+Currently, it is impossible to invoke requests specific to a particular model that was trained at a particular date in time, and therefore developers need to consider how evolutionary changes of the services may impact their solutions \textit{in production}. Again, whether there is any noticeable behavioural changes from these changes is dependent on the context of the problem domain---unless developers benchmark these changes against their own domain-specific dataset and frequently check their selected service against such a dataset, there is no way of knowing if substantive errors have been introduced.
+
+% Thresholding
+Further, the only response in these computer vision classifiers are a label and confidence value; the decision boundaries need to be appropriately considered for each use case and each model selected. 
+The external quality of such software needs to consider reliability in the case of thresholding confidence values---that is whether the inference has an appropriate level of confidence to justify a predicted (and reliable) result to end-users. Selecting this confidence threshold is non-trivial; a \gls{ml} course from Google suggests that ``it is tempting to assume that [a] classification threshold should always be 0.5, but thresholds are problem-dependent, and are therefore values that you must tune.''~\citep{Classifi7:online}. 
+Approaches to turning these values are considered for data scientists, but are not yet well-understood for application developers with little appreciation of the nuances of \gls{ml}. 
+
+% Documentation
+Similarly, developers should consider the internal quality of building \gls{ai}-first software. Reliable \gls{api} usability and documentation advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation~\citep{Piccioni:2013em,Robillard:2009uk} and providers should consider mismatches between a developer's conceptual knowledge of the \gls{api} its implementation~\citep{Ko:2011fb}. Unreliable \glspl{api} ultimately hinder developer performance and thus reduces productivity, in addition to producing potentially unreliable software where documentation is not well-understood (or clear to the developer).
+
+Ultimately, these four issues present major threats to software reliability if left unresolved. Given that such substantiative software engineering principles on reliability, versioning and quality  are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the software engineering literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using \gls{ai}-based components. This serves as our core motivation for this work.
+
+%
+%
+%Given that such substantiative \gls{se} principles on versioning, quality and robustness are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the \gls{se} literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using \gls{ai}-based components. 
+
+%Nit tjere are  either with improved documentation or improved strategies to deal with these issues.
+% Developers must appreciate such a critical principle of \gls{ml} software when building quality \gls{ai}-first applications, particularly reliability. 
+%% TODO: Copied from ml inconsistency paper
+%\subsection{The Impact on Software Quality}
+%\label{ssec:introduction:motivation:impact}
+%
+%Do traditional techniques for documenting deterministic \glspl{api} apply to non-deterministic systems? As \glspl{api} reflect a set of design choices made by their providers intended for use by the developer, does the mindset between the machine learning architect and the novice programmer match? 
+%
+%Moreover, \gls{iws} \glspl{api} are inherently non-deterministic in nature, but 
+%In order to fully understand this problem, there are multiple dimensions one must consider: the impact of software quality; the fact that these systems underneath are probabilistic and are stochastic; the cognitive biases of determinism in developers; the issue of consistency in \gls{api} usage. While existing literature does extensively explore software quality and \gls{api} usability, these studies have only had emphasis on deterministic systems and thus little work to date has investigated such factors on probabilistic systems that make up the core of \glspl{cvs}. We explore more of these facets in the motivating scenarios below.
 %While developers are expected to use these services as they would any other traditional software component, the marketed promise is that such services are forever-learning and, therefore, `improve' in their accuracies and judgements. But what are the real-world consequences if this `black box' evolves with time and has materially substantiate impacts on both the software that is built on top of them, and (more importantly) the \textit{people} using that software? If the impact is substantial, the robustness of applications dependent on these services can have drastic effects, and---depending of the context of the application---the real-world damage it may do could be catastrophic. Should we consider this an `error' of the service?
 %
 %% Real world implications -- what is an error? (i.e., it depends on the application context)

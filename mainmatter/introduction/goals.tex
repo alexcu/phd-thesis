@@ -1,15 +1,13 @@
 \section{Research Goals}
-\label{sec:introduction:hypohtesis}
+\label{sec:introduction:goals}
 
-\subsection{Research Overview}
+\todo{JG: is it JUST CVS, or they one exemplar of intelligent APIs/services?? AC: Re-wrote... Tried to clarify that in this first sentence.}
 
-
-\todo{ is it JUST CVS, or they one exemplar of intelligent APIs/services?? }
-This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}.\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.}
+This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.} as a concrete exemplar of \glsplx{iws}.
 We identify the maturity, viability and risks of \glspl{cvs} through the anchoring perspective of \textit{reliability} that affects the internal and external quality of software. We adopt the McCall \citep{McCall:1977uy} and Boehm \citep{Boehm:1978vv} interpretations of reliability via the sub-characteristics of a service's \textit{consistency} and \textit{robustness} (or fault/error tolerance), and the \textit{completeness}\footnote{We treat the \gls{api} documentation of a \gls{cvs} as a first-class citizen.} of its documentation. (A detailed discussion is further provided in \cref{sec:background:software-quality}.)
 This thesis explores and contributes towards \textit{four} key facets regarding reliability in \gls{cvs} usage and the completeness of its associated documentation. We formulate four primary research questions (RQs) with seven sub-RQs, based on both empirical and non-empirical \glslong{se} methodology \citep{Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
 
-\subsection{Research Questions}
+\oldcontent
 
 Firstly, we investigate adverse implications that arise when using \glspl{cvs} that affects consistency and robustness~(\textbf{\cref{ch:icsme2019}}). We show how \glspl{cvs} have a non-deterministic runtime behaviour and evolve with unintended and non-trivial consequences to developers. We demonstrate that these services have inconsistent behaviour despite offering the same functionality and pose evolution risk that effects robustness of consuming applications when responses change given the same (consistent) inputs. Thus, we conclude how the nature of these services (at present) are not fully robust, consistent, and thus not reliable. Formally, we structure the following RQs:
 
@@ -59,7 +57,7 @@ Lastly, we explore several strategies to help improve \glspl{cvs} reliability. F
 
 \section{Research Methodology}
 
-This thesis employs a mixed-methods approach using the concurrent triangulation strategy \citep{Jick:1979el,Bratthall2002}. The research presented consists of both empirical and non-empirical research design. This section provides a high-level overview of the research methodology within this thesis. Further details are provided in  \cref{ssec:introduction:organisation:coherency,ch:research-methodology}.
+This thesis employs a mixed-methods approach using the concurrent triangulation strategy \citep{Jick:1979el,Bratthall2002}. The research presented consists of both empirical and non-empirical research design. This section provides a high-level overview of the research methodology within this thesis. Further details are provided in  \cref{sec:introduction:research-contributions,ch:research-methodology}.
 
 Firstly, \ref{rq:icsme}--\ref{rq:icse} are all empirical, knowledge-based questions \citep{Easterbrook:2007ws,Meltzoff:1998wg} that aim to provide the software engineering community with a greater understanding of the phenomena surrounding \glspl{cvs} from three perspectives: the nature of the services themselves, how developers perceive these services and how service providers can improve these services.  We answer \ref{rq:icsme} using a longitudinal experiment that assesses both the services' responses and associated documentation (complementing \ref{rq:esem:rq2}). We adopt qualitative and quantitative data collection; specifically (i) structured observations to quantitatively analyse the results over time, and (ii) documentary research methods to inspect service documentation.
 Secondly, we perform systematic mapping study following the guidelines of \citet{Kitchenham:2007dd} and \citet{Petersen:2008td} to better understand how \gls{api} documentation of these services can be improved (i.e., more complete), which targets \cref{rq:esem}. Based on the findings from this study, we use a systematic taxonomy development methodology specifically targeted toward software engineering \citep{Usman:2017hn} that structures scattered \gls{api} documentation knowledge into a taxonomy. We then validate this taxonomy against practitioners using survey research, adopting \citeauthor{Brooke:1996ua} well-established Systematic Usability Score \citep{Brooke:1996ua} surveying instrument and contextualising it within \gls{api} documentation utility, which answers \ref{rq:icse:rq2}. To answer \ref{rq:esem:rq2}, we perform an empirical application of the taxonomy to three \glspl{cvs}, and therefore assess where improvements can be made.

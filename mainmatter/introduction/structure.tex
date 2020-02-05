@@ -3,8 +3,6 @@
 
 We organise the thesis into four parts. \textbf{\Cref{part:preface}~(\textit{The Preface})} includes introductory, background and methodology chapters. This is a \textit{PhD by Publication}, and \textbf{\cref{part:publications}~(\textit{Publications})} comprises of seven publications resulting from this work over \Cref{ch:icsme2019,ch:jss2020,ch:icse2020,ch:icse-demo2020,ch:fse2020,ch:icwe2019,ch:semotion2020}; publications are included verbatim except for terminology and formatting changes to better fit the suitability of a coherent thesis. \textbf{\Cref{part:postface}~(\textit{The Postface})} includes the conclusion and future works chapter, as well as a list of academic studies and online artefacts referenced within the thesis. \textbf{\Cref{part:appendices}~(\textit{Appendices})} includes all supplementary material, including mandatory authorship statements and ethics approval. Details of each chapter following this introductory chapter are provided in the following section.
 
-\subsection{Overview of Chapters}
-
 \subsubsection{\Cref{part:preface}: Preface}
 
 \paragraph{\cref{ch:background}: Background} This chapter provides an overview of prior studies broadly around three key pillars: the development of an \gls{iws}, the usage of an \gls{iws}, and the nature of an \gls{iws}. We use the three perspectives of software quality (particularly, reliability), probabilistic and non-deterministic systems, and explanation and communication theory to describe prior work.
@@ -35,11 +33,23 @@ We organise the thesis into four parts. \textbf{\Cref{part:preface}~(\textit{The
 
 \Cref{ch:additional-materials} provides additional material referenced within this thesis but not provided in the body. We provide mandatory coauthor declaration forms describing the contribution breakdown for each publication within \cref{ch:authorship-statements}. \Cref{ch:ethics} contains copies of the ethics clearance for various experiments within this thesis. We describe the list of primary sources arising in the \glslong{sms} we conduct in \cref{ch:jss2020} within \cref{ch:sms-primary-sources}.
 
+\section{Research Contributions}
+\label{sec:introduction:research-contributions}
 
-\subsection{Coherency of Publications}
-\label{ssec:introduction:organisation:coherency}
+\todo{would be good to have more detail HERE on the key contributions made in this work; Please include more details of the contributions - e.g. which research question is addressed in this contribution, key findings, you could also list the publications associated with each one. Also in this case you do not need section 1.4.2}
+\todo{AC: Have merged 1.4.2 into this; now the coherency of publications + contributions made are one, which makes sense given thesis by pub.}
+\newcontent
+The outcomes of answering the four primary research questions elaborated in \cref{sec:introduction:goals} shapes three primary contributions this thesis offers to software engineering knowledge:
 
-In this section, we detail how each publication forms a coherent body of work. After our exploratory analysis on the nature of \glspl{cvs} (\cref{ch:icsme2019}), we proposed two sets of recommendations targeted towards two stakeholders: (i) the service \textit{consumers} (i.e., application developers) and (ii) the service \textit{providers}. Our subsequent publications arose as a two-fold investigation to develop two strategies in which developers and providers can, respectively, (i) better integrate these intelligent components into their applications, and (ii) how these services can be better documented. \Cref{tab:introduction:structure:list-of-pubs} provides a tabulated form of the publications and research questions addressed within this thesis; for ease of reference, we refer to the publications in within this section in their abbreviated form as listed in \cref{tab:introduction:structure:list-of-pubs}. We also provide abbreviations for easier reference in this section. A high-level overview of the cohesiveness of our publications is provided in \cref{fig:introduction:structure:publications-overview}.
+\begin{itemize}
+  \item An improved understanding in the landscape of \glspl{cvs}, with respect to their runtime behaviour and evolutionary profiles. 
+  \item A service integration architecture that helps developers with integrating their applications with \glspl{cvs}.
+  \item A list of attributes that should be documented to assist \gls{cvs} providers to better document their services.
+\end{itemize}
+
+In this section, we detail how each publication forms a coherent body of work and how each publication relates to the primary contributions made.
+\oldcontent
+After our exploratory analysis on the nature of \glspl{cvs} (\cref{ch:icsme2019}), we proposed two sets of recommendations targeted towards two stakeholders: (i) the service \textit{consumers} (i.e., application developers) and (ii) the service \textit{providers}. Our subsequent publications arose as a two-fold investigation to develop two strategies in which developers and providers can, respectively, (i) better integrate these intelligent components into their applications, and (ii) how these services can be better documented. \Cref{tab:introduction:structure:list-of-pubs} provides a tabulated form of the publications and research questions addressed within this thesis; for ease of reference, we refer to the publications in within this section in their abbreviated form as listed in \cref{tab:introduction:structure:list-of-pubs}. We also provide abbreviations for easier reference in this section. A high-level overview of the cohesiveness of our publications is provided in \cref{fig:introduction:structure:publications-overview}.
 
 \begin{table}
   \centering
@@ -142,7 +152,7 @@ In this section, we detail how each publication forms a coherent body of work. A
   \label{fig:introduction:structure:publications-overview}
 \end{figure}
 
-\subsubsection{Landscape Analysis and Preliminary Solution Design}
+\subsection{Contribution 1: Landscape Analysis \& Preliminary Solutions}
 
 The first two bodies of work in this paper are the ICSME and ICWE papers. These two works investigated a landscape analysis \glspl{cvs} from two perspectives: firstly, we conducted a longitudinal study to better understand the attributes associated with these services (ICSME)---particularly their evolution and behavioural profiles, and their potential impacts to software reliability---and tackled a preliminary solution facade to `merge' responses of the services together (ICWE). 
 
@@ -150,7 +160,7 @@ The ICSME paper confirmed our hypotheses that the services have a non-determinis
 
 Our ICWE paper explored one aspect identified from the ICSME paper that we identified early on: that different services use different vocabularies to describe semantically similar objects but in different ways (e.g., `border collie' vs. `collie'), despite offering functionally similar capabilities. We attempted to merge the response labels from these services using a proportional representation approach, and upon comparison with more naive merge approaches, we improved label-merge performance by an F-measure of 0.015. However, while this was an interesting outcome for a preliminary solution design, investigation from our following work suggested that standardising ontologies between service providers becomes challenging and normalising the entire ontological hierarchy of response labels would need to fall under the responsibility of a certain body (that does not exist). Further, we did not find sufficient evidence that developers would frequently switch between service providers. Therefore, we opted for a shielded relay architecture in our later design work.  
 
-\subsubsection{Improving Documentation Attributes}
+\subsection{Contribution 2: Improving Documentation Attributes}
 
 As mentioned, our ICSME paper found that evolutionary and non-deterministic behavioural profile of are not adequately documented in the service's \glspl{api} documentation. A recommendation concluding from this work was that service providers should improve their documentation, however there lacked a strategy by which they could do this, and our hypotheses that developers were actually frustrated by this lack of communication was yet to be tested. This led to two follow-up further investigations as presented in our ICSE and ESEM papers.
 
@@ -158,28 +168,10 @@ One aspect of our ICSE paper was to confirm whether developers are actually frus
 
 However, though improvements to more complete documentation was justified from the ICSE paper, we needed to explore exactly \textit{what} makes a `complete' \gls{api} document. By conducting a \glslong{sms} resulting in 4,501 results, we curated 21 primary studies that outline the facets of \gls{api} documentation knowledge. From these studies, we distilled a documentation framework describing a prioritised order of the documentation assets \gls{api}'s should document that is described in our ESEM short paper. After receiving community feedback, we extended this short paper with a follow-up experiment submitted to JSS. By conducting a survey with developers, we assessed our \gls{api} documentation taxonomy's efficacy with practitioner opinions, thereby producing a weighted taxonomy against \textit{both} literature and developer sources. Lastly, we triangulated both weightings against a heuristic evaluation against common \gls{cvs} providers' documentation. This allowed us to deduce which specific areas in existing \gls{cvs} providers' \gls{api} documentation needed improvement, which was a primary contribution from our JSS article.
 
-\subsubsection{Service Integration Architecture}
+\subsection{Contribution 3: Service Integration Architecture}
 
 Two recommendations from our ICSME study encouraged developers to test their applications with a representative ontology for their problem domain and to incorporate a specialised testing and monitoring techniques into their workflow. Strategies on \textit{how} to achieve this were explored in later studies.  Following a similar approach to our solution of improved \gls{api} documentation, we validated the substantiveness of our recommendations using our mining study of \glslong{so} (our ICSE paper) to help inform us of generalised issues developers face whilst integrating \glspl{cvs} into their applications. To achieve this, we used a \glslong{so} post classification taxonomy proposed by \citet{Beyer:2018fm} into seven categories, where 28.9\% and 20.37\% of posts asked issues regarding how to use the \gls{cvs} \gls{api} and conceptual issues behind \glspl{cvs}, respectively. Developers presented an insufficient understanding of the non-deterministic runtime behaviour, functional capability, and limitations of these services and are not aware of key \glslong{cv} terminology. When contrasted to more conventional domains such as mobile-app development, the spread of these issues vary substantially.
 
 We proposed two technical solutions in ICSE(d) and ESEC/FSE, respectively, to help alleviate this issue. \todo{Revise this... needs to be fleshed out} Firstly, our ICSE(d) paper provides a workflow for developers to better select an appropriate confidence threshold, and thus decision boundary, calibrated for their particular use case. In our ESEC/FSE paper, we provide a reference architecture for developers to guard against the non-deterministic issues that may `leak' into their applications. This architecture is a facade style, similar to the style proposed in our ICWE paper, however, unlike the ICWE paper that uses proportional representation approach to modify multiple sources, our ESEC/FSE paper proposes a guarded relay, whereby a single service is used, and the facade should maintain a lifecycle to monitor evolution issues identified in ICSME and should be benchmarked against the developer's dataset (i.e., against the particular application domain) as suggested in ICSE(d). These two primary contributions further serve as an answer to \ref{rq:fse}.
 
 % RQ3.3 -- range is diff == existing strategies are not enough!
-
-\section{Research Contributions}
-
-\todo{would be good to have more detail HERE on the key contributions made in this work}
-
-\todo{Please include more details of the contributions - e.g. which research question is addressed in this contribution, key findings, you could also list the publications associated with each one. Also in this case you do not need section 1.4.2}
-
-The outcomes of answering these four primary research questions helps shape the three primary contributions this thesis offers to software engineering knowledge:
-
-\begin{itemize}
-  \item An improved understanding in the landscape of \glspl{cvs}, with respect to their runtime behaviour and evolutionary profiles.
-  \item A service integration architecture that helps developers with integrating their applications with \glspl{cvs}.
-  \item A list of attributes that should be documented to assist \gls{cvs} providers to better document their services.
-\end{itemize}
-
-\noindent
-These contributions are detailed further within \cref{ch:conclusions}.
-\todo{I wonder if putting summary of key thesis contributions HERE to end the chapter might be best???}

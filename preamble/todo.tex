@@ -14,6 +14,13 @@
 \newcommand*{\missingcitation}{\colorbox{red}{?CITE?}}
 \makeatletter
 
+\newcommand{\newcontent}[0]{
+  \renewcommand\thelinenumber{\color{red}\arabic{linenumber}}
+}
+\newcommand{\oldcontent}[0]{
+  \renewcommand\thelinenumber{\color{black}\arabic{linenumber}}
+}
+
 % !! TODO: Comment out when final mode
 \def\@setref#1#2#3{%
    \ifx#1\relax
