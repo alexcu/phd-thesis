@@ -15,85 +15,85 @@
 \makeatletter
 
 % !! TODO: Comment out when final mode
-%\def\@setref#1#2#3{%
-%   \ifx#1\relax
-%    \protect\G@refundefinedtrue
-%    \nfss@text{\reset@font\missingreference}%
-%    \@latex@warning{Reference `#3' on page \thepage \space
-%              undefined}%
-%   \else
-%    \expandafter#2#1\null
-%   \fi}
-%\def\NAT@citexnum[#1][#2]#3{%
-% \NAT@sort@cites{#3}%
-% \let\@citea\@empty
-%  \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
-%    \@for\@citeb:=\NAT@cite@list\do
-%    {\edef\@citeb{\expandafter\@firstofone\@citeb}%
-%     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
-%     \@ifundefined{b@\@citeb\@extra@b@citeb}{%
-%       {\reset@font\missingcitation}
-%        \NAT@citeundefined\PackageWarning{natbib}%
-%       {Citation `\@citeb' on page \thepage \space undefined}}%
-%     {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
-%      \NAT@parse{\@citeb}%
-%      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
-%        \let\NAT@name=\NAT@all@names
-%        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
-%      \fi
-%      \ifNAT@full\let\NAT@nm\NAT@all@names\else
-%        \let\NAT@nm\NAT@name\fi
-%      \ifNAT@swa
-%       \ifnum\NAT@ctype=2\relax\@citea
-%        \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
-%            \NAT@test{2}\hyper@natlinkend\else
-%       \ifnum\NAT@sort>1
-%         \begingroup\catcode`\_=8
-%            \ifcat _\ifnum\z@<0\NAT@num _\else A\fi
-%              \global\let\NAT@nm=\NAT@num \else \gdef\NAT@nm{-2}\fi
-%            \ifcat _\ifnum\z@<0\NAT@last@num _\else A\fi
-%              \global\@tempcnta=\NAT@last@num \global\advance\@tempcnta by\@ne
-%              \else \global\@tempcnta\m@ne\fi
-%         \endgroup
-%         \ifnum\NAT@nm=\@tempcnta
-%           \ifx\NAT@last@yr\relax
-%             \edef\NAT@last@yr{\@citea \mbox{\NAT@num}}%
-%           \else
-%             \edef\NAT@last@yr{--\penalty\@m\mbox{\NAT@num}}%
-%           \fi
-%         \else
-%           \NAT@last@yr \@citea \mbox{\NAT@num}%
-%           \let\NAT@last@yr\relax
-%         \fi
-%       \else
-%         \@citea \mbox{\hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@num
-%                    \hyper@natlinkend}%
-%       \fi
-%       \fi
-%       \def\@citea{\NAT@sep\penalty\@m\NAT@space}%
-%      \else
-%        \ifcase\NAT@ctype\relax
-%          \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\penalty\@m\NAT@space\else
-%          \@citea \NAT@test{1}\ \NAT@@open
-%          \if\relax#1\relax\else#1\ \fi\fi \NAT@mbox{%
-%          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
-%          \NAT@num\hyper@natlinkend}%
-%          \def\@citea{\NAT@@close\NAT@sep\penalty\@m\ }%
-%        \or\@citea
-%          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
-%           \NAT@test{1}\hyper@natlinkend
-%          \def\@citea{\NAT@sep\penalty\@m\ }%
-%        \or\@citea
-%          \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@test{2}%
-%           \hyper@natlinkend
-%          \def\@citea{\NAT@sep\penalty\@m\ }%
-%        \fi
-%      \fi
-%      }}%
-%      \ifnum\NAT@sort>1\NAT@last@yr\fi
-%      \ifNAT@swa\else\ifnum\NAT@ctype=0\if\relax#2\relax\else
-%      \NAT@cmt\ #2\fi \NAT@@close\fi\fi}{#1}{#2}}
-%\makeatother
+\def\@setref#1#2#3{%
+   \ifx#1\relax
+    \protect\G@refundefinedtrue
+    \nfss@text{\reset@font\missingreference}%
+    \@latex@warning{Reference `#3' on page \thepage \space
+              undefined}%
+   \else
+    \expandafter#2#1\null
+   \fi}
+\def\NAT@citexnum[#1][#2]#3{%
+ \NAT@sort@cites{#3}%
+ \let\@citea\@empty
+  \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
+    \@for\@citeb:=\NAT@cite@list\do
+    {\edef\@citeb{\expandafter\@firstofone\@citeb}%
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+     \@ifundefined{b@\@citeb\@extra@b@citeb}{%
+       {\reset@font\missingcitation}
+        \NAT@citeundefined\PackageWarning{natbib}%
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+     {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
+      \NAT@parse{\@citeb}%
+      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+        \let\NAT@name=\NAT@all@names
+        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+      \fi
+      \ifNAT@full\let\NAT@nm\NAT@all@names\else
+        \let\NAT@nm\NAT@name\fi
+      \ifNAT@swa
+       \ifnum\NAT@ctype=2\relax\@citea
+        \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+            \NAT@test{2}\hyper@natlinkend\else
+       \ifnum\NAT@sort>1
+         \begingroup\catcode`\_=8
+            \ifcat _\ifnum\z@<0\NAT@num _\else A\fi
+              \global\let\NAT@nm=\NAT@num \else \gdef\NAT@nm{-2}\fi
+            \ifcat _\ifnum\z@<0\NAT@last@num _\else A\fi
+              \global\@tempcnta=\NAT@last@num \global\advance\@tempcnta by\@ne
+              \else \global\@tempcnta\m@ne\fi
+         \endgroup
+         \ifnum\NAT@nm=\@tempcnta
+           \ifx\NAT@last@yr\relax
+             \edef\NAT@last@yr{\@citea \mbox{\NAT@num}}%
+           \else
+             \edef\NAT@last@yr{--\penalty\@m\mbox{\NAT@num}}%
+           \fi
+         \else
+           \NAT@last@yr \@citea \mbox{\NAT@num}%
+           \let\NAT@last@yr\relax
+         \fi
+       \else
+         \@citea \mbox{\hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@num
+                    \hyper@natlinkend}%
+       \fi
+       \fi
+       \def\@citea{\NAT@sep\penalty\@m\NAT@space}%
+      \else
+        \ifcase\NAT@ctype\relax
+          \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\penalty\@m\NAT@space\else
+          \@citea \NAT@test{1}\ \NAT@@open
+          \if\relax#1\relax\else#1\ \fi\fi \NAT@mbox{%
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+          \NAT@num\hyper@natlinkend}%
+          \def\@citea{\NAT@@close\NAT@sep\penalty\@m\ }%
+        \or\@citea
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+           \NAT@test{1}\hyper@natlinkend
+          \def\@citea{\NAT@sep\penalty\@m\ }%
+        \or\@citea
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@test{2}%
+           \hyper@natlinkend
+          \def\@citea{\NAT@sep\penalty\@m\ }%
+        \fi
+      \fi
+      }}%
+      \ifnum\NAT@sort>1\NAT@last@yr\fi
+      \ifNAT@swa\else\ifnum\NAT@ctype=0\if\relax#2\relax\else
+      \NAT@cmt\ #2\fi \NAT@@close\fi\fi}{#1}{#2}}
+\makeatother
 
 \else\fi
 
