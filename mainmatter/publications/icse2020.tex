@@ -441,12 +441,8 @@ Such documentation could be provided using interactive tutorials.
 \label{icse2020:sec:limitations}
 
 %
-\textit{Construct validity:} Some questions extracted from SO produced false positives, as mentioned in \cref{icse2020:ssec:method:filtering:refining,icse2020:ssec:method:filtering:automated-manual-filtering,icse2020:sec:findings}. However, all non-relevant posts were marked as noise for our study, and thus did not affect our findings.
-%
-Moreover, SO is known to have issues where developers simply ask basic questions without looking at the actual documentation where the answer exists. Such questions, although down-voted, were still included in our data-set analysis, but as these were so few, it does not have a substantial impact on categorised posts.
 
-
-\textit{Internal validity:}
+\subsection{Internal Validity}
 %
 As detailed in \cref{icse2020:ssec:method:filtering:reliability}, Taxonomies A and B present slight and fair agreement, respectively, when inter-rater reliability was applied. The nature of our disagreements largely fell due to the subjectivity in applying either taxonomies to posts. Despite all coders agreeing to the shared interpretation of both taxonomies, both taxonomies are subjective in their application, which was not reported by either \citeauthor{Aghajani:2019bo} or \citeauthor{Beyer:2018fm}. In many cases, multi-label classification seemed appropriate, however both taxonomies use single-label mapping which we find results in too much subjectivity. This subjectivity, therefore, ultimately adversely affects IRR analysis. Thus, a future mitigation strategy for similar work should explore multi-label classification to avoid this issue; \citeauthor{Beyer:2018fm}, for example, plan for multi-label classification as future work. However, these studies would need to consider the statistical challenges in calculating multi-rater, multi-label IRR for thorough reliability analysis in addressing subjectivity.
 %
@@ -457,7 +453,9 @@ The classification of our posts into the SOLO and Bloom's taxonomies was perform
 We only aligned posts to one category for each taxonomy and did not align these using multi-label classification. This brings more complexity to the analysis, and our attempts to repeat prior studies' methodologies (see \cref{icse2020:sec:related-work}). Multi-label classification for intelligent services SO posts is an avenue for future research.
 
 %
-\textit{External validity:} While every effort was made to select posts from SO relevant to computer vision services, there are some cases where we may have missed some posts. This is especially due to the case where some developers mis-reference certain intelligent services under different names (see \cref{icse2020:ssec:method:filtering:refining}).
+\subsection{External Validity}
+
+While every effort was made to select posts from SO relevant to computer vision services, there are some cases where we may have missed some posts. This is especially due to the case where some developers mis-reference certain intelligent services under different names (see \cref{icse2020:ssec:method:filtering:refining}).
 %
 Our SOLO and Bloom's taxonomy analysis has only been investigated through the lenses of intelligent services, and not in terms of conventional APIs (e.g., Andriod APIs). Therefore, we are not fully certain how these results found would compare to other types of APIs. %
 %
@@ -466,6 +464,12 @@ Two \textit{existing} SO classification taxonomies were used rather than develop
 Only English-speaking intelligent services were selected; the applicability of our analysis to other, non-English speaking services may affect results.
 %
 Use of computer vision in this study is an illustrative example to focus on one area of the intelligent services spectrum. While our narrow scope helps us obtain more concrete findings, we suggest that wider issues exist in other intelligent service domains may affect the genralisability of this study, and suggest future work be explored in this space.
+
+\subsection{Construct Validity}
+
+Some questions extracted from SO produced false positives, as mentioned in \cref{icse2020:ssec:method:filtering:refining,icse2020:ssec:method:filtering:automated-manual-filtering,icse2020:sec:findings}. However, all non-relevant posts were marked as noise for our study, and thus did not affect our findings.
+%
+Moreover, SO is known to have issues where developers simply ask basic questions without looking at the actual documentation where the answer exists. Such questions, although down-voted, were still included in our data-set analysis, but as these were so few, it does not have a substantial impact on categorised posts.
 
 \section{Conclusions}
 \label{icse2020:sec:conclusions}
