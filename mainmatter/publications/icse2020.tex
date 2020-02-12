@@ -4,26 +4,26 @@
 \graphicspath{{mainmatter/publications/figures/icse2020/}}
 \def\tablepath{mainmatter/publications/tables/icse2020}
 
-\def\NumPostsFromSO{1,425}	
-\def\NumPostsCategorised{1,825}	
-\def\NumPostsFromFiftyClassified{380}	
-\def\NumPostsFromFiftyNoise{70}	
+\def\NumPostsFromSO{1,425}
+\def\NumPostsCategorised{1,825}
+\def\NumPostsFromFiftyClassified{380}
+\def\NumPostsFromFiftyNoise{70}
 \def\NumPostsNoise{238}	\def\PctPostsNoise{13.04\%}
-	
+
 \def\NumTaxACategorised{188}	\def\PctTaxACategorised{10.30\%}
 \def\NumTaxBCategorised{1,579}	\def\PctTaxBCategorised{86.52\%}
 \def\NumTaxAUnCategorised{1,410}	\def\PctTaxAUnCategorised{77.26\%}
 \def\NumTaxBUnCategorised{19}	\def\PctTaxBUnCategorised{1.04\%}
-	
+
 \def\PctTaxACorrectness{22.87\%}
 \def\PctTaxACompleteness{47.87\%}
 \def\PctTaxADocumentation{23.94\%}
-\def\PctTaxBAPIUsage{22.29\%}	
-\def\PctTaxBDiscrepancy{16.34\%}	
-\def\PctTaxBErrors{32.05\%}	
-\def\PctTaxBReview{15.14\%}	
-\def\PctTaxBConceptual{11.02\%}	
-\def\PctTaxBAPIChange{1.08\%}	
+\def\PctTaxBAPIUsage{22.29\%}
+\def\PctTaxBDiscrepancy{16.34\%}
+\def\PctTaxBErrors{32.05\%}
+\def\PctTaxBReview{15.14\%}
+\def\PctTaxBConceptual{11.02\%}
+\def\PctTaxBAPIChange{1.08\%}
 \def\PctTaxBLearning{2.09\%}
 
 \newcommand{\solink}[1]{~\citepweb{SOLink:#1}}
@@ -97,7 +97,7 @@ The objective of our study is to better understand the nature of the questions
 that developers raise when using intelligent services, in order to inform the service designers and documenters. In particular, the knowledge we identify can be used to improve the documentation, educational material and (potentially) the information contained in the services' response objects---these are the main avenues developers have to learn and reason about when using these services. There is previous work that has investigated issues raised by developers~\citep{Tahir:2018ks, Beyer:2018fm, Aghajani:2019bo}. We build on top of this work by adapting the study methodology and apply the taxonomies offered to identify the nature of the issues and this results in the following research questions in this paper:
 
 \begin{enumerate}[label=\textbf{RQ\arabic*.},leftmargin=0.1125\linewidth]
-  \item \textbf{RQ1. How do developers mis-comprehend intelligent services as presented within Stack Overflow pain-points?} While the AI community is well aware in the the nuances that empower intelligent services, such services are being released for application developers who may not be aware of their limitations or how they work. This is especially the case when machine intelligence is accessed via web-based APIs where such details are not fully exposed.
+  \item \textbf{How do developers mis-comprehend intelligent services as presented within Stack Overflow pain-points?} While the AI community is well aware in the the nuances that empower intelligent services, such services are being released for application developers who may not be aware of their limitations or how they work. This is especially the case when machine intelligence is accessed via web-based APIs where such details are not fully exposed.
   \item \textbf{Are the distribution of issues similar to prior studies?}
   We compare how the distributions of previous studies' of posts about conventional, deterministic API services differ from those of intelligent services. By assessing the distribution of intelligent services' issues against similar studies that focus on mobile and web development, we identify whether a new taxonomy is needed specific to AI-based services, and if gaps specific to AI knowledge exist that need to be captured in these taxonomies.
 \end{enumerate}
@@ -295,7 +295,7 @@ In \cref{icse2020:fig:ab-compare}, for the documentation-specific classification
 
 The next most frequent category is \textbf{Correctness (A-1a)} with \PctTaxACorrectness{} of posts. In the context of the technical domain there are many limits that developers need to be aware of: range and increments of a model score~\citep{Cummaudo:2019icsme}; required data pre-processing steps for optimal performance; and features provided by the models (as explained in \cref{icse2020:sub:sub:resultsB}). Considering the relation between technical concerns and software quality, developers are right to question providers on correctness; ``\textit{Are the Cloud Vision API limits in documentation correct?}''\solink{36655630}.
 
-\smallskip
+\medskip
 \noindent
 \textbf{RQ2. Are the distribution of issues similar to prior studies?}
 Visual inspection of \cref{icse2020:fig:ab-compare} shows that the distributions for the documentation-specific classification and the generalised classification are different (compared to prior studies). As a sanity check we conducted a $\chi^2$ test and calculated the effect size $\phi_c$. We were able to reject the null hypothesis for both classification schemes, that the distribution of issues were the same as the previous studies (see \cref{icse2020:sec:findings}). We now discuss the most prominent differences between our study and the previous studies.
@@ -357,23 +357,23 @@ The SOLO taxonomy~\citep{Biggs:2014ur} consists of five levels of understanding.
     \toprule
     \textbf{Issue Quote} & \textbf{Bloom} & \textbf{SOLO}\\
     \midrule
-    
+
     ``\textit{I'm using Microsoft Face API for a small project and I was trying to detect a face inside a .jpg file in the local system (say, stored in a directory \texttt{D:\textbackslash{}Image\textbackslash{}abc.jpg})... but it does not work.}''\solink{40714481} &
     Knowledge &
     Pre-Structural\\
-    
+
     ``\textit{The problem is that the response JSON is rather big and confusing. It says a lot about the picture but doesn't say what the whole picture is of (food or something like that).}''\solink{56224197} &
     Comprehension &
     Uni-Structural\\
-    
+
     ``\textit{The bounding box around individual characters is sometimes accurate and sometimes not, often within the same image. Is this a normal side-effect of a probabilistic nature of the vision algorithm, a bug in the Vision API, or of course an issue with how I'm interpreting the response?}''\solink{46244980} &
     Comprehension &
     Multi-Structural\\
-    
+
     ``\textit{I'm working on image processing. So far Google Cloud Vision and Clarifai are the best API's to detect objects from images and videos, but both API's doesn't support object detection from 360 degree images and videos. Is there any solution for this problem?}''\solink{47671289}&
     Application &
     Uni-Structural\\
-    
+
     ``\textit{Before I train Watson, I can delete pictures that may throw things off. Should I delete pictures of: Multiple dogs, A dog with another animal, A dog with a person, A partially obscured dog, A dog wearing glasses, Also, would dogs on a white background make for better training samples? Watson also takes negative examples. Would cats and other small animals be good negative examples?}''\solink{40346408}&
     Analysis &
     Relational \\
@@ -392,7 +392,7 @@ However, and more importantly, the higher-construct questions ranging from the m
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=.29\linewidth]{bloom}\includegraphics[width=.29\linewidth]{solo} 
+  \includegraphics[width=.29\linewidth]{bloom}\includegraphics[width=.29\linewidth]{solo}
   \caption[Alignment of Bloom and SOLO taxonomies against computer vision issues]{
     Alignment of Bloom (Orange) and SOLO (Blue) taxonomies against Taxonomy A and B dimensions against all 213 classifications made in the random sample of 50 posts.
   }
@@ -422,7 +422,7 @@ However, and more importantly, the higher-construct questions ranging from the m
 The complication with this comes with targeting the documentation such that software developers (who are untrained in the nuances of AI and ML as per \cref{icse2020:sssec:educators}) can to digest it and apply it in-context to application development.
 \textit{(ii)~Technical domain matters:} More needs to be provided than a simple endpoint description as conventional APIs offer by describing the whole framework by which the endpoint sits, giving further context. This said, compared to traditional APIs, we find that developers complain less about the documentation and more about shallower issues. All expected pre-processing and post-processing needs to be clearly explained.
 A possible mitigation to this could be an interactive tutorial that helps developers fully understand the technical domain using a hands-on approach. For example, websites offer interactive Git tutorials\footnote{For example, \url{https://learngitbranching.js.org}.} to help developers understand and explore the technical domain matters under version control in their own pace.
-\textit{(iii)~Clarify limitations:} API developers need to add clear limitations of the existing APIs. Limitations include list of objects that can be returned from an endpoint.  We found that the cognitive anchors of how existing, conventional API documentation is written has become `ported' to the computer vision realm, however a lot more overview documentation than what is given at present (i.e., better descriptions of errors, improved context of how these systems work in etc.) needs to be given.
+3\textit{(iii)~Clarify limitations:} API developers need to add clear limitations of the existing APIs. Limitations include list of objects that can be returned from an endpoint.  We found that the cognitive anchors of how existing, conventional API documentation is written has become `ported' to the computer vision realm, however a lot more overview documentation than what is given at present (i.e., better descriptions of errors, improved context of how these systems work in etc.) needs to be given.
 Such documentation could be provided using interactive tutorials.
 
 %
@@ -441,7 +441,6 @@ Such documentation could be provided using interactive tutorials.
 \label{icse2020:sec:limitations}
 
 %
-
 \subsection{Internal Validity}
 %
 As detailed in \cref{icse2020:ssec:method:filtering:reliability}, Taxonomies A and B present slight and fair agreement, respectively, when inter-rater reliability was applied. The nature of our disagreements largely fell due to the subjectivity in applying either taxonomies to posts. Despite all coders agreeing to the shared interpretation of both taxonomies, both taxonomies are subjective in their application, which was not reported by either \citeauthor{Aghajani:2019bo} or \citeauthor{Beyer:2018fm}. In many cases, multi-label classification seemed appropriate, however both taxonomies use single-label mapping which we find results in too much subjectivity. This subjectivity, therefore, ultimately adversely affects IRR analysis. Thus, a future mitigation strategy for similar work should explore multi-label classification to avoid this issue; \citeauthor{Beyer:2018fm}, for example, plan for multi-label classification as future work. However, these studies would need to consider the statistical challenges in calculating multi-rater, multi-label IRR for thorough reliability analysis in addressing subjectivity.
@@ -456,6 +455,7 @@ We only aligned posts to one category for each taxonomy and did not align these 
 \subsection{External Validity}
 
 While every effort was made to select posts from SO relevant to computer vision services, there are some cases where we may have missed some posts. This is especially due to the case where some developers mis-reference certain intelligent services under different names (see \cref{icse2020:ssec:method:filtering:refining}).
+
 %
 Our SOLO and Bloom's taxonomy analysis has only been investigated through the lenses of intelligent services, and not in terms of conventional APIs (e.g., Andriod APIs). Therefore, we are not fully certain how these results found would compare to other types of APIs. %
 %
