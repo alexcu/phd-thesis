@@ -1,6 +1,44 @@
 \section{Research Goals}
 \label{sec:introduction:goals}
 
+% Primary/Secondary
+\def\NumPrimaryRQs{four}
+\def\NumSecondaryRQs{seven}
+
+% Category
+\def\NumEmpiricalRQs{nine}
+\def\NumNonEmpiricalRQs{two}
+
+% Subcategory
+\def\NumExploratoryRQs{seven}
+\def\NumBaseRateRQs{two}
+
+% Question Types
+\def\NumDescriptionAndClassificationRQs{five}
+\def\NumExistenceRQs{one}
+\def\NumCompositionRQs{one}
+\def\NumDescriptiveComparativeRQs{one}
+\def\NumFrequencyDistributionRQs{two}
+
+% RQ1
+\def\RQOneTextLandscapeAnalysis{What is the nature of cloud-based \glspl{cvs}?}
+\def\RQOneTextLandscapeAnalysisRuntime{What is their runtime behaviour?}
+\def\RQOneTextLandscapeAnalysisEvolution{What is their evolution profile?}
+
+% RQ2
+\def\RQTwoTextDocumentation{Are \gls{cvs} \glspl{api} sufficiently documented?}
+\def\RQTwoTextDocumentationWhatIsCompleteDocs{What are the dimensions of a `\textit{complete}' \gls{api} document, according to both literature and practitioners?}
+\def\RQTwoTextDocumentationMissingAttributes{What additional information or attributes do application developers need in \gls{cvs} \gls{api} documentation to make it more complete?}
+
+% RQ3
+\def\RQThreeTextDevMiscomprehension{Are \glspl{cvs} more misunderstood than conventional software engineering domains?}
+\def\RQThreeTextDevMiscomprehensionIssueTypes{What types of issues do application developers face most when using \glspl{cvs}, as expressed as questions on \glslong{so}?}
+\def\RQThreeTextDevMiscomprehensionFrustration{Which of these issues are application developers most frustrated with?}
+\def\RQThreeTextDevMiscomprehensionVsConventional{Is the distribution \gls{cvs} pain-points different to established software engineering domains, such as mobile or web development?}
+
+% RQ4
+\def\RQFourDesign{What strategies can developers employ to integrate their applications with \glspl{cvs} while preserving robustness and reliability?}
+
 \todo{JG: is it JUST CVS, or they one exemplar of intelligent APIs/services?? AC: Re-wrote... Tried to clarify that in this first sentence.}
 
 This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.} as a concrete exemplar of \glsplx{iws}.
@@ -12,11 +50,11 @@ This thesis explores and contributes towards \textit{four} key facets regarding 
 Firstly, we investigate adverse implications that arise when using \glspl{cvs} that affects consistency and robustness~(\textbf{\cref{ch:icsme2019}}). We show how \glspl{cvs} have a non-deterministic runtime behaviour and evolve with unintended and non-trivial consequences to developers. We demonstrate that these services have inconsistent behaviour despite offering the same functionality and pose evolution risk that effects robustness of consuming applications when responses change given the same (consistent) inputs. Thus, we conclude how the nature of these services (at present) are not fully robust, consistent, and thus not reliable. Formally, we structure the following RQs:
 
 \begin{leftbar}
-\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent]
-    \item \textbf{What is the nature of cloud-based \gls{cvs}?}\label{rq:icsme}
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent]
+    \item \textbf{\RQOneTextLandscapeAnalysis{}}\label{rq:nature}
     \begin{enumerate}[label=\textit{RQ1.\arabic*.}, ref=RQ1.\arabic*]
-      \item What is their runtime behaviour?\label{rq:icsme:rq1}%KQ: Exploratory question to understand phenomena: Description and Classification question.
-      \item What is their evolution profile?\label{rq:icsme:rq2}%KQ: Exploratory question to understand phenomena: Description and Classification question.
+      \item \RQOneTextLandscapeAnalysisRuntime{}\label{rq:nature:runtime}
+      \item \RQOneTextLandscapeAnalysisEvolution{}\label{rq:nature:evolution}
     \end{enumerate}
 \end{enumerate}
 \end{leftbar}
@@ -24,11 +62,11 @@ Firstly, we investigate adverse implications that arise when using \glspl{cvs} t
 Secondly, we investigate the reliability of the documentation these services offer through the lenses of its completeness. We collate prior knowledge of good \gls{api} documentation and assess the efficacy of such knowledge against practitioners~(\textbf{\cref{ch:jss2020}}). We show that these service's behaviour and evolution is not reliably documented adequately against this knowledge. Formally, we develop the following RQs:
 
 \begin{leftbar}
-\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=2]
-    \item \textbf{How complete is current \gls{cvs} \glspl{api} documentation?}\label{rq:esem}%KQ: [Exploratory question] to understand phenomena: Description and Classification question.
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent,start=2]
+    \item \textbf{\RQTwoTextDocumentation{}}\label{rq:docs}
     \begin{enumerate}[label=\textit{RQ2.\arabic*.}, ref=RQ2.\arabic*]
-      \item What are the dimensions of `\textit{complete}' \gls{api} documentation, according to both literature and practitioners?\label{rq:esem:rq1}%KQ: [Exploratory question] to understand phenomena: Description and Classification question.
-      \item What additional information or attributes do developers need in \gls{cvs} \gls{api} documentation to make it more complete?\label{rq:esem:rq2}% Non-Empirical: [Design Question]
+      \item \RQTwoTextDocumentationWhatIsCompleteDocs{} \label{rq:docs:complete}
+      \item \RQTwoTextDocumentationMissingAttributes{} \label{rq:docs:missing}
     \end{enumerate}
 \end{enumerate}
 \end{leftbar}
@@ -36,12 +74,12 @@ Secondly, we investigate the reliability of the documentation these services off
 Thirdly, we investigate how software developers approach using these services and directly assess developer pain-points resulting from the nature of \glspl{cvs} and their documentation~(\textbf{\cref{ch:icse2020}}). We show that there is a statistically significant difference in these complaints when contrasted against more established \glslong{se} domains (such as web or mobile development) as expressed as questions asked on \glslong{so}. We provide a number of exploratory avenues for researchers, educators, software engineers and \gls{iws} providers to alleviate these complaints based on this analysis. Further, using a data set consisting of 1,245 \glslong{so} questions, we explore the emotional state of developers to understand which aspects (i.e., pain-points) developers are most frustrated with~(\textbf{\cref{ch:semotion2020}}). We formulate the following RQs:
 
 \begin{leftbar}
-\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=3]
-  \item \textbf{How does the developer's comprehension of \glspl{cvs} differ to conventional \glslong{se} domains?}\label{rq:icse} %KQ: [Exploratory question] to understand phenomena: Descriptive-Comparative question.
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent,start=3]
+  \item \textbf{\RQThreeTextDevMiscomprehension{}}\label{rq:devs}
   \begin{enumerate}[label=\textit{RQ3.\arabic*.}, ref=RQ3.\arabic*]
-    \item What aspects of \glspl{cvs} and its documentation do developers struggle with, as expressed as pain-points within \glslong{so} questions?\label{rq:icse:rq1}% %KQ: [Exploratory question] to understand phenomena: Description and Classification question.
-    \item Is the distribution of these pain-points different to established \glslong{cvs} fields?\label{rq:icse:rq2}% KQ: [Relationship Question] between two different phenomenon to assess relations (correlation)
-    \item Which of these pain-points express the most frustration within developer communitites?\label{rq:semotion}
+    \item \RQThreeTextDevMiscomprehensionIssueTypes{} \label{rq:devs:issues}
+    \item \RQThreeTextDevMiscomprehensionFrustration{} \label{rq:devs:frustration}
+    \item \RQThreeTextDevMiscomprehensionVsConventional{} \label{rq:devs:vs-traditional}
   \end{enumerate}
 \end{enumerate}
 \end{leftbar}
@@ -50,8 +88,8 @@ Thirdly, we investigate how software developers approach using these services an
 Lastly, we explore several strategies to help improve \glspl{cvs} reliability. Firstly, we investigate whether merging the responses of \textit{multiple} \glspl{cvs} can improve their reliability and propose a novel algorithm---based on the proportional representation method used in electoral systems---to merge labels and associated confidence values from three providers (\textbf{\cref{ch:icwe2019}}). Secondly, we develop an integration architecture style (or facade) to guard against \gls{cvs} evolution, and synthesise an integration workflow that addresses the concerns raised by developers in addition to embedding `complete' documentation artefacts into the workflow's design (\textbf{\cref{ch:icse-demo2020,ch:fse2020}}). Our final RQ is:
 
 \begin{leftbar}
-\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.75\parindent, rightmargin=1\parindent,start=4]
-  \item \textbf{What strategies can developers use to integrate with and use \glspl{cvs}, while preserving robustness and reliability?}\label{rq:fse}% Non-Empirical: [Design Question]
+\begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent,start=4]
+  \item \textbf{\RQFourDesign{}}\label{rq:design}
 \end{enumerate}
 \end{leftbar}
 
@@ -59,11 +97,11 @@ Lastly, we explore several strategies to help improve \glspl{cvs} reliability. F
 
 This thesis employs a mixed-methods approach using the concurrent triangulation strategy \citep{Jick:1979el,Bratthall2002}. The research presented consists of both empirical and non-empirical research design. This section provides a high-level overview of the research methodology within this thesis. Further details are provided in  \cref{sec:introduction:research-contributions,ch:research-methodology}.
 
-Firstly, \ref{rq:icsme}--\ref{rq:icse} are all empirical, knowledge-based questions \citep{Easterbrook:2007ws,Meltzoff:1998wg} that aim to provide the software engineering community with a greater understanding of the phenomena surrounding \glspl{cvs} from three perspectives: the nature of the services themselves, how developers perceive these services and how service providers can improve these services.  We answer \ref{rq:icsme} using a longitudinal experiment that assesses both the services' responses and associated documentation (complementing \ref{rq:esem:rq2}). We adopt qualitative and quantitative data collection; specifically (i) structured observations to quantitatively analyse the results over time, and (ii) documentary research methods to inspect service documentation.
-Secondly, we perform systematic mapping study following the guidelines of \citet{Kitchenham:2007dd} and \citet{Petersen:2008td} to better understand how \gls{api} documentation of these services can be improved (i.e., more complete), which targets \cref{rq:esem}. Based on the findings from this study, we use a systematic taxonomy development methodology specifically targeted toward software engineering \citep{Usman:2017hn} that structures scattered \gls{api} documentation knowledge into a taxonomy. We then validate this taxonomy against practitioners using survey research, adopting \citeauthor{Brooke:1996ua} well-established Systematic Usability Score \citep{Brooke:1996ua} surveying instrument and contextualising it within \gls{api} documentation utility, which answers \ref{rq:icse:rq2}. To answer \ref{rq:esem:rq2}, we perform an empirical application of the taxonomy to three \glspl{cvs}, and therefore assess where improvements can be made.
-Thirdly, we adopt field survey research using repository mining of developer discussion forums (i.e., Stack Overflow) to answer \ref{rq:icse}, and classify these using both manual and automated techniques.
+Firstly, \ref{rq:nature}--\ref{rq:devs} are all empirical, knowledge-based questions \citep{Easterbrook:2007ws,Meltzoff:1998wg} that aim to provide the software engineering community with a greater understanding of the phenomena surrounding \glspl{cvs} from three perspectives: the nature of the services themselves, how developers perceive these services and how service providers can improve these services.  We answer \ref{rq:nature} using a longitudinal experiment that assesses both the services' responses and associated documentation (complementing \ref{rq:docs:missing}). We adopt qualitative and quantitative data collection; specifically (i) structured observations to quantitatively analyse the results over time, and (ii) documentary research methods to inspect service documentation.
+Secondly, we perform systematic mapping study following the guidelines of \citet{Kitchenham:2007dd} and \citet{Petersen:2008td} to better understand how \gls{api} documentation of these services can be improved (i.e., more complete), which targets \cref{rq:docs}. Based on the findings from this study, we use a systematic taxonomy development methodology specifically targeted toward software engineering \citep{Usman:2017hn} that structures scattered \gls{api} documentation knowledge into a taxonomy. We then validate this taxonomy against practitioners using survey research, adopting \citeauthor{Brooke:1996ua} well-established Systematic Usability Score \citep{Brooke:1996ua} surveying instrument and contextualising it within \gls{api} documentation utility, which answers \ref{rq:devs:vs-traditional}. To answer \ref{rq:docs:missing}, we perform an empirical application of the taxonomy to three \glspl{cvs}, and therefore assess where improvements can be made.
+Thirdly, we adopt field survey research using repository mining of developer discussion forums (i.e., Stack Overflow) to answer \ref{rq:devs}, and classify these using both manual and automated techniques.
 
-The second aspect of our research design involves non-empirical research, which explores a design-based question \citep{Simon:1996uw} to answer \ref{rq:fse}. As the answers to our first three RQs establish a greater understanding of the nature behind \glspl{cvs} from various perspectives, the strategies we design in \ref{rq:fse} aims at designing more reliable integration methods so that developers can better use these cloud-based services in their applications.
+The second aspect of our research design involves non-empirical research, which explores a design-based question \citep{Simon:1996uw} to answer \ref{rq:design}. As the answers to our first three RQs establish a greater understanding of the nature behind \glspl{cvs} from various perspectives, the strategies we design in \ref{rq:design} aims at designing more reliable integration methods so that developers can better use these cloud-based services in their applications.
 %
 %    \item
 %    \begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*]

@@ -18,7 +18,7 @@ This important leap toward language-agnostic distributed programming paved way f
 While it is rich in metadata and verbosity, discussions on whether this was a benefit or drawback came about the mid-2000s \citep{zurMuehlen:2005ci,Pautasso2008} whether the amount of data transfer paid off (especially for mobile clients where data usage was scarce). Developer usability for debugging the \gls{soap} `envelopes' (messages POSTed over \glsac{http} to the service provider component) was difficult, both due to the nature of \glsac{xml}'s wordiness and difficulty to test (by sending POST requests) in-browser. As a simple example, 25 lines (794 bytes) of \glsac{http} communication is transferred to request a customer's name from a record using \gls{soap} (\cref{lst:background:apis:soap-request,lst:background:apis:soap-response}). 
 
 \begin{samepage}
-\begin{lstlisting}[language=xml,label=lst:background:apis:soap-request,caption={[An example SOAP request]A \gls{soap} \glsac{http} POST consumer request to retrieve customer record \#43456 from a web service provider. Source: \citepweb{Ballinger:2014aa}.}]
+\begin{lstlisting}[language=xml,label=lst:background:apis:soap-request,caption={[An example SOAP request]A \gls{soap} \glsac{http} POST consumer request to retrieve customer record \#43456 from a web service provider. Source: \citep{Ballinger:2014aa}.}]
 POST /customers HTTP/1.1
 Host: www.example.org
 Content-Type: application/soap+xml; charset=utf-8
@@ -34,7 +34,7 @@ Content-Type: application/soap+xml; charset=utf-8
   </soap:Body>
 </soap:Envelope>
 \end{lstlisting}
-\begin{lstlisting}[language=xml,label=lst:background:apis:soap-response,caption={[An example SOAP response]The \gls{soap} \glsac{http} service provider response for \cref{lst:background:apis:soap-request}. Source: \citepweb{Ballinger:2014aa}.}]
+\begin{lstlisting}[language=xml,label=lst:background:apis:soap-response,caption={[An example SOAP response]The \gls{soap} \glsac{http} service provider response for \cref{lst:background:apis:soap-request}. Source: \citep{Ballinger:2014aa}.}]
 HTTP/1.1 200 OK
 Content-Type: application/soap+xml; charset=utf-8
 
@@ -61,10 +61,10 @@ Content-Type: application/soap+xml; charset=utf-8
 \end{itemize}
 
 \noindent
-Consider the equivalent example of \cref{lst:background:apis:soap-request,lst:background:apis:soap-response} but in a \glsac{rest}ful architecture (\cref{lst:background:apis:rest-request,lst:background:apis:rest-response}) and it is clear why this style has grown more popular with developers (as we highlight in \cref{fig:background:apis:rest-vs-soap}). Developers have since embraced \gls{rest}ful \gls{api} development, though the major drawback of \gls{rest}ful services is its lack of a uniform \gls{idl} to facilitate development (though it is possible to achieve this using \gls{wadl} \citepweb{Mandel:2008ww}).  Therefore, no RESTful service uses a standardised response document or invocation syntax. While there are proposals, such as \gls{wadl} \citep{Hadley:2006vv}, \glsac{raml}\footnoteurl{https://raml.org}{25 January 2019}, \gls{api} Blueprint\footnoteurl{https://apiblueprint.org}{25 January 2019}, and the OpenAPI\footnoteurl{https://www.openapis.org}{25 January 2019} specification (initially based on Swagger\footnoteurl{https://swagger.io}{25 January 2019}), there is still no consensus as there was for \gls{soap} and convergence of these \glspl{idl} is still underway.
+Consider the equivalent example of \cref{lst:background:apis:soap-request,lst:background:apis:soap-response} but in a \glsac{rest}ful architecture (\cref{lst:background:apis:rest-request,lst:background:apis:rest-response}) and it is clear why this style has grown more popular with developers (as we highlight in \cref{fig:background:apis:rest-vs-soap}). Developers have since embraced \gls{rest}ful \gls{api} development, though the major drawback of \gls{rest}ful services is its lack of a uniform \gls{idl} to facilitate development (though it is possible to achieve this using \gls{wadl} \citep{Mandel:2008ww}).  Therefore, no RESTful service uses a standardised response document or invocation syntax. While there are proposals, such as \gls{wadl} \citep{Hadley:2006vv}, \glsac{raml}\footnoteurl{https://raml.org}{25 January 2019}, \gls{api} Blueprint\footnoteurl{https://apiblueprint.org}{25 January 2019}, and the OpenAPI\footnoteurl{https://www.openapis.org}{25 January 2019} specification (initially based on Swagger\footnoteurl{https://swagger.io}{25 January 2019}), there is still no consensus as there was for \gls{soap} and convergence of these \glspl{idl} is still underway.
 
 \begin{samepage}
-\begin{lstlisting}[label=lst:background:apis:rest-request,caption={[An example RESTful request]An equivalent \glsac{http} consumer request to that of \cref{lst:background:apis:soap-request}, but using \gls{rest}. Source: \citepweb{Ballinger:2014aa}.}]
+\begin{lstlisting}[label=lst:background:apis:rest-request,caption={[An example RESTful request]An equivalent \glsac{http} consumer request to that of \cref{lst:background:apis:soap-request}, but using \gls{rest}. Source: \citep{Ballinger:2014aa}.}]
 GET /customers/43456 HTTP/1.1
 Host: www.example.org
 \end{lstlisting}

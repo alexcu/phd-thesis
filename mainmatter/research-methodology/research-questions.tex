@@ -1,22 +1,139 @@
 \section{Research Questions Revisited}
 \label{sec:research-methodology:research-questions}
 
-In \cref{sec:introduction:hypohtesis}, we introduce three hypothesis of this study (\rh{1}--\rh{3}), namely: (i) existing \gls{iws} \glspl{api} are poorly documented for general use (\rh{1}); (ii) existing \gls{iws} \glspl{api} do not provide sufficient metadata when used in context-specific use cases (\rh{2}); and (iii) the combination of improving documentation and metadata will ultimately improve one of software quality, developer productivity and/or developer understanding (\rh{3}).
+%In \cref{sec:introduction:goals}, we rq:nature:runtime to three hypotheses: (i) \glspl{cvs} have non-deterministic properties that confuse developers with a deterministic mindset; (ii) the implicit risks to using these services without fully appreciating their unintended side effects has an impact to software quality; (iii) the service providers do not sufficiently document these behavioural and evolution issues.
 
-To discuss our research strategy, we revisit our research questions through the classification technique discussed by \citet{Easterbrook:2007ws}, a technique originally proposed in the field of psychology by \citet{Meltzoff:1998wg} but adapted to software engineering. Our research study involves a mix of five \textit{knowledge questions}, that focus on existing practices and the ways in which they work, and two \textit{design questions}, that focuses on designing better ways to approach software engineering tasks \citep{Simon:1996uw}. Both classes of questions are respectively concerned with empirical and non-empirical software engineering that, in practice, are best combined in long-term software engineering research studies (such as this one) as they assist in tackling the investigation of a specific problem, approaches to solve that problem and finding what solutions work best \citep{Wieringa:2006vd}.
+To discuss our research strategy, we revisit our \NumPrimaryRQs{} primary and \NumSecondaryRQs{} secondary research questions (RQs) through the classification technique discussed by \citet{Easterbrook:2007ws}, a technique originally proposed in the field of psychology by \citet{Meltzoff:1998wg} but adapted to software engineering. A summary of the classifications made to our research questions are presented in \cref{tab:research-methodology:rqs}.
 
-\subsection{Knowledge Questions}
-\label{ssec:research-methodology:research-questions:knowledge-questions}
+Our research study involves a mix of \NumEmpiricalRQs{} \textit{empirical}\footnote{Or `knowledge' questions, that extend our \textit{knowledge} on certain phenomena.} RQs, that focus on observing and analysing existing phenomena, and \NumNonEmpiricalRQs{} \textit{non-empirical} RQs, that focuses on designing better approaches to solve software engineering tasks \citep{Simon:1996uw}. The use of empirical \textit{and} non-empirical RQs are best combined in long-term software engineering research studies where the phenomena are under-explored, as is the case with \glspl{cvs}. Further, these approaches help propose solutions to issues found in the phenomena studied \citep{Wieringa:2006vd}. We discuss both our empirical and non-empirical RQs in \cref{ssec:research-methodology:research-questions:empirical,ssec:research-methodology:research-questions:nonempirical} below. 
 
-In total, five knowledge questions are posed in this study to help us understand the way developers currently interact and work with an \gls{iws} \gls{api}; two exploratory, one base-rate, and two relationship and causality questions.
+\begin{table}[tbh]
+\centering
+\caption[Classification of research questions in this thesis]{A summary of our research questions classified using the strategies presented by \citet{Easterbrook:2007ws} and \citet{Meltzoff:1998wg}.}\label{tab:research-methodology:rqs}
+\tablefit{\begin{tabular}{p{0.07\linewidth}p{0.55\linewidth}|p{0.13\linewidth}p{.33\linewidth}}
+\toprule
+\textbf{\#}&
+\textbf{RQ}&
+\textbf{Primary/ Secondary}&
+\textbf{RQ Classification}
+\\
+\midrule
+\midrule
+\ref{rq:nature} &
+\RQOneTextLandscapeAnalysis{} &
+Primary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Description/Classification}
+}
+\\
+\ref{rq:nature:runtime} &
+\RQOneTextLandscapeAnalysisRuntime{} &
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Description/Classification}
+}
+\\
+\ref{rq:nature:evolution} &
+\RQOneTextLandscapeAnalysisEvolution{} &
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Description/Classification}
+}
+\\
+\midrule
+\ref{rq:docs} &
+\RQTwoTextDocumentation{}&
+Primary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Existence}
+}
+\\
+\ref{rq:docs:complete} &
+\RQTwoTextDocumentationWhatIsCompleteDocs{}&
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Composition}
+}
+\\
+\ref{rq:docs:missing} &
+\RQTwoTextDocumentationMissingAttributes{}&
+Secondary &
+\makecell[tl]{
+\textsc{Non-Empirical}\\
+$\hookrightarrow$~\textit{Design}\\
+}
+\\
+\midrule
+\ref{rq:devs} &
+\RQThreeTextDevMiscomprehension{}&
+Primary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Descriptive-Comparative}
+}
+\\
+\ref{rq:devs:issues} &
+\RQThreeTextDevMiscomprehensionIssueTypes{}&
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Base-Rate}\\
+$~~\hookrightarrow$~\textit{Frequency/Distribution}
+}
+\\
+\ref{rq:devs:frustration} &
+\RQThreeTextDevMiscomprehensionFrustration{} &
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Exploratory}\\
+$~~\hookrightarrow$~\textit{Description/Classification}
+}
+\\
+\ref{rq:devs:vs-traditional} &
+\RQThreeTextDevMiscomprehensionVsConventional{} &
+Secondary &
+\makecell[tl]{
+\textsc{Empirical}\\
+$\hookrightarrow$~\textit{Base-Rate}\\
+$~~\hookrightarrow$~\textit{Frequency/Distribution}
+}
+\\
+\midrule
+\ref{rq:design} &
+\RQFourDesign{} &
+Primary &
+\makecell[tl]{
+\textsc{Non-Empirical}\\
+$\hookrightarrow$~\textit{Design}\\
+}
+\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
-We begin by formulating two \textit{exploratory questions} to attempt to better understand the phenomena of poor API documentation and metadata; both \ref{rqs:apidoc:what-is-in-use} and \ref{rqs:metadata:what-problems-du                                                                e-to-lack-of-metadata} respectively describe and classify what practices are in use for existing \gls{iws} \gls{api} documentation and what problems currently exist when no metadata is returned. Answering these two questions assists in refining preciser terms of the phenomena, ways in which we find evidence for them and ensuring the data found is valid.
 
-By answering these questions, we have a clearer understanding of the phenomena; we then follow up by posing an additional \textit{base-rate question} that helps provide a basis to confirm that the phenomena occurring is normal (or unusual) behaviour by investigating the patterns of phenomena's occurrence. \ref{rqs:apidoc:how-do-devs-understand-it} is a descriptive-process question to help us understand how the developer currently understands existing \gls{iws} \gls{api} documentation, given their lack of formal extended training in artificial intelligence. This achieves us an insight into the developer's mindset and regular thought patterns toward these \glspl{api}.
-%Lack of formal training = exlusion critiera
+\subsection{Empirical Research Questions}
+\label{ssec:research-methodology:research-questions:empirical}
 
-Lastly, we investigate the relationship between the improved documentation and improvements to other aspects of the software development process. Chiefly, \ref{rqs:implications:do-metrics-improve} is concerned with whether any improvements to metadata or documentation correlate to improvements in software quality, developer productivity, or developer education (and is a \textit{relationship establishment question}). If we establish such a relationship, we refine the question and investigate the specific causes using three \textit{causality questions} defined under \ref{rqs:implications:aspects}, namely by associating three classes of measurable metrics (internal quality metrics, external quality metrics, developer education insight metrics) to the improved documentation.
+In total, \NumEmpiricalRQs{} empirically-based RQs are posed in this study to help us understand the way developers currently interact and work with web services that provide computer vision. The majority of these questions are \textit{exploratory} questions that contribute to a landscape analysis of these services (\ref{rq:nature}, \ref{rq:nature:runtime} and \ref{rq:nature:evolution}), how well they are documented (\ref{rq:docs}), and the issues developers currently face when using them (\ref{rq:devs}). Our other exploratory questions complement the answers to these questions. For instance, to understand if \glspl{cvs} are sufficiently documented (an \textit{existence} exploratory question posed in \ref{rq:docs}), we need to understand the components of a `sufficient' or `complete' \gls{api} document via \ref{rq:docs:complete} as proposed in both the literature and by software developers. While \ref{rq:docs:complete} does not directly relate to \glspl{cvs}, answering it gives us an understanding the components of complete \gls{api} documentation, and therefore, we can assess what aspects they are missing and where improvements can be made (\ref{rq:docs:missing}). These questions are \textit{descriptive and classification} questions that help describe and classify what practices are in use for existing \gls{cvs} \gls{api} documentation and the nature behind these services. Answering these exploratory questions assists in refining preciser terms of the phenomena, ways in which we find evidence for them and ensuring the data found is valid.
 
-\subsection{Design Questions}
+By answering these questions, we have a clearer understanding of the phenomena; we then follow up by posing \NumBaseRateRQs{} additional \textit{base-rate questions} that helps provide a basis to confirm that the phenomena occurring is normal (or unusual) behaviour by investigating the patterns of phenomena's occurrence against other phenomena. \ref{rq:devs:issues} is a \textit{frequency and distribution} question to help us understand what types of issues developers often encounter most, given a lack of formal extended training in artificial intelligence. This achieves us an insight into the developer's mindset and regular thought patterns toward these \glspl{api}. We can then contrast this distribution using our second base-rate question (\ref{rq:devs:vs-traditional}), that assesses the distributional differences between these intelligent components and non-intelligent (conventional) software components. Combined, these two questions can help us answer how the issues raised against \glspl{cvs} are different to normal \glslong{so} issues---our \textit{descriptive-comparative} question posed in \ref{rq:devs}---and, similarly, we can classify and rank which issues developers find most frustrating (\ref{rq:devs:frustration}).
 
-\ref{rqs:apidoc:what-additional-information-needed} and \ref{rqs:metadata:what-metadata-do-devs-want-and-why} are both \textit{design questions}; they are concerned with ways in which we can improve an \gls{iws} by investigating what additional attributes are needed in both the documentation and metadata that assist developers to achieve their goals.  They are not classified as knowledge questions as we investigate what \textit{will be} and not \textit{what is}. By understanding the process by which developers desire additional attributes of metadata and documentation, we can help shape improvements to the existing design of an \gls{iws}. 
+%Lastly, we investigate the relationship between the improved documentation and improvements to other aspects of the software development process. Chiefly, \ref{rqs:implications:do-metrics-improve} is concerned with whether any improvements to metadata or documentation correlate to improvements in software quality, developer productivity, or developer education (and is a \textit{relationship establishment question}). If we establish such a relationship, we refine the question and investigate the specific causes using three \textit{causality questions} defined under \ref{rqs:implications:aspects}, namely by associating three classes of measurable metrics (internal quality metrics, external quality metrics, developer education insight metrics) to the improved documentation.
+
+\subsection{Non-Empirical Research Questions}
+\label{ssec:research-methodology:research-questions:nonempirical}
+
+\ref{rq:docs:missing} and \ref{rq:design} are both non-empirically-based \textit{design questions}; they are concerned with ways in which we can improve a \gls{cvs} by investigating what additional attributes are needed in both the documentation of \glspl{cvs} and in the integration architectures developers can employ to improve reliability and robustness in their applications. They are not classified as empirical questions as we investigate what \textit{will be} and not \textit{what is}. By understanding the process by which developers desire additional attributes of documentation and integration strategies, we can help shape improvements to the existing designs of using \glspl{cvs}.
