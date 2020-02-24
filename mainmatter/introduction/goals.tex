@@ -93,6 +93,7 @@ Lastly, we explore several strategies to help improve \glspl{cvs} reliability. F
 \end{enumerate}
 \end{leftbar}
 
+\newcontent
 \section{Research Methodology}
 
 This thesis employs a mixed-methods approach using the concurrent triangulation strategy \citep{Jick:1979el,Bratthall2002}. The research presented consists of both empirical and non-empirical research design. This section provides a high-level overview of the research methodology within this thesis. Further details are provided in  \cref{sec:introduction:research-contributions,ch:research-methodology}.
@@ -102,117 +103,5 @@ Secondly, we perform systematic mapping study following the guidelines of \citet
 Thirdly, we adopt field survey research using repository mining of developer discussion forums (i.e., Stack Overflow) to answer \ref{rq:devs}, and classify these using both manual and automated techniques.
 
 The second aspect of our research design involves non-empirical research, which explores a design-based question \citep{Simon:1996uw} to answer \ref{rq:design}. As the answers to our first three RQs establish a greater understanding of the nature behind \glspl{cvs} from various perspectives, the strategies we design in \ref{rq:design} aims at designing more reliable integration methods so that developers can better use these cloud-based services in their applications.
-%
-%    \item
-%    \begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*]
-%      \item What makes good \gls{api} documentation, accordingly to both literature and practitioners?
-%      \item To what extent do \gls{cvs} providers follow these guidelines in documenting their own \glspl{api}?
-%      \item What additional information or attributes do developers need in \gls{cvs} \gls{api} documentation?
-%    \end{enumerate}
-%    \item How does the nature of \gls{cvs} and quality of \gls{cvs} \gls{api} documentation reflect in developer circles?
-%    \begin{enumerate}[label=\textbf{RQ3.\arabic*.}, ref=RQ3.\arabic*]
-%      \item How do developers mis-comprehend \gls{cvs}, as expressed ?
-%    \end{enumerate}
-%    \item How can developers integrate with and use \glspl{cvs} while preserving reliability?
-%
-%\end{enumerate}
 
-%
-%Research questions:
-%
-%   (ii) how developers currently approach using these services; and (iii) where their existing documentation artefacts need improvement.
-%
-%In this thesis, we show that . We also show that these
-%
-%\begin{callout}
-%This thesis aims to investigate and better understand the nature of cloud-based \glspl{cvs}.\end{callout}
-%
-%Based on the motivating case studies in \cref{sec:introduction:motivation}, our investigation
-%
-%
-% we articulate two Research Hypotheses (RH1--2) below
-%
-%
-%
-%
-%
-%
-\newcommand{\rh}[1]{\hyperref[rh#1]{RH#1}}
-%\subsection[Research Hypothesis 1]{\uline{RH1}: \gls{iws} runtime behaviour influences external quality}
-%\label{rh1}
-%
-%\paragraph{Null Hypothesis}
-%Large-scale, domain-specific, production systems maintain good reliability (further discussed in \cref{sec:background:software-quality}), an attribute of good quality software. Reliable software is consistent, fault-tolerant and deterministic. \Glspl{iws} are, therefore, reliable and ready for large-scale use.
-%
-%\paragraph{Research Claim}
-%Additional protections, guards and development workflows during pre-development, development, testing and production protect applications maintain internal and external reliability.
-%
-%\paragraph{Research Goal}
-%To improve the reliability of applications built using \gls{api} endpoints of \glspl{iws} by guarding for domain-specific considerations of the application. We aim to achieve this in the context of \gls{cvs}.
-%
-%\paragraph{Research Questions}
-%\begin{enumerate}[label=\textbf{RQ1.\arabic*.}, ref=RQ1.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-%  \item \tonote{ICSME-RQ1} Do \glspl{cvs} provide consistent responses amongst services?
-%  \item \tonote{ICSME-RQ2} What long-term runtime behavioural issues arise when using \glspl{cvs}?
-%\end{enumerate}
-%
-%\subsection[Research Hypothesis 2]{\uline{RH2}: Comprehension of \glspl{iws} influence internal quality}
-%\label{rh2}
-%
-%
-%% Null hypothesis on DevX and unintended side effects, productivity etc.
-%%  \item What concerns do developers face when using \gls{cvs}, and how does this compare to more established \gls{se} fields?
-%
-%\paragraph{Null Hypothesis}
-%Good \gls{api} documentation and usability assists developers to write software more productively (see \cref{sec:background:api}). The communication of nondeterministic behaviour is sufficiently described in \gls{cvs} \glspl{api}, as reflected in developer community discussion.
-%
-%% Chiefly, application developers have limited general understanding of the `magic' that occurs behind these probabilistic `intelligent' \glspl{api}. We do not know what key aspects of the documentation matter to them, nor what they do or do not understand of the existing documentation. Applying rigorous \gls{se} documentation knowledge approaches, as defined from existing literature and aligned to the practical needs of software engineers, can help improve existing \glspl{cvs} documentation knowledge.
-%
-%\paragraph{Research Claim}
-%Pain-points on community discussion forums---such as \glslong{so}---reflect the clash of mindsets between application developers and  \gls{cvs} providers, and both poor documentation and education in the area results in lost productivity and poor internal quality.
-%
-%\paragraph{Research Goal}
-%To improve the effectiveness of the usability and documentation of \gls{iws} \glspl{api}---specifically of \gls{cvs} \glspl{api}---by using existing \gls{se} \gls{api} documentation knowledge aligned to the needs of developers, and identifying how developers complaints differ to more established fields.
-%
-%\paragraph{Research Questions}
-%\begin{enumerate}[label=\textbf{RQ2.\arabic*.}, ref=RQ2.\arabic*, leftmargin=3.5\parindent, rightmargin=1\parindent]
-%
-%  \item \tonote{ESEM-RQ2} How is \gls{api} documentation studied?
-%  \item \tonote{ESEM-RQ1} What knowledge guidelines do \gls{api} documentation studies contribute?
-%  \item \tonote{ESEMx-RQ1} To what extent do practitioners agree with the usability of this knowledge?
-%  \item \tonote{ESEMx-RQ2} To what extent do \gls{cvs} providers follow these guidelines in documenting their \glspl{api} \label{rqs:apidoc:what-is-in-use}% KQ: Exploratory question to understand phenomena: Description and Classification question.
-%  \item \tonote{ESEMx-RQ3} What additional information or attributes do developers need in \gls{cvs} \gls{api} documentation?
-%  \label{rqs:apidoc:what-additional-information-needed}% DQ: Design question
-%  \item \tonote{ICSE-RQ1} How do developers mis-comprehend \glspl{cvs}, as expressed as pain-points on \glslong{so}?% KQ: Base-rate question to understand normal patterns of the occurrence of the phenomena: Descriptive-Process questions.,
-%  \item \tonote{ICSE-RQ2} Are the distribution of these complaints different to established \gls{se} fields?
-%%  \label{rqs:apidoc:how-do-devs-understand-it}
-%\end{enumerate}
-%
-%
-%
-%\section{Thesis Contributions}
-%
-%Based on the findings and recommendations of the studies conducted in this thesis, we offer a two-fold solution that resolves critical issues arising from our investigation. The first is a  technical solution while the second offers an educational perspective on improvements in the understanding of \glspl{iws}. The thesis offers six major contributions:
-%
-%\begin{enumerate}[label=(\roman*),leftmargin=2\parindent]
-%  \item \tonote{ASE} a novel architectural facade to guard against unintended post-production side effects of \glspl{iws};
-%  \item \tonote{ASE} a reference implementation of the architecture within the context of \glspl{cvs};
-%  \item \tonote{ICSE-Demo} a tool to help fine-tune confidence thresholds against domain-specific datasets when using \glspl{iws};
-%  \item \tonote{ASE+ICSE-Demo} a software development workflow designed to evaluate and consume \glspl{cvs} in pre-development, development, testing and production;
-%  \item \tonote{ESEM} a documentation quality assessment taxonomy, based on \todo{number of primary studies} studies, to evaluate the quality of documentation of \glspl{api};
-%  \item \tonote{ESEMx+ICSE} knowledge for both educators and practitioners to improve understanding  \glspl{api} within the context of \glspl{cvs}.
-%\end{enumerate}
-%
-%%\section{Concluding Remarks}
-%%
-%%Ultimately, we seek to understand the conceptual understanding of software engineers who operationalise stochastic and probabilistic systems, and furthermore understand knowledge representation with these systems' \gls{api} documentation. Our motivation is to provide insight into current practices and compare the best practices with actual practise. We strive for this to  provide developers with a guiding framework on how to best operationalise these systems via the form of some checklist or tool they can use to ensure optimal software quality.
-%%
-%%It is anticipated that the findings from this study in the \glspl{cvs} space will be generalisable to other areas, such as time-series information, natural language processing and others.
-%
-%%  Paper 2:
-%%* RQ1. How do software engineers evaluate (knowledge representation) machine learning APIs for use in an application?
-%%   * Motivation: to provide insights into the current practice
-%%   * Method: Survey
-%%* RQ2. Do software engineers follow best practices when evaluating machine learning APIs?
-%%   * Motivation: to compare best practice with actual practice
-%%   * Survey
+\oldcontent
