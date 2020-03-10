@@ -39,13 +39,9 @@
 % RQ4
 \def\RQFourDesign{What strategies can developers employ to integrate their applications with \glspl{cvs} while preserving robustness and reliability?}
 
-\todo{JG: is it JUST CVS, or they one exemplar of intelligent APIs/services?? AC: Re-wrote... Tried to clarify that in this first sentence.}
-
 This thesis aims to investigate and better understand the nature of cloud-based \glsplx{cvs}\footnote{As these services are proprietary, we are unable to conduct source code or model analysis, and hence are not used in the investigation of this thesis.} as a concrete exemplar of \glsplx{iws}.
 We identify the maturity, viability and risks of \glspl{cvs} through the anchoring perspective of \textit{reliability} that affects the internal and external quality of software. We adopt the McCall \citep{McCall:1977uy} and Boehm \citep{Boehm:1978vv} interpretations of reliability via the sub-characteristics of a service's \textit{consistency} and \textit{robustness} (or fault/error tolerance), and the \textit{completeness}\footnote{We treat the \gls{api} documentation of a \gls{cvs} as a first-class citizen.} of its documentation. (A detailed discussion is further provided in \cref{sec:background:software-quality}.)
 This thesis explores and contributes towards \textit{four} key facets regarding reliability in \gls{cvs} usage and the completeness of its associated documentation. We formulate four primary research questions (RQs) with seven sub-RQs, based on both empirical and non-empirical \glslong{se} methodology \citep{Simon:1996uw}, further discussed in \cref{ch:research-methodology}.
-
-\oldcontent
 
 Firstly, we investigate adverse implications that arise when using \glspl{cvs} that affects consistency and robustness~(\textbf{\cref{ch:icsme2019}}). We show how \glspl{cvs} have a non-deterministic runtime behaviour and evolve with unintended and non-trivial consequences to developers. We demonstrate that these services have inconsistent behaviour despite offering the same functionality and pose evolution risk that effects robustness of consuming applications when responses change given the same (consistent) inputs. Thus, we conclude how the nature of these services (at present) are not fully robust, consistent, and thus not reliable. Formally, we structure the following RQs:
 
@@ -59,7 +55,7 @@ Firstly, we investigate adverse implications that arise when using \glspl{cvs} t
 \end{enumerate}
 \end{leftbar}
 
-Secondly, we investigate the reliability of the documentation these services offer through the lenses of its completeness. We collate prior knowledge of good \gls{api} documentation and assess the efficacy of such knowledge against practitioners~(\textbf{\cref{ch:jss2020}}). We show that these service's behaviour and evolution is not reliably documented adequately against this knowledge. Formally, we develop the following RQs:
+Secondly, we investigate the reliability of the documentation these services offer through the lenses of its completeness. We collate prior knowledge of good \gls{api} documentation and assess the efficacy of such knowledge against practitioners~(\textbf{\cref{ch:tse2020}}). We show that these service's behaviour and evolution is not reliably documented adequately against this knowledge. Formally, we develop the following RQs:
 
 \begin{leftbar}
 \begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent,start=2]
@@ -85,7 +81,7 @@ Thirdly, we investigate how software developers approach using these services an
 \end{leftbar}
 
 
-Lastly, we explore several strategies to help improve \glspl{cvs} reliability. Firstly, we investigate whether merging the responses of \textit{multiple} \glspl{cvs} can improve their reliability and propose a novel algorithm---based on the proportional representation method used in electoral systems---to merge labels and associated confidence values from three providers (\textbf{\cref{ch:icwe2019}}). Secondly, we develop an integration architecture style (or facade) to guard against \gls{cvs} evolution, and synthesise an integration workflow that addresses the concerns raised by developers in addition to embedding `complete' documentation artefacts into the workflow's design (\textbf{\cref{ch:icse-demo2020,ch:fse2020}}). Our final RQ is:
+Lastly, we explore several strategies to help improve \glspl{cvs} reliability. Firstly, we investigate whether merging the responses of \textit{multiple} \glspl{cvs} can improve their reliability and propose a novel algorithm---based on the proportional representation method used in electoral systems---to merge labels and associated confidence values from three providers (\textbf{\cref{ch:icwe2019}}). Secondly, we develop an integration architecture style (or facade) to guard against \gls{cvs} evolution, and synthesise an integration workflow that addresses the concerns raised by developers in addition to embedding `complete' documentation artefacts into the workflow's design (\textbf{\cref{ch:fse-demo2020,ch:fse2020}}). Our final RQ is:
 
 \begin{leftbar}
 \begin{enumerate}[label=\faQuestionCircle~~\textbf{RQ\arabic*.}, ref=RQ\arabic*, leftmargin=2.5\parindent, rightmargin=1\parindent,start=4]
@@ -93,7 +89,6 @@ Lastly, we explore several strategies to help improve \glspl{cvs} reliability. F
 \end{enumerate}
 \end{leftbar}
 
-\newcontent
 \section{Research Methodology}
 
 This thesis employs a mixed-methods approach using the concurrent triangulation strategy \citep{Jick:1979el,Bratthall2002}. The research presented consists of both empirical and non-empirical research design. This section provides a high-level overview of the research methodology within this thesis. Further details are provided in  \cref{sec:introduction:research-contributions,ch:research-methodology}.
@@ -103,5 +98,3 @@ Secondly, we perform systematic mapping study following the guidelines of \citet
 Thirdly, we adopt field survey research using repository mining of developer discussion forums (i.e., Stack Overflow) to answer \ref{rq:devs}, and classify these using both manual and automated techniques.
 
 The second aspect of our research design involves non-empirical research, which explores a design-based question \citep{Simon:1996uw} to answer \ref{rq:design}. As the answers to our first three RQs establish a greater understanding of the nature behind \glspl{cvs} from various perspectives, the strategies we design in \ref{rq:design} aims at designing more reliable integration methods so that developers can better use these cloud-based services in their applications.
-
-\oldcontent
