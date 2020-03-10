@@ -5,10 +5,12 @@
 
 \def\demolink{https://bit.ly/2YKeYhE}
 
+\glsresetall
 \begin{abstract}
 Increased popularity of `intelligent' web services provides end-users with machine-learnt functionality at little effort to developers. However, these services require a decision threshold to be set which is dependent on problem-specific data. Developers lack a systematic approach for evaluating intelligent services and existing evaluation tools are predominantly targeted at data scientists for pre-development evaluation. This paper presents a workflow and supporting tool, Threshy, to help \textit{software developers} select a decision threshold suited to their problem domain. Unlike existing tools, Threshy is designed to operate in multiple workflows including pre-development, pre-release, and support. Threshold configuration files exported by Threshy can be integrated into client applications and monitoring infrastructure. 
 Demo: \url{\demolink}.
 \end{abstract}
+\glsresetall
 
 \section{Introduction}
 
@@ -19,7 +21,7 @@ Demo: \url{\demolink}.
     \label{fse-demo2020:fig:example}
 \end{figure}
 
-Machine learning algorithm adoption is increasing in modern software. End users routinely benefit from machine-learnt functionality through personalised recommendations \citep{covington2016deep}, voice-user interfaces \citep{myers2018patterns}, and intelligent digital assistants \citep{boyd2018just}. The easy accessibility and availability of intelligent web services\footnote{Such as Azure Computer Vision (\url{https://azure.microsoft.com/en-au/services/cognitive-services/computer-vision/}), Google Cloud Vision (\url{https://cloud.google.com/vision/}), or Amazon Rekognition (\url{https://aws.amazon.com/rekognition/}).} is contributing to their adoption. These intelligent web services simplify the development of machine learning solutions as they (i)~do not require specialised machine learning expertise to build and maintain, (ii)~abstract away infrastructure related issues associated with machine learning \citep{Sculley2015, Arpteg2018}, and (iii)~provide web APIs for ease of integration. 
+Machine learning algorithm adoption is increasing in modern software. End users routinely benefit from machine-learnt functionality through personalised recommendations \citep{covington2016deep}, voice-user interfaces \citep{myers2018patterns}, and intelligent digital assistants \citep{boyd2018just}. The easy accessibility and availability of \glspl{iws}\footnote{Such as Azure Computer Vision (\url{https://azure.microsoft.com/en-au/services/cognitive-services/computer-vision/}), Google Cloud Vision (\url{https://cloud.google.com/vision/}), or Amazon Rekognition (\url{https://aws.amazon.com/rekognition/}).} is contributing to their adoption. These \glspl{iws} simplify the development of machine learning solutions as they (i)~do not require specialised machine learning expertise to build and maintain, (ii)~abstract away infrastructure related issues associated with machine learning \citep{Sculley2015, Arpteg2018}, and (iii)~provide web \glsacpl{api} for ease of integration. 
 
 However, unlike traditional web services, the functionality of these \emph{intelligent services} is dependent on a set of assumptions unique to machine learning \citep{Cummaudo:2019icsme}. These assumptions are based on the data used to train machine learning algorithms, the choice of algorithm, and the choice of data processing steps---most of which are not documented. For developers, these assumptions mean that the performance characteristics of an intelligent service in any particular application problem domain is not fully knowable. Intelligent services represent this uncertainty through a confidence value associated with their predictions. Thus an evaluation procedure must be followed as a part of using an intelligent service for an application.  
 
@@ -101,7 +103,6 @@ Threshy is a tool to assist software engineers with setting decision thresholds 
 
 Setting thresholds in Threshy is an eight step process as shown in \cref{fse-demo2020:fig:workflow}. Software engineers \circled{1}~run a benchmark dataset through the machine-learnt component to create a CSV file with true labels and predicted labels along with the predicted confidence values. The CSV file is then \circled{2}~uploaded for initial exploration where engineers can \circled{3}~experiment with modifying a single global threshold for the dataset. Developers may choose to exit at this point (as indicated by dotted arrows in \cref{fse-demo2020:fig:workflow}). Optionally, the engineer \circled{4}~defines costs for missed predictions followed by selecting optimisation settings. The optional optimisation step of Threshy \circled{5}~considers the performance and costs when deriving the thresholds. Finally, the engineer can \circled{6}~review and fine tune the calculated thresholds, associated costs, and \circled{7}~download generated threshold meta-data to be \circled{8}~integrated into their application.
 
-% \subsection{Usage Example}
 
 % To demonstrate the utility of Threshy we will walk through the classification of 
 
@@ -110,7 +111,7 @@ Setting thresholds in Threshy is an eight step process as shown in \cref{fse-dem
 
 % \todo{A simple usage example of how to use it with screenshots. (continue with Farmer Joe?)}
 
-% \subsection{Architecture \& Implementation}
+%\subsection{Architecture \& Implementation}
 
 Threshy runs a client/server architecture with a thin-client (see \cref{fse-demo2020:fig:implementation}). The web-based application consists of an interactive front-end where developers upload benchmark results---consisting of both human annotated labels (ground truths) and machine predictions (from the intelligent service)---and use threshold tuners (via sliders) to present a data summary of the uploaded CSV. Predicted performances and costs are entered manually into the web interface by the developer. The back-end of Threshy asynchronously runs a data analyser, cost processor and metrics calculator when relevant changes are made to the front-end's tuning sliders. Separating the two concerns allows for high intensity processing to be done on the server and not the front end.
 
@@ -155,13 +156,13 @@ Threshy is a fully self-contained repository containing implementation of the to
 \section{Related work}
 \label{fse-demo2020:sec:related-work}
 
-% \subsection{Decision Boundary Estimation}
+\subsection{Decision Boundary Estimation}
 
 Optimal machine-learnt decision boundaries depend on identifying the operating conditions of the problem domain. A systematic study by \citet{Drummond2006} classifies four such operating conditions to determine a decision threshold: (i) the operating condition is known and thus the model trained matches perfectly; (ii) where the operating conditions are known but change with time, and thus the model must be adaptable to such changes; (iii) where there is uncertainty in the knowledge of the operating conditions certain changes in the operating condition are more likely than others; (iv) where there is no knowledge of the operating conditions and the conditions may change from the model in any possible way. Various approaches to determine appropriate thresholds exist for all four of these cases, such as cost-sensitive learning, ROC analysis, cost curves, and Brier scores.
 
 However, an \textit{automated} attempt to calibrate decision threshold boundaries is not considered, and is largely pitched at a non-software engineering audience. A more recent study touches on this in model management for large-scale adversarial instances in Google's advertising system \citep{sculley2011detecting}, however this is only a single component within the entire architecture, and is not a tool that is useful for developer's in varying contexts. Unlike this study, our work presents a `plug-and-play' style calibration method where any context/domain can have thresholds automatically calibrated (in-context) \textit{and} optimised for engineers; Threshy’s architecture and design facilitates operating in a headless mode enabling use in monitoring and support workflows.
 
-% \subsection{Tooling for ML Frameworks}
+\subsection{Tooling for ML Frameworks}
 
 Support tools for ML frameworks generally fall into two categories; the first attempts to illuminate the `black box' by offering ways in which developers can better understand the internals of the model to improve its performance. (For extensive analyses and surveys into this area, see \citep{Hohman2018VisualAI,Patel:2008:ISM:1357054.1357160}.) However, a recent emphasis to probe only inputs and outputs of a model has been explored, exploring off-the-shelf models without  knowledge of its unknowns (see \cref{fse-demo2020:fig:example}) to reflect the nature of real-world development. Google's \textit{What-If Tool} \citep{DBLP:journals/corr/abs-1907-04135} for Tensorflow provides a means for data scientists to visualise, measure and assess model performance and fairness with various hypothetical scenarios and data features; similarly, Microsoft's \textit{Gamut} tool  \citep{hohman2019gamut} provides an interface to test hypotheticals (although only on Generalized Additive Models) and their  \textit{ModelTracker} tool \citep{amershi2015modeltracker} collates summary statistics on a set of sample data to enable rich visualisation of model behaviour and access to key performance metrics.
 

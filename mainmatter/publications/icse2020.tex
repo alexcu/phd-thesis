@@ -125,17 +125,17 @@ We based our selection criteria on the prominence of the providers in industry (
 
 However, during the filtering stage (see \cref{icse2020:ssec:method:filtering}), we decided to focus on a subset of these services, \gls{cv}, as these are one of the more mature and stable \gls{ml}/\gls{ai}-based services with widespread and increasing adoption in the developer community (see \cref{icse2020:fig:posts-trend}). We acknowledge other services beyond the four analysed provide similar capabilities~\citepweb{Pixlab:Home,Clarifai:Home,Cloudsight:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home} and only English-speaking services have been selected, excluding popular services from Asia (e.g.,~\citepweb{Megvii:Home,TupuTech:Home,YiTuTech:Home,SenseTime:Home,DeepGlint:Home})---see \cref{icse2020:sec:limitations}. For comprehensiveness, we explain below our initial attempts to extract \textit{all} \glspl{iws}. %
 
-\paragraph{Defining a list of \glspl{iws}}
+\subsubsection{Defining a list of \glspl{iws}}
 As there exists no global `list' of \glspl{iws} to search on, we needed to derive a \textit{corpus of initial terms} to allow us to know \textit{what} to search for on the Stack Exchange Data Explorer\footnote{\url{http://data.stackexchange.com/stackoverflow}} (SEDE). We began by looking at different brand names of cloud services and their permutations (e.g., \uline{G}oogle \uline{C}loud \uline{S}ervices and GCS) as well as various \gls{ml}-related products (e.g., Google Cloud \gls{ml}). To do this, we performed extensive Google searches\footnote{This search was conducted on 17 January 2019}\def\footnotesearchdate{2} in addition to manually reviewing six `overview' pages of the relevant cloud platforms. We identified 91 initial \glspl{iws} to incorporate into our search terms\footnote{For reproducibility, this is available at \url{http://bit.ly/2ZcwNJO}.}.\def\footnotereproducability{3}
 
-\paragraph{Manual search for relevant, related terms}
+\subsubsection{Manual search for relevant, related terms}
 We then ran a manual search\footnotemark[\footnotesearchdate{}] %
 on each term to determine if these terms were relevant. We did this by querying each term within SO's search feature, reviewing the titles and body post previews of the first three pages of results (we did not review the answers, only the questions). We also noted down the user-defined \textit{Tags} of each post (up to five per question); by clicking into each tag, we could review similar tags (e.g., `project-oxford' for `azure-cognitive-services') and check if the tag had synonyms (e.g., `aws-lex' and `amazon-lex'). We then compiled a \textit{corpus of tags} consisting of 31 terms.
 
-\paragraph{Developing a search query}
+\subsubsection{Developing a search query}
 We recognise that searching SEDE via \textit{Tags} exclusively can be ineffective (see~\citep{Tahir:2018ks,Barua:2012gz}). To mitigate this, we produced a \textit{corpus of title and body terms}. Such terms are those that exist within the title and body of the posts to reflect the ways in which individual developers commonly use to refer to different \glspl{iws}. To derive at such a list, we performed a search\footnotemark[\footnotesearchdate{}]\textsuperscript{,}\footnotemark[\footnotereproducability{}] of the 31 tags above in SEDE, filtering out posts that were not answers (i.e., questions only) as we wanted to see how developers \textit{phrase} their questions. For each search, we extracted a random sample of 100 questions (400 total for each service) and reviewed each question. We noted many patterns in the permutations of how developers refer to these services, such as: common misspellings (`bind' vs. `bing'); brand misunderstanding (`Microsoft \gls{cv}' vs. `Azure \gls{cv}'); hyphenation (`Auto-\gls{ml}' vs. `Auto \gls{ml}'); UK and US English (`Watson Analyser' vs. `Watson Analy\uline{\textbf{z}}er'); and, the use of apostrophes, plurals, and abbreviations (`Microsoft\uline{\textbf{'s}} Computer Vision \glsac{api}', `Microsoft Computer Vision Service\uline{\textbf{s}}, `GCV' vs. `\uline{G}oogle \uline{C}loud \uline{V}ision'). We arrived at a final list of 229 terms compromising all of the \glspl{iws} provided by Google, Amazon, Microsoft and IBM as of January 2019\footnotemark[3].
 
-\paragraph{Executing our search query}
+\subsubsection{Executing our search query}
 
 Our next step was to perform a case-insensitive search of all 229 terms within the body or title of posts. We used Google BigQuery's public data-set of \gls{so} posts\footnote{http://bit.ly/2LrN7OA} to overcome SEDE's 50,000 row limit and to conduct a case-insensitive search. This search was conducted on 10 May 2019, where we extracted 21,226 results. We then performed several filtering steps to cleanse our extracted data, as explained below.
 
@@ -143,22 +143,22 @@ Our next step was to perform a case-insensitive search of all 229 terms within t
 \label{icse2020:ssec:method:filtering}
 
 
-\paragraph{Refining our inclusion/exclusion criteria}
+\subsubsection{Refining our inclusion/exclusion criteria}
 \label{icse2020:ssec:method:filtering:refining}
 
 We performed an initial manual filtering of the 50 most recent posts (sorted by descending \textit{CreationDate} values) of the 21,226 posts above, assessing the suitability of the results and to help further refine our inclusion and exclusion criteria. We did note that some abbreviations used in the search terms (e.g., `GCV', `WCS'\footnote{Watson Cognitive Services}), resulting in irrelevant questions in our result set. We therefore removed abbreviations from our search query and consolidated all overlapping terms (e.g., `Google Vision \uline{\textbf{\glsac{api}}}' was collapsed into `Google Vision').
 
 We also recognised that 21,226 results would be non-trivial to analyse without automated techniques. As we wanted to do manual qualitative analysis, we reduced our search space to 27 search terms of just the \textit{\glspl{cvs}} within the original corpus of 229 terms. These were Google Cloud Vision~\citepweb{GoogleCloud:Home}, AWS Rekognition~\citepweb{AWS:Home}, Azure Computer Vision~\citepweb{Azure:Home}, and IBM Watson Visual Recognition~\citepweb{IBM:Home}. This resulted in \NumPostsFromSO{} results that were extracted on 21 June 2019. The query used and raw results are available online in our supplementary materials~\citepweb{SupplementaryMaterials}.
 
-\paragraph{Duplicates} Within \NumPostsFromSO{} results, no duplicate questions were noted, as determined by unique post ID, title or timestamp.
+\subsubsection{Duplicates} Within \NumPostsFromSO{} results, no duplicate questions were noted, as determined by unique post ID, title or timestamp.
 
-\paragraph{Automated and manual filtering}
+\subsubsection{Automated and manual filtering}
 \label{icse2020:ssec:method:filtering:automated-manual-filtering}
 
 To assess the suitability and nature of the \NumPostsFromSO{} questions extracted, the first author began with a manual check on a randomised sample of 50 questions. As the questions were exported in a raw CSV format (with HTML tags included in the post's body), we parsed the questions through an ERB templating engine script\footnote{We make this available for future use at: \url{http://bit.ly/2NqBB70}} in which the ID, title, body, tags, created date, and view, answer and comment counts were rendered for each post in an easily-readable format. %
 Additionally, SQL matches in the extraction process were also highlighted in yellow (i.e., in the body of the post) and listed at the top of each post. These visual cues helped to identify 3 false positive matches where library imports or stack traces included terms within our corpus of 26 \gls{cvs} terms. For example, \texttt{aws-java-sdk-\uline{rekognition}:jar} is falsely matched as a dependency within an unrelated question. As such exact matches would be hard to remove without the use of regular expressions, and due to the low likelihood (6\%) of their appearance, we did not perform any followup automatic filtering.
 
-\paragraph{Classification}
+\subsubsection{Classification}
 \label{icse2020:ssec:method:filtering:classification}
 
 Our \NumPostsFromSO{} posts were then split into 4 additional random samples (in addition to the random sample of 50 above). 475 posts were classified by the first author and three other research assistants, software engineers with at least 2 years industry experience, assisted to classify the remaining 900. This left a total of 1,375 classifications made by four people plus an additional 450 classifications made from reliability analysis, in which the remaining 50 posts were classified nine times (as detailed in \cref{icse2020:ssec:method:filtering:reliability}). Thus, a total of \NumPostsCategorised{} classifications were made from the original \NumPostsFromSO{} posts extracted.
@@ -169,13 +169,13 @@ Therefore, we applied the two existing taxonomies described in \cref{icse2020:se
 \Cref{icse2020:tab:taxonomies} presents \textit{our understanding} of the respective taxonomies; our intent is not to methodologically replicate \citeauthor{Aghajani:2019bo} or \citeauthor{Beyer:2018fm}'s studies in the \gls{iws} domain, rather to acknowledge related work in the area of \gls{so} classification and reduce the need to synthesise a new taxonomy. We baseline all coding against \textit{our interpretation only}. Our classifications are therefore independent of the previous authors' findings.
 
 
-\begin{landscape}
+\afterpage{\begin{landscape}
 \input{\tablepath/taxonomy}
-\end{landscape}
+\end{landscape}}
 
 \subsection{Data Analysis}
 
-\paragraph{Reliability of Classification}
+\subsubsection{Reliability of Classification}
 \label{icse2020:ssec:method:filtering:reliability}
 
 To measure consistency of the categories assigned by each rater to each post, we utilised both intra- and inter-rater reliability~\citep{McHugh:2012up}. As verbatim descriptions from dimensions and sub-categories were considered quite lengthy from their original sources, all raters met to agree on a shared interpretation of the descriptions, which were then paraphrased as discussed in the previous subsection and tabulated in \cref{icse2020:tab:taxonomies}. To perform statistical calculations of reliability, each category was assigned a nominal value and a random sample of 50 posts were extracted. Two-phase reliability analysis followed.
@@ -184,7 +184,7 @@ Firstly, intra-rater agreement by the first author was conducted twice on 28 Jun
 
 At first, we followed methods of reliability analysis similar to previous \gls{so} studies (e.g.,~\citep{Tahir:2018ks}) using the percentage agreement metric that divides the number of agreed categories assigned per post by the total number of raters~\citep{McHugh:2012up}. However, percentage agreement is generally rejected as an inadequate measure of reliability analysis~\citep{Cohen:1960tf,Krippendorff:2018tda,Hallgren:2012kt} in statistical communities. As we used more than 2 coders and our reliability analysis was conducted under the same random sample of 50 posts, we applied \textit{Light's Kappa}~\citep{Light:1971vz} to our ratings, which indicates an overall index of agreement. This was done using the \texttt{irr} computational R package~\citep{Gamer:tj} as suggested in~\citep{Hallgren:2012kt}.
 
-\paragraph{Distribution Analysis}
+\subsubsection{Distribution Analysis}
 
 In order to compare the distribution of categories from our study with previous studies we carried out a \(\chi^2\) test. We selected a \(\chi^2\) test as the following assumptions~\citep{Sheskin:2003tx} are satisfied: (i) the data is categorical, (ii) all counts are greater than 5, and (iii) we can assume simple random sampling. The null hypothesis describes the case where each population has the same proportion of observations and the alternative hypothesis is where at least one of the null hypothesis statements is false. We chose a significance value, \(\alpha\), of 0.05 following a standard rule of thumb. As to the best of our knowledge this is the first statistical comparison using Taxonomy A and B on \gls{so} posts. To report the effect size we selected Cramer's Phi, \(\phi_c\) which is well suited for use on nominal data~\citep{Sheskin:2003tx}.
 
@@ -226,7 +226,7 @@ Despite all raters meeting to agree on a shared interpretation of the taxonomies
 We found~\citeauthor{Beyer:2018fm}'s high-level abstraction taxonomy (Taxonomy B) was able to classify \PctTaxBCategorised{} of posts.  \PctTaxACategorised{} posts were assigned exclusively under~\citeauthor{Aghajani:2019bo}'s documentation-specific taxonomy (Taxonomy A).
 We found that developers do not generally ask questions exclusive to documentation, and typically either pair documentation-related issues to their own code or context. The following two subsections further explain results from both Taxonomy A and B's perspective.
 
-\paragraph{Results from~\citeauthor{Aghajani:2019bo}'s taxonomy}
+\subsubsection{Results from~\citeauthor{Aghajani:2019bo}'s taxonomy}
 
 %
 Results for~\citeauthor{Aghajani:2019bo}'s low-level documentation taxonomy (Taxonomy A), indicates that most discussion on \gls{so} does not directly relate to documentation about an \gls{iws}. We did not find any process-related (A-3) or tool-related (A-4) questions as, understandably, the developers who write the documentation of the \glspl{iws} would not be posting questions of such nature on \gls{so}.
@@ -241,7 +241,7 @@ Few developers question or ask questions directly about the \glsac{api} document
 
 There are also many references (\PctTaxADocumentation{}) addressing the confusing nature of some documentation, indicating that the \textbf{readability, usability and usefulness of the documentation (A-2b, A-2c and A-2d)} could be improved. For example, ``\textit{Am I encoding it correctly? The docs are quite vague.}''\solink{41166264}, ``\textit{The aws docs for this are really confusing.}''\solink{52046473}.
 
-\paragraph{Results from~\citeauthor{Beyer:2018fm}'s taxonomy}
+\subsubsection{Results from~\citeauthor{Beyer:2018fm}'s taxonomy}
 \label{icse2020:sub:sub:resultsB}
 
 %
@@ -284,7 +284,7 @@ We obtained the following results $\chi^2 = 131.86$, $\alpha = 0.05$, $p\ value 
 \subsection{Answers to Research Questions}
 
 
-\paragraph{RQ1. How do developers mis-comprehend \glspl{iws} as presented within \gls{so} pain-points?}
+\subsubsection{How do developers mis-comprehend \glspl{iws} as presented within \gls{so} pain-points? (RQ1)}
 %
 Upon meeting to discuss the discrepancies between our categorisation of \gls{iws} usage \gls{so} posts, we found that our interpretations of the \textit{posts themselves} were largely subjective. For example, many posts presented multi-faceted dimensions for Taxonomy B;~\citet{Beyer:2018fm} argue that a post can have more than one question category and therefore multi-label classification is appropriate at times. We highlight this further in the threats to validity (\cref{icse2020:sec:limitations}).
 
@@ -294,7 +294,7 @@ In \cref{icse2020:fig:ab-compare}, for the documentation-specific classification
 
 The next most frequent category is \textbf{Correctness (A-1a)} with \PctTaxACorrectness{} of posts. In the context of the technical domain there are many limits that developers need to be aware of: range and increments of a model score~\citep{Cummaudo:2019icsme}; required data pre-processing steps for optimal performance; and features provided by the models (as explained in \cref{icse2020:sub:sub:resultsB}). Considering the relation between technical concerns and software quality, developers are right to question providers on correctness; ``\textit{Are the Cloud Vision \glsac{api} limits in documentation correct?}''\solink{36655630}.
 
-\paragraph{RQ2. Are the distribution of issues similar to prior studies?}
+\subsubsection{Are the distribution of issues similar to prior studies? (RQ2)}
 Visual inspection of \cref{icse2020:fig:ab-compare} shows that the distributions for the documentation-specific classification and the generalised classification are different (compared to prior studies). As a sanity check we conducted a $\chi^2$ test and calculated the effect size $\phi_c$. We were able to reject the null hypothesis for both classification schemes, that the distribution of issues were the same as the previous studies (see \cref{icse2020:sec:findings}). We now discuss the most prominent differences between our study and the previous studies.
 
 %
@@ -316,7 +316,7 @@ Applying existing \gls{so} taxonomies allowed us to better understand the distri
 
 In this subsection, we offer an explanation as to why developers are complaining about certain things when trying to use \glspl{iws} on \gls{so} (RQ1), as characterised through the use of prior \gls{so} classification frameworks (RQ2). This is described through the theoretical lenses of two learning taxonomies: Bloom's context complexity and intellectual ability taxonomy, and the \gls{solo} taxonomy (i.e., the nature by which developer's learn). We argue that the issues with using \glspl{iws} relating to the lower-levels of these learning taxonomies are easily solvable by slight fixes and improvements to the documentation of these services. However, the higher dimensions of these taxonomies demand far more rigorous mitigation strategies than documentation alone (potentially more structured education). Thus, many of the questions posted are from developers who are \textit{learning to understand} the domain of \glspl{iws} and \gls{ai}, and (hence) both \gls{solo} and Bloom's taxonomies are applicable for this discussion---as described below within the context of our domain---as pedagogical aides.
 
-\paragraph{Bloom's Taxonomy}
+\subsubsection{Bloom's Taxonomy}
 
 The cognitive domain under Bloom's taxonomy~\citep{Krathwohl:2001wr} consists of six objectives. Within the context of \glspl{iws}, developers are likely to ask questions due to causal links that exist in the following layers of Bloom's taxonomy:
 %
@@ -332,7 +332,7 @@ The cognitive domain under Bloom's taxonomy~\citep{Krathwohl:2001wr} consists of
 %
 (vi)~\textit{synthesise}, where the developer is posing creative questions to ask if new concepts are possible with \glspl{cvs}.
 
-\paragraph{\gls{solo} Taxonomy}
+\subsubsection{\gls{solo} Taxonomy}
 
 The \gls{solo} taxonomy~\citep{Biggs:2014ur} consists of five levels of understanding. The causal links behind the \gls{so} questions we have found relate to the following layers of the \gls{solo} taxonomy:
 %
@@ -378,7 +378,7 @@ The \gls{solo} taxonomy~\citep{Biggs:2014ur} consists of five levels of understa
   \end{tabular}}
 \end{table*}
 
-\paragraph{Aligning \gls{so} taxonomies to Bloom's and \gls{solo} taxonomies}
+\subsubsection{Aligning \gls{so} taxonomies to Bloom's and \gls{solo} taxonomies}
 
 To understand our findings with the lenses of pedagogical aids, we aligned Taxonomies A and B to Bloom's and the \gls{solo} taxonomies for a random sample of 50 issues described in \cref{icse2020:ssec:method:filtering:reliability}.  To do this, we reviewed all 50 of these \gls{so} posted questions and applied both the Bloom and \gls{solo} taxonomies. The primary author assigned each of the 50 questions a level within the Bloom and \gls{solo} taxonomies, removed out noise (i.e., false positive posts of no relevance to \glspl{iws}) and unassigned dimensions from reliability agreement, and then compared the relevant dimensions of Taxonomy A and B dimensions (not sub-categories). The comparison of alignments of posts to the five \gls{solo} dimensions and six Bloom dimensions are shown in \cref{icse2020:fig:alignment-of-blooms-solo}.
 We acknowledge that this is only an approximation of the current state of the developer's understanding of \glspl{iws}. This early model will require further studies to perform a more thorough analysis, but we offer this interpretation for early discussion. %
@@ -399,27 +399,32 @@ However, and more importantly, the higher-construct questions ranging from the m
 \subsection{Implications}
 \label{icse2020:ssec:findings:documentation-vs-education}
 
-\paragraph{Researchers}
-\textit{(i)~Investigate the evolution of post classification:} Analysing how the distribution of the reported issues changes over time would be an important study. This study could answer questions such as `\textit{Does the evolution of \glspl{iws} follow the same pattern as previous software engineering trends such as mobile app or web development?}' As with any new emerging field, it is key to analyse how developers perceive such issues over time. For instance, early issues with web or mobile app development matured as their respective domain matured, and we would expect similar results to occur in the \glspl{iws} space. Future researchers could plan for a longitudinal study, such as a long-term survey with developers to gather their insights in this evolving domain, reviewing case studies of projects that use intelligent web services from now into the future, or re-mining \gls{so} at a later date and comparing the results to this study. This will help assess evolving trends and characteristics, and determine how and if the nature of the developer's experience with \glspl{iws} (and \gls{ai} in general) changes with time.
-\textit{(ii)~Investigate the impact of technical challenges on \glsac{api} usage:} As discussed above, \glspl{iws} have characteristics that may influence \glsac{api} usage patterns and should be investigated as a further avenue of research. Further mining of open source software repositories that make use of \glspl{iws} could be assessed, thereby investigating if \glsac{api} patterns evolve with the rise of \gls{ai}-based applications.
+\subsubsection{For Researchers}
+
+\paragraph{Investigate the evolution of post classification} Analysing how the distribution of the reported issues changes over time would be an important study. This study could answer questions such as `\textit{Does the evolution of \glspl{iws} follow the same pattern as previous software engineering trends such as mobile app or web development?}' As with any new emerging field, it is key to analyse how developers perceive such issues over time. For instance, early issues with web or mobile app development matured as their respective domain matured, and we would expect similar results to occur in the \glspl{iws} space. Future researchers could plan for a longitudinal study, such as a long-term survey with developers to gather their insights in this evolving domain, reviewing case studies of projects that use intelligent web services from now into the future, or re-mining \gls{so} at a later date and comparing the results to this study. This will help assess evolving trends and characteristics, and determine how and if the nature of the developer's experience with \glspl{iws} (and \gls{ai} in general) changes with time.
+
+\paragraph{Investigate the impact of technical challenges on \glsac{api} usage} As discussed above, \glspl{iws} have characteristics that may influence \glsac{api} usage patterns and should be investigated as a further avenue of research. Further mining of open source software repositories that make use of \glspl{iws} could be assessed, thereby investigating if \glsac{api} patterns evolve with the rise of \gls{ai}-based applications.
 
 %
 
-\paragraph{Educators}
+\subsubsection{For Educators}
 \label{icse2020:sssec:educators}
 
-\textit{(i)~Education on high-level aspects of \glspl{iws}:} As demonstrated in our analysis of their \gls{so} posts, many developers appear to be unaware of the higher-level concepts that exist within the \gls{ai} and \gls{ml} realm. This includes the need to pre- and post-process data, the data dependency and instability that exists in these services, and the specific algorithms that empower the underlying intelligence and hence their limitations and characteristics. However, most developers don't seem to complain about these factors due to the lack of documentation (i.e., via Taxonomy A). Rather, they are unaware that such information should be documentation and instead ask generalised and open questions (i.e., via Taxonomy B). Thus, documentation improvements alone may not be enough to solve these issues. This results in uncertainty during the preparation and operation (usage) of such services.  Such high-level conceptual information is currently largely missing in developer documentation for \glspl{iws}. Furthermore, many of the background \gls{ml} and \gls{ai} algorithm information needed to understand and use intelligent systems in context are built within data science (not \gls{se}) communities. A possible road-map to mitigate this issue would be the development of a software engineer's `crash-course' in \gls{ml} and \gls{ai}. The aim of such a course would encourage software engineers to develop an appreciation of the nuances and the inherent risks and implications that comes with using \glspl{iws}. This could be taught at an undergraduate level to prepare the next generation of developers of a `programming 2.0' era. However, the key aspects and implications that are presented with \gls{ai} would need to be well-understood before such a course is developed, and determining the best strategy to curate the content to developers would be best left to the \gls{se} education domain. Further investigation in applying educational taxonomies in the area (such as our attempts to interpret our findings using Bloom's and the \gls{solo} taxonomies) would need to be thoroughly explored beforehand.
+\paragraph{Education on high-level aspects of \glspl{iws}} As demonstrated in our analysis of their \gls{so} posts, many developers appear to be unaware of the higher-level concepts that exist within the \gls{ai} and \gls{ml} realm. This includes the need to pre- and post-process data, the data dependency and instability that exists in these services, and the specific algorithms that empower the underlying intelligence and hence their limitations and characteristics. However, most developers don't seem to complain about these factors due to the lack of documentation (i.e., via Taxonomy A). Rather, they are unaware that such information should be documentation and instead ask generalised and open questions (i.e., via Taxonomy B). Thus, documentation improvements alone may not be enough to solve these issues. This results in uncertainty during the preparation and operation (usage) of such services.  Such high-level conceptual information is currently largely missing in developer documentation for \glspl{iws}. Furthermore, many of the background \gls{ml} and \gls{ai} algorithm information needed to understand and use intelligent systems in context are built within data science (not \gls{se}) communities. A possible road-map to mitigate this issue would be the development of a software engineer's `crash-course' in \gls{ml} and \gls{ai}. The aim of such a course would encourage software engineers to develop an appreciation of the nuances and the inherent risks and implications that comes with using \glspl{iws}. This could be taught at an undergraduate level to prepare the next generation of developers of a `programming 2.0' era. However, the key aspects and implications that are presented with \gls{ai} would need to be well-understood before such a course is developed, and determining the best strategy to curate the content to developers would be best left to the \gls{se} education domain. Further investigation in applying educational taxonomies in the area (such as our attempts to interpret our findings using Bloom's and the \gls{solo} taxonomies) would need to be thoroughly explored beforehand.
 
-\paragraph{Software Engineers}
-\textit{(i)~Better understanding of intelligent \glsac{api} contextual usage:} Our results show that developers are still learning to use these \glsacpl{api}. We applied two learning perspectives to interpret our results. In applying the two pedagogical taxonomies to our findings, we see that most issues seem to fall into the pre-structural and knowledge-based categories; little is asked of higher level concepts and a majority of issues do not offer complex analysis from developers. This suggests that developers are struggling as they are unaware of the vocabulary needed to actually use such \glsacpl{api}, further reinforcing the need for \glsac{api} providers to write overview documentation (as noted in prior work \citep{Cummaudo:2019esem}) and not just simple endpoint documentation. This said, improved documentation isn't always enough---as suggested by our discussion in \cref{icse2020:ssec:bloomsolo}, software engineers should explore further education to attain a greater appreciation of the nuances of \gls{ml} when attempting to use these services.
+\subsubsection{For Software Engineers}
 
-\paragraph{Intelligent Service Providers}
+\paragraph{Better understanding of intelligent \glsac{api} contextual usage} Our results show that developers are still learning to use these \glsacpl{api}. We applied two learning perspectives to interpret our results. In applying the two pedagogical taxonomies to our findings, we see that most issues seem to fall into the pre-structural and knowledge-based categories; little is asked of higher level concepts and a majority of issues do not offer complex analysis from developers. This suggests that developers are struggling as they are unaware of the vocabulary needed to actually use such \glsacpl{api}, further reinforcing the need for \glsac{api} providers to write overview documentation (as noted in prior work \citep{Cummaudo:2019esem}) and not just simple endpoint documentation. This said, improved documentation isn't always enough---as suggested by our discussion in \cref{icse2020:ssec:bloomsolo}, software engineers should explore further education to attain a greater appreciation of the nuances of \gls{ml} when attempting to use these services.
 
-\textit{(i)~Clarify use cases for \glspl{iws}:} Inspecting \gls{so} posts revealed that there is a level of confusion around the capabilities of different \glspl{iws}. This needs to be clarified in associated \glsac{api} documentation.
+\subsubsection{For Intelligent Service Providers}
+
+\paragraph{Clarify use cases for \glspl{iws}} Inspecting \gls{so} posts revealed that there is a level of confusion around the capabilities of different \glspl{iws}. This needs to be clarified in associated \glsac{api} documentation.
 The complication with this comes with targeting the documentation such that software developers (who are untrained in the nuances of \gls{ai} and \gls{ml} as per \cref{icse2020:sssec:educators}) can to digest it and apply it in-context to application development.
-\textit{(ii)~Technical domain matters:} More needs to be provided than a simple endpoint description as conventional \glsacpl{api} offer by describing the whole framework by which the endpoint sits, giving further context. This said, compared to traditional \glsacpl{api}, we find that developers complain less about the documentation and more about shallower issues. All expected pre-processing and post-processing needs to be clearly explained.
+
+\paragraph{Technical domain matters} More needs to be provided than a simple endpoint description as conventional \glsacpl{api} offer by describing the whole framework by which the endpoint sits, giving further context. This said, compared to traditional \glsacpl{api}, we find that developers complain less about the documentation and more about shallower issues. All expected pre-processing and post-processing needs to be clearly explained.
 A possible mitigation to this could be an interactive tutorial that helps developers fully understand the technical domain using a hands-on approach. For example, websites offer interactive Git tutorials\footnote{For example, \url{https://learngitbranching.js.org}.} to help developers understand and explore the technical domain matters under version control in their own pace.
-\textit{(iii)~Clarify limitations:} \glsac{api} developers need to add clear limitations of the existing \glsacpl{api}. Limitations include list of objects that can be returned from an endpoint.  We found that the cognitive anchors of how existing, conventional \glsac{api} documentation is written has become `ported' to the \gls{cv} realm, however a lot more overview documentation than what is given at present (i.e., better descriptions of errors, improved context of how these systems work in etc.) needs to be given.
+
+\paragraph{Clarify limitations} \glsac{api} developers need to add clear limitations of the existing \glsacpl{api}. Limitations include list of objects that can be returned from an endpoint.  We found that the cognitive anchors of how existing, conventional \glsac{api} documentation is written has become `ported' to the \gls{cv} realm, however a lot more overview documentation than what is given at present (i.e., better descriptions of errors, improved context of how these systems work in etc.) needs to be given.
 Such documentation could be provided using interactive tutorials.
 
 %

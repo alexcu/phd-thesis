@@ -4,11 +4,20 @@
 \usepackage{ragged2e}   % Justify switch
 \usepackage{subcaption} % Subcaptions
 \usepackage{multicol}   % Multiple columns
-\usepackage{hyperref}   % URLs
 \usepackage{pdfpages}   % Include PDFs
 \usepackage{pdflscape}  % Landscape PDF
+\usepackage{afterpage}  % Call landscape after page is complete
 \usepackage{siunitx}    % SI Units
 \usepackage{fontawesome}% Fontawesome icons
+
+% URLs
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+
+% Sub-subsection title
+\usepackage{titlesec}
+\titleformat*{\subsubsection}{\large\itshape}
+\setcounter{secnumdepth}{3}
 
 \ifpdf
 \newcommand{\includepdfframed}[1]{\includepdf[

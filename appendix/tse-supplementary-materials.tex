@@ -1,0 +1,564 @@
+\chapter{Supplementary Materials to \cref{ch:tse2020}}
+\label{ch:tse-supplementary-materials}
+\cleardoublepage
+
+\def\circlenotpresent{\faCircleO}
+\def\circlepartialpresent{\faAdjust}
+\def\circlepresent{\faCircle}
+
+\section{Detailed Overview of Our Proposed Taxonomy}
+\label{tse2020:tab:taxonomy}
+
+An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy. ILS = In-Literature Score, calculated as a percentage of the number of papers that make the recommendation of all 21 primary sources. IPS = In-Practice Score, calculated as the average compliance to the SUS. Colour scales indicate relevancy weight within ILS or IPS values for comparative purposes, where red = \textit{lowest} and green = \textit{highest}. GCV, AWS, ACV = Presence of category in Google Cloud Vision, Amazon Rekognition, and Azure Cloud Vision documentation. Presence indicated as \textit{fully present} (\circlepresent{}), \textit{partially present} (\circlepartialpresent{}), and \textit{not present} (\circlenotpresent{}).
+
+{\def\cn{}
+\def\cy{\checkmark}
+\footnotesize
+\afterpage{\begin{landscape}
+\begin{longtable}{rp{0.5\linewidth}|p{0.125\linewidth}|cc|ccc}
+%   \caption[Taxonomy proposed in API documentation knowledge study]{}
+  %\label{tse2020:tab:taxonomy}\\
+  \toprule
+  \textbf{Key} &
+  \textbf{Description} &
+  \textbf{Primary Sources} &
+  \textbf{ILS} &
+  \textbf{IPS} & 
+  \textbf{GCV} &
+  \textbf{AWS} &
+  \textbf{ACV} \\
+  \midrule
+  \endfirsthead
+%   \caption*{An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy \textit{(Continued)}.}\\
+  \toprule
+  \textbf{Key} &
+  \textbf{Description} &
+  \textbf{Primary Sources} &
+  \textbf{ILS} &
+  \textbf{IPS} &
+  \textbf{GCV} &
+  \textbf{AWS} &
+  \textbf{ACV} \\
+  \midrule
+  \endhead
+  \bottomrule
+  
+  \multicolumn{8}{r}{\textit{Continued on next page...}}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  A1&
+  Quick-start guides to rapidly get started using the API in a specific programming language.&
+  \scriptsize S4, S9, S10 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{6cbf85}0.88&\circlepresent{}&\circlepartialpresent{}&\circlepresent{}\\
+  
+  A2&
+  Low-level reference manual documenting all API components to review fine-grade detail.&
+  \scriptsize S1, S3, S4, S8, S9, S10, S11, S12, S15, S16, S17 &
+  \cellcolor[HTML]{ecd36a}0.52&\cellcolor[HTML]{ded16d}0.56&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  
+  A3&
+  Explanations of the API's high-level architecture to better understand intent and context.
+  &
+  \scriptsize S1, S2, S4, S11, S14, S16, S19, S20 &
+  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{aec977}0.70&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  A4&
+  Source code implementation and code comments (where applicable) to understand the API author's mindset.
+  &
+  \scriptsize S1, S4, S7, S12, S13, S17, S20 &
+  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{fed567}0.47&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+  {A5}&
+  {Code snippets (with comments) of no more than 30 LoC to understand a basic component functionality within the API.}
+  &
+  \scriptsize {S1, S2, S4, S5, S6, S7, S9, S10, S11, S14, S15, S16, S18, S20, S21} &
+  \cellcolor[HTML]{a8c978}0.71&\cellcolor[HTML]{69be86}0.89&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  {A6}&
+  {Step-by-step tutorials, with screenshots to understand  how to build a non-trivial piece of functionality with multiple components of the API.}
+  &
+  \scriptsize {S1, S2, S4, S5, S7, S9, S10, S15, S16, S18, S20, S21} &
+  \cellcolor[HTML]{dbd16d}0.57&\cellcolor[HTML]{e5d26b}0.54&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
+
+  A7&
+  Downloadable source code of production-ready applications that use the API to understand implementation in a large-scale solution.
+  &
+  \scriptsize S1, S2, S5, S9, S15 &
+  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{bccc74}0.66&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
+
+  A8&
+  Best-practices of implementation to assist with debugging and efficient use of the API.
+  &
+  \scriptsize S1, S2, S4, S5, S7, S8, S9, S14 &
+  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{b6cb75}0.68&\circlenotpresent{}&\circlepresent{}&\circlepartialpresent{}\\
+
+  A9&
+  An exhaustive list of all major components that exist within the API.
+  &
+  \scriptsize S4, S16, S19 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{b3ca76}0.69&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+
+  A10&
+  Minimum system requirements and dependencies to use the API.
+  &
+  \scriptsize S4, S7, S13, S17, S19 &
+  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{aac978}0.71&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+  
+  A11&
+  Instructions to install or begin using the API and details on its release cycle and updating it.
+  &
+  \scriptsize S4, S7, S8, S9, S11, S13, S16, S19 &
+  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{75c083}0.86&\circlepartialpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
+
+  A12&
+  Error definitions that describe how to address a specific problem.
+  &
+  \scriptsize S1, S2, S4, S5, S9, S11, S13 &
+  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{7bc182}0.84&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+  \midrule
+  
+  {B1}&
+  {A brief description of the purpose or overview of the API as a low barrier to entry.}
+  &
+  \scriptsize {S1, S2, S4, S5, S6, S8, S10, S11, S15, S16} &
+  \cellcolor[HTML]{fdd666}0.48&\cellcolor[HTML]{8ac47f}0.80&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  B2&
+  Descriptions of the types of applications the API can develop.
+  &
+  \scriptsize S2, S4, S9, S11, S15, S18 &
+  \cellcolor[HTML]{f4ae6c}0.29&\cellcolor[HTML]{dcd16d}0.57&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
+
+  B3&
+  Descriptions of the types of users who should use the API.
+  &
+  \scriptsize S4, S9 &
+  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{fcce68}0.44&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+
+  B4&
+  Descriptions of the types of users who will use the product the API creates.
+  &
+  \scriptsize S4 &
+  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{fccb68}0.42&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+
+  B5&
+  Success stories about the API used in production.
+  &
+  \scriptsize S4 &
+  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{f8d567}0.49&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
+
+
+  B6&
+  Documentation to compare similar APIs within the context to this API.
+  &
+  \scriptsize S2, S6, S13, S18 &
+  \cellcolor[HTML]{ee9a6f}0.19&\cellcolor[HTML]{ffd666}0.47&\circlepartialpresent{}&\circlenotpresent{}&\circlepresent{}\\
+
+
+  B7&
+  Limitations on what the API can and cannot provide.
+  &
+  \scriptsize S4, S5, S8, S9, S14, S16 &
+  \cellcolor[HTML]{f4ae6c}0.29&\cellcolor[HTML]{57bb8a}0.94&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+
+  \midrule
+  C1&
+  Descriptions of the relationship between API components and domain concepts.
+  &
+  \scriptsize S3, S10 &
+  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{f1d469}0.51&\circlenotpresent{}&\circlenotpresent{}&\circlepresent{}\\
+
+  C2&
+  Definitions of domain-terminology and concepts, with synonyms if applicable.
+  &
+  \scriptsize S2, S3, S4, S6, S7, S10, S14, S16 &
+  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{a1c77a}0.74&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+
+  C3&
+  Generalised documentation for non-technical audiences regarding the API and its domain.
+  &
+  \scriptsize S4, S8, S16 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{e3d26c}0.55&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  \midrule
+  D1&
+  A list of FAQs.
+  &
+  \scriptsize S4, S7 &
+  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{9cc67b}0.75&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  D2&
+  Troubleshooting suggestions.
+  &
+  \scriptsize S4, S8 &
+  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{e0d26c}0.56&\circlenotpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
+
+  D3&
+  Diagrammatically representing API components using visual architectural representations.
+  &
+  \scriptsize S6, S13, S20 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{c8ce71}0.63&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+  D4&
+  Contact information for technical support.
+  &
+  \scriptsize S4, S8, S19 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{ef9e6f}0.21&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  D5&
+  A printed/printable resource for assistance.
+  &
+  \scriptsize S4, S6, S7, S9, S16 &
+  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{dfd16d}0.56&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+
+  D6&
+  Licensing information.
+  &
+  \scriptsize S7 &
+  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{bbcc74}0.66&\circlenotpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+
+  \midrule
+  E1&
+  Searchable knowledge base.
+  &
+  \scriptsize S3, S4, S6, S10, S14, S17, S18 &
+  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{86c37f}0.81&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  E2&
+  Context-specific discussion forum.
+  &
+  \scriptsize S4, S10, S11 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{dad06e}0.58&\circlepresent{}&\circlepresent{}&\circlepartialpresent{}\\
+
+  E3&
+  Quick-links to other relevant documentation frequently viewed by developers.
+  &
+  \scriptsize S6, S16, S20 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{c8ce71}0.63&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+  E4&
+  Structured navigational style (e.g., breadcrumbs).
+  &
+  \scriptsize S6, S10, S20 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{dad06e}0.58&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+
+  E5&
+  Visualised map of navigational paths to certain API components in the website.
+  &
+  \scriptsize S6, S14, S20 &
+  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{f5d568}0.50&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+
+  {E6}&
+  {Consistent look and feel of documentation.}
+  &
+  \scriptsize {S1, S2, S3, S5, S6, S8, S10, S15, S20} &
+  \cellcolor[HTML]{fccd68}0.43&\cellcolor[HTML]{adc977}0.70&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+\end{longtable}
+\end{landscape}}
+}
+
+\clearpage
+\section{Sources of Documentation}\label{tse2020:tab:docsources}
+
+Sources of documentation used for the validation of the taxonomy. For clarity, exact webpages are not referenced for each category, but can be found in supplementary materials which can be downloaded from the URL listed in the paper.
+\bigskip
+
+{\scriptsize
+\begin{longtable}{p{.2\linewidth}|p{.725\linewidth}}
+  \toprule
+  \textbf{Service} & \textbf{Document Sources}\\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Service} & \textbf{Document Sources}\\
+  \midrule
+  \endhead
+  \bottomrule
+  \multicolumn{2}{r}{\textit{Continued on next page...}}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+    Google Cloud Vision &
+    \vspace{-1.75mm}
+    \begin{itemize}[label=,leftmargin=10pt,topsep=0pt,partopsep=0pt,noitemsep,nolistsep,itemindent=-10pt]
+\item \url{https://cloud.google.com/vision/docs/quickstart-client-libraries}
+\item \url{https://googleapis.github.io/google-cloud-java/google-cloud-clients/apidocs/index.html}
+\item \url{https://cloud.google.com/vision/#cloud-vision-use-cases}
+\item \url{https://cloud.google.com/vision/docs/quickstart-client-libraries#using_the_client_library}
+\item \url{https://cloud.google.com/vision/docs/tutorials}
+\item \url{https://cloud.google.com/community/tutorials?q=vision}
+\item \url{https://cloud.google.com/vision/docs/samples#mobile_platform_examples}
+\item \url{https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations}
+\item \url{https://cloud.google.com/functions/docs/bestpractices/tips}
+\item \url{https://cloud.google.com/vision/#derive-insight-from-images-with-our-powerful-cloud-vision-api}
+\item \url{https://cloud.google.com/vision/docs/quickstart-client-libraries}
+\item \url{https://cloud.google.com/vision/docs/release-notes}
+\item \url{https://cloud.google.com/vision/docs/reference/rpc/google.rpc#google.rpc.Code}
+\item \url{https://cloud.google.com/vision/#derive-insight-from-your-images-with-our-powerful----------pretrained-api-models-or-easily-train-custom-vision-models-with-automl----------vision-beta}
+\item \url{https://cloud.google.com/vision/#insight-from-your-images}
+\item \url{https://developers.google.com/machine-learning/glossary/}
+\item \url{https://cloud.google.com/vision/docs/resources}
+\item \url{https://cloud.google.com/vision/sla}
+\item \url{https://cloud.google.com/vision/docs/data-usage}
+\item \url{https://cloud.google.com/vision/docs/support#searchbox}
+\item \url{https://cloud.google.com/vision/docs/support}
+    \end{itemize}\\
+    Amazon Rekgonition &
+    \vspace{-1.75mm}
+    \begin{itemize}[label=,leftmargin=10pt,topsep=0pt,partopsep=0pt,noitemsep,nolistsep,itemindent=-10pt]
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/getting-started.html}
+\item \url{https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html}
+\item \url{https://aws.amazon.com/blogs/machine-learning/using-amazon-rekognition-to-identify-persons-of-interest-for-law-enforcement/}
+\item \url{https://aws.amazon.com/rekognition/#Rekognition_Image_Use_Cases}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html}
+\item \url{https://aws.amazon.com/rekognition/getting-started/#Tutorials}
+\item \url{https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-rekognition/}
+\item \url{https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-java-example_code-rekognition.html}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/best-practices.html}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/API_Operations.html}
+\item \url{https://aws.amazon.com/rekognition/image-features/}
+\item \url{https://aws.amazon.com/releasenotes/?tag=releasenotes%23keywords%23amazon-rekognition}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html}
+\item \url{https://aws.amazon.com/rekognition/}
+\item \url{https://aws.amazon.com/rekognition/}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/limits.html}
+\item \url{https://aws.amazon.com/rekognition/pricing/}
+\item \url{https://aws.amazon.com/rekognition/sla/}
+\item \url{https://aws.amazon.com/rekognition/faqs/}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/video-troubleshooting.html}
+\item \url{https://docs.aws.amazon.com/rekognition/latest/dg/rekognition-dg.pdf}
+\item \url{https://github.com/awsdocs/amazon-rekognition-developer-guide/issues}
+\item \url{https://forums.aws.amazon.com/thread.jspa?threadID=285910}
+    \end{itemize}\\
+    Azure Computer Vision &
+    \vspace{-1.75mm}
+    \begin{itemize}[label=,leftmargin=10pt,topsep=0pt,partopsep=0pt,noitemsep,nolistsep,itemindent=-10pt]
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/quickstarts-sdk/csharp-analyze-sdk}
+\item \url{https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable}
+\item \url{https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/intelligent-apps-image-processing}
+\item \url{https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/tutorials/java-tutorial}
+\item \url{https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/logo-detector-mobile}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/tutorials/storage-lab-tutorial}
+\item \url{https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/tutorials/csharptutorial}
+\item \url{https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/home#analyze-images-for-insight}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi}
+\item \url{https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/release-notes}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/}
+\item \url{https://azure.microsoft.com/en-au/services/cognitive-services/computer-vision/}
+\item \url{https://azure.microsoft.com/en-us/pricing/details/cognitive-services/computer-vision/}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/concept-tagging-images}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/home}
+\item \url{https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/}
+\item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/faq}
+\item \url{https://azure.microsoft.com/en-us/support/legal/}
+    \end{itemize}\\
+\end{longtable}}
+
+%\clearpage
+%\section{List of Online Artefacts}\label{tse2020:sec:online-artefacts}
+%\bibliographystyleW{model1-num-names}
+%\bibliographyW{webservices,webdocimprovements}
+
+\clearpage
+\section{List of Primary Sources}\label{tse2020:sec:primary-sources}
+
+Below lists the primary sources identified in our systematic mapping study. They are listed in order of assignment to the taxonomy described in \cref{tse2020:tab:taxonomy}.
+
+\bigskip
+
+\begin{enumerate}[label={S\arabic*.}]\footnotesize
+\item \bibentry{Robillard:2009uk}
+\item \bibentry{Robillard:2011uv}
+\item \bibentry{Ko:2011fb}
+\item \bibentry{Nykaza:2002td}
+\item \bibentry{Watson:2013fx}
+\item \bibentry{Jeong:2009tu}
+\item \bibentry{Aghajani:2019bo}
+\item \bibentry{Haselbock:2018jd}
+\item \bibentry{Inzunza:2018dn}
+\item \bibentry{Meng:2017cx}
+\item \bibentry{Geiger:2018fv}
+\item \bibentry{Head:2018baa}
+\item \bibentry{Aversano:2017ic}
+\item \bibentry{Robillard:hk}
+\item \bibentry{Watson:2012uy}
+\item \bibentry{Maalej2013}
+\item \bibentry{Parnas:2007fb}
+\item \bibentry{Bottomley:2005fs}
+\item \bibentry{Taulavuori:2004el}
+\item \bibentry{Kotula:1998wp}
+\item \bibentry{McLellan:1998vu}
+\end{enumerate}
+
+\clearpage
+\section{Survey Questions}\label{tse2020:sec:survey}
+
+\def\AgreementScale{{\footnotesize \textit{[Strongly agree, Somewhat agree, Neither agree nor disagree, Somewhat disagree, Strongly disagree]}\bigskip}}
+
+\noindent
+This section contains the exact text of the survey described in \cref{tse2020:sec:validation:survey}. Our instrument also included questions where answers were not included in the research reported in this article, e.g. questions 1 and 2 regarding consent and ensuring participants have had development experience. Images used within the survey have been removed.
+
+\bigskip
+\hrule\sffamily\small
+
+\subsection*{Developer opinions towards the importance of web API documentation recommendations}\noindent
+In this study, we are finding out how important recommendations of web API documentation are to developers. From this, we will improve AI-powered APIs. While there are screenshots of example APIs in the questions, think of an API that you have used based on \textbf{your own prior experience} when answering these questions.   Thanks for taking the time to answer these questions; it should only take you about \textbf{10--20 minutes} to complete. 
+
+\subsubsection*{Attribution Notice}\noindent
+Portions of this questionnaire are reproduced from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. 
+
+\bigskip\hrule
+
+\subsubsection*{Implementation-specific documentation of web APIs}\noindent
+When answering these questions please answer with respect to \textbf{your own experience} in learning web APIs (if applicable). Any examples provided exist solely to help illustrate the statement. For each question, please nominate how much you agree with the following statements: \AgreementScale
+
+\begin{enumerate}[label=Q3\alph*.,leftmargin=2\parindent]
+\item I think quick-start guides with code that help me get started with an API’s client library are important.
+ e.g., quick-start guides that show how to get started and interact with the API and its responses.
+\item I don't find low-level documentation of all classes and methods particularly helpful.
+ e.g., a generated online reference manual from Javadoc comments.  
+\item I would imagine that explanations of the API's high-level architecture, context and rationale would be important to better understand how to consume the API.
+  e.g., a graphic showing how the API could fit into the wider context of an application.  
+\item If I want to understand why an API did something that I didn't expect, the source code comments generally don't help me.
+  e.g., an example from the Lodash API that describes why set.add isn't directly returned.  
+\item I find small code snippets with comments to demonstrate a single component's basic functionality within the API a useful way to learn.
+  e.g., 10-30 lines of code to demonstrating various how-tos of a computer vision API.  
+\item  I think it's cumbersome to read through step-by-step tutorials that show how to build something non-trivial with multiple components using the API. 
+   e.g., a ten-step tutorial documenting how to combine face recognition, face analysis, scene description, and landmark detection API components to generate descriptions of photos.   
+\item  I think it's useful to download source code of production-ready applications that demonstrate the use of multiple facets of the API. 
+   e.g., a downloadable iOS app that demonstrates how to perform image analysis on an iPhone/iPad.
+\item  I think official documentation describing the ‘best-practices’ of how to use the API to assist with debugging and efficiency is not helpful. 
+   e.g., an article describing the correct ways of doing things, the best tools to use, and how to write well-performing code.   
+\item  I believe an exhaustive list of all major components in the API without excessive detail would be useful when learning an API. 
+   e.g., a computer vision web API might list object detection, object localisation, facial recognition, and facial comparison as its 4 components.   
+\item  I believe minimum system requirements and/or dependencies to use the API do not always need to be part of official documentation. 
+   e.g., I can find descriptions of how to get started with a Python environment for a cloud platform on community forums instead of the API's website.   
+\item  I think instructions on how to install or access the API, update it, and the frequency of its release cycle is all useful information to know about. 
+   e.g., a list showing the latest releases, what was added and how to update your application to make use of it.   
+\item  Error codes describing specific problems with an API are not helpful. 
+   e.g., a list of canonical HTTP error codes and how to interpret them.   
+\end{enumerate}
+
+\bigskip\hrule
+\subsubsection*{Rationale-specific documentation of web APIs}\noindent
+When answering these questions please answer with respect to \textbf{your own experience} in learning web APIs (if applicable). Any examples provided exist solely to help illustrate the statement. For each question, please nominate how much you agree with the following statements: \AgreementScale
+
+\begin{enumerate}[label=Q4\alph*.,leftmargin=2\parindent]
+\item I think that, as a starting point when beginning to learn about an API, I would like to read about descriptions of the API's purpose and overview. 
+\item I don't find descriptions of the types of applications the API can develop helpful. 
+\item I believe that descriptions of the types of developers who should and shouldn't use the API is important to know. 
+\item I don't think that descriptions of the types of end-users who will use the product built using the API is important to know in advance. 
+\item I think that if I read success stories about when the API was previously used in production, I would have a better indicator of how I could use that API. 
+\item I think that documentation that compares an API to other, similar APIs confusing and not important. 
+\item I believe it is important to know about what the limitations are on what the API can and cannot provide. 
+\end{enumerate}
+
+\subsubsection*{Conceptual-specific documentation of web APIs}\noindent
+When answering these questions please answer with respect to \textbf{your own experience} in learning web APIs (if applicable). Any examples provided exist solely to help illustrate the statement. For each question, please nominate how much you agree with the following statements: \AgreementScale
+
+\begin{enumerate}[label=Q5\alph*.,leftmargin=2\parindent]
+\item I wouldn’t read through theory about the API's domain that relates theoretical concepts to API components and how both work together. 
+\item I think it is important to know the definitions of the API’s domain-specific terminology and concepts (with synonyms where needed). 
+   e.g., a computer vision API that uses machine learning should list machine learning concepts. 
+\item It's not really important to document information about the API to non-technical audiences, such as managers and other stakeholders. 
+   e.g., pricing information, uptime information, QoS metrics/SLAs etc.   
+\end{enumerate}
+
+\bigskip\hrule
+\subsubsection*{General-support documentation of web APIs}\noindent
+When answering these questions please answer with respect to \textbf{your own experience} in learning web APIs (if applicable). Any examples provided exist solely to help illustrate the statement. For each question, please nominate how much you agree with the following statements: \AgreementScale
+
+\begin{enumerate}[label=Q6\alph*.,leftmargin=2\parindent]
+\item  I find lists of Frequently Asked Questions (FAQs) helpful. 
+\item  When something goes wrong, I don't read through troubleshooting suggestions for specific problems straight away as I like to solve it myself. 
+\item  I like to see diagrammatic representations of an API's components using visual architectural visualisations. 
+   e.g., UML class diagram, sequence diagram. 
+\item  I wouldn't look for email addresses and/or phone number for technical support in an API's documentation. 
+\item  I generally refer to a programmer's reference guide or textbook about the API when I need to. 
+\item  I don't think it's important to read about the licensing information about the API. 
+\end{enumerate}
+
+\bigskip\hrule
+\subsubsection*{The effect of structure and tooling on web API documentation}\noindent
+When answering these questions please answer with respect to \textbf{your own experience} in learning web APIs (if applicable). Any examples provided exist solely to help illustrate the statement. For each question, please nominate how much you agree with the following statements: \AgreementScale
+
+\begin{enumerate}[label=Q7\alph*.,leftmargin=2\parindent]
+\item I would like to use a searchable knowledge base to find information.
+\item I think a context-specific discussion forum between developers isn't very helpful as it just introduces noise.  
+  e.g., issue trackers, Slack group. 
+\item I think links to other similar documentation frequently viewed by other developers would be useful. 
+   e.g., 'people who viewed this also viewed…' 
+\item If I get lost within the API's documentation, a 'breadcrumbs'-style of navigation isn't very useful to me. 
+\item A visualised map of navigational paths to common API components in the website would be useful to have. 
+   e.g., a large and complex API for Enterprise Service-Oriented Architecture where I could click into various boxes to read about components and arrows to read about how they are related.   
+\item I believe ensuring consistent look and feel of all documentation isn't necessary to a good API documentation. 
+\end{enumerate}
+
+\bigskip\hrule
+\subsubsection*{Demographics}\noindent
+
+\begin{enumerate}[label=Q8\alph*.,leftmargin=2\parindent]
+  \item Are you, or do you aspire to be, a professional programmer? Or would you consider programming a hobby?\\\noindent \textit{\footnotesize[Professional, Hobbyist]}
+  \item How many years have you been programming? \\\noindent\textit{\footnotesize
+[1--5 years,
+6--10 years,
+11--15 years,
+16--20 years,
+21--30 years,
+31--40 years,
+41+ years]}
+  \item In what type of role would you say your current job falls into? \\\noindent\textit{\footnotesize
+[
+Back-end developer,
+Data or business analyst,
+Data scientist or machine learning specialist,
+Database administrator,
+Designer,
+Desktop or enterprise applications developer,
+DevOps specialist,
+Educator or academic researcher,
+Embedded applications or devices developer,
+Engineering manager,
+Front-end developer,
+Full-stack developer,
+Game or graphics developer,
+Marketing or sales professional,
+Mobile developer,
+Product manager,
+QA or test developer,
+Student,
+System administration]}
+  \item What level of seniority would you say this role falls into? \\\noindent\textit{\footnotesize
+[Intern Role,
+Graduate Role,
+Junior Role,
+Mid-Tier Role,
+Senior Role,
+Lead Role,
+Principal Role,
+Management,
+N/A (e.g., I am a student),
+Other]}
+
+  \item What industry would you say you work in? \\\noindent\textit{\footnotesize
+[Cloud-based solutions or services,
+Consulting,
+Data and analytics,
+Financial technology or services,
+Healthcare technology or services,
+Information technology,
+Media, advertising, publishing, or entertainment,
+Other software development,
+Retail or eCommerce,
+Software as a service (SaaS) development,
+Web development or design,
+N/A (e.g., I am a student),
+Other industry not listed here]}
+\end{enumerate}
+\bigskip\hrule\bigskip
+\hspace{\fill}\textit{** End of Survey **}\hspace{\fill}

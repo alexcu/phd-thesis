@@ -52,14 +52,14 @@ If we were to view \glspl{cvs} through the lenses of an \gls{sqa} framework, rob
 
 \subsection{External Quality}
 
-\paragraph{Robustness for safety-critical applications}
+\subsubsection{{Robustness for safety-critical applications}
 A typical focus of recent work has been to investigate the robustness of deep-learning within \gls{cv} technique implementation, thereby informing the effectiveness in the context of the end-product. The common method for this has been via the use of adversarial examples~\citep{Szegedy:2013vw}, where input images are slightly perturbed to maximise prediction error but are still interpretable to humans.
 
 Google Cloud Vision, for instance, fails to correctly classify adversarial examples when noise is added to the original images~\citep{Hosseini:2018jr}. \citet{Rosenfeld:2018ut} illustrated that inserting synthetic foreign objects to input images (e.g., a cartoon elephant) can completely alter classification output. \citet{Wang:2018vl} performed similar attacks on a transfer-learning approach of facial recognition by modifying pixels of a celebrity's face to be recognised as a completely different celebrity, all while still retaining the same human-interpretable original celebrity. \citet{Su:2017uw} used the ImageNet database to show that 41.22\% of images drop in confidence when just a \textit{single pixel} is changed in the input image; and similarly, \citet{Eykholt:2018vk} recently showed similar results that made a \gls{cnn} interpret a stop road-sign (with mimicked graffiti) as a 45mph speed limit sign.
 
 The results suggest that current state-of-the-art \gls{cv} techniques may not be robust enough for safety critical applications as they do not handle intentional or unintentional adversarial attacks. Moreover, as such adversarial examples exist in the physical world~\citep{Kurakin:2016vw,Eykholt:2018vk}, ``the natural world may be adversarial enough''~\citep{Pezzementi:2018tq} to fool \gls{ai} software. Though some limitations and guidelines have been explored in this area, the perspective of \textit{Intelligent} Web Services is yet to be considered and specific guidelines do not yet exist when using \glspl{cvs}.
 
-\paragraph{Testing strategies in \gls{ml} applications}
+\subsubsection{Testing strategies in \gls{ml} applications}
 
 Although much work applies \gls{ml} techniques to automate testing strategies, there is only a growing emphasis that considers this in the opposite sense; that is, testing to ensure the \gls{ml} product works correctly. There are few reliable test oracles that ensure if an \gls{ml} has been implemented to serve its algorithm and use case purposefully; indeed, ``the non-deterministic nature of many training algorithms makes testing of models even more challenging'' \citep{Arpteg2018}.
 \citet{murphy2007approach} proposed a \gls{se}-based testing approach on \gls{ml} ranking algorithms to evaluate the `correctness' of the implementation on a real-world data set and problem domain, whereby discrepancies were found from the formal mathematical proofs of the \gls{ml} algorithm and the implementation. 
@@ -74,13 +74,13 @@ However, \citet{Arpteg2018} recently demonstrated (using real-world \gls{ml} pro
 
 % \citet{Ko:2011fb} assessed the importance of a programmer's conceptual understanding of the background behind the task before implementing the task itself. The study demonstrated how developers had little confidence in their own meta-cognitive judgements to understand and assess the feasibility of using a particular Bluetooth \gls{api} to implement a task that requires Bluetooth. While code examples helped, they failed to understand the vocabulary and concepts of wireless connectivity. This indecision over what search results were relevant in their searches ultimately hindered their progress implementing the functionality, again decreasing productivity.~\citeauthor{Ko:2011fb} suggest to improve \gls{api} usability by introducing the background of the \gls{api} and its relevant concepts using glossaries linked to tutorials to each of the major concepts, and then relate it back to how to implement the particular functionality. Whether application developers approach computer vision IWSs with similar misunderstandings is of concern, but not directly considered as part of this work.
  
-\paragraph{Quality metrics for cloud services}
+\subsubsection{Quality metrics for cloud services}
  
 \glspl{cvs} are based on cloud computing fundamentals under a subset of the \gls{paas} model.  There has been work in the evaluation of \gls{paas} in terms of quality attributes~\citep{Garg:2011gw}: these attributes are exposed using \glspl{sla} between vendors and customers, and customers denote their demanded \gls{qos} to ensure the cloud services adhere to measurable KPI attributes. 
 
 Although, popular services, such as cloud object storage, come with strong \gls{qos} agreement, to date \glspl{iws} do not come with deep assurances around their performance and responses, but do offer uptime guarantees. For example, how can Rosa demand a \gls{qos} that ensures all photos of dogs uploaded to her app guarantee the specific dog breeds are returned so that users can look up their other friend's `border collie's? If dog breeds are returned, what ontologies exist for breeds? Are they consistent with each other, or shortened? (`Collie' versus `border collie'; `staffy' versus `staffordshire bull terrier'?) For some applications, these unstated \gls{qos} metrics specific to the \gls{ml} service may have significant legal ramifications.
 
-\paragraph{Web service documentation and documenting \gls{ml}}
+\subsubsection{Web service documentation and documenting \gls{ml}}
 
 From the \textit{developer's} perspective, little has been achieved to assess \gls{iws} quality or assure quality of these \glspl{cvs}. \glslong{ws} and their \glspl{api} are the bridge between developers' needs and the software components~\citep{Arnold:2005vc}; therefore, assessing such \glspl{cvs} from the quality of their \glspl{api} is thereby directly related to the development quality~\citep{Ko:2004td}. Good \glspl{api} should be intuitive and require less documentation browsing~\citep{Piccioni:2013em}, thereby increasing productivity. Conversely, poor \glspl{api} that are hard to understand and work with reduce developer productivity, thereby reducing product quality. This typically leads to developers congregating on forums such as \glslong{so}, leading to a repository of unstructured knowledge likely to concern \gls{api} design \citep{7180082}. The consequences of addressing these concerns in development leads to a higher demand in technical support (as measured in~\citep{Henning:2009hz}) that, ultimately, causes the maintenance to be far more expensive, a phenomenon widely known in software engineering economics~\citep{Boehm:1981ua}. Rosa, for instance, isn't aware of technical \gls{ml} concepts; if she cannot reason about what search results are relevant when browsing the service and understanding functionality, her productivity is significantly decreased. Conceptual understanding is critical for using \glspl{api}, as demonstrated by \citeauthor{Ko:2011fb}, and the effects of maintenance this may have in the future of her application is unknown.
 
@@ -147,7 +147,7 @@ For the above aspects of consistency, we calculated the spread of variation for 
 \subsection{Consistency of top labels}
 \label{icsme2019:ssec:findings:consistency-of-labels}
 
-\paragraph{Consistency across services}
+\subsubsection{Consistency across services}
 
 \begin{figure}[t]
   \centering
@@ -203,7 +203,7 @@ Should she decide if the performance of a particular service isn't to her needs,
 
 Hence, developers should ensure that the vocabulary used by a particular service is right for them before implementation. As each service does not work to the same standardised model, trained with disparate training data, and tuned differently, results will differ despite the same input. This is unlike deterministic systems: for example, switching from \glsac{aws} Object Storage to Google Cloud Object storage will conceptually provide the same output (storing files) for the same input (uploading files). However, \glspl{cvs} do not agree on the top label for images, and therefore developers are likely to be vendor locked, making changes between services non-trivial.
 
-\paragraph{Semantic consistency where $\boldsymbol{|T_{i}| > 1}$}
+\subsubsection{Semantic consistency where $|T_{i}| > 1$}
 
 \begin{figure}[t]
   \centering
@@ -249,7 +249,7 @@ Thus, a taxonomy of ontologies is unknown; if a `border collie' is detected in a
 
 \subsection{Consistency of confidence}
 
-\paragraph{Consistency of top label's confidence}
+\subsubsection{Consistency of top label's confidence}
 
 In \cref{icsme2019:fig:topconfidence-cdf}, we see that there is high probability that top labels have high confidences for all services. In summary, one in nine images uploaded to any service will return a top label confident to at least 97\%. However, there is higher probability for service \googleapi{} returning a lower confidence, followed by \azureapi{}. The best performing service is \awsapi{}, with 90\% of requests having a top label confident to~$\gtrapprox95\%$, when compared to $\gtrapprox87\%$ and $\gtrapprox93\%$ for services \googleapi{} and \azureapi{}, respectively.
 
@@ -278,7 +278,7 @@ Therefore, Rosa could generally expect that the top labels she receives in her i
   \label{icsme2019:fig:intersecting-cdf}
 \end{figure}
 
-\paragraph{Consistency of intersecting top label's confidence}
+\subsubsection{Consistency of intersecting top label's confidence}
 
 Even where all three services do agree on a set of top labels, the disparity of how much they agree by is still of importance. Just because three services agree that an image contains consistent top labels, they do not always have a small spread of confidence. In \cref{icsme2019:fig:sample-images:cake}, the three services agree with $\sigma~=~0.277$, significantly larger than that of all images in general $\sigma~=~0.0831$. \Cref{icsme2019:fig:intersecting-cdf} displays the cumulative distribution of all intersecting top labels' confidence values, presenting slightly similar results to that of \cref{icsme2019:fig:topconfidence-cdf}.
 
@@ -291,11 +291,11 @@ Even where all three services do agree on a set of top labels, the disparity of 
 
 \subsection{Evolution risk}
 
-\paragraph{Label Stability}
+\subsubsection{Label Stability}
 
 Generally, the top label(s) did not evolve in the evaluation period. 16.19\% and 5.85\% of images did change their top label(s) in the Large and COCOVal17 data sets in service \googleapi{}. Thus, top labels are stable but not guaranteed to be constant.
 
-\paragraph{Confidence Stability}
+\subsubsection{Confidence Stability}
 
 Similarly, where the top label(s) remained the same from one interval to the next, the confidence values were stable. \Cref{icsme2019:tab:delta-confidences} displays the proportion of images that changed their top label's confidence values with various statistics on the confidence deltas between snapshots ($\delta_{c}$). However, this delta is so minuscule that we attribute such changes to statistical noise.
 
@@ -304,13 +304,13 @@ Similarly, where the top label(s) remained the same from one interval to the nex
 
 \subsection{Recommendations for IWS users}
 
-\paragraph{Test with a representative ontology for the particular use case}
+\subsubsection{Test with a representative ontology for the particular use case}
 Rosa should ensure that in her testing strategies for the app she develops, there is an ontology focus for the types of vocabulary that are returned. Additionally, we noted that there was a sudden change in case for services \googleapi{} and \awsapi{}; for all comparative purposes of labels, each label should be lower-cased. 
 
-\paragraph{Incorporate a specialised \gls{iws} testing methodology into the development lifecycle}
+\subsubsection{Incorporate a specialised \gls{iws} testing methodology into the development lifecycle}
 Rosa can utilise the different aspects of consistency as outlined in this paper as part of her quality strategy. To ensure results are correct over time, we recommend developers create a representative data set of the intended application's data set and evaluate these changes against their chosen service frequently. This will help identify when changes, if any, have occurred if vendors do not provide a line of communication when this occurs.
 
-\paragraph{\glspl{iws} are not `plug-and-play'}
+\subsubsection{\glspl{iws} are not `plug-and-play'}
 Rosa will be locked into whichever vendor she chooses as there is inherent inconsistency between these services in both the vocabulary and ontologies that they use. We have demonstrated that very few services overlap in their vocabularies, chiefly because they are still in early development and there is yet to be an established, standardised vocabulary that can be shared amongst the different vendors.
  Issues such as those shown in \cref{icsme2019:ssec:findings:consistency-of-labels} can therefore be avoided.
  
@@ -318,23 +318,23 @@ Throughout this work, we observed that the terminologies used by the various ven
 
 We notice similar patterns with object `tagging', `detection' and `labelling'. Service \googleapi{} uses `Entity Detection' for object categorisation, service \azureapi{} uses `Image Tagging', and service \awsapi{} uses the term `Detect Labels' : conceptually, these provide the same functionality but the lack of consistency used between all three providers is concerning and leaves room for confusion with developers during any comparative analyses. Rosa may find that she wants to label her images into day/night scenes, but this in turn means the `labelling' of varying objects. There is therefore no consistent standards to use the same terminology for the same concepts, as there are in other developer areas (such as Web Development).
 
-\paragraph{Avoid use in safety-critical systems}
+\subsubsection{Avoid use in safety-critical systems}
  We have demonstrated in this paper that both labels and confidences are stable but not constant; there is still an evolution risk posed to developers that may cause unknown consequences in applications dependent on these \glspl{cvs}. Developers should avoid their use in safety critical systems due to the lack of visible changes.
  
 \subsection{Recommendations for IWS providers}
 
-\paragraph{Improve the documentation}
+\subsubsection{Improve the documentation}
 Rosa does not know that service \googleapi{} returns back `carrot' for its top response, with service \awsapi{} returning `spoon' (\cref{icsme2019:fig:sample-images:carrot}). She is unable to tell the service's \gls{api} where to focus on the image. Moreover, how can she toggle the level of specificity in her results? She is frustrated that service \awsapi{} can detect `chocolate', `food' and also `beverage' all as the same top label in \cref{icsme2019:fig:sample-images:coffee}: what label is she to choose when the service is meant to do so for her, and how does she get around this? Thus, we recommend vendors to improve the documentation of services by making known the boundary set of the training data used for the algorithms. By making such information publicly available, developers would be able to review the service's specificity for their intended use case (e.g., maybe Rosa is satisfied her app can catalogue `food' together, and in fact does not want specific types of foods (`hot chocolate') catalogued). We also recommend that vendors publish usage guidelines should that include details of priors and how to evaluate the specific service results.
 
 Furthermore, we did not observe that the vendors documented how some images may respond with multiple labels of the exact same confidence value. It is not clear from the documentation that response objects can have duplicate top values, and tutorials and examples provided by the vendors do not consider this possibility. It is therefore left to the developer to decide which label from this top set of labels best suits for their particular use case; the documentation should describe that a rule engine may need to be added in the developer's application to verify responses. The implications this would have on maintenance would be significant.
 
-\paragraph{Improve versioning}
+\subsubsection{Improve versioning}
 We recommend introducing a versioning system so that a model can be used from a specific date in production systems: when Rosa tests her app today, she would like the service to remain \textit{static} the same for when her app is deployed in production tomorrow. Thus, in a request made to the vendor, Rosa could specify what date she ran her app's QA testing on so that she knows that henceforth these model changes will not affect her app.
 
-\paragraph{Improve Metadata in Response}
+\subsubsection{Improve Metadata in Response}
 Much of the information in these services is reduced to a single confidence value within the response object, and the details about training data and the internal \gls{ai} architecture remains unknown; little metadata is provided back to developers that encompass such detail. Early work into model cards and datasheets~\citep{Mitchell:2018in,Gebru:2018wh} suggests more can be done to document attributes about \gls{ml} systems, however at a minimum from our work, we recommend including a reference point via the form of an additional identifier. This identifier must also permit the developers to submit the identifier to another \gls{api} endpoint should the developer wish to find further characteristics about the \gls{ai} empowering the \gls{iws}, reinforcing the need for those presented in model cards and datasheets. For example, if Rosa sends this identifier she receives in the response object to the \gls{iws} descriptor \gls{api}, she could find out additional information such as the version number or date when the model was trained, thereby resolving potential evolution risk, and/or the ontology of labels.
  
-\paragraph{Apply constraints for predictions on all inputs}
+\subsubsection{Apply constraints for predictions on all inputs}
 In this study, we used some images with intentionally disparate, and noisy objects. If services are not fully confident in the responses they  give back, a form of customised error message should be returned. For example, if Rosa uploads an image of 10 various objects on a table, rather than returning a list of top labels with varying confidences, it may be best to return a `too many objects' exception. Similarly, if Rosa uploads a photo that the model has had no priors on, it might be useful to return an `unknown object' exception than to return a label it has no confidence of. We do however acknowledge that current state of the art \gls{cv} techniques may have limits in what they can and cannot detect, but this limitation can be exposed in the documentation to the developers.
 
 A further example is sending a one pixel image to the service, analogous to sending an empty file. When we uploaded a single pixel white image to service \googleapi{}, we received responses such as `microwave oven', `text', `sky', `white' and `black' with confidences ranging from 51--95\%. Prior checks should be performed on all input data, returning an `insufficient information' error where any input data is below the information of its training data.
