@@ -13,35 +13,35 @@ The following figures are listed in this section:
 
 \begin{itemize}
 \item \textbf{\cref{fig:introduction:ai-products} (p\pageref{fig:introduction:ai-products})}
-  Description of item
+  is a reproduction of \citet{LoGiudice:2016wf}'s report on how \gls{ai} will re-shape applications. The authors produce four primary categories and list sample products, vendors and use cases. This image was originally included within \cref{ch:background}.
 \item \textbf{\cref{fig:introduction:stackoverflow-trends} (p\pageref{fig:introduction:stackoverflow-trends})}
-  Description of item
+  highlights an increasing trend of \gls{cvs} usage measured as discussion of posts that mention a product name. This graph was originally included within \cref{ch:icse2020} based on the posts extracted from this study.
 \item \textbf{\cref{fig:additional:tdm-causal-factors} (p\pageref{fig:additional:tdm-causal-factors})}
-  Description of item
+  highlights potential causal factors that may influence a developer's understanding of the documentation and response of \glspl{iws}. It was intended to be used as the basis of a survey study in \cref{ch:tse2020}, and can be used for future avenues of research.
 \item \textbf{\cref{fig:additional:propsed-tdm} (p\pageref{fig:additional:propsed-tdm})}
-  Description of item
+  was intended for the discussion in \cref{ch:icse2020}, where we propose that developers have a misaligned of the technical domain models within \glspl{iws} and more specifically \glspl{cvs}. We designed a draft technical domain model to describe the various aspects developers must consider when using these services, based on the work by \citet{Barnett:2018Kx}. 
 \item \textbf{\cref{fig:additional:tdm-questions} (p\pageref{fig:additional:tdm-questions})}
-  Description of item
+  describes potential questions that may arise to analyse and test the causal factors of the technical domain model proposed in \cref{fig:additional:propsed-tdm}. This lies an open avenue of future research.
 \item \textbf{\cref{fig:additional:threshy-decision-boundary} (p\pageref{fig:additional:threshy-decision-boundary})}
-  Description of item
+  emphasises dichotomy between an application using an \gls{iws} and the \gls{iws}' training data (which is sourced from an unknown context) and the context of an application, which is known. This is to emphasise how the model produced from these services need to be calibrated to the application domain being used in order for the decision boundary of a single inference to be properly assessed by the developer. This image was originally included within the Threshy publication (\cref{ch:fse-demo2020}) but was removed due to space limitations.
 \item \textbf{\cref{fig:additional:threshy-domain-model} (p\pageref{fig:additional:threshy-domain-model})}
-  Description of item
+  illustrates the domain model of Threshy (\cref{ch:fse-demo2020}).
 \item \textbf{\cref{fig:additional:threshy-sequence-diagram} (p\pageref{fig:additional:threshy-sequence-diagram})}
-  Description of item
+  illustrates the dynamic model of using Threshy and its interactions between the application, front-end of Threshy and back-end of Threshy (\cref{ch:fse-demo2020}).
 \item \textbf{\cref{fig:additional:so-post-extension} (p\pageref{fig:additional:so-post-extension})}
-  Description of item
+  was originally included within the publication \cref{ch:icse2020} but was removed due to space limitations. It provides a high-level overview of the main steps we performed within this study.
 \item \textbf{\cref{fig:additional:arch-class-diagram} (p\pageref{fig:additional:arch-class-diagram})}
-  Description of item
+  is a class diagram of the reference architecture of the proposed architecture in \cref{ch:fse2020}. The implementation is provided in \cref{ch:reference-architecture-code}. See \cref{ch:fse2020} for more.
 \item \textbf{\cref{fig:additional:arch-create-new-brc} (p\pageref{fig:additional:arch-create-new-brc})}
-  Description of item
+  is a sequence diagram illustrating how the reference architecture can be used to create a new benchmark as per the implementation provided in \cref{ch:reference-architecture-code}. See \cref{ch:fse2020} for more.
 \item \textbf{\cref{fig:additional:arch-make-request} (p\pageref{fig:additional:arch-make-request})}
-  Description of item
+  is a sequence diagram illustrating how applications can make requests to the proxy server `facade' as per the implementation provided in \cref{ch:reference-architecture-code}. See \cref{ch:fse2020} for more.
 \item \textbf{\cref{fig:additional:arch-overall-state} (p\pageref{fig:additional:arch-overall-state})}
-  Description of item
+  is a state diagram that illustrates the overall states that exist within the architecture tactic's workflows. See \cref{ch:fse2020} for more.
 \item \textbf{\cref{fig:additional:arch-evolution-of-brc} (p\pageref{fig:additional:arch-evolution-of-brc})}
-  Description of item
+  is a sequence diagram illustrating how the reference architecture handles evolution in an external service per the implementation provided in \cref{ch:reference-architecture-code}. See \cref{ch:fse2020} for more.
 \item \textbf{\cref{fig:additional:arch-evolution-dynamic} (p\pageref{fig:additional:arch-evolution-dynamic})}
-  Description of item
+  illustrates how the reference architecture is able to capture and handle three requests (two valid, one invalid) when sent to the proxy server. See \cref{ch:fse2020} for more.
 \end{itemize}
 
 \begin{figure}[p!]
@@ -163,7 +163,8 @@ The following figures are listed in this section:
 
 \clearpage
 
-\section{Reference Architecture Source Code}
+\chapter{Reference Architecture Source Code}
+\label{ch:reference-architecture-code}
 
 % Include ICVS Benchmarker Facade Code...
 \lstinputlisting[basicstyle=\ttfamily\scriptsize,language=ruby,caption={[Implementation of the architecture module components]{Implementation of architecture module components.}}]{appendix/code/icvsb.rb}
