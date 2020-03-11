@@ -1,5 +1,5 @@
-\chapter[An integration architecture tactic to guard \gls{ai}-first components]
-{An integration architecture tactic to guard \gls{ai}-first components\pubfootnote{Cummaudo:2020fse}}
+\chapter[An integration architecture tactic to guard AI-first components]
+{An integration architecture tactic to guard AI-first components\pubfootnote{Cummaudo:2020fse}}
 \label{ch:fse2020}
 \graphicspath{{mainmatter/publications/figures/fse2020/}}
 
@@ -36,22 +36,22 @@ The introduction of \glspl{iws} into the software engineering ecosystem allows d
 \begin{figure*}[th]
     \centering
     \captionsetup[subfigure]{labelformat=empty}
-    \begin{subfigure}{.3\linewidth}
+    \begin{subfigure}{.33\linewidth}
         \centering
-        \includegraphics[width=.8\linewidth]{evolution-apples}
-        \caption{\texttt{`natural foods'} (.956)~~\ra{}~~\texttt{`granny smith'} (.986)}
+        \includegraphics[width=.77\linewidth]{evolution-apples}
+        \caption{\footnotesize \texttt{`natural foods'} (.956)~\ra{}~\texttt{`granny smith'} (.986)}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.3\linewidth}
         \centering
         \includegraphics[width=.8\linewidth]{evolution-snow}
-        \caption{\texttt{`skiing'} (.937)~~\ra{}~~\texttt{`snow'} (.982)}
+        \caption{\footnotesize \texttt{`skiing'} (.937)~~\ra{}~~\texttt{`snow'} (.982)}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.3\linewidth}
         \centering
         \includegraphics[width=.8\linewidth]{evolution-man}
-        \caption{\texttt{`girl'} (.660)~~\ra{}~~\texttt{`photography'} (.738)}
+        \caption{\footnotesize \texttt{`girl'} (.660)~~\ra{}~~\texttt{`photography'} (.738)}
     \end{subfigure}
     
     \bigskip
@@ -59,21 +59,21 @@ The introduction of \glspl{iws} into the software engineering ecosystem allows d
     \begin{subfigure}{.3\linewidth}
         \centering
         \includegraphics[width=.8\linewidth]{evolution-waves}
-        \caption{\texttt{`water'} (.972)~~\ra{}~~\texttt{`wave'} (.932)}
+        \caption{\footnotesize \texttt{`water'} (.972)~~\ra{}~~\texttt{`wave'} (.932)}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.3\linewidth}
         \centering
         \includegraphics[width=.8\linewidth]{evolution-tennis}
-        \caption{\texttt{`tennis'} (.982)~~\ra{}~~\texttt{`sports'} (.989)}
+        \caption{\footnotesize \texttt{`tennis'} (.982)~~\ra{}~~\texttt{`sports'} (.989)}
     \end{subfigure}
     \hfill
     \begin{subfigure}{.3\linewidth}
         \centering
         \includegraphics[width=.8\linewidth]{evolution-neighbourhood}
-        \caption{\texttt{`neighbourhood'} (.925)~~\ra{}~~\texttt{`blue'} (.927)}
+        \caption{\footnotesize \texttt{`neighbourhood'} (.925)~~\ra{}~~\texttt{`blue'} (.927)}
     \end{subfigure}
-    \caption{Prominent \glspl{cvs} evolve with time which is not effectively communicated to developers. Each image was uploaded in November 2018 and March 2019 and the topmost label was captured. Specialisation in labels (\textit{Left}), generalisation in labels (\textit{Centre}) and emphasis change in labels (\textit{Right}) are all demonstrated from the same service with no \glsac{api} change and limited release note documentation. Confidence values indicated in parentheses.}
+    \caption[Prominent computer vision service evolution]{Prominent \glspl{cvs} evolve with time which is not effectively communicated to developers. Each image was uploaded in November 2018 and March 2019 and the topmost label was captured. Specialisation in labels (\textit{Left}), generalisation in labels (\textit{Centre}) and emphasis change in labels (\textit{Right}) are all demonstrated from the same service with no \glsac{api} change and limited release note documentation. Confidence values indicated in parentheses.}
     \label{fig:labelchanges}
 \end{figure*}
 \end{landscape}}
@@ -82,7 +82,7 @@ The introduction of \glspl{iws} into the software engineering ecosystem allows d
 However, the vendors that offer these services also periodically update their behaviour (responses). The ideal practice for communicating the evolution of a web service involves updating the version number and writing release notes. The release notes typically describe new capabilities, known problems, and requirements for proper operation~\citep{SWEBOK}. Developers anticipate changes in behaviour between versioned releases although they expect the behaviour of a specific version to remain stable over time~\citep{vasa2010growth}. However, emerging evidence indicates that `intelligent' services \textit{do not} communicate changes explicitly~\citep{Cummaudo:2019esem}. Intelligent services evolve in unpredictable ways, provide no notification to developers and changes are undocumented~\citep{Cummaudo:2020icse}. To illustrate this, consider \cref{fig:labelchanges}, which shows the evolution of a popular \gls{cvs} with examples of labels and associated confidence scores changing are shown. This behaviour change severely negatively affects reliability. Applications may no longer function correctly if labels are removed or confidence scores change beyond predefined thresholds. 
 
 % Impact of evolution needs to be empirically derived
-Unlike traditional web services, the functionality of these \textit{\glspl{iws}} is dependent on a set of assumptions unique to their machine learning principles and algorithms. These assumptions are based on the data used to train machine learning algorithms, the choice of algorithm, and the choice of data processing steps---most of which are not documented to service end users. The behaviour of these services evolve over time~\citep{Cummaudo:2019icsme}---typically this  implies the underlying model has been updated or re-trained. 
+Unlike traditional web services, the functionality of these \glspl{iws} is dependent on a set of assumptions unique to their machine learning principles and algorithms. These assumptions are based on the data used to train machine learning algorithms, the choice of algorithm, and the choice of data processing steps---most of which are not documented to service end users. The behaviour of these services evolve over time~\citep{Cummaudo:2019icsme}---typically this  implies the underlying model has been updated or re-trained. 
 
 Vendors do not provide any guidance on how best to deal with this evolution in client applications. For developers to discover the impact on their applications they need to know the behavioural deviation and the associated impact on the robustness and reliability of their system. Currently, there is no guidance on how to deal with this evolution, nor do developers have an explicit checklist of the likely errors and changes that they must test for~\citep{Cummaudo:2020icse}.
 
@@ -239,7 +239,7 @@ A strategy to combat such service changes, which we often observe in traditional
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{service-evolution}
-    \caption{The dimensions of evolution identified within \glspl{cvs}.}
+    \caption[Dimensions of evolution within computer vision services]{The dimensions of evolution identified within \glspl{cvs}.}
     \label{fig:service-evolution}
 \end{figure}
 
@@ -248,7 +248,7 @@ The various key dimensions of the evolution of \glspl{iws} is illustrated in \cr
 \begin{figure}
     \centering
     \includegraphics[width=0.4\linewidth]{large-delta}
-    \caption{A significant confidence increase ($\delta = +0.425$) from \texttt{`window'} (0.559) to \texttt{`water transportation'} (0.984) goes beyond simple decision boundaries.}
+    \caption[Example of substantial confidence change]{A significant confidence increase ($\delta = +0.425$) from \texttt{`window'} (0.559) to \texttt{`water transportation'} (0.984) goes beyond simple decision boundaries.}
     \label{fig:large-delta}
 \end{figure}
 
@@ -265,14 +265,14 @@ Secondly, we have identified that the confidence values returned per label are a
 \begin{figure*}[t]
     \centering
     \includegraphics[width=.9\linewidth]{facade-arch}
-    \caption{\textit{Top:} Accessing an intelligent service directly. \textit{Bottom:} Primary components of the Proxy Server approach.}
+    \caption[Directly versus indirectly accessing intelligent services]{\textit{Top:} Accessing an intelligent service directly. \textit{Bottom:} Primary components of the Proxy Server approach.}
     \label{fig:facade-overview}
 \end{figure*}\end{landscape}}
 As an example, consider \cref{fig:dog-example}, which illustrates an image of a dog uploaded to a well-known cloud-based \gls{cvs}. Developers have very few configuration parameters in the upload payload (\texttt{url} for the image to analyse and \texttt{maxResults} for the number of objects to detect). The \glsac{json} output payload provides the confidence value of its estimated bounding box and label of the dog object via its \texttt{score} field (0.792). Developers can only modify these parameters to influence the score to improve the performance of the \gls{iws}. This is unlike many machine learning toolkit hyper-parameter optimisation facilities, which can be used to configure the internal parameters of the algorithm for training a model. In this case, developers using the \gls{iws} have no insight into which hyperparameters were used when training the model or the algorithm selected, and cannot tune the trained model. Thus an evaluation procedure must be followed as a part of using an intelligent service for an application to tune their output confidence values. 
 
 \begin{figure}[th]
     \includegraphics[width=\linewidth]{dog-example}
-    \caption{Request and response for an intelligent computer vision web service with only three configuration parameters: the image's \texttt{url}, \texttt{maxResults} and \texttt{score}.}
+    \caption[Sample request and response for intelligent services]{Request and response for an intelligent computer vision web service with only three configuration parameters: the image's \texttt{url}, \texttt{maxResults} and \texttt{score}.}
     \label{fig:dog-example}
 \end{figure}
 
@@ -284,7 +284,7 @@ More sophisticated monitoring of \glspl{iws} in client code is therefore require
 
 \begin{table*}[t!]
     \centering
-    \caption{Potential reasons for a \texttt{412 Precondition Failed} response.}
+    \caption[Potential reasons for precondition failure]{Potential reasons for a \texttt{412 Precondition Failed} response.}
     \label{tab:error-codes}
     \small
     \tablefit{\begin{tabular}{p{0.325\linewidth}|p{0.65\linewidth}}
@@ -314,7 +314,7 @@ To address the requirements from \cref{fse2020:sec:motivation} we have developed
 
 \subsection{Core Components}
 
-For the purposes of this paper we assume that the intelligent service of interest is an image recognition service, but our approach generalises to other intelligent, trained model-based services e.g., \glsac{nlp}, document recognition, voice, etc. Each image, when uploaded to the intelligent service returns a response ($R$) which is a set describing a label ($l$) of what is in the image ($i$) along with its associated confidence ($c$)---thus $R_{i} = \{ (l_{1}, c_{1}), (l_{2}, c_{2}), \dots (l_{n}, c_{n}) \}$. Most documentation of these services imply that these confidence values are all what is needed to handle evolution in their systems. This means that if a label changes beyond a certain threshold, then the developer can deal with the issue then (or ignore it). While this approach may work in some simple application contexts, in many it may not. Our Proxy Server offers a way to monitor if these changes go beyond a threshold of tolerance, checking against a domain-specific dataset over time.
+For the purposes of this paper we assume that the intelligent service of interest is an image recognition service, but our approach generalises to other intelligent, trained model-based services e.g., natural language processing, document recognition, voice, etc. Each image, when uploaded to the intelligent service returns a response ($R$) which is a set describing a label ($l$) of what is in the image ($i$) along with its associated confidence ($c$)---thus $R_{i} = \{ (l_{1}, c_{1}), (l_{2}, c_{2}), \dots (l_{n}, c_{n}) \}$. Most documentation of these services imply that these confidence values are all what is needed to handle evolution in their systems. This means that if a label changes beyond a certain threshold, then the developer can deal with the issue then (or ignore it). While this approach may work in some simple application contexts, in many it may not. Our Proxy Server offers a way to monitor if these changes go beyond a threshold of tolerance, checking against a domain-specific dataset over time.
 
 \subsubsection{Benchmark Dataset} Monitoring an intelligent service for behaviour change requires a Benchmark Dataset, a set of $n$ images. For each image ($i$) in the Benchmark Dataset ($B$) there is an associated label ($l$) that represents the true value for that item; $B_{i} = \{(i_{1}, l_{1}), (i_{2}, l_{2}), \dots (i_{n}, l_{n})\}$. This dataset is used to check for evolution in \glspl{iws}. By using a dataset specific to the application domain, developers can detect when evolution affects their application rather than triggering all non-impactful changes. This helps achieve our requirement \textit{R3. Monitor the evolution of \glspl{iws} for changes that affect the application’s behaviour}. Using application-specific datasets also ensures that the architectural style can be used for different \glspl{iws} as only the data used needs to change. This design choice encourages reuse satisfying requirement \textit{R4. Implement a flexible architecture that is adaptable to different \glspl{iws} and application contexts to facilitate reuse}.
 
@@ -326,7 +326,7 @@ For the purposes of this paper we assume that the intelligent service of interes
 
 \begin{table}[t]
     \centering
-    \caption{Rules encoded within a Behaviour Token.}
+    \caption[Rules encoded within behaviour tokens]{Rules encoded within a Behaviour Token.}
     \label{tab:behaviour-token-rules}
     \small
     \begin{tabular}{p{0.25\linewidth}|p{0.675\linewidth}}
@@ -345,7 +345,7 @@ For the purposes of this paper we assume that the intelligent service of interes
 \afterpage{\begin{landscape}\begin{figure*}[t]
     \centering
     \includegraphics[width=.9\linewidth]{dynamic-behaviour}
-    \caption{State diagram for the four workflows presented.}
+    \caption[State diagram of architecture workflows]{State diagram for the four workflows presented.}
     \label{fig:dynamic-behaviour}
 \end{figure*}\end{landscape}}
 \subsubsection{Behaviour Token} The Behaviour Token stores the current state of the Proxy Server by encoding specific rules regarding the evolution of the intelligent service. The current token (at time $t$) held by the Proxy Server is denoted by $k_{t}$. These rules are specified by the developer upon initialisation of this Proxy Server, and are presented in \cref{tab:behaviour-token-rules}. When the Proxy Server is first initialised (i.e., at $t = 0$), the first Behaviour Token is created based on the Benchmark Dataset and its configuration parameters (\cref{tab:behaviour-token-rules}) and is stored locally (thus $k_{0}$ is created). The Behaviour Token is passed to the client application to be used in subsequent requests to the proxy server, where $k_{r}$ represents the Behaviour Token passed from the client application to the proxy server. Each time the proxy server receives the Behaviour Token from the client the validity of the token is validated with a comparison to the Proxy Server's current behaviour token (i.e., $k_{r} \equiv k_{t}$). An invalid token (i.e., when $k_{r} \not\equiv k_{t}$)  indicates that an error caused by evolution has occurred and the application developer needs to appropriately handle the exception. Behaviour Tokens are essential for meeting requirement \textit{R3. Monitor the evolution of \glspl{iws} for changes that affect the application’s behaviour.}   
@@ -374,7 +374,7 @@ These \glsac{http} header fields are used as the `backbone' to help enforce robu
 \begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{precondition-failed}
-    \caption{Precondition failure taxonomy; leaf nodes indicate error types returned to users.}
+    \caption[Precondition failure taxonomy]{Precondition failure taxonomy; leaf nodes indicate error types returned to users.}
     \label{fig:precondition-failed}
 \end{figure}
 
@@ -463,7 +463,7 @@ The parameters set for our initial benchmark were a delta label value of 3 and d
 \begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{frequency}
-    \caption{Histogram of confidence variation}
+    \caption[Histogram of confidence variation]{Histogram of confidence variation.}
     \label{fig:frequency}
 \end{figure}
 
@@ -550,7 +550,7 @@ Lastly, \cref{fig:example-expected-labels} indicates an expected label failure. 
         \end{lstlisting}
     \end{minipage}
     \end{framed}
-    \caption{Example of substantial confidence change due to evolution}
+    \caption[Architecture response to substantial confidence evolution]{Example of substantial confidence change due to evolution.}
     \label{fig:example-confidence-delta}
 \end{figure}
 \begin{figure}
@@ -613,7 +613,7 @@ Lastly, \cref{fig:example-expected-labels} indicates an expected label failure. 
         \end{lstlisting}
     \end{minipage}
     \end{framed}
-    \caption{Example of substantial changes of a response's label set due to evolution}
+    \caption[Architecture response to label set evolution]{Example of substantial changes of a response's label set due to evolution.}
     \label{fig:example-label-delta}
 \end{figure}
 \begin{figure}
@@ -672,7 +672,7 @@ Lastly, \cref{fig:example-expected-labels} indicates an expected label failure. 
         \end{lstlisting}
     \end{minipage}
     \end{framed}
-    \caption{Example of an expected label missing due to evolution}
+    \caption[Architecture response of expected label mismatch]{Example of an expected label missing due to evolution.}
     \label{fig:example-expected-labels}
 \end{figure}
 
@@ -697,7 +697,7 @@ Lastly, \cref{fig:example-expected-labels} indicates an expected label failure. 
 
 \begin{table}[]
     \centering
-    \caption{Variance in ontologies for the five broad categories}
+    \caption[Variance in ontologies]{Variance in ontologies for the five broad categories.}
     \label{tab:ontology-variance}
     \begin{tabular}{c|ccccc|c}
         \toprule
