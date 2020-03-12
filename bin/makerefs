@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+cp library.bib library.bak.bib
+
+gsed -i 's/{jan}/{January}/g' library.bib
+gsed -i 's/{feb}/{February}/g' library.bib
+gsed -i 's/{mar}/{March}/g' library.bib
+gsed -i 's/{apr}/{April}/g' library.bib
+gsed -i 's/{may}/{May}/g' library.bib
+gsed -i 's/{jun}/{June}/g' library.bib
+gsed -i 's/{jul}/{July}/g' library.bib
+gsed -i 's/{aug}/{August}/g' library.bib
+gsed -i 's/{sep}/{September}/g' library.bib
+gsed -i 's/{oct}/{October}/g' library.bib
+gsed -i 's/{nov}/{November}/g' library.bib
+gsed -i 's/{dec}/{December}/g' library.bib
+
+gsed -i 's/url = {\([^}]\+\)}/howpublished = {{\[Online\] Available: \\url{\1}}}/g' library.bib
+gsed -i 's/^abstract =.\+$//g' library.bib
+gsed -i '/^\s*$/d' library.bib
+gsed -i 's/annote = {\([^}]\+\)}/note = {{\1}}/g' library.bib
+gsed -i '1,3d' library.bib
+
+
+rm references.bib
+mv library.bib references.bib
+mv library.bak.bib library.bib
