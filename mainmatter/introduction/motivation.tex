@@ -3,7 +3,7 @@
 
 The market for \glsplx{cvs} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
 
-To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo detection application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-first components has substantiative impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to lack of comprehension, this hinders developer experience, productivity, and understanding/appreciation of \gls{ai}-based components.
+To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo labelling application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-first components has substantiative impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to lack of comprehension, this hinders developer experience, productivity, and understanding/appreciation of \gls{ai}-based components.
   
 \subsubsection{Motivating Scenario I: Tom's \textit{PhotoSharer} App}
 \label{ssec:introduction:motivation:scenario:pam}
@@ -21,7 +21,7 @@ More concretely, in \cref{tab:introduction:motivation:scenario:pam:confchanges},
 To make an assessment of these \glspl{api}, he tries his best to read through the documentation of different \gls{cvs} \glspl{api}, but he has no guiding framework to help him choose the right one. A number of questions come to mind:
 
 \begin{itemize}
-  \item What does `confidence' mean?%ICSME(?)
+  \item What does `confidence' mean?%ICSME(?) \todo {did this change to score in the new versions?}
   \item Which confidence is acceptable in this scenario?%fse-demo
   \item Are these \glspl{api} consistent in how they respond?%ICSME
   \item Are the responses in \glspl{api} static and deterministic?%ICSME
