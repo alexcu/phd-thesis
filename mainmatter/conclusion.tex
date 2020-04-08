@@ -5,25 +5,109 @@ In this chapter, we provide a summary of the contributions within the body of th
 
 \section{Contributions of this Work}
 
-\todo{JG: renamed}
+This thesis has presented three primary contributions to the body of software engineering knowledge. Namely, we have presented an improved understanding in the landscape of \glspl{iws}---concretely, those that provide computer vision---by examining their runtime behaviour and evolution profile over a longitudinal study (\cref{ch:icsme2019}). The implications of this work emphasise the caution developers need to take before diving deep into using these services, and highlight the substantial impacts to software quality if these considerations are ignored. We showed that developers find working with this software more frustrating when contrasted to conventional software engineering domains (\cref{ch:semotion2020}), and that the distribution of the types of issues they face differs from that of the types of issues developers face in established areas such as mobile and web development (\cref{ch:icse2020}). Furthermore, developers find the completeness of the existing \gls{cvs} \glsac{api} documentation poor (\cref{ch:icse2020}), and therefore an investigation into the attributes of what \textit{constitutes} a complete API document according to literature and how developers respond to the efficacy of these attributes produced a taxonomy that, when applied to three \gls{cvs} service providers, found 12 areas of improvement of the services' documentation (\cref{ch:tse2020}). This taxonomy further serves as a go-to `checklist' for any software engineer to review a prioritised list of documentation elements worth implementing into their own \glsac{api} documentation. Lastly our investigations into improved intelligent service integration architectures proposes several strategies by which developers can guard against the non-deterministic evolutionary issues found in \cref{ch:icsme2019}. Preliminary solutions such as that presented in \cref{ch:icwe2019} helped informed further investigations into how developers can use a novel workflow to better select appropriate confidence thresholds calibrated for their application's domain (\cref{ch:fse-demo2020}) and prevent evolution evident in \glspl{cvs} via a client-server intermediary proxy server strategy (\cref{ch:fse2020}). A more extensive discussion into the contributions of this thesis is presented in \cref{sec:introduction:research-contributions}.
+
 \subsection{Answers to Research Questions}
 
+In this subsection, we directly answer the four primary research questions that were posed in \cref{sec:introduction:goals}.
+
 \subsubsection[Answering RQ1]{RQ1: ``\RQOneTextLandscapeAnalysis{}''}
+% RQ1.    What is the nature of cloud-based CVSs?
+\begin{callout}
+These services are in nascent stage, are difficult to evaluate, and are not easily interchangeable. They present themselves as conceptually similar, but we find they functionally differ between vendors. Their labels are semantically disparate and work needs to be done on consolidating a standardised vocabulary for labels. Evolution within these services occurs and is not sufficiently versioned or documented to developers as results from services are non-static.
+\end{callout}
+
+% RQ1.1.  What is their runtime behaviour?
+Irrespective of which service is used, the vocabulary used to label an image is disparate. We find that \textbf{there exists no common standard vocabulary} (e.g., `border collie' vs. `collie') and \textbf{semantic consistency for the same image between services is disparate}, for example as that shown in \cref{fig:conclusion:consistency} (left). The runtime behaviour of these services when contrasted against \textit{each other} is, therefore, inconsistent, and thus (without semantic comparison of images, such as that suggested in \cref{ch:icwe2019}) the vendors are not `plug-and-play'. In contrast to deterministic web services, the same result is functionally guaranteed despite which service is used. For instance, conceptually, a cloud storage service will provide the same output for the same input; that is, regardless of whether a developer uses AWS or Google Cloud object storage, when they upload a file, that file is (more or less) guaranteed to be stored. A deterministic input/output is, thereby, conceptually and functionally guaranteed. However, \textbf{we find that that the nature of intelligent services are conceptually similar but functionally different between services}, and therefore developers are likely to become vendor locked. For instance, as we show in \cref{icsme2019:ssec:findings:consistency-of-labels}, one service may return the duplicity of objects in an image (e.g., `several'), while another service may return the subject of the image (e.g., `carrot') or a hypernym of that subject (e.g., `food'), and another service may focus on the environment of the image (e.g., `indoors').
+Further, even when a label is consistent between services, we find the consistency of how \textit{well} they agree to that result---as measured by their confidence score in the label---does not always strictly match in their level of agreement. As we show in \cref{fig:conclusion:consistency} (right), \textbf{distributions of agreement can be disparate even where services agree on a label for the same image}.
+% RQ1.2.  What is their evolution profile?
+Lastly, while intelligent services that provide computer vision are somewhat stable in the responses they return, \textbf{their responses are non-static}. There is no guarantee that a request with the same image sent in testing will return the same response, and we find that this potential evolution risk is not sufficiently communicated to developers.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\linewidth]{mainmatter/publications/figures/icsme2019/000000009590.jpg}
+    \hfill
+    \includegraphics[width=0.45\linewidth]{mainmatter/publications/figures/icsme2019/000000095707.jpg}
+    \caption{\textit{Left:} Semantic consistency \textit{between} services is not always guaranteed. Two services identified this image as `people', while another identified `conversation', which is not registered at all as a possible label from the other two services. \textit{Right:} Even when services agree on a label, the distribution of their level of agreement is (at times) inconsistent---in the above image, `food' is detected at confidence levels of three services ranging from 94.93\% to 41.39\%.}
+    \label{fig:conclusion:consistency}
+\end{figure}
 
 \subsubsection[Answering RQ2]{RQ2: ``\RQTwoTextDocumentation{}''}
+% RQ2.    Are CVS APIs sufficiently documented?
+\begin{callout}
+These services are largely well-documented, but areas of improvement can be identified. By applying the five-dimensional taxonomy we propose in \cref{ch:tse2020} to three services, we found there to be  twelve ways vendors can better improve their services' documentation. We found the ways in which developers can use these services for their purposes could be improved---such as improved tutorials that integrate \textup{multiple} components of the service---and by providing better descriptions to improve developers' conceptual understanding of computer vision.
+\end{callout}
+
+% RQ2.1.  What are the dimensions of a ‘complete’ API document, according to both literature and practitioners?
+To understand if these services are sufficiently documented, we first investigated what constitutes a complete \glsac{api} document, investigating literature and  validating this against developers using a survey. These consist of five dimensions: usage description (or \textit{how} developers can use the \glsac{api}); design rationale (or \textit{when} the developers should use it); domain concepts (or \textit{why} developers should use it in their application domain); support artefacts (or \textit{what} additional documentation could be provided to support developers); and, documentation presentation (or \textit{visualisation} of the prior four dimensions). This taxonomy is presented with further detail in \cref{ch:tse-supplementary-materials}. \textbf{Developers and literature agree code snippets are the most important documentation artefact, followed closely by tutorials and low-level reference documentation.}
+% RQ2.2.  What additional information or attributes do application developers need in CVS API documentation to make it more complete?
+When we apply this taxonomy to intelligent services such as \glspl{cvs}, we find that there can be improvements made to all dimensions except documentation presentation, which is sufficient. \textbf{The largest suggested improvements fall into the usage description dimension}, in which quick-start guides, step-by-step tutorials, reference applications, best-practices, listings of all \glsac{api} components, minimum system dependencies, and installation instructions require further detail. The second largest dimension falls into the domain concepts behind computer vision, where vendors should provide a greater emphasis behind computer vision concepts and definitions of relevant computer vision terminology (especially since many vendors refer to the same concept under different terms, such as `image tagging' and `label detection' for what is essentially object recognition). The lack of complete documentation in domain concepts was further reflected in developer discussions on \glslong{so}, as found in \cref{ch:icse2020}. \Cref{tse2020:sec:tax-analysis:cvs-improvement} details these suggested improvements in greater detail.
 
 \subsubsection[Answering RQ3]{RQ3: ``\RQThreeTextDevMiscomprehension{}''}
 
+% RQ3.    Are CVSs more misunderstood than conventional software engineering domains?
+\begin{callout}
+In conventional software engineering domains, where the technical domain is well-established and well-understood by developers, questions asked by developers are of greater depth. In contrast, their shallow understanding of the technical domain of computer vision is reflected by questions that highlight a poor understanding of the behaviour of these services and the contexts by which they work. Thus, simpler questions are asked, such as help with trying to understand basic error codes, or clarification of basic concepts and terminologies in computer vision. Therefore, we argue that they are more misunderstood seeing as the domain of intelligent services is still immature.
+\end{callout}
+% RQ3.1.  What types of issues do application developers face most when using CVSs, as expressed as questions on Stack Overflow?
+As expressed on \glslong{so}, we find developers struggle most with simple debugging issues, which reflects a shallow understanding of the of the \gls{ai} concepts that empower these services. \textbf{The technical nuances become so abstracted away that developers begin to lack a full appreciation of the context and proper usage of these systems.} These questions reveal how developers do not have a strong grasp of the behaviour of these services and how further functional capability needs to be overcome by secondary phases of work, such as pre- and post-processing. \textbf{Their conceptual understanding of these services are poor}, with our findings suggesting that developers present a misunderstanding of the vocabulary used within computer vision, such as the differences between object and facial detection, localisation and recognition. The lack of strong conceptual understanding also reflects in discrepancy-based issues where developers cannot appreciate why services result in specific outcomes contrary to what they believe should happen.
+% RQ3.2.  Which of these issues are application developers most frustrated with?
+\textbf{We find these discrepancy-based issues to be the most frustrating for developers}, and argue that this is rooted in a need for developers to have some basic understanding of computer vision before diving into services such as these. In terms of the documentation of these services, \textbf{developers express frustration towards the completeness of the documentation}, whereby they seek additional information from the official documentation sources but are unable to find anything to help resolve this gap. Further, \textbf{they question the accuracy of the cloud documentation since it is in contrast with the behaviour they observe}, as related to the discrepancy-based issues they find. 
+% RQ3.3.  Is the distribution CVS pain-points different to established software engineering domains, such as mobile or web development?
+In contrast to more established domains, such as mobile and web-development, the distribution of issues are different (see \cref{fig:conclusion:question-diff}). Rather than trying to interpret simple errors (as is the case for \glspl{cvs}), developers question \glsac{api} usage and high-level conceptual questions. Developers have a greater appreciation for the technical domain in these mature areas, resulting in fewer shallower questions asked. 
+
+\begin{figure}[h]
+  \begin{subfigure}[c]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{mainmatter/publications/figures/icse2020/a-compare.pdf}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[c]{0.49\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{mainmatter/publications/figures/icse2020/b-compare.pdf}
+  \end{subfigure}
+    \centering
+    \caption{The distribution of documentation-specific questions (\textit{left}) and generalised questions (\textit{right}) differs between prior studies. Descriptions of each category for both question types are found in \cref{icse2020:tab:taxonomies}.}
+    \label{fig:conclusion:question-diff}
+\end{figure}
+
 \subsubsection[Answering RQ4]{RQ4: ``\RQFourDesign{}''}
+
+% RQ4.    What strategies can developers employ to integrate their applications with CVSs while preserving robustness and reliability?
+
+\begin{callout}
+Developers can employ the use of a facade-based architecture to merge the responses of \textup{multiple} vendors using a novel, proportional-representation based approach using lexical databases to resolve ontological issues of labels. An integration strategy consisting of four workflows was presented in \cref{ch:fse2020} to assist developers monitor and handle substantial evolution change in these services. Developers can deal with the probabilistic nature of these services by using a representative dataset of their application's data to fine-tune a confidence threshold and monitor threshold changes in a production setting.
+\end{callout}
+
+This thesis offers three strategies targeted at improved integration of developer applications with \glspl{cvs}. \cref{ch:icwe2019} successfully demonstrated that multiple services can be combined using lexical databases to better improve the reliability of relying on a single service's label. Further, this strategy outperformed naive merge methods using a novel proportional representation method by 0.015 F-measure. This strategy uses the idea of a client-server intermediary facade to handle these operations and produce a consistent result regardless of which service is being used. This inspired further work presented in \cref{ch:fse2020}. To handle the evolutionary issues found in the services, we developed a novel integration architecture based on the proxy server strategy, integrating four key proposed workflows which can be used to guard against evolution and non-determinism in these services: (i) initialising a representative benchmark of domain-specific data used in the client application; (ii) validating that the service is behaving as expected against that benchmark; (iii) periodically detecting for evolution if behavioural change occurs, thereby notifying change; and lastly (iv) invalidating future requests if substantial evolution is detected in step (iii). This, in turn, resolves a non-deterministic response into a deterministic error when evolution is raised. Lastly, to deal with the uncertainty arising from probabilistic confidence values, we proposed Threshy (see \cref{ch:fse-demo2020}), a tool to help developers select appropriate threshold boundaries resulting from their benchmark data sets and cost factors (due to missed predictions). Ultimately these strategies aim at improving the robustness of applications that are dependent on \glspl{cvs}.
+
+\subsection{Limitations of this Work}
+
+%RQ1 Limitations (ICSME)
+%RQ2 Limitations (TSE)
+%RQ3 Limitations (ICSE, SEmotion)
+%RQ4 Limitations (ICWE, FSE-DEMO, FSE)
 
 \subsection{Significance of this Work}
 
-\todo{JG: do you need this???  Perhaps discuss "limitations" - could be under RQ answers or separate section}
-\section{A Critique of this Work}
+%RQ1 Motivations (ICSME)
+%RQ2 Motivations (TSE)
+%RQ3 Motivations (ICSE, SEmotion)
+%RQ4 Motivations (ICWE, FSE-DEMO, FSE)
 
 \todo{JG:renamed}
 \section{Future Research}
 
+%RQ1 Future Work (ICSME)
+%RQ2 Future Work (TSE)
+%RQ3 Future Work (ICSE, SEmotion)
+%RQ4 Future Work (ICWE, FSE-DEMO, FSE)
+
 \todo{JG: what will you say here:}
 \section{Concluding Remarks}
+
+%RQ1 Conc Remark (ICSME)
+%RQ2 Conc Remark (TSE)
+%RQ3 Conc Remark (ICSE, SEmotion)
+%RQ4 Conc Remark (ICWE, FSE-DEMO, FSE)
 
