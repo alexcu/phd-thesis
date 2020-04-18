@@ -4,6 +4,7 @@
 \graphicspath{{mainmatter/publications/figures/fse-demo2020/}}
 
 \def\demolink{https://bit.ly/2YKeYhE}
+\def\demogooglelink{http://bit.ly/a2i2threshy}
 
 \glsresetall
 \begin{abstract}
@@ -35,7 +36,7 @@ A typical evaluation process would involve a test data set (curated by the devel
 
 The standard approach for tuning thresholds in classification problems involve making trade-offs between the number of false positives and false negatives using the receiver operating characteristic (ROC) curve. However, developers (i)~need to realise that this trade-off between false positives and false negatives is a data dependent optimisation process \citep{sculley2011detecting}, (ii)~often need to develop custom scripts and follow a trial-and-error based approach to determine a threshold, (iii)~must have appropriate statistical training and expertise, and (iv)~be aware that multi-label classification require more complex optimisation methods when setting label specific costs. However, current intelligent services do not sufficiently guide or support software engineers through the evaluation process, nor do they make this need clear in the documentation. 
 
-In this paper we present \textit{\bfseries Threshy}\footnote{Threshy is available for use at \url{http://bit.ly/a2i2threshy}.}, a tool to assist developers in selecting decision thresholds when using intelligent services. The motivation for developing Threshy arose from our consultancy work with industry. Unlike existing tooling (see \cref{fse-demo2020:sec:related-work}), \textbf{Threshy serves as a means to up-skill and educate software engineers in selecting machine-learnt decision thresholds}, for example, on aspects such as confusion matrices. We re-iterate that the end-users of Threshy are software engineers and not data scientists---\textbf{Threshy is \uline{not} designed for hyper-parameter tuning of models}, but for threshold tuning of intelligent web services where internal models are not exposed. Threshy provides a visually interactive interface for developers to fine-tune thresholds and explore trade-offs of prediction hits/misses. This exposes the need for optimisation of thresholds, which is dependent on particular use cases.
+In this paper we present \textit{\bfseries Threshy}\footnote{Threshy is available for use at \url{\demogooglelink{}}.}, a tool to assist developers in selecting decision thresholds when using intelligent services. The motivation for developing Threshy arose from our consultancy work with industry. Unlike existing tooling (see \cref{fse-demo2020:sec:related-work}), \textbf{Threshy serves as a means to up-skill and educate software engineers in selecting machine-learnt decision thresholds}, for example, on aspects such as confusion matrices. We re-iterate that the end-users of Threshy are software engineers and not data scientists---\textbf{Threshy is \uline{not} designed for hyper-parameter tuning of models}, but for threshold tuning of intelligent web services where internal models are not exposed. Threshy provides a visually interactive interface for developers to fine-tune thresholds and explore trade-offs of prediction hits/misses. This exposes the need for optimisation of thresholds, which is dependent on particular use cases.
 
 \begin{figure}
     \centering

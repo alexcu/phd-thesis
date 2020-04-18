@@ -81,30 +81,19 @@ Developers can employ the use of a facade-based architecture to merge the respon
 
 This thesis offers three strategies targeted at improved integration of developer applications with \glspl{cvs}. \cref{ch:icwe2019} successfully demonstrated that multiple services can be combined using lexical databases to better improve the reliability of relying on a single service's label. Further, this strategy outperformed naive merge methods using a novel proportional representation method by 0.015 F-measure. This strategy uses the idea of a client-server intermediary facade to handle these operations and produce a consistent result regardless of which service is being used. This inspired further work presented in \cref{ch:fse2020}. To handle the evolutionary issues found in the services, we developed a novel integration architecture based on the proxy server strategy, integrating four key proposed workflows which can be used to guard against evolution and non-determinism in these services: (i) initialising a representative benchmark of domain-specific data used in the client application; (ii) validating that the service is behaving as expected against that benchmark; (iii) periodically detecting for evolution if behavioural change occurs, thereby notifying change; and lastly (iv) invalidating future requests if substantial evolution is detected in step (iii). This, in turn, resolves a non-deterministic response into a deterministic error when evolution is raised. Lastly, to deal with the uncertainty arising from probabilistic confidence values, we proposed Threshy (see \cref{ch:fse-demo2020}), a tool to help developers select appropriate threshold boundaries resulting from their benchmark data sets and cost factors (due to missed predictions). Ultimately these strategies aim at improving the robustness of applications that are dependent on \glspl{cvs}.
 
-\subsection{Limitations of this Work}
+\subsection{Limitations to Research Answers \& Future Research}
 
-%RQ1 Limitations (ICSME)
-%RQ2 Limitations (TSE)
-%RQ3 Limitations (ICSE, SEmotion)
-%RQ4 Limitations (ICWE, FSE-DEMO, FSE)
+% Generalsability of CVSs (exemplar) to other IWSs
+Throughout this thesis, we have used computer vision as a primary exemplar of intelligent \gls{ai} components provided via the web. Limiting this research to such a narrow scope is an illustrative example that enables more concrete findings and potential solutions to a specific subset of \glsplx{iws}. As discussed in \cref{ssec:introduction:motivation}, these particular type of \glspl{iws} were selected due to both their increasing enthusiasm and uptake in developer communities (see \cref{fig:introduction:stackoverflow-trends}) and their maturity in the area. However, we acknowledge that there are myriad domains in the \gls{iws} space, such as audio and sentiment analysis, text-to-speech and speech-to-text, natural language processing, or time-series data analysis. Our analyses of \glspl{cvs} chiefly targets content analysis (or object detection) endpoints of these services; other endpoints such as image description or object localisation exist, and were not considered as the main unit of analysis in this work. Further, this thesis selects only three prominent vendors of \glspl{cvs}: Google, Microsoft and Amazon. While these vendors are considered to be the ubiquitous `go-to' providers for cloud-based services (given their AWS, Google Cloud and Azure platforms) and were the most adopted for enterprise solutions \citep{RightScaleInc:2018kJ}, many other providers of computer vision intelligence exist \citepweb{Pixlab:Home,IBM:Home,Cloudsight:Home,Clarifai:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home,Kairos:Home,Affectiva:Home,Cognitec:Home}, including those from Asian market \citepweb{Megvii:Home,TupuTech:Home,YiTuTech:Home,SenseTime:Home,DeepGlint:Home} where language barriers prevented analysis of these services.
 
-\subsection{Significance of this Work}
+Thus, the generalisability of our findings are a substantial threat to the external validity of our research answers and future research needs to investigate both other areas of \glspl{iws} to assess whether our findings and solutions are applicable to other intelligent domains and other types of services in the \gls{cvs} market. Further, this thesis strongly emphasises investigations into identifying issues within web-based intelligent services. We establish a better understanding on their nature and run-time behaviour  (\ref{rq:nature}), how they are documented (\ref{rq:docs}), and how well they are understood by developers (\ref{rq:devs}), but only offer limited solutions to these issues (e.g., \ref{rq:design}). We encourage the software engineering community to use the issues identified in this work as a stepping-stone into future solutions, identifying other ways (beyond improved integration techniques) in which developers can handle these issues.
 
-%RQ1 Motivations (ICSME)
-%RQ2 Motivations (TSE)
-%RQ3 Motivations (ICSE, SEmotion)
-%RQ4 Motivations (ICWE, FSE-DEMO, FSE)
-
-\todo{JG:renamed}
-\section{Future Research}
-
-%RQ1 Future Work (ICSME)
-%RQ2 Future Work (TSE)
-%RQ3 Future Work (ICSE, SEmotion)
-%RQ4 Future Work (ICWE, FSE-DEMO, FSE)
-
-\todo{JG: what will you say here:}
+\todo{JG: what will you say here?}
 \section{Concluding Remarks}
+
+To our knowledge, little prior investigation has been conducted to understand \glspl{iws} via the lenses of software quality---primarily the robustness, reliability of the services and completeness of its documentation. In this thesis, we have shown that the non-deterministic and probabilistic properties of computer vision \glspl{iws} present non-trivial impacts to the quality of software that they are integrated with, and it is pivotal that developers have a greater appreciation of the technical domain behind the \gls{ai} techniques that empower such services. 
+
+In identifying evolutionary and run-time issues of these services, the ways in which they are (currently) documented and these issues communicated (or not!), and analysing how developers perceive these services with a deterministic mindset, we have shown just how fragile the use of such services (as they stand) are. We strongly encourage vendors to use suggestions made within this research to improve both their documentation and their integration strategies so that developers can ensure more robust applications when using these services. Ultimately, intelligent \gls{ai} components are still in a nascent stage, and therefore strongly suggest one message to eager developers: use with caution and be aware of the consequences!
 
 %RQ1 Conc Remark (ICSME)
 %RQ2 Conc Remark (TSE)
