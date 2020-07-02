@@ -90,9 +90,9 @@ Nina's automated harvester needs to sort picked tomatoes into a respective conta
 Nina uses a two-stage pipeline consisting of a multi-class and a binary classification model. She has decided to evaluate the viability of cloud based intelligent services and use them if operationally effective.
 % Each stage is compounded onto the next, meaning that any false negatives will be reflected into the following stage of the pipeline. Each stage also uses a different model to conclude its outcome.
 
-\Cref{fig:tomatoes} illustrates the pipeline used:
+\Cref{fse-demo2020:fig:tomatoes} illustrates an example of the pipeline as listed below:
 
- \begin{enumerate}
+\begin{enumerate}
     \item \textbf{Classify tomato `type'.} This stage uses an object localisation service to detect all tomato-like objects in the frame and classifies each tomato into one of the following labels: \texttt{[`roma',`cherry',`plum',`green',`yellow',`unknown']}.
     \item \textbf{Assess tomato `ripeness'.} This stage uses a crop of the localised tomatoes from the original frame to assess the crop's colour properties (i.e., average colour must have R > 200 and G < 240). This produces a binary classification to deduce whether the tomato is ripe or not.
     % \item Identify the size of the tomato. This places the tomato on a scale of 1--10 to extract the size determinant of the tomato for sorting.
