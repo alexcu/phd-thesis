@@ -322,8 +322,9 @@ For the purposes of this paper we assume that the intelligent service of interes
 
 
 
-\subsubsection{Threshold Tuner} Selecting an appropriate threshold for detecting behavioural change depends on the application context. Setting the threshold too low increases the likelihood of incorrect results, while setting the threshold too high means undesired changes are being detected. Our approach enables developers to configure these parameters through a Threshold Tuner. \todo{Notification for Threshy paper is 10 August; therefore we can cite Threhsy here before this paper's camera ready version is due on 10 September for providing greater detail on how the Threshold Tuner tool works etc.} This improves robustness as now there is a systematic approach for monitoring and responding to incorrect thresholds. Configurable thresholds meet our key requirements \textit{R2} and \textit{R3}.  
-
+\subsubsection{Threshold Tuner} Selecting an appropriate threshold for detecting behavioural change depends on the application context. Setting the threshold too low increases the likelihood of incorrect results, while setting the threshold too high means undesired changes are being detected. Our approach enables developers to configure these parameters through a Threshold Tuner, and consider competing factors such as algorithmic performance, financial cost, and impact of false-positives/negatives. This component improves robustness as now there is a systematic approach for monitoring and responding to incorrect thresholds. Configurable thresholds meet our key requirements \textit{R2} and \textit{R3}.
+An example of the component is detailed within our complement paper published in the ESEC/FSE 2020 demonstrations track~\citep{Cummaudo:2020fse-demo}.
+ 
 \begin{table}[t]
     \centering
     \caption[Rules encoded within behaviour tokens]{Rules encoded within a Behaviour Token.}
@@ -361,7 +362,7 @@ The Behaviour Token stores the current state of the Proxy Server by encoding spe
 
 \subsubsection{Service Client}
 
-If any of the rules above are violated, then the response of the facade request will vary depending on the parameter of the behaviour encoded within the behaviour token. This can be one of:
+If any of the rules above are violated, then the response of the facade request varies depending on the behaviour encoded within the behaviour token. This can be one of:
 
 \begin{itemize}
     \item \textbf{Error:} Where a \glsac{http} non-200 code is returned by the facade to the client application, indicating that the client application must deal with the issue immediately;
@@ -764,7 +765,7 @@ Our approach assumes that each category of evolution is present in the Benchmark
 
 \subsubsection{Extend the evolution categories to support other \glspl{iws}} This paper has used computer vision services to assess our proposed tactic, and therefore further investigation is needed into the evolution characteristics of other \glspl{iws}. The evolution challenges with services that provide optimisation algorithms such as route planning are likely to differ from \glspl{cvs}. These characteristics of an application domain have shown to greatly influence software architecture~\citep{Barnett:2018Kx} and further development of the Proxy Service will need to account for these differences. As an example, we have identified many similar issues that exist for natural language processing, where topic modelling produces labels on large bodies of text with associated confidences. Therefore, the \textit{broader} concepts of our contribution (e.g., behaviour token parameters, error codes etc.) can be used to handle issues in natural language processing to demonstrate the generalisability of the architecture to other intelligent services. We plan to apply our tactic to natural language processing and other intelligent services  in our future work.
 
-\subsubsection{Provide tool support for optimising parameters for an application context} Appropriately using the Proxy Service requires careful selection of thresholds, benchmark rules and schedule. Further work is required to support the developer in making these decisions so an optimal application specific outcome is achieved. One approach is a to present the trade-offs to the developer and let them visualise the impact of their decisions. 
+\subsubsection{Provide tool support for optimising parameters for an application context} Appropriately using the Proxy Service requires careful selection of thresholds, benchmark rules and schedule. Further work is required to support the developer in making these decisions so an optimal application specific outcome is achieved. One approach is a to present the trade-offs to the developer and let them visualise the impact of their decisions. We have developed an early prototype for such purpose in~\citep{Cummaudo:2020fse-demo}.
 
 \subsubsection{Improvements for a more rigorous approach} Conducting a more formal evaluation of our proposed architecture would benefit the robustness of the solution presented. This could be done in various ways, for example, using a formal architecture evaluation method such as ATAM \citep{Kazman2000} or a similar variant \citep{Bouwers2010}; conducting user evaluation via brainstorming sessions or interviews with practitioners who may provide suggestions to improve our approach; determining better strategies to fully-automate the approach and reduce manual steps; and using real-world industry case studies to identify other factors such as cost and maintenance issues. All these are various avenues of research that would ultimately benefit in a more well-rounded approach to the architectural tactic we have proposed.
 

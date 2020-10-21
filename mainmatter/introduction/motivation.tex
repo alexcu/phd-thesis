@@ -1,11 +1,92 @@
+% \item \textbf{\cref{fig:introduction:ai-products} (p\pageref{fig:introduction:ai-products})}
+%   is a reproduction of \citet{LoGiudice:2016wf}'s report on how \gls{ai} will re-shape applications. The authors produce three primary categories and list sample products, vendors and use cases. This image was originally included within \cref{ch:background}.
+% \item \textbf{\cref{fig:introduction:stackoverflow-trends} (p\pageref{fig:introduction:stackoverflow-trends})}
+
+\begin{landscape}
+\begin{table}
+\centering
+\caption[Categorisation of AI-based products and services]{A broad range of \gls{ai}-based vendors, products, and services is emerging in recent years.  (Adapted from \citep{LoGiudice:2016wf}.)}
+\label{tab:introduction:ai-products}
+\tablefitlandscape{0.9}{
+\begin{tabular}{p{0.2\linewidth}|p{0.25\linewidth}p{0.4\linewidth}}
+\toprule
+\textbf{Category} &
+\textbf{Sample Vendors \& Products} &
+\textbf{Typical Use Cases} \\
+\midrule
+
+\textbf{Embedded \gls{ai}:}\newline
+Expert assistants leverage AI technology embedded in platforms and solutions. &
+
+Amazon: \textit{Alexa}\newline
+Apple: \textit{Siri}\newline
+Facebook: \textit{Messenger}\newline
+Google: \textit{Google Assistant}\newline
+Microsoft: \textit{Cortana}\newline
+Salesforce: \textit{MetaMind}&
+
+Personal assistants for search, simple inquiry, and growing as expert assistance (composed problems, not just search).\newline 
+Available on mobile platforms, devices, the internet of things, and as bots or agents.\newline
+Used in voice, image recognition, and various levels of natural language processing sophistication.\bigskip\\
+
+\textbf{\Gls{ai} point solutions:}\newline
+Point solutions provide specialised capabilities for natural language processing, vision, speech, and reasoning. &
+
+24[7]: \textit{24[7]}\newline
+Admantx: \textit{Admantx}\newline
+Affectiva: \textit{Affdex}\newline
+Assist: \textit{AssistDigital}\newline
+Automated Insights: \textit{Wordsmith}\newline
+Beyond Verbal: \textit{Beyond Verbal}\newline
+Expert System: \textit{Cogito}\newline
+HPE: \textit{Haven OnDemand}\newline
+IBM: \textit{Watson Analytics}\newline
+Narrative Science: \textit{Quill}\newline
+Nuance: \textit{Dragon}\newline
+Salesforce: \textit{MetaMind}\newline
+Wise.io: \textit{Wise Support}\bigskip&
+
+Semantic text, facial/visual recognition, voice intonation, intelligent narratives.\newline
+Various levels of natural language processing, from brief text messaging, chat/conversational messaging, full complex text understanding.\newline
+Machine learning, predictive analytics, text analytics/mining, knowledge management and search.\newline
+Used as expert advisors, reasoning tools, or in customer service.\\
+
+\textbf{AI platforms:}\newline
+Platforms that offer various AI tech, including (deep) machine learning, as tools, \glspl{api}, or services to build solutions.&
+
+CognitiveScale: \textit{Engage, Amplify}\newline
+Digital Reasoning: \textit{Synthesys}\newline
+Google: \textit{Google Cloud \gls{ml}}\newline
+IBM: \textit{Watson Knowledge Studio}\newline
+Intel: \textit{Saffron Natural Intelligence}\newline
+IPsoft: \textit{Amelia, Apollo, IP Center}\newline
+Microsoft: \textit{Cortana Intelligence Suite}\newline
+Nuance: \textit{360 platform}\newline
+Salesforce: \textit{Einstein}\newline
+Wipro: \textit{Holmes}&
+
+\glspl{api}, cloud services, on-premises for developers to build AI solutions. Insights/advice building and rule-based reasoning. Vertical domain advisors (e.g., fraud detection in banking, financial advisors, healthcare). Cognitive services and bots.\\
+
+\bottomrule
+
+\end{tabular}}
+\end{table}\end{landscape}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=.95\linewidth]{stackoverflow-trends2}
+\caption[Increasing interest in the developer community of computer vision services]{Increasing interest within the developer community for \glsplx{cvs} is shown via Stack Overflow posts. These trends of \gls{cvs} usage were measured as discussion of posts tagged with the relevant product name.\footnote{`Microsoft Cognitive Services' merges posts tagged with this name, that of `Cortana Intelligence', and `Azure Cognitive Services'.} This graph is based on data from \cref{ch:icse2020}.}
+\label{fig:introduction:stackoverflow-trends}
+\end{figure}
+
 \section{Motivating Scenarios}
 \label{ssec:introduction:motivation}
 
-The market for \glsplx{cvs} is increasing (\cref{fig:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
+The market for \glsplx{cvs} is increasing (\cref{tab:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
 
-To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo labelling application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-first components has substantiative impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to lack of comprehension, this hinders developer experience, productivity, and understanding/appreciation of \gls{ai}-based components.
+To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo labelling application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-infused components has an impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to a lack of comprehension by developers, this hinders their productivity and understanding/appreciation of \gls{ai}-based components.
   
-\subsubsection{Motivating Scenario I: Tom's \textit{PhotoSharer} App}
+\subsection{Low Risk Motivating Scenario}
 \label{ssec:introduction:motivation:scenario:pam}
 
 Tom wants to develop a social media photo-sharing app on iOS and Android, \textit{PhotoSharer}, that analyses photos taken on smartphones. Tom wants the app to categorise photos into scenes (e.g., day vs. night, landscape vs. indoors), generate brief descriptions of each photo, and catalogue photos of his friends and common objects (e.g., photos with his Border Collie dog, photos taken on a beach on a sunny day with his partner). His app will shares this analysed photo intelligence with his friends on a social-media platform, where his friends can search and view the photos.
@@ -39,7 +120,7 @@ Therefore, the level of risk and the determination of what constitutes an `error
 
 % Motiviating Example 2: Google Cancer Detect API...
 
-\subsubsection{Motivating Scenario II: Cancer Detection \gls{cdss}}
+\subsection{High Risk Motivating Scenario}
 \label{ssec:introduction:motivation:scenario:cancer}
 
 Recent studies in the oncology domain have used deep-learning \glspl{cnn} to detect \glspl{roi} in image scans of tissue (e.g., \citep{Liu:2018fa,Haenssle:2018bz,EhteshamiBejnordi:2017kq}), flagging these regions for doctors to review. Trials of such algorithms have been able to accurately detect cancer at higher rates than humans, and thus incorporating such capabilities into a \gls{cdss} is closer within reach.  Studies have suggested these systems may erode a practitioner's independent decision-making \citep{Jaspers:2011hy,Chambers:1991uh} due to over-reliance; therefore the risks in developing \glspl{cdss} powered by \glspl{iws} become paramount.
@@ -70,27 +151,30 @@ Thus, to improve communication between developers and \gls{iws} providers, devel
 \section{Research Motivation}%: The Nondeterministic Impact to Quality}
 \label{sec:introduction:motivation}
 
-Evermore applications are using \glspl{iws} as demonstrated by ubiquitous examples: aiding the vision-impaired \citep{Reis:2018cp,daMotaSilveira:2017vp}, accounting  \citep{Marshall:2018uj}, data analytics \citep{Iyengar:2017fb}, and student education \citep{Dibia:2017iy}.
-As our motivating examples have illustrated, these \gls{ai}-based components---specifically \glspl{cvs}---are accessible through \glspl{api} consisting of `black box' intelligence (\cref{fig:introduction:cloud-intelliegnce-service}).\footnote{The `black box' refers to a system that transforms input (or stimulus)  to outputs (or response) without any understanding of the internal architecture by which this transformation occurs. This arises from a theory in the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. }
-Data science teams produce \gls{ml} algorithms to make predictions in our datasets and discover patterns within them. As these algorithms are data-dependent, they are therefore inherently probabilistic and stochastic, which results in four critical issues that motivate our thesis: (i) certainty in results, (ii) evolution of datasets, (iii) selecting appropriate decision boundaries, and (iv) the clarity of \gls{ml} documentation that address items i--iii.
+Evermore applications are considering \glspl{iws} as demonstrated by ubiquitous examples: aiding the vision-impaired \citep{Reis:2018cp,daMotaSilveira:2017vp}, accounting  \citep{Marshall:2018uj}, data analytics \citep{Iyengar:2017fb}, and student education \citep{Dibia:2017iy}.
+Our motivating examples illustrate impact on developers when \glspl{cvs} encapsulate assumptions and are poorly documented. Such components are accessible through \glspl{api} consisting of `black box' intelligence (\cref{fig:introduction:cloud-intelliegnce-service}).\footnote{The `black box' refers to a system that transforms input (or stimulus)  to outputs (or response) without any understanding of the internal architecture by which this transformation occurs. This arises from a theory in the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. }
+\gls{ml} models are inherently probabilistic and stochastic, contributing to four critical issues for developers that motivate this research work: (i) communication of outputs (as probabilities), (ii) evolution of datasets, (iii) selecting appropriate decision boundaries, and (iv) the clarity of documentation that address items i--iii. We detail these four issues in the following subsections.
 
-% Certainty
-There is little room for certainty in these results as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. Developers who build these applications \textbf{do not to treat their programs with a stochastic or probabilistic mindset, given that they are trained with a rule-driven mindset that computers make certain outcomes}. 
-However, \glspl{cvs} are data-driven, and therefore return the \textit{probability} that a particular object exists in an input images' pixels via confidence values.
-As an example, consider simple arithmetic representations (e.g., $2+2=4$). The deterministic (rule-driven) mindset suggests that the result will \textit{always} be 4. However, the non-deterministic (data-driven) mindset suggests that results are probable: target output (\textit{exactly} 4) and the output inferred (\textit{a likelihood of} 4) matches as a probable percentage (or as an error where it does not match).\footnote{\citet{Blake:1998vd} produces a multi-layer perceptron \glslong{nn} performing arithmetic representation.} Instead of an exact output, there is a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 to a confidence of $n$. 
+Ultimately, these four issues present major threats to software reliability if left unresolved. Given that such substantiative software engineering principles on reliability, versioning and quality  are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the software engineering literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using \gls{ai}-based components.
+
+\subsection{Outputs are Probabilities}
+There is little room for certainty in these results as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. The interface between AI-components and traditional software components is non-trivial; \textbf{developers, however, do not fully appreciate the nuances of this interface, given that they are trained with a mindset that algorithms make certain outcomes.}
+However, \glspl{cvs} return the \textit{probability} that a particular object exists in an input images' pixels via confidence values.
+As an example, consider simple arithmetic representations (e.g., $2+2=4$). The deterministic mindset suggests that the result will \textit{always} be 4. However, the non-deterministic (data-driven) mindset suggests that results are probable: target output (\textit{exactly} 4) and the output inferred (\textit{a likelihood of} 4) matches as a probable percentage (or as an error where it does not match).\footnote{\citet{Blake:1998vd} produces a multi-layer perceptron \glslong{nn} performing arithmetic representation.} Instead of an exact output, there is a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 to a confidence of $n$. 
 Thus, for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made and ensure reliability in its outcome.
 
 % Evolution
-Traditional software engineering principles advocate for software systems to be versioned upon substantial change. Unfortunately \textbf{we find that the most prominent cloud vendors providing these intelligent services (e.g., Microsoft Azure, Google Cloud and Amazon Web Services) do not release new versioned endpoints of the APIs when the \textit{internal model} changes~\citep{Cummaudo:2019icsme}}. In the context of computer vision, new labels may be introduced or dropped, confidence values may differ, entire ontologoies or specific training parameters may change, but we hypothesise that is not effectively communicated to developers. Broadly speaking, this can be attributed to a dichotomy of release cycles from the data science and software engineering communities: the data science iterations and work by which new models are trained and released runs at a faster cycle than the maintenance cycle of traditional software engineering. Thus we see cloud vendors integrating model changes without the \textit{need} to update the \gls{api} version unless substantial code or schema changes are also introduced---the nuance changes in the internal model does not warrant a shift in the \gls{api} itself, and therefore the version shift in a new model does not always propagate to a version shift in the \gls{api} endpoint.
+\subsection{Evolution of Datasets}
+Traditional software engineering principles advocate for software systems to be versioned upon substantial change. Unfortunately, endpoints are not versioned~\citep{Cummaudo:2019icsme}. In the context of computer vision, new labels may be introduced or dropped, confidence values may differ, entire ontologoies or specific training parameters may change, but we hypothesise that is not effectively communicated to developers. Broadly speaking, this can be attributed to a dichotomy of release cycles from the data science and software engineering communities: the data science iterations and work by which new models are trained and released runs at a faster cycle than the maintenance cycle of traditional software engineering. Thus we see cloud vendors integrating model changes without the \textit{need} to update the \gls{api} version unless substantial code or schema changes are also introduced---the nuance changes in the internal model does not warrant a shift in the \gls{api} itself, and therefore the version shift in a new model does not always propagate to a version shift in the \gls{api} endpoint.
 As demonstrated in \cref{tab:introduction:motivation:scenario:pam:confchanges}, whatever input is uploaded at one time may not necessarily be the same when uploaded at a later time. This again contrasts the rule-driven mindset, where $2+2$ \textit{always} equals 4. Therefore, in addition to the certainty of a result in a single instance, the certainty of a result in \textit{multiple instances} may differ with time, which again impacts on the developers notion of reliable software.
 Currently, it is impossible to invoke requests specific to a particular model that was trained at a particular date in time, and therefore developers need to consider how evolutionary changes of the services may impact their solutions \textit{in production}. Again, whether there is any noticeable behavioural changes from these changes is dependent on the context of the problem domain---unless developers benchmark these changes against their own domain-specific dataset and frequently check their selected service against such a dataset, there is no way of knowing if substantive errors have been introduced.
 
 % Thresholding
+\subsection{Selecting Appropriate Decision Boundaries}
 As the only response from these computer vision classifiers are a label and confidence value; \textbf{the decision boundaries needs to always be appropriately considered by client code for each use case and each model selected}. 
 The external quality of such software needs to consider reliability in the case of thresholding confidence values---that is whether the inference has an appropriate level of confidence to justify a predicted (and reliable) result to end-users. Selecting this confidence threshold is non-trivial; a \gls{ml} course from Google suggests that ``it is tempting to assume that [a] classification threshold should always be 0.5, but thresholds are problem-dependent, and are therefore values that you must tune.''~\citep{Classifi7:online}. 
 Approaches to turning these values are considered for data scientists, but are not yet well-understood for application developers with little appreciation of the nuances of \gls{ml}. 
 
 % Documentation
+\subsection{Documentation of the above concerns}
 Similarly, developers should consider the internal quality of building \gls{ai}-first software. Reliable \gls{api} usability and documentation advocate for the accuracy, consistency and completeness of \glspl{api} and their documentation~\citep{Piccioni:2013em,Robillard:2009uk} and providers should consider mismatches between a developer's conceptual knowledge of the \gls{api} its implementation~\citep{Ko:2011fb}. \textbf{Unreliable \glspl{api} ultimately hinder developer performance and thus reduces productivity}, in addition to producing potentially unreliable software where documentation is not well-understood (or clear to the developer).
-
-Ultimately, these four issues present major threats to software reliability if left unresolved. Given that such substantiative software engineering principles on reliability, versioning and quality  are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the software engineering literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using \gls{ai}-based components. This serves as our core motivation for this work.

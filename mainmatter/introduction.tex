@@ -3,73 +3,68 @@
 \graphicspath{{mainmatter/introduction/figures/}}
 
 Within the last half-decade, we have seen an explosion of cloud-based services typically marketed under an \gls{ai} banner. 
-Vendors are rapidly pushing out \gls{ai}-based solutions, technologies and products encapsulating half a century worth of machine-learning research.\footnote{A \citeyear{LoGiudice:2016wf} report by market research company Forrester captured such growth into four key areas \citep{LoGiudice:2016wf}, as reproduced in  \cref{fig:introduction:ai-products}.}
-Application developers are eager to develop the next generation of `\gls{ai}-first' software, that will reason, sense, think, act, listen, speak and execute every whim in our web browser or smartphone app.
+Vendors are rapidly pushing out \gls{ai}-based solutions, technologies and products encapsulating half a century worth of machine-learning research.\footnote{A \citeyear{LoGiudice:2016wf} report by market research company Forrester captured such growth into four key areas \citep{LoGiudice:2016wf}, as reproduced in  \cref{tab:introduction:ai-products}.}
+Application developers are eager to develop the next generation of `\gls{ai}-first' software, that will sense, think, act, listen, speak and execute every whim in our web browser or smartphone app.
 
-However, application developers, accustomed to traditional software engineering paradigms, may not be aware of \gls{ai}-first's consequences. Application developers build \textit{rule-driven} applications, where every line of source code evaluates to produce deterministic outcomes. 
+However, application developers, accustomed to traditional software engineering paradigms, may not be aware of \gls{ai}-first's consequences. Application developers build procedural and functional applications, where code typically evaluates deterministically to produce outcomes.
 %These rule-driven systems typically consume, utilise, and integrate libraries and frameworks, \glsacpl{ide} and other tooling, and cloud-based services such as \gls{aws} \citep{AWS:Home}.
-\Gls{ai}-first software is, however, not rule-driven but \textit{data-driven}. Large datasets train \gls{ml} models that result in probabilistic confidences of results and nondeterministic behaviour if it continually learns from data with time. Furthermore, developing \gls{ai}-first applications requires both code \textit{and data}, and an application developer can approach developing from three (non-traditional) perspectives, further expanded in \cref{sec:introduction:context}:
-
+\Gls{ai}-first software is, however, not \textit{solely} rule-driven and combine large datasets with rules to produce outcomes. Therefore, they are both \textit{data-driven} and rule-driven. The consequence is that large datasets---that train \gls{ml} models---result in probabilistic confidences in their inferences and, since these models continually learns from new data with time, have nondeterministic behaviour. Furthermore, developing \gls{ai}-infused applications requires both code \textit{and data}, and an application developer can approach developing from three (non-traditional) perspectives, further expanded in \cref{sec:introduction:context}:
 \begin{enumerate}
-  \item The application developer writes an \gls{ml} model from scratch and trains it from a handcrafted and curated dataset. This approach is laborious in time and demands formal training in \gls{ml} and mathematical knowledge, but the tradeoff is that they have full autonomy in the models they creates.
-  \item The application developer downloads a pre-trained model and `plugs' it into an existing \gls{ml} framework, such as Tensorflow \citep{Abadi:2016vn}. While this approach is less demanding in time, it requires them to revise and understand how to `glue' components of the \gls{ml} framework together\footnote{Thus introducing a verbose list of \gls{ml} terminology to her developer vocabulary. See a list of 328 terms provided by Google here: \url{https://developers.google.com/machine-learning/glossary/}. Last accessed 7 December 2018.} into their application's code.
-  \item The application developer uses a data-driven and cloud-based service. They don't need to know anything behind the underlying `intelligence' and how it functions. It is fast to integrate into their applications, and the \glspl{api} offered abstracts the technical know-how behind a web call.
+  \item The application developer defines an \gls{ml} model from scratch and trains it from a curated dataset. This approach is laborious in time and demands experience and knowledge of \gls{ml} methods, but the tradeoff is that they have full autonomy in the models they creates.
+%   The application developer uses a pre-trained ML model (e.g. YOLO or XYZ). This approach removes the time taken to collect data, design and train the ML model; the developers, still need to know where to find these models, evaluate them, and then learn the frameworks within which they operate to use them effectively.
+  \item The application developer downloads a pre-trained model (e.g., YOLO \citep{8100173} for computer vision, or GPT-2 \citep{Radford2019} for natural language processing) and `plugs' it into an existing \gls{ml} framework, such as Tensorflow \citep{Abadi:2016vn} or PyTorch \citep{NIPS2019_9015}. This approach removes the time taken to collect data, design and train the \gls{ml} model; the developers, still need to know where to find these models, evaluate them, and then learn the frameworks\footnote{Thus introducing a verbose list of \gls{ml} terminology to her developer vocabulary. See a list of 328 terms provided by Google here: \url{https://developers.google.com/machine-learning/glossary/}. Last accessed 7 December 2018.} within which they operate to use them effectively.
+  \item The application developer uses a cloud-based service. It is fast to integrate into their applications, and the \glspl{api} offered abstracts the technical know-how behind a web call.
 \end{enumerate}
-
-\noindent
-The documentation of the service alludes that the data-driven service is as similar to other cloud services offered by the provider. 
-Because this is `another' cloud service, the application developer \textit{assumes} it would act and behave as any other typical service would.
-But does this assumption---and a lack of appreciation of \gls{ml}---lead to developer pain-points and miscomprehension?
+Developers that use cloud-based services are presented with documentation providing a narrative (i.e., marketing and in the documentation) that implies integration of these services are just like other cloud services. But does this implication, coupled with abstractions that hide the assumptions made by the \gls{ai}-service providers, lead to developer pain-points and miscomprehension?
 If so, how can the service providers improve their documentation to alleviate this?
 Do these data-driven services share similarities to the runtime behaviour of traditional cloud services?
 And if not, how best can the application developer integrate the data-driven service into their a rule-driven application to produce \gls{ai}-first software?
 
+\input{mainmatter/introduction/tables/characteristics-of-cloud}
+
 \Cref{fig:introduction:rule-vs-data} provides an illustrative overview between the context clashing of rule-driven applications and data-driven cloud services, and we contrast characteristics of typical cloud systems and data-driven ones in \cref{tab:introduction:characteristics-of-cloud}.
 
 \begin{callout}
-In this thesis, we advocate that the integration and developer comprehension of data-driven cloud services differ from the rule-driven nature of end-applications. As `intelligent' components these contrast to traditional counterparts, and application developers need to take into account a greater appreciation of these factors.
+In this thesis, we show that the integration and developer comprehension of cloud services differ from the rule-driven nature of end-applications.
+% Something more precise and punchy here - e.g. intelligent component abstractions are not fully contained and they leak - developers need to be aware of these and we offer specific insights into doc, integration etc. // or We offer X, Y, Z to resolve challenges developers face when using .. Cloud based AI services
+We show how `intelligent' component abstractions are not fully contained and leak into client applications, which developers must be aware of. We offer specific insights into the documentation and integration challenges of such components, namely ways to better improve service documentation and strategies to address leakage issues.
 \end{callout}
 
 \begin{figure}
 \centering
+\includegraphics[width=0.95\linewidth]{rule-vs-data}
 \caption[Differences between data- and rule-driven cloud services]{The application developer's rule-driven toolchain is distinct from data-driven toolchain. A developer must consume a typical, data-driven cloud service in a different way than an intelligent data-driven cloud service as they are not the same type of system.}
 \label{fig:introduction:rule-vs-data}
-\includegraphics{rule-vs-data}
 \end{figure}
 
 \section{Research Context}
 \label{sec:introduction:context}
 
-\input{mainmatter/introduction/tables/characteristics-of-cloud}
-
-As described, the application developer has three key approaches in producing \gls{ai}-first software. This `range' of \gls{ai}-first integration techniques partially reflects Google AI's\footnote{
+There are a range of integration techniques available to developers, as reflected by Google AI's\footnote{
 Google AI was recently rebranded from Google Research, further highlighting how the `\gls{ai}-first' philosophy is increasingly becoming embedded in companies' product lines and research and development teams. Spearheaded through work achieved at Google, Microsoft and Facebook, the emphasis on an \gls{ai}-first attitude we see through Google's 2018 rebranding of \textit{Google Research} to \textit{Google AI} \citep{Howard:2018tz} is evident. A further example includes how Facebook leverage \gls{ai} \textit{at scale} within their infrastructure and platforms \citep{Parekh:2017hx}.
-} 
-\textit{\glslong{ml} spectrum} \citep{Ortiz:2017wg,LaForge:2018tm,McGowen:2019vt}, which encompasses the variety of skill, effort, users and types of outputs of integration techniques. One extreme involves the academic research of developing algorithms and self-sourcing data to achieve intelligence---coined as \gls{byoml} \citep{Ortiz:2017wg,McGowen:2019vt,Jimerson:2017vh}. The other extreme involves off-the-shelf, `friendlier' (abstracted) intelligence with easy-to-use \glspl{api} targeted towards applications developers. The middle-ground involves a mix of the two, with varying levels of automation to assist in development, that turns custom datasets into predictive intelligence. 
+} \textit{\glslong{ml} spectrum} \citep{Ortiz:2017wg,LaForge:2018tm,McGowen:2019vt}. This range is grouped into the three tiers aforementioned, encompassing skills, effort, users, and types of outputs of integration techniques. At one extreme, this approach involves the academic research of developing algorithms and self-sourcing data to achieve intelligence---coined as \gls{byoml} \citep{Ortiz:2017wg,McGowen:2019vt,Jimerson:2017vh}. The other extreme involves off-the-shelf, `friendlier' (abstracted) intelligence with easy-to-use \glspl{api} targeted towards applications developers. The middle-ground involves a mix of the two, with varying levels of automation to assist in development, that turns custom datasets into predictive intelligence. 
 We illustrate the slightly varied characteristics within this spectrum in \cref{tab:introduction:comparison-of-ml-spectrum} and \cref{fig:introduction:cv-spectrum}.
 
-\begin{figure}
+\input{mainmatter/introduction/tables/machine-learning-spectrum}
+\begin{figure}[p]
 \centering
+\includegraphics[width=\linewidth]{cv-spectrum}
 \caption[The spectrum of machine learning]{Examples within the machine learning spectrum of computer vision. Colour scales indicates the benefits (green) and drawbacks (red) of each end of the spectrum.}
 \label{fig:introduction:cv-spectrum}
-\includegraphics[width=\linewidth]{cv-spectrum}
 \end{figure}
 
-\input{mainmatter/introduction/tables/machine-learning-spectrum}
-
-These data-driven `friendly' services are gaining traction within developer circles: we show an increasing trend of \glslong{so} posts mentioning a mix of intelligent computer vision services in \cref{fig:introduction:stackoverflow-trends}.\footnote{Query run on 12 October 2018 using StackExchange Data Explorer. Refer to \url{https://data.stackexchange.com/stackoverflow/query/910188} for full query.}
+These cloud AI-services are gaining traction within developer circles: we show an increasing trend of \glslong{so} posts mentioning a mix of intelligent computer vision services in \cref{fig:introduction:stackoverflow-trends}.\footnote{Query run on 12 October 2018 using StackExchange Data Explorer. Refer to \url{https://data.stackexchange.com/stackoverflow/query/910188} for full query.}
 Academia provides varied nomenclature for these services, such as \textit{Cognitive Applications} and \textit{Machine Learning Services} \citep{Hwang:2017tr} or \textit{Machine Learning as a Service} \citep{Ribeiro:2015dz}. 
-For the context of this thesis, we will refer to such services under broader term of \textbf{\glspl{iws}}, and diagrammatically express their usage within \cref{fig:introduction:cloud-intelliegnce-service}.
+For the context of this thesis, we will refer to such services under broader term of \textbf{\glspl{iws}},\footnote{This term is an extension inspired by the term `web service', as defined by the World Wide Web Consortium. See \url{https://bit.ly/2CQWJ2Z}, last accessed 19 July 2020.} and diagrammatically express their usage within \cref{fig:introduction:cloud-intelliegnce-service}.
 
 \begin{figure}[h!]
 \centering
-\caption[Overview of intelligent web services]{Overview of \glspl{iws}.}
-\label{fig:introduction:cloud-intelliegnce-service}
 \includegraphics{cloud-intelliegnce-service}
+\caption[Overview of intelligent web services]{Overview of \glsplx{iws}.}
+\label{fig:introduction:cloud-intelliegnce-service}
 \end{figure}
 
-
-While there are many types of \glspl{iws} available to software developers,\footnote{Such as optical character recognition, text-to-speech and speech-to-text transcription, object categorisation, facial analysis and recognition, natural language processing etc.}, the general workflow of using an \gls{iws} is more-or-less the same: a developer accesses an \gls{iws} component via \glsac{rest}/\glsac{soap} \gls{api}(s), which is (typically) available as a cloud-based \gls{paas}.\footnote{We note, however, that a development team may use a similar approach \textit{internally} within a product line or service that may not necessarily reflect a \gls{paas} model.}\footnote{A number of services provide the platform infrastructure to rapidly begin training from custom datasets, such as Google's AutoML (\url{https://cloud.google.com/automl/}, last accessed 7 December 2018). Others provide pre-trained datasets `ready-for-use' in production without the need to train data.} For a given input, developers receive an `intelligent' response and an associated confidence value that represents the likelihood of that result. This is typically serialised as a \glsac{json}/\glsac{xml} response object. 
+There are many types of \glspl{iws} available to software developers, offering a range of functions, such as optical character recognition, text-to-speech and speech-to-text transcription, object categorisation, facial analysis and recognition, and natural language processing. The general workflow of using an \gls{iws} is more-or-less the same: a developer accesses an \gls{iws} component via \glsac{rest}/\glsac{soap} \gls{api}(s), which is (typically) available as a cloud-based \gls{paas}.\footnote{We note, however, that a development team may use a similar approach \textit{internally} within a product line or service that may not necessarily reflect a \gls{paas} model.}\footnote{A number of services provide the platform infrastructure to rapidly begin training from custom datasets, such as Google's AutoML (\url{https://cloud.google.com/automl/}, last accessed 7 December 2018). Others provide pre-trained datasets `ready-for-use' in production without the need to train data.} For a given input, developers receive an `intelligent' response and an associated confidence value that represents the likelihood of that result. This is typically serialised as a \glsac{json}/\glsac{xml} response object. 
 
 %We note the intelligence component masks its `intelligence' through a black-box: in recent years, there is a rise in providing human-level intelligence via crowdsourcing Internet marketplaces such as Amazon Mechanical Turk~\citepweb{MTurk:Home} or ScaleAPI~\citepweb{ScaleAPI:Home}. Thus, an \gls{iws} may be powered by varying degrees of intelligence: human intelligence, machine learning, data mining or intelligence by brute-force.
 
