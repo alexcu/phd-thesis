@@ -1,0 +1,26 @@
+% Switch to OpenBookmarks Fix table of contents encoded in PDF output
+\usepackage[open=true]{bookmark}
+
+% Include PDFs + landscape PDFs
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+
+\ifpdf
+\newcommand{\includepdfframed}[1]{\includepdf[
+    keepaspectratio,
+    trim=3mm 3mm 3mm 3mm,
+    frame,
+    pages=-,
+    scale=.75,
+    offset=-5mm -5mm,
+    pagecommand={}
+ ]{#1}}
+ \else
+ \newcommand{\includepdfframed}[1]{\texttt{DRAFT: #1 will be inserted here}}
+ \fi
+ 
+ \sisetup{output-exponent-marker=\ensuremath{\mathrm{e}}}
+ 
+ \usepackage{tikz}
+ \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
