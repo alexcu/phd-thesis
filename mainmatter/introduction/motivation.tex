@@ -2,89 +2,12 @@
 %   is a reproduction of \citet{LoGiudice:2016wf}'s report on how \gls{ai} will re-shape applications. The authors produce three primary categories and list sample products, vendors and use cases. This image was originally included within \cref{ch:background}.
 % \item \textbf{\cref{fig:introduction:stackoverflow-trends} (p\pageref{fig:introduction:stackoverflow-trends})}
 
-\begin{landscape}
-\begin{table}
-\centering
-\caption[Categorisation of AI-based products and services]{A broad range of \gls{ai}-based vendors, products, and services is emerging in recent years.  (Adapted from \citep{LoGiudice:2016wf}.)}
-\label{tab:introduction:ai-products}
-\tablefitlandscape{0.9}{
-\begin{tabular}{p{0.2\linewidth}|p{0.25\linewidth}p{0.4\linewidth}}
-\toprule
-\textbf{Category} &
-\textbf{Sample Vendors \& Products} &
-\textbf{Typical Use Cases} \\
-\midrule
-
-\textbf{Embedded \gls{ai}:}\newline
-Expert assistants leverage AI technology embedded in platforms and solutions. &
-
-Amazon: \textit{Alexa}\newline
-Apple: \textit{Siri}\newline
-Facebook: \textit{Messenger}\newline
-Google: \textit{Google Assistant}\newline
-Microsoft: \textit{Cortana}\newline
-Salesforce: \textit{MetaMind}&
-
-Personal assistants for search, simple inquiry, and growing as expert assistance (composed problems, not just search).\newline 
-Available on mobile platforms, devices, the internet of things, and as bots or agents.\newline
-Used in voice, image recognition, and various levels of natural language processing sophistication.\bigskip\\
-
-\textbf{\Gls{ai} point solutions:}\newline
-Point solutions provide specialised capabilities for natural language processing, vision, speech, and reasoning. &
-
-24[7]: \textit{24[7]}\newline
-Admantx: \textit{Admantx}\newline
-Affectiva: \textit{Affdex}\newline
-Assist: \textit{AssistDigital}\newline
-Automated Insights: \textit{Wordsmith}\newline
-Beyond Verbal: \textit{Beyond Verbal}\newline
-Expert System: \textit{Cogito}\newline
-HPE: \textit{Haven OnDemand}\newline
-IBM: \textit{Watson Analytics}\newline
-Narrative Science: \textit{Quill}\newline
-Nuance: \textit{Dragon}\newline
-Salesforce: \textit{MetaMind}\newline
-Wise.io: \textit{Wise Support}\bigskip&
-
-Semantic text, facial/visual recognition, voice intonation, intelligent narratives.\newline
-Various levels of natural language processing, from brief text messaging, chat/conversational messaging, full complex text understanding.\newline
-Machine learning, predictive analytics, text analytics/mining, knowledge management and search.\newline
-Used as expert advisors, reasoning tools, or in customer service.\\
-
-\textbf{AI platforms:}\newline
-Platforms that offer various AI tech, including (deep) machine learning, as tools, \glspl{api}, or services to build solutions.&
-
-CognitiveScale: \textit{Engage, Amplify}\newline
-Digital Reasoning: \textit{Synthesys}\newline
-Google: \textit{Google Cloud \gls{ml}}\newline
-IBM: \textit{Watson Knowledge Studio}\newline
-Intel: \textit{Saffron Natural Intelligence}\newline
-IPsoft: \textit{Amelia, Apollo, IP Center}\newline
-Microsoft: \textit{Cortana Intelligence Suite}\newline
-Nuance: \textit{360 platform}\newline
-Salesforce: \textit{Einstein}\newline
-Wipro: \textit{Holmes}&
-
-\glspl{api}, cloud services, on-premises for developers to build AI solutions. Insights/advice building and rule-based reasoning. Vertical domain advisors (e.g., fraud detection in banking, financial advisors, healthcare). Cognitive services and bots.\\
-
-\bottomrule
-
-\end{tabular}}
-\end{table}\end{landscape}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=.95\linewidth]{stackoverflow-trends2}
-\caption[Increasing interest in the developer community of computer vision services]{Increasing interest within the developer community for \glsplx{cvs} is shown via Stack Overflow posts. These trends of \gls{cvs} usage were measured as discussion of posts tagged with the relevant product name.\footnote{`Microsoft Cognitive Services' merges posts tagged with this name, that of `Cortana Intelligence', and `Azure Cognitive Services'.} This graph is based on data from \cref{ch:icse2020}.}
-\label{fig:introduction:stackoverflow-trends}
-\end{figure}
-
 \section{Motivating Scenarios}
 \label{ssec:introduction:motivation}
 
-The market for \glsplx{cvs} is increasing (\cref{tab:introduction:ai-products}) and as is developer uptake and enthusiasm in the software engineering community (\cref{fig:introduction:stackoverflow-trends}). However, the impact to software quality (internal and external) due to a mismatch of the application developer's deterministic  mindset and the service provider's nondeterministic mindset is of concern.
+The market for \glsplx{cvs} is expanding (\cref{tab:introduction:ai-products}) with a corresponding interest from developers (\cref{fig:introduction:stackoverflow-trends}). These services are inherently probabilistic in their behaviour, in that the end-points always return with a response with a probability. This is unlike a typical \gls{api} that would return a response (\textit{without} a probability) or an error.  If developers do not fully understand the nature of these services when integrating with them, there is an impact on the quality of software they create.
 
-To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo labelling application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-infused components has an impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately adversely affecting external quality. Moreover, due to a lack of comprehension by developers, this hinders their productivity and understanding/appreciation of \gls{ai}-based components.
+To illustrate the context of use, we present the two scenarios of varying risk: (i)~a fictional software developer, named Tom, who wishes to develop an inherently low-risk photo labelling application for his friends and family; and (ii) a high-risk cancer \gls{cdss} that uses patient scans to recommend if surgeons should send their patients to surgery. Both describe scenarios where \gls{ai}-infused components has an impact to end-users when the software engineers developing with them misunderstand the nuances of \gls{ml}, ultimately affecting external quality. Moreover, when developers lack a comprehension, this hinders their productivity and understanding/appreciation of \gls{ai}-based components.
   
 \subsection{Low Risk Motivating Scenario}
 \label{ssec:introduction:motivation:scenario:pam}
@@ -155,10 +78,10 @@ Evermore applications are considering \glspl{iws} as demonstrated by ubiquitous 
 Our motivating examples illustrate impact on developers when \glspl{cvs} encapsulate assumptions and are poorly documented. Such components are accessible through \glspl{api} consisting of `black box' intelligence (\cref{fig:introduction:cloud-intelliegnce-service}).\footnote{The `black box' refers to a system that transforms input (or stimulus)  to outputs (or response) without any understanding of the internal architecture by which this transformation occurs. This arises from a theory in the electronic sciences and adapted to wider applications since the 1950s--60s \citep{Ashby:1957db,Bunge:1963jm} to describe ``systems whose internal mechanisms are not fully open to inspection'' \citep{Ashby:1957db}. }
 \gls{ml} models are inherently probabilistic and stochastic, contributing to four critical issues for developers that motivate this research work: (i) communication of outputs (as probabilities), (ii) evolution of datasets, (iii) selecting appropriate decision boundaries, and (iv) the clarity of documentation that address items i--iii. We detail these four issues in the following subsections.
 
-Ultimately, these four issues present major threats to software reliability if left unresolved. Given that such substantiative software engineering principles on reliability, versioning and quality  are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the software engineering literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using \gls{ai}-based components.
+Ultimately, these four issues present major threats to software reliability if left unresolved. Given that such substantiative software engineering principles on reliability, versioning and quality  are under-investigated within the context of \glspl{iws}, we aim to explore guidance from the software engineering literature to investigate what aspects in the development lifecyle could aide in mitigating these issues when developing using components that abstract \gls{ml}, such as \glspl{iws}.
 
 \subsection{Outputs are Probabilities}
-There is little room for certainty in these results as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. The interface between AI-components and traditional software components is non-trivial; \textbf{developers, however, do not fully appreciate the nuances of this interface, given that they are trained with a mindset that algorithms make certain outcomes.}
+There is little room for certainty in these results as the insight is purely statistical and associational \citep{Pearl:2018uv} against its training dataset. \textbf{The interface between \gls{ai}-components and traditional software components is non-trivial when developers do not appreciate the nuances, or use the anchors of libraries and components that have a more traditional behaviour \citep{8506423,tversky1974judgment,vasa2010growth,kahneman2011thinking}.}
 However, \glspl{cvs} return the \textit{probability} that a particular object exists in an input images' pixels via confidence values.
 As an example, consider simple arithmetic representations (e.g., $2+2=4$). The deterministic mindset suggests that the result will \textit{always} be 4. However, the non-deterministic (data-driven) mindset suggests that results are probable: target output (\textit{exactly} 4) and the output inferred (\textit{a likelihood of} 4) matches as a probable percentage (or as an error where it does not match).\footnote{\citet{Blake:1998vd} produces a multi-layer perceptron \glslong{nn} performing arithmetic representation.} Instead of an exact output, there is a \textit{probabilistic} result: $2+2$ \textit{may} equal 4 to a confidence of $n$. 
 Thus, for a more certain (though not fully certain) distribution of overall confidence returned from the service, a developer must treat the problem stochastically by testing this case hundreds if not thousands of times to find a richer interpretation of the inference made and ensure reliability in its outcome.

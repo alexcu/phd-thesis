@@ -39,11 +39,100 @@ This research is most associated to our adopted philosophical stance of critical
 \subsection{Review of Data Collection Techniques for Field Studies}
 \label{ssec:research-methodology:review:techniques}
 
-\citeauthor{Singer:2007tu} developed a taxonomy \citep{Singer:2007tu,Lethbridge:2005jv} showcasing data collection techniques in field studies that are used in conjunction with a variety of methods based on the level of interaction between researcher and software engineer, if any. This taxonomy is reproduced in \cref{fig:research-methodology:review:field-techniques}.
+\citeauthor{Singer:2007tu} developed a taxonomy \citep{Singer:2007tu,Lethbridge:2005jv} showcasing data collection techniques in field studies that are used in conjunction with a variety of methods based on the level of interaction between researcher and software engineer, if any. This taxonomy is reproduced in \cref{fig:research-methodology:review:field-techniques}, where techniques used in this research study are starred.
 
-\begin{table}[p]
+\afterpage{\begin{landscape}
+\begin{table}
 \centering
-\includegraphics[width=0.95\linewidth]{mainmatter/research-methodology/figures/field-techniques}
-\caption[Review of field study techniques]{Questions asked by software engineering researchers (column 2) that can be answered by field study techniques. (From \citep{Singer:2007tu}.)}
+\caption[Review of field study techniques]{Questions asked by software engineering researchers (column 2) that can be answered by field study techniques. (Adapted from \citep{Singer:2007tu}.) Methods used within this research study are starred.}
 \label{fig:research-methodology:review:field-techniques}
-\end{table}
+\tablefitlandscape{1.05}{
+\begin{tabular}{p{0.2\linewidth}|p{0.375\linewidth}p{0.125\linewidth}p{0.3\linewidth}}
+\toprule
+\textbf{Technique} &
+\textbf{Used by researchers when their goal is to understand...} &
+\textbf{Volume of data} &
+\textbf{Also used by software engineers for...}\\
+
+\midrule
+\midrule
+\multicolumn{4}{l}{\textsc{\textbf{Direct Techniques}}}\\
+\midrule
+
+Brainstorming and focus groups &
+Ideas and general background about the process and product, general opinions (also useful to enhance participant rapport) &
+Small &
+Requirements gathering, project planning \\
+
+Interviews and questionnaires &
+General information (including opinions) about process, product, personal knowledge etc. &
+Small to large &
+Requirements and evaluation \\
+
+Conceptual modelling &
+Mental models of product or process. &
+Small &
+Requirements \\
+
+Work diaries &
+Time spent or frequency of certain tasks (rough approximation, over days or weeks) &
+Medium &
+Time sheets \\
+
+Think-aloud sessions &
+Mental models, goals, rationale and patterns of activities &
+Medium to large &
+UI evaluation \\
+
+Shadowing and observation &
+Time spent or frequency of tasks (intermittent over relatively short periods), patterns of activities, some goals and rationale &
+Small &
+Advanced approaches to use case or task analysis \\
+
+Participant observation (joining the team) &
+Deep understanding, goals and rationale for actions, time spent or frequency over a long period &
+Medium to large &
+-- \\
+
+\midrule
+\multicolumn{4}{l}{\textsc{\textbf{Indirect Techniques}}}\\
+\midrule
+
+Instrumenting systems &
+Software usage over a long period, for many participants &
+Large &
+Software usage analysis \\
+
+Fly on the wall &
+Time spent intermittently in one location, patterns of activities (particularly collaboration) &
+Medium &
+-- \\
+
+\midrule
+\multicolumn{4}{l}{\textsc{\textbf{Independent Techniques}}}\\
+\midrule
+
+Analysis of work databases &
+Long-term patterns relating to software evolution, faults etc. &
+Large &
+Metrics gathering \\
+
+Analysis of tool use logs &
+Details of tool usage &
+Large &
+-- \\
+
+Documentation analysis &
+Design and documentation practices, general understanding &
+Medium &
+Reverse engineering \\
+
+Static and dynamic analysis &
+Design and programming practices, general understanding &
+Large &
+Program comprehension, metrics, testing, etc. \\
+
+\bottomrule
+
+\end{tabular}}
+\end{table}\end{landscape}}
