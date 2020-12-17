@@ -9,13 +9,12 @@
 \section{Detailed Overview of Our Proposed Taxonomy}
 \label{tse2020:tab:taxonomy}
 
-An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy. ILS = In-Literature Score, calculated as a percentage of the number of papers that make the recommendation of all 21 primary sources. IPS = In-Practice Score, calculated as the average compliance to the SUS. Colour scales indicate relevancy weight within ILS or IPS values for comparative purposes, where red = \textit{lowest} and green = \textit{highest}. GCV, AWS, ACV = Presence of category in Google Cloud Vision, Amazon Rekognition, and Azure Cloud Vision documentation. Presence indicated as \textit{fully present} (\circlepresent{}), \textit{partially present} (\circlepartialpresent{}), and \textit{not present} (\circlenotpresent{}).
+Detailed descriptions of the 5 requirements of good API documentation (dimensions) and 34 generalised API documentation artefacts (categories/sub-dimensions) that help satisfy these requirements within our proposed taxonomy. Descriptions of examples of these documentation artefacts are italicised and provided for illustrative purposes. ILS = In-Literature Score, calculated as a ratio of papers that investigated or reported various issues concerning each artefact. IPS = In-Practice Score, calculated as the average response from our survey instrument. Colour scales indicate relevancy weight within ILS or IPS values for comparative purposes, where red = \textit{lowest} and green = \textit{highest}. GCV, AWS, ACV = Presence of category in Google Cloud Vision, Amazon Rekognition, and Azure Cloud Vision documentation. Presence indicated as \textit{fully present} (\circlepresent{}), \textit{partially present} (\circlepartialpresent{}), and \textit{not present} (\circlenotpresent{}).
 
 {\def\cn{}
 \def\cy{\checkmark}
 \footnotesize
-\afterpage{\begin{landscape}
-\begin{longtable}{rp{0.5\linewidth}|p{0.125\linewidth}|cc|ccc}
+\begin{longtable}{rp{0.45\linewidth}|p{0.125\linewidth}|cc|ccc}
 %   \caption[Taxonomy proposed in API documentation knowledge study]{}
   %\label{tse2020:tab:taxonomy}\\
   \toprule
@@ -27,6 +26,7 @@ An overview of the 5 dimensions and categories (sub-dimensions) within our propo
   \textbf{GCV} &
   \textbf{AWS} &
   \textbf{ACV} \\
+  \midrule
   \midrule
   \endfirsthead
 %   \caption*{An overview of the 5 dimensions and categories (sub-dimensions) within our proposed taxonomy \textit{(Continued)}.}\\
@@ -40,6 +40,7 @@ An overview of the 5 dimensions and categories (sub-dimensions) within our propo
   \textbf{AWS} &
   \textbf{ACV} \\
   \midrule
+  \midrule
   \endhead
   \bottomrule
   
@@ -47,219 +48,240 @@ An overview of the 5 dimensions and categories (sub-dimensions) within our propo
   \endfoot
   \bottomrule
   \endlastfoot
+
+%%% BEGIN PASTE TAX HERE
+
+   \textbf{A}&
+  \multicolumn{7}{l}{\textbf{Requirement 1: API Documentation should include Descriptions of API Usage}}\\
+  \midrule
+
   A1&
-  Quick-start guides to rapidly get started using the API in a specific programming language.&
+  Quick-start guides; \textit{i.e., a guide to rapidly get started using the API in a specific programming language.}&
   \scriptsize S4, S9, S10 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{6cbf85}0.88&\circlepresent{}&\circlepartialpresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepartialpresent{}&\circlepresent{}\\
   
   A2&
-  Low-level reference manual documenting all API components to review fine-grade detail.&
+  Low-level reference manual; \textit{i.e., a manual documenting all API components to review fine-grade detail.}&
   \scriptsize S1, S3, S4, S8, S9, S10, S11, S12, S15, S16, S17 &
-  \cellcolor[HTML]{ecd36a}0.52&\cellcolor[HTML]{ded16d}0.56&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{a7c47d}High&\cellcolor[HTML]{a7c47d}High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
   
   A3&
-  Explanations of the API's high-level architecture to better understand intent and context.
+  Explanation of high level architecture; \textit{i.e., explanations of the API's high-level architecture to better understand intent and context.}
   &
   \scriptsize S1, S2, S4, S11, S14, S16, S19, S20 &
-  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{aec977}0.70&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   A4&
-  Source code implementation and code comments (where applicable) to understand the API author's mindset.
+  Introspection source code comments; \textit{i.e., code implementation and code comments (where applicable) to understand the API author's mindset.}
   &
   \scriptsize S1, S4, S7, S12, S13, S17, S20 &
-  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{fed567}0.47&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{a7c47d}High&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
   {A5}&
-  {Code snippets (with comments) of no more than 30 LoC to understand a basic component functionality within the API.}
+  Code snippets of basic component function; \textit{i.e., {code snippets (with comments) of no more than 30 LoC to understand a basic component functionality within the API.}}
   &
   \scriptsize {S1, S2, S4, S5, S6, S7, S9, S10, S11, S14, S15, S16, S18, S20, S21} &
-  \cellcolor[HTML]{a8c978}0.71&\cellcolor[HTML]{69be86}0.89&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{57bb8a}V High&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   {A6}&
-  {Step-by-step tutorials, with screenshots to understand  how to build a non-trivial piece of functionality with multiple components of the API.}
+  Step-by-step tutorials with multiple components; \textit{i.e., {step-by-step tutorials, with screenshots to understand  how to build a non-trivial piece of functionality with multiple components of the API.}}
   &
   \scriptsize {S1, S2, S4, S5, S7, S9, S10, S15, S16, S18, S20, S21} &
-  \cellcolor[HTML]{dbd16d}0.57&\cellcolor[HTML]{e5d26b}0.54&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{57bb8a}V High&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
 
   A7&
-  Downloadable source code of production-ready applications that use the API to understand implementation in a large-scale solution.
+  Downloadable production-ready source code; \textit{i.e., downloadable source code of production-ready applications that use the API to understand implementation in a large-scale solution.}
   &
   \scriptsize S1, S2, S5, S9, S15 &
-  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{bccc74}0.66&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
 
   A8&
-  Best-practices of implementation to assist with debugging and efficient use of the API.
+  Best-practices of implementation; \textit{i.e., best-practices of implementation to assist with debugging and efficient use of the API.}
   &
   \scriptsize S1, S2, S4, S5, S7, S8, S9, S14 &
-  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{b6cb75}0.68&\circlenotpresent{}&\circlepresent{}&\circlepartialpresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlepresent{}&\circlepartialpresent{}\\
 
   A9&
-  An exhaustive list of all major components that exist within the API.
+  An exhaustive list of all components; \textit{i.e., a list of all the major components that exist within the API.}
   &
   \scriptsize S4, S16, S19 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{b3ca76}0.69&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
 
   A10&
-  Minimum system requirements and dependencies to use the API.
+  Minimum system requirements to use the API; \textit{i.e., requirements and the dependencies to use the API on a particular system.}
   &
   \scriptsize S4, S7, S13, S17, S19 &
-  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{aac978}0.71&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
   
   A11&
-  Instructions to install or begin using the API and details on its release cycle and updating it.
+  Instructions to install/update the API and its release cycle; \textit{i.e., instructions to install or begin using the API and details on its release cycle and how to update it.}
   &
   \scriptsize S4, S7, S8, S9, S11, S13, S16, S19 &
-  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{75c083}0.86&\circlepartialpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
 
   A12&
-  Error definitions that describe how to address a specific problem.
+  Error definitions describing how to address problems
   &
   \scriptsize S1, S2, S4, S5, S9, S11, S13 &
-  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{7bc182}0.84&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
+  \midrule
+  \textbf{B}&
+  \multicolumn{7}{l}{\textbf{Requirement 2: API Documentation should include Descriptions of the API's Design Rationale}}\\
   \midrule
   
   {B1}&
-  {A brief description of the purpose or overview of the API as a low barrier to entry.}
+  Entry-point purpose of the API; \textit{i.e., {a brief description of the purpose or overview of the API as a low barrier to entry.}}
   &
   \scriptsize {S1, S2, S4, S5, S6, S8, S10, S11, S15, S16} &
-  \cellcolor[HTML]{fdd666}0.48&\cellcolor[HTML]{8ac47f}0.80&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{a7c47d}High&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   B2&
-  Descriptions of the types of applications the API can develop.
+  What the API can develop; \textit{i.e., descriptions of concrete types of applications the API can develop.}
   &
   \scriptsize S2, S4, S9, S11, S15, S18 &
-  \cellcolor[HTML]{f4ae6c}0.29&\cellcolor[HTML]{dcd16d}0.57&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlepartialpresent{}&\circlepresent{}\\
 
   B3&
-  Descriptions of the types of users who should use the API.
+  Who should use the API; \textit{i.e., descriptions of the types of users who should use the API.}
   &
   \scriptsize S4, S9 &
-  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{fcce68}0.44&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{a7c47d}High&\circlepartialpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
 
   B4&
-  Descriptions of the types of users who will use the product the API creates.
+  Who will use the applications built using the API; \textit{i.e., descriptions of the types of users who will use the product the API creates.}
   &
   \scriptsize S4 &
-  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{fccb68}0.42&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+      \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{ffd666}Med&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
 
   B5&
-  Success stories about the API used in production.
+  Success stories on the API; \textit{i.e., example success stories of major users that describe how well the API was used in production.}
   &
   \scriptsize S4 &
-  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{f8d567}0.49&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlepresent{}&\circlepresent{}\\
 
 
   B6&
-  Documentation to compare similar APIs within the context to this API.
+  Documentation comparing similar APIs to this API
   &
   \scriptsize S2, S6, S13, S18 &
-  \cellcolor[HTML]{ee9a6f}0.19&\cellcolor[HTML]{ffd666}0.47&\circlepartialpresent{}&\circlenotpresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{a7c47d}High&\circlepartialpresent{}&\circlenotpresent{}&\circlepresent{}\\
 
 
   B7&
-  Limitations on what the API can and cannot provide.
+  Limitations on what the API can/cannot provide
   &
   \scriptsize S4, S5, S8, S9, S14, S16 &
-  \cellcolor[HTML]{f4ae6c}0.29&\cellcolor[HTML]{57bb8a}0.94&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
 
   \midrule
+  \textbf{C}&
+  \multicolumn{7}{l}{\textbf{Requirement 3: API Documentation should include Descriptions of the Domain Concepts behind the API}}\\
+  \midrule
+  
   C1&
-  Descriptions of the relationship between API components and domain concepts.
+  Relationship between API components and domain concepts
   &
   \scriptsize S3, S10 &
-  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{f1d469}0.51&\circlenotpresent{}&\circlenotpresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{a7c47d}High&\circlenotpresent{}&\circlenotpresent{}&\circlepresent{}\\
 
   C2&
-  Definitions of domain-terminology and concepts, with synonyms if applicable.
+  Definitions of domain terminology; \textit{i.e., definitions of the domain-terminology and concepts, with synonyms if applicable.}
   &
   \scriptsize S2, S3, S4, S6, S7, S10, S14, S16 &
-  \cellcolor[HTML]{f9c269}0.38&\cellcolor[HTML]{a1c77a}0.74&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepartialpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
 
   C3&
-  Generalised documentation for non-technical audiences regarding the API and its domain.
+  Documentation for nontechnical audiences; \textit{i.e., generalised documentation for non-technical audiences regarding the API and its domain.}
   &
   \scriptsize S4, S8, S16 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{e3d26c}0.55&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{a7c47d}High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   \midrule
+  \textbf{D}&
+  \multicolumn{7}{l}{\textbf{Requirement 4: API Documentation should include Additional Support Artefacts to aide Developer Productivity}}\\
+  \midrule
+  
   D1&
-  A list of FAQs.
+  FAQs
   &
   \scriptsize S4, S7 &
-  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{9cc67b}0.75&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   D2&
-  Troubleshooting suggestions.
+  Troubleshooting hints
   &
   \scriptsize S4, S8 &
-  \cellcolor[HTML]{e88672}0.10&\cellcolor[HTML]{e0d26c}0.56&\circlenotpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{a7c47d}High&\circlenotpresent{}&\circlepartialpresent{}&\circlenotpresent{}\\
 
   D3&
-  Diagrammatically representing API components using visual architectural representations.
+  API diagrams; \textit{i.e., diagrammatically representing API components using visual architectural representations.}
   &
   \scriptsize S6, S13, S20 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{c8ce71}0.63&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
   D4&
-  Contact information for technical support.
+  Contact for technical support
   &
   \scriptsize S4, S8, S19 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{ef9e6f}0.21&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{ffd666}Med&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   D5&
-  A printed/printable resource for assistance.
+  Printed guide
   &
   \scriptsize S4, S6, S7, S9, S16 &
-  \cellcolor[HTML]{f1a46e}0.24&\cellcolor[HTML]{dfd16d}0.56&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlepresent{}&\circlepresent{}\\
 
   D6&
-  Licensing information.
+  Licensing information
   &
   \scriptsize S7 &
-  \cellcolor[HTML]{e67c73}0.05&\cellcolor[HTML]{bbcc74}0.66&\circlenotpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
+  \cellcolor[HTML]{e67c73}V Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlenotpresent{}&\circlepartialpresent{}\\
 
   \midrule
+  \textbf{E}&
+  \multicolumn{7}{l}{\textbf{Requirement 5: API Documentation should be Presented in an Easily Digestible Format}}\\
+  \midrule
+  
   E1&
-  Searchable knowledge base.
+  Searchable knowledge base
   &
   \scriptsize S3, S4, S6, S10, S14, S17, S18 &
-  \cellcolor[HTML]{f6b86b}0.33&\cellcolor[HTML]{86c37f}0.81&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{ffd666}Med&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   E2&
-  Context-specific discussion forum.
+  Context-specific discussion forums
   &
   \scriptsize S4, S10, S11 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{dad06e}0.58&\circlepresent{}&\circlepresent{}&\circlepartialpresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepartialpresent{}\\
 
   E3&
-  Quick-links to other relevant documentation frequently viewed by developers.
+  Quick-links to other relevant components
   &
   \scriptsize S6, S16, S20 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{c8ce71}0.63&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
   E4&
-  Structured navigational style (e.g., breadcrumbs).
+  Structured navigation style; \textit{i.e., breadcrumbs}
   &
   \scriptsize S6, S10, S20 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{dad06e}0.58&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{a7c47d}High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 
   E5&
-  Visualised map of navigational paths to certain API components in the website.
+  Visualised map of navigational paths; \textit{i.e., to certain API components in the website.}
   &
   \scriptsize S6, S14, S20 &
-  \cellcolor[HTML]{eb9071}0.14&\cellcolor[HTML]{f5d568}0.50&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
+  \cellcolor[HTML]{f6b26b}Low&\cellcolor[HTML]{57bb8a}V High&\circlenotpresent{}&\circlenotpresent{}&\circlenotpresent{}\\
 
   {E6}&
-  {Consistent look and feel of documentation.}
+  Consistent look and feel
   &
   \scriptsize {S1, S2, S3, S5, S6, S8, S10, S15, S20} &
-  \cellcolor[HTML]{fccd68}0.43&\cellcolor[HTML]{adc977}0.70&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
+  \cellcolor[HTML]{a7c47d}High&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 \end{longtable}
-\end{landscape}}
-}
+\normalsize}
 
 \clearpage
 \section{Sources of Documentation}\label{tse2020:tab:docsources}
@@ -269,7 +291,7 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 
 {\scriptsize
 \begin{longtable}{p{.2\linewidth}|p{.725\linewidth}}
-  \toprule
+\toprule
   \textbf{Service} & \textbf{Document Sources}\\
   \midrule
   \endfirsthead
@@ -298,7 +320,7 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \item \url{https://cloud.google.com/vision/docs/quickstart-client-libraries}
 \item \url{https://cloud.google.com/vision/docs/release-notes}
 \item \url{https://cloud.google.com/vision/docs/reference/rpc/google.rpc#google.rpc.Code}
-\item \url{https://cloud.google.com/vision/#derive-insight-from-your-images-with-our-powerful----------pretrained-api-models-or-easily-train-custom-vision-models-with-automl----------vision-beta}
+\item \url{https://cloud.google.com/vision/\item #derive-insight-from-your-images-with-our-powerful----------pretrained-api-models-or-easily-train-custom-vision-models-with-automl----------vision-beta}
 \item \url{https://cloud.google.com/vision/#insight-from-your-images}
 \item \url{https://developers.google.com/machine-learning/glossary/}
 \item \url{https://cloud.google.com/vision/docs/resources}
@@ -321,7 +343,7 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/best-practices.html}
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/API_Operations.html}
 \item \url{https://aws.amazon.com/rekognition/image-features/}
-\item \url{https://aws.amazon.com/releasenotes/?tag=releasenotes\%23keywords\%23amazon-rekognition}
+\item \url{https://aws.amazon.com/releasenotes/?tag=releasenotes%23keywords%23amazon-rekognition}
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html}
 \item \url{https://aws.amazon.com/rekognition/}
 \item \url{https://aws.amazon.com/rekognition/}
@@ -367,33 +389,160 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \clearpage
 \section{List of Primary Sources}\label{tse2020:sec:primary-sources}
 
-Below lists the primary sources identified in our systematic mapping study. They are listed in order of assignment to the taxonomy described in \cref{tse2020:tab:taxonomy}.
+\nocite{PSRobillard:2009uk,PSRobillard:2011uv,PSKo:2011fb,PSNykaza:2002td,PSWatson:2013fx,PSJeong:2009tu,PSAghajani:2019bo,PSHaselbock:2018jd,PSInzunza:2018dn,PSMeng:2017cx,PSGeiger:2018fv,PSHead:2018baa,PSAversano:2017ic,PSRobillard:hk,PSWatson:2012uy,PSMaalej2013,PSParnas:2007fb,PSBottomley:2005fs,PSTaulavuori:2004el,PSKotula:1998wp,PSMcLellan:1998vu}
 
-\bigskip
 
-\begin{enumerate}[label={[S\arabic*]}]\footnotesize
-\item \bibentry{Robillard:2009uk}
-\item \bibentry{Robillard:2011uv}
-\item \bibentry{Ko:2011fb}
-\item \bibentry{Nykaza:2002td}
-\item \bibentry{Watson:2013fx}
-\item \bibentry{Jeong:2009tu}
-\item \bibentry{Aghajani:2019bo}
-\item \bibentry{Haselbock:2018jd}
-\item \bibentry{Inzunza:2018dn}
-\item \bibentry{Meng:2017cx}
-\item \bibentry{Geiger:2018fv}
-\item \bibentry{Head:2018baa}
-\item \bibentry{Aversano:2017ic}
-\item \bibentry{Robillard:hk}
-\item \bibentry{Watson:2012uy}
-\item \bibentry{Maalej2013}
-\item \bibentry{Parnas:2007fb}
-\item \bibentry{Bottomley:2005fs}
-\item \bibentry{Taulavuori:2004el}
-\item \bibentry{Kotula:1998wp}
-\item \bibentry{McLellan:1998vu}
-\end{enumerate}
+List of the primary sources found from our systematic mapping study. Each citation is referenced by a prefixed `S'. We also list the respective citation count, as measured by the number of citations the publication has from Google Scholar as at July 2020. We also list the venue ranking (as at 2020), as measured by Scimago Rankings or Qualis Ranking for Journals and CORE Rankings for conference publications. If no rank can be found, a dash is used.
+
+\small
+\begin{longtable}{p{0.03\linewidth}p{.79\linewidth}|cc}
+  \toprule
+  \textbf{Ref} & \textbf{Citation} & \textbf{Cite\#} & \textbf{Rank}\\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textbf{Ref} & \textbf{Citation} & \textbf{Cite\#} & \textbf{Rank}\\
+  \midrule
+  \endhead
+  \bottomrule
+  \multicolumn{4}{r}{\textit{Continued on next page...}}\\
+  \endfoot
+  \bottomrule
+  \endlastfoot
+  
+\relax[S1]&\bibentry{Robillard:2009uk}&305&Q1\\
+\relax[S2]&\bibentry{Robillard:2011uv}&254&Q1\\
+\relax[S3]&\bibentry{Ko:2011fb}&33&A\\
+\relax[S4]&\bibentry{Nykaza:2002td}&56&--\\
+\relax[S5]&\bibentry{Watson:2013fx}&14&B1\\
+\relax[S6]&\bibentry{Jeong:2009tu}&34&--\\
+\relax[S7]&\bibentry{Aghajani:2019bo}&6&A*\\
+\relax[S8]&\bibentry{Haselbock:2018jd}&2&C\\
+\relax[S9]&\bibentry{Inzunza:2018dn}&3&C\\
+\relax[S10]&\bibentry{Meng:2017cx}&12&Q1\\
+\relax[S11]&\bibentry{Geiger:2018fv}&4&Q1\\
+\relax[S12]&\bibentry{Head:2018baa}&4&A*\\
+\relax[S13]&\bibentry{Aversano:2017ic}&4&--\\
+\relax[S14]&\bibentry{Robillard:hk}&55&A*\\
+\relax[S15]&\bibentry{Watson:2012uy}&10&B1\\
+\relax[S16]&\bibentry{Maalej2013}&110&Q1\\
+\relax[S17]&\bibentry{Parnas:2007fb}&2&B\\
+\relax[S18]&\bibentry{Bottomley:2005fs}&0&--\\
+\relax[S19]&\bibentry{Taulavuori:2004el}&40&Q1\\
+\relax[S20]&\bibentry{Kotula:1998wp}&27&Q1\\
+\relax[S21]&\bibentry{McLellan:1998vu}&105&Q1\\
+  
+\end{longtable}
+\normalsize
+
+\clearpage
+\section{Detailed Suggested Improvements}\label{tse2020:sec:suggested-improvements}
+
+\def\SuggestedImprovement{\noindent\itshape\small\textbf{\faHandORight{} Suggested improvement:~}}
+
+For this assessment, we select the ILS or IPS values for categories that are considered either somewhat or very helpful (i.e., a score greater than 0.50). We then match these against categories that are found to be partially or not present within each service. In total, we found 12 categories where improvements can be made across all dimensions except \dime{}, detailed below .
+
+\subsection[Dimension A Issues]{Issues regarding \dima{}}
+
+\noindent
+\textbf{Quick-start guides \dimcat{A1}:} 
+Quick-start guides should provide a short tutorial that allows programmers to pick up the basics of an API in a programming language of their choice. For the services assessed, each offer various client SDKs (e.g., as Java or Python client libraries). Google Cloud Vision and Azure Computer Vision offer quick-start guides \citepweb{Quicksta92:online,Quicksta70:online} in which sets of articles target various SDKs or are client-agnostic with code snippets that can be changed to the client language/SDK of the developer's choice. Amazon Rekognition offers exercises in setting up the AWS SDK and using the command-line interface to interact with image analysis components \citepweb{Exercise86:online}, however this is client-agnostic nor does it provide details in how to get started with using the client SDKs.
+
+% \todo{ is it possible to link these to the type of questions we found on Stackoverflow? AC: Yes -- screenshots may be needed for that though (i.e., to make it tangible.) Worth it?}
+
+\begin{leftbar}
+\SuggestedImprovement
+Ensure tutorials detail \uline{all} client-libraries and how developers can produce a minimum working example using the service on their own computer using that client library. For each SDK offered, there should be details on how to install, authenticate and use a component using local data. For example, this may be as simple as using the service to determine if an image of a dog contains the label `dog'.
+\end{leftbar}
+
+\noindent
+\textbf{Step-by-step tutorials \dimcat{A6}:}  Google Cloud Vision offers tutorials limited to one component. These do not sufficiently demonstrate how to combine \textit{multiple components} of the API together and how developers should integrate it with a different platform, which a good step-by-step tutorial should detail. The official AWS Machine Learning blog \citepweb{AmazonRe55:online} provides extensive tutorials (in some cases, with a suggested tutorial completion time of over an hour) that integrate multiple Amazon Rekognition components with other AWS components. Microsoft provide tutorials \citepweb{Tutorial42:online,Tutorial6:online,GitHubAz56:online} integrating multiple components within their service to mobile applications and the Azure platform. 
+
+\begin{leftbar}
+\SuggestedImprovement
+Ensure tutorials combine \uline{multiple} components of the service together, are extensive, and require developers to spend a non-trivial amount of time to produce a basic application. For example, the tutorial may detail how to integrate the API into a smartphone application to achieve the following: (i) take a photo with the camera, (ii) detect if a person is within the image, (iii) analyse the visual features of the person.
+\end{leftbar}
+
+\noindent
+\textbf{Downloadable production-ready applications \dimcat{A7}:} Microsoft provide a downloadable application \citepweb{SampleEx87:online} that explores many components of the Azure Computer Vision API. The application is thoroughly documented with and also provides guidance on how to structure the architecture design of the program. While Rekognition and Google Cloud Vision also provide downloadable source code, they are largely under-documented, do not combine multiple components of the API together, and only use god-classes to handle all requests to the API \citepweb{JavaSDKV25:online,SampleAp41:online}.
+
+\begin{leftbar}
+\SuggestedImprovement
+Downloadable source code should be thoroughly documented, and should avoid the use of god-classes that demonstrate a single piece of the service's functionality. Ideally, the \uline{architecture} of a production-ready application should be demonstrated to developers.
+\end{leftbar}
+
+\noindent
+\textbf{Understanding best-practices \dimcat{A8}:} Google Cloud provides best-practices for its platform in both general and enterprise contexts \citepweb{Bestprac23:online,TipsTric26:online}, but there is little advice provided to guide developers on how best to use Google Cloud \textit{Vision}. Microsoft provides guidance on improving results of custom vision classifiers \citepweb{Improvin23:online}, but no further details on non-custom vision classifiers are found. We found the most detailed best-practices to be provided by Amazon Rekognition \citepweb{BestPrac58:online}, which outlines more detailed strategies such as reducing data transfer by storing and referencing images on S3 Buckets or the attributes images should have in various scenarios (e.g., the angles of a person's face in facial recognition).
+
+\begin{leftbar}
+\SuggestedImprovement
+Document best-practices for all major components of the computer vision service. Guide developers on the types of input data that produce the best results, advisable minimum image sizes and recommended file types, and suggest ways to overcome limitations that improve usage and cost efficiency. Provide guidance in more than one use case; give a range of scenarios that demonstrate different best practices for different domains.
+\end{leftbar}
+
+\noindent
+\textbf{Exhaustive lists of all major API components \dimcat{A9}:} Amazon provides a two-fold feature list that describes both the key features of Rekognition at a high-level \citepweb{AmazonRe70:online} as well as a detailed, technical breakdown of each API operation provided within the service \citepweb{ActionsA39:online}. Microsoft also provide a list of high-level features that Azure Computer Vision can analyse \citepweb{WhatisCo90:online} which provides hyperlinks to detailed descriptions of each feature. Google's Cloud Vision API provides a partial breakdown of the types of services provided, however this list is not fully complete, nor are there hyperlinks to more detailed descriptions of each of the features \citepweb{VisionAI32:online}.
+
+\begin{leftbar}
+\SuggestedImprovement
+Document key features that the computer vision classifier can perform at a high level. This should be easy to find from the service's landing page. Each feature should be described with reference to more detailed descriptions of the feature's exact API endpoint and required inputs, outputs and possible errors.
+\end{leftbar}
+
+\noindent
+\textbf{Minimum system requirements and dependencies \dimcat{A10}:} Although there is no dedicated webpage for this on any of the services investigated, there are listed dependencies for the client libraries in Google's and Azure's quick-start guides \citepweb{Quicksta92:online,CalltheC0:online}. These may be embedded within the quick-start guide as developers are likely to encounter dependency issues when they first start using the API. We found it a challenge to discover similar documentation this in Amazon's documentation.
+
+\begin{leftbar}
+\SuggestedImprovement
+Any system requirements and dependency issues should be well-highlighted within the documentation's quick-start guide; developers are likely to encounter these issues within the early stages of using an API, and it is highly relevant to provide solutions to these issues within the quick-starts.
+\end{leftbar}
+
+\noindent
+\textbf{Installation and release cycle notes \dimcat{A11}:} It is imperative that developers know what has changed between releases and how frequently the releases are exported. We found release notes for Amazon Computer Vision, although they are only major releases and have not been updated since 2017 \citepweb{AWSRelea46:online} which does not account for evolution in the service's responses \citep{Cummaudo:2019icsme}. Google's and Microsoft's release notes are generally more frequently updated, therefore developers can get a sense of its release frequency \citepweb{ReleaseN91:online,ReleaseN4:online}. However, there are evolution issues that are not addressed. Installation instructions are detailed within Rekognition's developer guide, outlining how to sign up for an account, and install the AWS command-line interface \citepweb{Step1Set76:online}.
+
+\begin{leftbar}
+\SuggestedImprovement
+Ensure release notes detail label evolution, including any new additional labels that may have been introduced within the service. Transparency around the changes made to the service should go beyond new features: document potential changes that may influence maintenance of a system using the computer vision service so that developers are aware of potential side-effects of upgrading to a newer release.
+\end{leftbar}
+
+\subsection[Dimension B Issues]{Issues regarding \dimb{}}
+
+\noindent
+\textbf{Limitations of the API \dimcat{B7}:} The most detailed limitations documented were found on Rekognition's dedicated limitations page \citepweb{Limitsin66:online} that outlines functional limitations such as the maximum number of faces or words that can be detected in an image, the size requirements of images, and file type information. For the other services, functional limitations are generally found within each endpoint's API documentation, instead of within a dedicated page.
+
+\begin{leftbar}\SuggestedImprovement
+Document all functional limitations in a dedicated page that outline the maximum and minimum input requirements the classifier can handle. Documentation of the types of labels the service can provide is also desired.  
+\end{leftbar}
+
+
+\subsection[Dimension C Issues]{Issues regarding \dimc{}}
+
+\noindent
+\textbf{Conceptual understanding of the API \dimcat{C1}:} Azure Computer Vision provides `concept' pages describing the high-level concepts behind computer vision and where these functions are implemented within the APIs (e.g., \citepweb{Contentt49:online}). We were unable to find similar conceptual documentation for the other services assessed.
+
+\begin{leftbar}\SuggestedImprovement
+Document the concepts behind computer vision; differentiate between foundational concepts such as object localisation, object recognition, facial localisation and facial analysis such that developers are able to make the distinction between them. Relate these concepts back to the API and provide references to where the APIs implement these concepts.
+\end{leftbar}
+
+\noindent
+\textbf{Definitions of domain-specific terminology \dimcat{C2}:}  Terminologies relevant to machine learning concepts powering these computer vision services are well detailed within Google's machine learning glossary \citepweb{MachineL36:online}, however few examples matching computer vision are immediately relevant. While this page is linked from the original Google Cloud Vision documentation, it may be too technical for application developers to grasp. A slightly better example of this is \citepweb{WhatisCo90:online}, where developers can understand computer vision terms in lay terms.
+
+\begin{leftbar}\SuggestedImprovement
+Current computer vision services use a myriad of terminologies to refer to the same conceptual feature; for example, while Microsoft refers to object recognition as `image tagging', Google refers to this as `label detection'. If a consolidation of terms is not possible, then computer vision services should provide a glossary that provides synonyms for these terminologies so that developers can easily move between service providers without needing to relink terms back to concepts.
+\end{leftbar}
+
+\subsection[Dimension D Issues]{Issues regarding \dimd{}}
+
+\textbf{Troubleshooting suggestions \dimcat{D2}:} The only troubleshooting tips found in our analysis were in Rekognition's video service \citepweb{Troubles2:online}. Further detailed instances of these troubleshooting tips could be expanded to non-video issues. For instance, if developers upload `noisy' images, how can they inform the system of a specific ontology to use or to focus on parts of the foreground of background of the image? These are suggestions which we have proposed in prior work \citep{Cummaudo:2019icsme} that do not seem to be documented.
+
+\begin{leftbar}\SuggestedImprovement
+Ensure troubleshooting tips provide advice for testing against different types of valid input images.   
+\end{leftbar}
+
+\noindent
+\textbf{Diagrammatic overview of the API \dimcat{D3}:} None of the computer vision services provide any overview of the API in terms of the features and processing steps on how they should be use. For instance, pre-processing and post-processing of input and response data should be considered and an understanding of how this fits into the `flow' of an application highlighted. Moreover, no UML diagrams could be found.
+
+\begin{leftbar}\SuggestedImprovement
+Provide diagrams illustrating the service within context of use, such as how it can be integrated with other service features or how a specific API endpoint may be used within a client application. Consider integrating interactive UML diagrams so that developers can easily explore various aspects of the documentation in a visual perspective.
+\end{leftbar}
 
 \clearpage
 \section{Survey Questions}\label{tse2020:sec:survey}
