@@ -1,8 +1,8 @@
 % TODO: Merge in SEmotion2021 once submitted; rename to SEmotion2021 and update to first author
 
 \chapter[Ranking Computer Vision Service Issues using Emotion]
-{Ranking Computer Vision Service Issues using Emotion\pubfootnote{Curumsing:2020semotion}}
-\label{ch:semotion2020}
+{Ranking Computer Vision Service Issues using Emotion\pubfootnote{Cummaudo:2021semotion}}
+\label{ch:semotion2021}
 \graphicspath{{mainmatter/publications/figures/semotion2021/}}
 
 \def\SEMNumPostsFromSO{1,425}	
@@ -59,11 +59,11 @@ The key findings of our study are:
     \item A different emotion classification scheme is required to better reflect the emotions within the questions.
 \end{itemize}
 
-In order to promote future research and permit replication, we make our data set publicly available.\footnote{See \url{http://bit.ly/2RiULgW}.} The paper structure is as follows: \cref{semotion2020:sec:EM} provides an overview on prior work surrounding the classification of emotions from text; \cref{semotion2020:sec:methodology} describes our research methodology;  \cref{semotion2020:sec:findings} presents the results from the EmoTxt classifier;  \cref{semotion2020:sec:discussion} provides a discussion of the results obtained;  \cref{semotion2020:sec:threats} outlines the threats to validity; \cref{semotion2020:sec:conclusion} presents the concluding remarks.  
+In order to promote future research and permit replication, we make our data set publicly available.\footnote{See \url{http://bit.ly/2RiULgW}.} The paper structure is as follows: \cref{semotion2021:sec:EM} provides an overview on prior work surrounding the classification of emotions from text; \cref{semotion2021:sec:methodology} describes our research methodology;  \cref{semotion2021:sec:findings} presents the results from the EmoTxt classifier;  \cref{semotion2021:sec:discussion} provides a discussion of the results obtained;  \cref{semotion2021:sec:threats} outlines the threats to validity; \cref{semotion2021:sec:conclusion} presents the concluding remarks.  
 
 
  
-\section{Emotion Mining from Text}\label{semotion2020:sec:EM}
+\section{Emotion Mining from Text}\label{semotion2021:sec:EM}
 
 Several studies have investigated the role of emotions generally in software development~\citep{wrobel2013, Shaw:2003aa, ortu2016, gachechiladze2017}. Work in the area of behavioural software engineering established the link between software developer's happiness and productivity~\citep{Graziontin:2017}. Wrobel~\citep{wrobel2013} investigated the impact that software developers' emotion has on the development process and found that frustration and anger were amongst the emotions that posed the highest risk to developer's productivity.    
 
@@ -71,7 +71,7 @@ Recent studies focused on emotion mining from text within communication channels
 
 
 
-\section{Methodology}\label{semotion2020:sec:methodology}
+\section{Methodology}\label{semotion2021:sec:methodology}
 
 As mentioned in our introduction, this paper uses the data set reported in~\citeauthor{Cummaudo:2020icse}'s ICSE 2020 paper~\citep{Cummaudo:2020icse}. As this paper is in press, we reproduce a summary of the methodology used in constructing this data set methodology below. For full details, we refer to the original paper. Supplementary materials used for this work are provided for replication.\footnotemark[1]
 
@@ -103,12 +103,12 @@ To overcome this limitation, we ran a second query within the Stack Exchange Dat
 Next, we needed to extract questions that make reference to any of these 229 permutations. SEDE has a 50,000 row limit and does not support case-insensitivity, however Google's BigQuery does not. Therefore, we queried Google's \gls{so} dataset on each of the 229 terms that may occur within the title or body of question posts,\footnote{See \url{http://bit.ly/2LrN7OA}.} which resulted in 21,226 questions.
 
 \subsubsection{Refining our inclusion/exclusion criteria}
-\label{semotion2020:ssec:method:filtering:refining}
+\label{semotion2021:ssec:method:filtering:refining}
 
 To assess the suitability of these questions, we filtered the 50 most recent posts as sorted by their \textit{CreationDate} values. This helped further refine the inclusion and exclusion criteria: for example, certain abbreviations in our search terms (e.g., `GCV', `WCS'\footnote{Watson Cognitive Services}) allowed for false positive questions to be included, which were removed. Furthermore, we consolidated all overlapping terms (e.g., `Google Vision \uline{\textbf{\glsac{api}}}' was collapsed into `Google Vision') to enhance the query. Additionally, we reduced our 221 search terms to just 27 search terms by focusing on \glspl{cvs} \textit{only}\footnote{Our original data set aimed at extracting posts relevant to \textit{all} \glspl{iws}, and not just \glspl{cvs}. However, 21,226 questions were too many to assess without automated analysis, which was beyond the scope of our work.} which resulted in \SEMNumPostsFromSO{} questions. No duplicates were recorded as determined by the unique ID, title and timestamp of each question.
 
 \subsubsection{Manual filtering}
-\label{semotion2020:ssec:method:filtering:automated-manual-filtering}
+\label{semotion2021:ssec:method:filtering:automated-manual-filtering}
 
 The next step was to assess the suitability and nature of the \SEMNumPostsFromSO{} questions extracted. The \alexnumauthor{} author ran a manual check on a random sample of 50 posts, which were parsed through a templating engine script\footnote{We make this available for future use at: \url{http://bit.ly/2NqBB70}.} in which the ID, title, body, tags, created date, and view, answer and comment counts were rendered for each post.
 Any match against the 27 search terms in the title or body of the post were highlighted, in which three false positives were identified as either library imports or stack traces, such as \texttt{aws-java-sdk-\uline{rekognition}:jar}. In addition, we noted that there were false positive hits related to non-\glspl{cvs}. We flagged posts of such nature as `noise' and removed them from further classification.
@@ -116,7 +116,7 @@ Any match against the 27 search terms in the title or body of the post were high
 \begin{table*}[tb]
   \centering
   \caption[Our interpretations from a Stack Overflow question type taxonomy]{Descriptions of dimensions from our interpretation of \citeauthor{Beyer:2018fm}'s SO question type taxonomy.}
-  \label{semotion2020:tab:taxonomies}
+  \label{semotion2021:tab:taxonomies}
   \small
   \begin{tabular}{p{.2\linewidth}p{.75\linewidth}}
     \toprule
@@ -159,22 +159,22 @@ Any match against the 27 search terms in the title or body of the post were high
 \subsection{Question Type \& Emotion Classification}
 
 \subsubsection{Manual classification of question category}
-\label{semotion2020:ssec:method:filtering:classification}
+\label{semotion2021:ssec:method:filtering:classification}
 
 We classify our \SEMNumPostsFromSO{} posts using ~\citeauthor{Beyer:2018fm}'s taxonomy~\citep{Beyer:2018fm} as it was comprehensive and validated \citep{Cummaudo:2020icse}. We split the posts into 4 additional random samples, in addition to the random sample of 50 above. 475 posts were classified by the second author and three other research assistants\footnote{Software engineers in our research group with at least 2 years industry experience} classified the remaining 900 (i.e., a total of 1,375 classifications). An additional 450 classifications were assigned due to reliability analysis, in which the remaining 50 posts were classified nine times by various researchers in our group.\footnote{Due to space limitations, reliability analysis is omitted and is reported in~\citep{Cummaudo:2020icse}.}  
 
 Due to the nature of reliability analysis, multiple classifications (450) existed for  these 50 posts. Therefore, we applied a `majority rule' technique to each post allowing for a single classification assignment and therefore analysis within our results. When there was a majority then we used the majority classification; when there was a tie, then we used the classification that was assigned the most out of the entire 450 classifications. As an example, 3 raters classified a post as \textit{\glsac{api} Usage}, 1 rater classified the same post as a \textit{Review} question and 5 raters classified the post as \textit{Conceptual}, resulting in the post being classified as a \textit{Conceptual} question. For another post, three raters assigned \textit{\glsac{api} Usage}, \textit{Discrepancy} and \textit{Learning} (respectively), while 3 raters assigned \textit{Review} and 3 raters assigned \textit{Conceptual}. In this case, \textit{Review} and \textit{Conceptual} were tied, but was resolved down to \textit{Conceptual} as this classification received 147 more votes than \textit{Review} across all classifications made in the sample of 50 posts.
 
-However, where a post was extracted from our original \SEMNumPostsFromSO{} posts but was either a false positive, not applicable to \glspl{iws} (see \cref{semotion2020:ssec:method:filtering:automated-manual-filtering}), or not applicable to a taxonomy dimension/category, then the post was flagged for removal in further analysis. This was done 180 times, leaving a total of 1,245 posts.
+However, where a post was extracted from our original \SEMNumPostsFromSO{} posts but was either a false positive, not applicable to \glspl{iws} (see \cref{semotion2021:ssec:method:filtering:automated-manual-filtering}), or not applicable to a taxonomy dimension/category, then the post was flagged for removal in further analysis. This was done 180 times, leaving a total of 1,245 posts.
 
-Our interpretation~\citeauthor{Beyer:2018fm}'s taxonomy is provided in \cref{semotion2020:tab:taxonomies}, which presents a transcription of \textit{our understanding} of the respective taxonomy. We baselined all coding against \textit{our interpretation only}, and thus our classifications are therefore independent of~\citeauthor{Beyer:2018fm}'s findings, since we baseline results via \cref{semotion2020:tab:taxonomies}'s interpretation.
+Our interpretation~\citeauthor{Beyer:2018fm}'s taxonomy is provided in \cref{semotion2021:tab:taxonomies}, which presents a transcription of \textit{our understanding} of the respective taxonomy. We baselined all coding against \textit{our interpretation only}, and thus our classifications are therefore independent of~\citeauthor{Beyer:2018fm}'s findings, since we baseline results via \cref{semotion2021:tab:taxonomies}'s interpretation.
 
 % \subsection{Data Analysis}
 
 % \subsubsection{Reliability of Classification}
-% \label{semotion2020:ssec:method:filtering:reliability}
+% \label{semotion2021:ssec:method:filtering:reliability}
 
-% To measure consistency of the categories assigned by each rater to each post, we utilised both intra- and inter-rater reliability~\citep{McHugh:2012up}. As verbatim descriptions from dimensions and sub-categories were considered quite lengthy from their original sources, all raters met to agree on a shared interpretation of the descriptions, which were then paraphrased as discussed in the previous subsection and tabulated in \cref{semotion2020:tab:taxonomies}. To perform statistical calculations of reliability, each category was assigned a nominal value and a random sample of 50 posts were extracted. Two-phase reliability analysis followed. 
+% To measure consistency of the categories assigned by each rater to each post, we utilised both intra- and inter-rater reliability~\citep{McHugh:2012up}. As verbatim descriptions from dimensions and sub-categories were considered quite lengthy from their original sources, all raters met to agree on a shared interpretation of the descriptions, which were then paraphrased as discussed in the previous subsection and tabulated in \cref{semotion2021:tab:taxonomies}. To perform statistical calculations of reliability, each category was assigned a nominal value and a random sample of 50 posts were extracted. Two-phase reliability analysis followed. 
 
 % Firstly, intra-rater agreement by the first author was conducted twice on 28 June 2019 and 9 August 2019. Secondly, inter-rater agreement was conducted with the remaining four co-authors in addition to three research assistants within our research group in mid-August 2019. Thus, the 50 posts were classified an additional nine times, resulting in 450 posts classified for reliability analysis. At first, we followed methods of reliability analysis similar to previous \gls{so} studies (e.g.,~\citep{Tahir:2018ks}) using the percentage agreement metric that divides the number of agreed categories assigned per post by the total number of raters~\citep{McHugh:2012up}. However, percentage agreement is generally rejected as an inadequate measure of reliability analysis~\citep{Cohen:1960tf,Krippendorff:2018tda,Hallgren:2012kt} in statistical communities. As we used more than 2 coders and our reliability analysis was conducted under the same random sample of 50 posts, we applied \textit{Light's Kappa}~\citep{Light:1971vz} to our ratings, which indicates an overall index of agreement. This was done using the \texttt{irr} computational R package~\citep{Gamer:tj} as suggested in~\citep{Hallgren:2012kt}.
 
@@ -183,12 +183,12 @@ Our interpretation~\citeauthor{Beyer:2018fm}'s taxonomy is provided in \cref{sem
 After extracting and classifying all posts, we then piped in the body of each question into a script developed to remove all HTML tags, code snippets, blockquotes and hyperlinks, as suggested by~\citet{novielli2018}. We replicated and extended the study conducted by~\citet{novielli2018} on our data set derived from \SEMNumPostsFromSO{} \gls{so} posts, consisting of questions only. Our study consisted of three main steps, namely, (1) automatic emotion classification using EmoTxt, (2) manual annotation process and, (3) comparison of the automatic classification result with the manually annotated data set.
 
 \subsubsection{Emotion classification using EmoTxt}
-We started with a file containing 1,245 non-noise \gls{so} questions, each with an associated question type as classified using the strategy discussed in \cref{semotion2020:ssec:method:filtering:classification}. We pre-processed this file by extracting the question ID and body text to meet the format requirements of the EmoTxt classifier~\citep{calefato2017}. This classifier was used as it was trained on \gls{so} posts as discussed in \cref{semotion2020:sec:EM}. We ran the classifier for each emotion as this was required by EmoTxt model.  This resulted in 6 output prediction files (one file for each emotion: \textit{Love}, \textit{Joy}, \textit{Surprise}, \textit{Sadness}, \textit{Fear}, \textit{Anger}). Each question within these files referenced the question ID and a predicted classification (\texttt{YES} or \texttt{NO}) of the emotion.  We then merged the emotion prediction files into an aggregate file with question text and~\citeauthor{Beyer:2018fm}'s taxonomy classifications. This resulted in 796 emotion classifications. We further analysed the classifications and generated an additional classification of \textit{No Emotion} for the 622 questions where EmoTxt predicted \texttt{NO} for all the emotion classification runs.
+We started with a file containing 1,245 non-noise \gls{so} questions, each with an associated question type as classified using the strategy discussed in \cref{semotion2021:ssec:method:filtering:classification}. We pre-processed this file by extracting the question ID and body text to meet the format requirements of the EmoTxt classifier~\citep{calefato2017}. This classifier was used as it was trained on \gls{so} posts as discussed in \cref{semotion2021:sec:EM}. We ran the classifier for each emotion as this was required by EmoTxt model.  This resulted in 6 output prediction files (one file for each emotion: \textit{Love}, \textit{Joy}, \textit{Surprise}, \textit{Sadness}, \textit{Fear}, \textit{Anger}). Each question within these files referenced the question ID and a predicted classification (\texttt{YES} or \texttt{NO}) of the emotion.  We then merged the emotion prediction files into an aggregate file with question text and~\citeauthor{Beyer:2018fm}'s taxonomy classifications. This resulted in 796 emotion classifications. We further analysed the classifications and generated an additional classification of \textit{No Emotion} for the 622 questions where EmoTxt predicted \texttt{NO} for all the emotion classification runs.
 
 Of the 796 questions with emotion detected, 143 questions had 2 or more emotions predicted: 1 question\footnote{See \url{http://stackoverflow.com/q/55464541}.} had up to 4 emotions detected (\textit{Surprise}, \textit{Sadness}, \textit{Joy} and \textit{Fear}), 28 questions had up to 3 emotions detected, and the remaining 114 had up to two emotions detected.
 
 \def\light{$L_{\kappa}$}
-\subsubsection{Manual Annotation Process} \label{semotion2020:ssec:manual}
+\subsubsection{Manual Annotation Process} \label{semotion2021:ssec:manual}
 In order to evaluate and also better understand the process used by EmoTxt to classify emotions, we manually annotated a small sample of 25 \gls{so} posts, randomly selected from our data set. Each of these 25 posts were assigned to three raters who carried out the following three steps: (i) identify the presence of an emotion; (ii) if an emotion(s) exists, classify the emotion(s) under one of the six basic emotions proposed by the Shaver framework~\citep{shaver1987}; (iii) if no emotion is identified, annotate as neutral.
 We then collated all rater's results and calculated Light's Kappa (\light{})~\citep{Light:1971vz} to measure the overall agreement \textit{between} raters to measure the similarity in which independent raters classify emotions to \gls{so} posts. As \light{} does not support multi-class classification (i.e., multiple emotions) per subjects (i.e., per \gls{so} post), we binarised the results each emotion and rater as \texttt{TRUE} or \texttt{FALSE} to indicate presence, calculated the \light{} per emotion against the three raters, and averaged the result across all emotions to get an overall strength of agreement.
 % At the end of this process, we resolved disagreements by applying a majority voting criterion.
@@ -197,26 +197,26 @@ We then collated all rater's results and calculated Light's Kappa (\light{})~\ci
 
 \def\cohen{$C_{\kappa}$}
 The next step involved comparing the ratings of the 25 \gls{so} posts that were manually annotated by the three raters with the results obtained for the same set of 25 \gls{so} posts from the EmoTxt classifier. 
-Similar to \cref{semotion2020:ssec:manual}, we used Cohen's Kappa (\cohen{})~\citep{Cohen:1960tf} to measure the consistency of classifications of EmoTxt's classifications versus the manual classifications of each rater. We separated the classifications per emotion and calculated \cohen{} for each rater against EmoTxt and averaged these values for all emotions.
-After noticing poor results, the three raters involved in \cref{semotion2020:ssec:manual} were asked to compare and discuss the ratings from the EmoTxt classifier against the manual ratings. 
+Similar to \cref{semotion2021:ssec:manual}, we used Cohen's Kappa (\cohen{})~\citep{Cohen:1960tf} to measure the consistency of classifications of EmoTxt's classifications versus the manual classifications of each rater. We separated the classifications per emotion and calculated \cohen{} for each rater against EmoTxt and averaged these values for all emotions.
+After noticing poor results, the three raters involved in \cref{semotion2021:ssec:manual} were asked to compare and discuss the ratings from the EmoTxt classifier against the manual ratings. 
 
 The findings from this process are presented and discussed in the next two sections.
 
 
-\section{Findings}\label{semotion2020:sec:findings}
+\section{Findings}\label{semotion2021:sec:findings}
 
 \begin{figure}[tbh]
 \centering
 \includegraphics[width=.6\linewidth]{beyerclass}
 \caption[Distribution of Stack Overflow question types]{Distribution of \gls{so} question types.}
-\label{semotion2020:fig:beyer-classifications}
+\label{semotion2021:fig:beyer-classifications}
 \end{figure}
 
-\Cref{semotion2020:fig:beyer-classifications} displays the overall distribution of question types from the 1,245 posts classified in~\citep{Cummaudo:2020icse}, when adjusted for majority ruling as per \cref{semotion2020:ssec:method:filtering:classification}. It is evident that developers ask issues predominantly related to \glsac{api} errors when using \glspl{cvs} and, additionally, how they can use the \glsac{api} to implement specific functionality. There are few questions related to version issues or self-learning.
+\Cref{semotion2021:fig:beyer-classifications} displays the overall distribution of question types from the 1,245 posts classified in~\citep{Cummaudo:2020icse}, when adjusted for majority ruling as per \cref{semotion2021:ssec:method:filtering:classification}. It is evident that developers ask issues predominantly related to \glsac{api} errors when using \glspl{cvs} and, additionally, how they can use the \glsac{api} to implement specific functionality. There are few questions related to version issues or self-learning.
 
 \begin{table}[th]
 \caption{Frequency of emotions per question type.}
-\label{semotion2020:tab:emotion-freq}
+\label{semotion2021:tab:emotion-freq}
 \resizebox{\linewidth}{!}{\begin{tabular}{l|ccccccc|c}
 \toprule
 \textbf{Question Type}&
@@ -242,7 +242,7 @@ Total&224&100&103&70&223&76&622&1418\\
 \end{tabular}}
 \end{table}
 
-\Cref{semotion2020:tab:emotion-freq} displays the frequency of questions that were classified by EmoTxt when compared to our assignment of question types, while \cref{semotion2020:fig:emotion-dist} presents the emotion data proportionally across each type of question. \textit{No Emotion} was the most prevalent across all question types, which is consistent with the findings of the Collab group during the training of the EmoTxt classifier. Interestingly, \textit{\glsac{api} Change} questions had a distinct distribution of emotions, where 31.25\% of questions had \textit{No Emotion} compared to the average of 42.01\%. This is likely due to the low sample size of \textit{\glsac{api} Change} questions, with only 12 assignments, however the next highest set of emotive questions are found in the second largest sample (\textit{\glsac{api} Usage}, at 59.21\%) and so greater emotion detected is not necessarily proportional to sample size.  Unsurprisingly, \textit{Discrepancy} questions had the highest proportion of the \textit{Anger} emotion, at 7.97\%, compared to the mean of 4.74\%, which is indicative of the frustrations developers face when the \glsac{api} does something unexpected. \textit{Love}, an emotion which we expected least by software developers when encountering issues, was present across the different question types. The two highest emotions, by average, were \textit{Fear} (16.67\%) and \textit{Surprise} (14.90\%), while the two lowest emotions were \textit{Sadness} (4.47\%) and \textit{Anger} (4.74\%). \textit{Joy} and \textit{Love} were roughly the same and fell in between the two proportion ends, with means of 8.96\% and 8.16\%, respectively.
+\Cref{semotion2021:tab:emotion-freq} displays the frequency of questions that were classified by EmoTxt when compared to our assignment of question types, while \cref{semotion2021:fig:emotion-dist} presents the emotion data proportionally across each type of question. \textit{No Emotion} was the most prevalent across all question types, which is consistent with the findings of the Collab group during the training of the EmoTxt classifier. Interestingly, \textit{\glsac{api} Change} questions had a distinct distribution of emotions, where 31.25\% of questions had \textit{No Emotion} compared to the average of 42.01\%. This is likely due to the low sample size of \textit{\glsac{api} Change} questions, with only 12 assignments, however the next highest set of emotive questions are found in the second largest sample (\textit{\glsac{api} Usage}, at 59.21\%) and so greater emotion detected is not necessarily proportional to sample size.  Unsurprisingly, \textit{Discrepancy} questions had the highest proportion of the \textit{Anger} emotion, at 7.97\%, compared to the mean of 4.74\%, which is indicative of the frustrations developers face when the \glsac{api} does something unexpected. \textit{Love}, an emotion which we expected least by software developers when encountering issues, was present across the different question types. The two highest emotions, by average, were \textit{Fear} (16.67\%) and \textit{Surprise} (14.90\%), while the two lowest emotions were \textit{Sadness} (4.47\%) and \textit{Anger} (4.74\%). \textit{Joy} and \textit{Love} were roughly the same and fell in between the two proportion ends, with means of 8.96\% and 8.16\%, respectively.
 
 Results from our reliability analysis showed largely poor results. Guidelines of indicative strengths of agreement are provided by~\citet{Landis:1977kv}, where $\kappa \leq 0.000$ is \textit{poor agreement}, $0.000 < \kappa \leq 0.200$ is \textit{slight agreement} and $0.200 < \kappa \leq 0.400$ is \textit{fair agreement}. Our readings were indicative of poor agreement between raters (\cohen{}$=-0.003$) and slight agreement with EmoTxt (\light{}$=0.155$).  The strongest agreements found were for \textit{No Emotion} both between each of our three raters (\light{}$=0.292$) and each rater and EmoTxt (\cohen{}$=0.086$), with fair and slight agreement respectively.
 
@@ -250,13 +250,13 @@ Results from our reliability analysis showed largely poor results. Guidelines of
 \centering
 \includegraphics[width=.6\linewidth]{emotionproportion}
 \caption[Proportion of emotions per question type]{Proportion of emotions per question type.}
-\label{semotion2020:fig:emotion-dist}
+\label{semotion2021:fig:emotion-dist}
 \end{figure}
 
 \afterpage{\begin{landscape}
 \begin{table*}
 \caption[Assigning emotion to Stack Overflow questions]{Sample questions comparing question type to emotion. Questions located at https://stackoverflow.com/q/[ID].}
-\label{semotion2020:table:SampleQuestions}
+\label{semotion2021:table:SampleQuestions}
 \small
 \tablefit{\begin{tabular}{lp{0.71\linewidth}ll}
 \toprule
@@ -294,14 +294,14 @@ Love\\
 \end{table*}\end{landscape}}
 
 
-\section{Discussion}\label{semotion2020:sec:discussion}
+\section{Discussion}\label{semotion2021:sec:discussion}
 
-Our findings from the comparison between the manually annotated \gls{so} posts and the automatic classification revealed substantial discrepancies. \Cref{semotion2020:table:SampleQuestions} provide some sample questions from our data set and the emotion identified by EmoTxt within the text. A subset of questions analysed by our three raters do not indicate the automatic (EmoTxt) emotion, and upon manual inspection of the text after poor results from our reliability analysis, an introspection of the data set sheds some light to the discrepancy. For example, question 55113529 shows no indication of \textit{Joy}, rather the developer is expressing a state of confusion. The phrase \textit{``Thanks for your help''} could be the reason why the miss-classification occurred if words like ``thanks'' were associated with joy. However, in this case, it seems unlikely that the developer is expressing joy as the developer has followed a tutorial but is still encountering an error. Similarly, question 39797164, classified as \textit{Love} and question 50500341, classified as \textit{Sadness} express a state of confusion and the urge to know more about the product; upon inspecting the entire question in context, it is difficult to consistently agree with the emotions as determined by EmoTxt, and further exploration into the behaviour and limitations of the model is necessary.
+Our findings from the comparison between the manually annotated \gls{so} posts and the automatic classification revealed substantial discrepancies. \Cref{semotion2021:table:SampleQuestions} provide some sample questions from our data set and the emotion identified by EmoTxt within the text. A subset of questions analysed by our three raters do not indicate the automatic (EmoTxt) emotion, and upon manual inspection of the text after poor results from our reliability analysis, an introspection of the data set sheds some light to the discrepancy. For example, question 55113529 shows no indication of \textit{Joy}, rather the developer is expressing a state of confusion. The phrase \textit{``Thanks for your help''} could be the reason why the miss-classification occurred if words like ``thanks'' were associated with joy. However, in this case, it seems unlikely that the developer is expressing joy as the developer has followed a tutorial but is still encountering an error. Similarly, question 39797164, classified as \textit{Love} and question 50500341, classified as \textit{Sadness} express a state of confusion and the urge to know more about the product; upon inspecting the entire question in context, it is difficult to consistently agree with the emotions as determined by EmoTxt, and further exploration into the behaviour and limitations of the model is necessary.
 
 Our results indicate further work is needed to refine the \gls{ml} classifiers that mine emotions in the \gls{so} context. The question that arises is whether the classification model is truly reflective of real-world emotions expressed by software developers. As highlighted by~\citet{curumsing2017}, the divergence of opinions with regards to the emotion classification model proposed by theorists raises doubts to the foundations of basic emotions. Most of the studies conducted in the area of emotion mining from text is based on an existing general purpose emotion framework from psychology~\citep{Ondrej:2016, ortu2016, novielli2018}---none of which are tuned for software engineering domain. In our study, we note the emotions expressed by software developers within \gls{so} posts are quite narrow and specific. In particular, emotions such as frustration and confusion would be more appropriate over love and joy. 
 %To the best of our knowledge, no such classification exist in the literature. Studies such as ~\citep{wrobel2013} that list of emotions expressed by software developers and our findings can potentially be combined to create an emotion set better aligned to online questions.
 
-% \section{Implications}\label{semotion2020:sec:implications}
+% \section{Implications}\label{semotion2021:sec:implications}
 
 % Based on our observations during the manual classification of \gls{so} posts and related work in the field~\citep{wrobel2013}, we propose a new taxonomy of emotions which is reflective of what software developers experience when encountering coding issues. We propose the following set of five emotions: 
 % (i) \textit{Confusion}, an inability to understand something, e.g., \textit{``why is the code not functioning?''} or \textit{``where is the error?''};
@@ -312,20 +312,20 @@ Our results indicate further work is needed to refine the \gls{ml} classifiers t
 
 %Our proposed taxonomy was tested on the same set of 25 randomly selected \gls{so} posts by the same three testers. The testers agreed that the new taxonomy is more reflective of what software developers express within \gls{so} posts and identified \textit{confusion} and \textit{curiosity} as being the highly rated emotions.
 
-\section{Threats to Validity}\label{semotion2020:sec:threats}
+\section{Threats to Validity}\label{semotion2021:sec:threats}
 
 \subsection{Internal Validity} 
 The \textit{\glsac{api} Change} and \textit{Learning} question types were few in sample size (only 12 and 22 questions, respectively). The emotion  proportion distribution of these question types are  quite different to the others.  Given the low number of questions, the sample is too small to make confident assessments. Furthermore, our assignment of~\citeauthor{Beyer:2018fm}'s question type taxonomy was single-label; a multi-labelled approach may work better, however analysis of results would become more complex. A multi-labelled approach would be indicative for future work.
-% Lastly, the study would be greatly improved with a reliability analysis of our proposed taxonomy; while we did resolve using majority voting (\cref{semotion2020:ssec:manual}), no inter-rater reliability has been performed for this study. We plan to conduct reliability analysis, expand the number of raters, and increase the 25 question sample size in our future work for a more thorough analysis of our proposed taxonomy. 
+% Lastly, the study would be greatly improved with a reliability analysis of our proposed taxonomy; while we did resolve using majority voting (\cref{semotion2021:ssec:manual}), no inter-rater reliability has been performed for this study. We plan to conduct reliability analysis, expand the number of raters, and increase the 25 question sample size in our future work for a more thorough analysis of our proposed taxonomy. 
 
 \subsection{External Validity}
 EmoTxt was trained on questions, answers and comments, however our data set contained questions only. It is likely that our results may differ if we included other discussion items, however we wished to understand the emotion within developers' \textit{questions} and classify the question based on the question classification framework by~\citet{Beyer:2018fm}. Moreover, this study has only assessed frustrations within the context of a concrete domain of \glspl{cvs}. The generalisability of this study to other \glspl{iws}, such as natural language processing services, or conventional web services, may be different. Furthermore, we only assessed four popular \glspl{cvs}; expanding the data set to include more services, including non-English ones, would be insightful. We leave this to future work.
 
 \subsection{Construct Validity}
-Some posts extracted from \gls{so} were false positives. Whilst flagged for removal (\cref{semotion2020:ssec:method:filtering:automated-manual-filtering}), we cannot guarantee that all false positives were removed. Furthermore, \gls{so} is known to have questions that are either poorly worded or poorly detailed, and developers sometimes ask questions without doing any preliminary investigation. This often results in down-voted questions. We did not remove such questions from our data set, which may influence the measurement of our results.
+Some posts extracted from \gls{so} were false positives. Whilst flagged for removal (\cref{semotion2021:ssec:method:filtering:automated-manual-filtering}), we cannot guarantee that all false positives were removed. Furthermore, \gls{so} is known to have questions that are either poorly worded or poorly detailed, and developers sometimes ask questions without doing any preliminary investigation. This often results in down-voted questions. We did not remove such questions from our data set, which may influence the measurement of our results.
 
 
-\section{Conclusions}\label{semotion2020:sec:conclusion}
+\section{Conclusions}\label{semotion2021:sec:conclusion}
 
 In this paper we analysed \gls{so} posts for emotions using an automated tool and cross-checked it manually. We found that the distribution of emotion differs across the taxonomy of issues, and that the current emotion model typically used in recent works is not appropriate for emotions expressed within \gls{so} questions. Consistent with prior work~\citep{lin2018sentiment}, our results demonstrate that machine learning classifiers for emotion are insufficient; human assessment is required.
 

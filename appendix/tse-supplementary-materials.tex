@@ -5,12 +5,24 @@
 \def\circlenotpresent{\faCircleO}
 \def\circlepartialpresent{\faAdjust}
 \def\circlepresent{\faCircle}
+\newcommand{\dimcat}[1]{\textsc{\small[\textbf{#1}]}}
+
+% Taxonomy Dimension Keys
+\def \dima{Descriptions of API Usage}
+\def \dimb{Descriptions of Design Rationale}
+\def \dimc{Descriptions of Domain Concepts}
+\def \dimd{Existence of Support Artefacts}
+\def \dime{Overall Presentation of Documentation}
+
+% Suggested improvements
+\def\SuggestedImprovement{\noindent\itshape\small\textbf{\faHandORight{} Suggested improvement:~}}
 
 \section{Detailed Overview of Our Proposed Taxonomy}
 \label{tse2020:tab:taxonomy}
 
-Detailed descriptions of the 5 requirements of good API documentation (dimensions) and 34 generalised API documentation artefacts (categories/sub-dimensions) that help satisfy these requirements within our proposed taxonomy. Descriptions of examples of these documentation artefacts are italicised and provided for illustrative purposes. ILS = In-Literature Score, calculated as a ratio of papers that investigated or reported various issues concerning each artefact. IPS = In-Practice Score, calculated as the average response from our survey instrument. Colour scales indicate relevancy weight within ILS or IPS values for comparative purposes, where red = \textit{lowest} and green = \textit{highest}. GCV, AWS, ACV = Presence of category in Google Cloud Vision, Amazon Rekognition, and Azure Cloud Vision documentation. Presence indicated as \textit{fully present} (\circlepresent{}), \textit{partially present} (\circlepartialpresent{}), and \textit{not present} (\circlenotpresent{}).
+The following pages detail our proposed taxonomy. Detailed descriptions of the five requirements of good API documentation (dimensions) and 34 generalised API documentation artefacts (categories/sub-dimensions) that help satisfy these requirements within our proposed taxonomy. Descriptions of examples of these documentation artefacts are italicised and provided for illustrative purposes. ILS = In-Literature Score, calculated as a ratio of papers that investigated or reported various issues concerning each artefact. IPS = In-Practice Score, calculated as the average response from our survey instrument. Colour scales indicate relevancy weight within ILS or IPS values for comparative purposes, where red = \textit{lowest} and green = \textit{highest}. GCV, AWS, ACV = Presence of category in Google Cloud Vision, Amazon Rekognition, and Azure Cloud Vision documentation. Presence indicated as \textit{fully present} (\circlepresent{}), \textit{partially present} (\circlepartialpresent{}), and \textit{not present}~(\circlenotpresent{}).
 
+\begin{landscape}
 {\def\cn{}
 \def\cy{\checkmark}
 \footnotesize
@@ -282,6 +294,7 @@ Detailed descriptions of the 5 requirements of good API documentation (dimension
   \cellcolor[HTML]{a7c47d}High&\cellcolor[HTML]{57bb8a}V High&\circlepresent{}&\circlepresent{}&\circlepresent{}\\
 \end{longtable}
 \normalsize}
+\end{landscape}
 
 \clearpage
 \section{Sources of Documentation}\label{tse2020:tab:docsources}
@@ -320,7 +333,6 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \item \url{https://cloud.google.com/vision/docs/quickstart-client-libraries}
 \item \url{https://cloud.google.com/vision/docs/release-notes}
 \item \url{https://cloud.google.com/vision/docs/reference/rpc/google.rpc#google.rpc.Code}
-\item \url{https://cloud.google.com/vision/\item #derive-insight-from-your-images-with-our-powerful----------pretrained-api-models-or-easily-train-custom-vision-models-with-automl----------vision-beta}
 \item \url{https://cloud.google.com/vision/#insight-from-your-images}
 \item \url{https://developers.google.com/machine-learning/glossary/}
 \item \url{https://cloud.google.com/vision/docs/resources}
@@ -343,7 +355,7 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/best-practices.html}
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/API_Operations.html}
 \item \url{https://aws.amazon.com/rekognition/image-features/}
-\item \url{https://aws.amazon.com/releasenotes/?tag=releasenotes%23keywords%23amazon-rekognition}
+\item \url{https://aws.amazon.com/releasenotes/?tag=releasenotes\%23keywords\%23amazon-rekognition}
 \item \url{https://docs.aws.amazon.com/rekognition/latest/dg/setting-up.html}
 \item \url{https://aws.amazon.com/rekognition/}
 \item \url{https://aws.amazon.com/rekognition/}
@@ -356,7 +368,7 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \item \url{https://github.com/awsdocs/amazon-rekognition-developer-guide/issues}
 \item \url{https://forums.aws.amazon.com/thread.jspa?threadID=285910}
     \end{itemize}\\
-    Azure Computer Vision &
+    Azure Computer\newline Vision &
     \vspace{-1.75mm}
     \begin{itemize}[label=,leftmargin=10pt,topsep=0pt,partopsep=0pt,noitemsep,nolistsep,itemindent=-10pt]
 \item \url{https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/quickstarts-sdk/csharp-analyze-sdk}
@@ -389,11 +401,9 @@ Sources of documentation used for the validation of the taxonomy. For clarity, e
 \clearpage
 \section{List of Primary Sources}\label{tse2020:sec:primary-sources}
 
-\nocite{PSRobillard:2009uk,PSRobillard:2011uv,PSKo:2011fb,PSNykaza:2002td,PSWatson:2013fx,PSJeong:2009tu,PSAghajani:2019bo,PSHaselbock:2018jd,PSInzunza:2018dn,PSMeng:2017cx,PSGeiger:2018fv,PSHead:2018baa,PSAversano:2017ic,PSRobillard:hk,PSWatson:2012uy,PSMaalej2013,PSParnas:2007fb,PSBottomley:2005fs,PSTaulavuori:2004el,PSKotula:1998wp,PSMcLellan:1998vu}
+The following pages list of the primary sources found from our systematic mapping study. Each citation is referenced by a prefixed `S'. We also list the respective citation count, as measured by the number of citations the publication has from Google Scholar as at July 2020. We also list the venue ranking (as at 2020), as measured by Scimago Rankings or Qualis Ranking for Journals and CORE Rankings for conference publications. If no rank can be found, a dash is used.
 
-
-List of the primary sources found from our systematic mapping study. Each citation is referenced by a prefixed `S'. We also list the respective citation count, as measured by the number of citations the publication has from Google Scholar as at July 2020. We also list the venue ranking (as at 2020), as measured by Scimago Rankings or Qualis Ranking for Journals and CORE Rankings for conference publications. If no rank can be found, a dash is used.
-
+\begin{landscape}
 \small
 \begin{longtable}{p{0.03\linewidth}p{.79\linewidth}|cc}
   \toprule
@@ -433,12 +443,11 @@ List of the primary sources found from our systematic mapping study. Each citati
 \relax[S21]&\bibentry{McLellan:1998vu}&105&Q1\\
   
 \end{longtable}
+\end{landscape}
 \normalsize
 
 \clearpage
 \section{Detailed Suggested Improvements}\label{tse2020:sec:suggested-improvements}
-
-\def\SuggestedImprovement{\noindent\itshape\small\textbf{\faHandORight{} Suggested improvement:~}}
 
 For this assessment, we select the ILS or IPS values for categories that are considered either somewhat or very helpful (i.e., a score greater than 0.50). We then match these against categories that are found to be partially or not present within each service. In total, we found 12 categories where improvements can be made across all dimensions except \dime{}, detailed below .
 
@@ -447,8 +456,6 @@ For this assessment, we select the ILS or IPS values for categories that are con
 \noindent
 \textbf{Quick-start guides \dimcat{A1}:} 
 Quick-start guides should provide a short tutorial that allows programmers to pick up the basics of an API in a programming language of their choice. For the services assessed, each offer various client SDKs (e.g., as Java or Python client libraries). Google Cloud Vision and Azure Computer Vision offer quick-start guides \citepweb{Quicksta92:online,Quicksta70:online} in which sets of articles target various SDKs or are client-agnostic with code snippets that can be changed to the client language/SDK of the developer's choice. Amazon Rekognition offers exercises in setting up the AWS SDK and using the command-line interface to interact with image analysis components \citepweb{Exercise86:online}, however this is client-agnostic nor does it provide details in how to get started with using the client SDKs.
-
-% \todo{ is it possible to link these to the type of questions we found on Stackoverflow? AC: Yes -- screenshots may be needed for that though (i.e., to make it tangible.) Worth it?}
 
 \begin{leftbar}
 \SuggestedImprovement
