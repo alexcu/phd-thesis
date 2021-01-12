@@ -148,7 +148,7 @@ We separated the classifications per emotion and calculated \cohen{} for each ra
 \begin{figure}[t]
 \centering
 \includegraphics[width=.6\linewidth]{beyerclass}
-\caption{Distribution of the types of questions raised.}
+\caption[Distributions of the types of questions raised]{Distribution of the types of questions raised.}
 \label{semotion2021:fig:beyer-classifications}
 \end{figure}
 
@@ -190,7 +190,7 @@ Of the \SEMNumEmotionsDetected{} questions with emotion detected, \SEMNumQuestio
 Unsurprisingly, \textit{Discrepancy}-based questions---indicative of the frustrations developers face when the \glsac{api} does something unexpected---{had the highest proportion of \textit{Anger} detected}, at 8.26\%, compared to \textit{Anger}'s mean of \SEMPctAngerAverage{}. To our surprise, {\textit{Love} (which we expected least by software developers when encountering issues) was present across all of the different question types}. On average, this was reported at \SEMPctLoveAverage{}. {The two highest emotions, by average, were \textit{Fear} ($\mu=$\SEMPctFearAverage{})and \textit{Surprise} ($\mu=$\SEMPctSurpriseAverage{})}. In contrast, to our surprise, {the two least-detected emotions reported by EmoTxt were \textit{Sadness} ($\mu=$\SEMPctSadnessAverage{}) and \textit{Anger} ($\mu=$\SEMPctAngerAverage{}\%)}. { \textit{Joy} and \textit{Love} were roughly the same}, and fell in between the two proportion ends, with means of \SEMPctJoyAverage{} and \SEMPctLoveAverage{}, respectively.
 
 \begin{table*}[th]
-\caption{Inter-rater agreement between humans ($R_{1..3}$) and EmoTxt ($E$) and indicative guidelines of strength.}
+\caption[Inter-rater agreement between human and automatic classifiation]{Inter-rater agreement between humans ($R_{1..3}$) and EmoTxt ($E$) and indicative guidelines of strength.}
 \label{semotion2021:tab:irr-results}
 \tablefit{\begin{tabular}{l|cccc|cccc}
 \toprule
@@ -220,14 +220,14 @@ As shown in \cref{semotion2021:tab:irr-results}, results from our reliability an
 \begin{figure}[th]
 \centering
 \includegraphics[width=.6\linewidth]{emotionproportion}
-\caption{Proportion of emotions per question type.}
+\caption[Proportions of emotions per question type]{Proportion of emotions per question type.}
 \label{semotion2021:fig:emotion-dist}
 \end{figure}
 
 \afterpage{\begin{landscape}
 \begin{table*}
 \centering
-\caption{Sample of various question types ([$Q$]) against emotion(s) identified by EmoTxt ([$E$]) and the three raters ([$R_{1..3}$]).}
+\caption[Sample Stack Overflow questions with emotions identified]{Sample of various question types ([$Q$]) against emotion(s) identified by EmoTxt ([$E$]) and the three raters ([$R_{1..3}$]).}
 \label{semotion2021:table:SampleQuestions}
 \small
 \tablefitlandscape{1}{\begin{tabular}{p{1\linewidth}p{0.2\linewidth}}

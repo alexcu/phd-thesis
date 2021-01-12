@@ -1,5 +1,3 @@
-% TODO: Merge in with CAiSE once submitted
-
 \chapter[Using Emotion Classification Models against Stack Overlow]
 {Using Emotion Classification Models against Stack Overflow\pubfootnote{Graetsch:2021caise}}
 \label{ch:caise2021}
@@ -31,7 +29,7 @@ Aware that productivity of software developers can be adversely impacted by nega
 
 To permit replication, the raw results produced from this case study are made available online at \url{https://bit.ly/3eSp7ku}.
 
-\section{Method}
+\section{Method}\label{caise2021:sec:method}
 We selected a classifier included in the EMTk toolkit that was specifically trained for emotional text classification in the software engineering domain~\citep{calefato2017}. The EMTk toolkit is available with a fully labelled training dataset~\citep{novielli2018}, permitting reuse and analysis of internals.  The classifier is based on \citeauthor{shaver1987}'s emotional hierarchy model~\citep{shaver1987} and performs binary classifications against text data provided in input files and an input parameter designating the emotion to be classified---one of \textit{Love}, \textit{Joy}, \textit{Surprise}, \textit{Fear}, \textit{Sadness} or \textit{Anger}. The classifier utilises \gls{svm} classification and a \gls{dsm} built using Word2Vec. This model is trained on 20 million \gls{so} posts. The \gls{dsm} approach facilitates classification to take into consideration the surrounding context of the word, in addition to the polarity of individual words~\citep{calefato2018}.   
 
 
@@ -106,7 +104,7 @@ Lastly, two, additional examples are presented in the last and second-last rows 
 
 \afterpage{\begin{landscape}
 \begin{table} 
-\caption[Sample questions comparing automated (C) and human rater (R1, R2, R3) classifications]{Human Raters (\textit{R1, R2, R3}) versus automated classifier (\textit{C)}. Questions located at: https://stackoverflow.com/q/[ID].}
+\caption[Sample questions comparing automated and human rater classifications]{Human Raters (\textit{R1, R2, R3}) versus automated classifier (\textit{C)}. Questions located at: https://stackoverflow.com/q/[ID].}
 \label{caise2021:tab:example-so-questions}
 \centering
 \tablefitlandscape{1}{\begin{tabular}{p{.9\linewidth}  p{0.2\linewidth}}

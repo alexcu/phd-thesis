@@ -5,7 +5,7 @@
 Abstraction layers are the application developer's productivity powerhouse as developers need not continuously consider underlying mechanics. The ubiquitous \glsx{api} enables separation of concerns and reusable component interaction; for example, complex graphics rendering and image manipulation is all achievable via a half-dozen lines of code with appropriate libraries and frameworks, for example OpenCV's \gls{api}.
 
 \Gls{ml}, too, is being abstracted and offered behind \glspl{api}. The 2010s have shown an explosion of cloud-based services providing \textit{web} \glspl{api} typically marketed under an \gls{ai} banner. The \gls{ml} algorithms, data processing pipelines, and infrastructure bringing these techniques to life are also abstracted behind \glspl{api} calls, driven by the motivation to make it easier for developers to blend \gls{ai} into their software.
-There is an explosion of interest from application developers (see \cref{fig:introduction:stackoverflow-trends}) that are investigating and exploring how best to infuse recent advances in AI into their software systems. Combined with an ever-increasing buffet of \gls{ai}-based solutions, technologies and products (see \cref{tab:introduction:ai-products}) for developers to choose from, it is evident that we are at the cusp of a new generation of `\gls{ai}-first' software.
+There is an explosion of interest from application developers (see \cref{fig:introduction:stackoverflow-trends}) that are investigating and exploring how best to infuse recent advances in \gls{ai} into their software systems. Combined with an ever-increasing buffet of \gls{ai}-based solutions, technologies and products (see \cref{tab:introduction:ai-products}) for developers to choose from, it is evident that we are at the cusp of a new generation of `\gls{ai}-first' software.
 
 Application developers build procedural and functional applications, where code typically evaluates deterministically to produce outcomes. Such software does not rely on probabilistic behaviour, unlike \gls{ai}-first software where, often, \gls{ml} techniques are employed. However, application developers, accustomed to such traditional software engineering paradigms, may not be aware of potential side-effects of those probabilistic techniques. Software that leverages recent advances in \gls{ai}---more specifically data-driven \gls{ml} techniques---will often have a layer of rules that wrap the \gls{ml} components.
 %These rule-driven systems typically consume, utilise, and integrate libraries and frameworks, \glsacpl{ide} and other tooling, and cloud-based services such as \gls{aws} \citep{AWS:Home}.
@@ -24,7 +24,6 @@ Application developers build procedural and functional applications, where code 
 Developing \gls{ai}-infused applications requires both code \textit{and data}, and an application developer can approach developing from three perspectives, further expanded in \cref{sec:introduction:context}:
 \begin{enumerate}
   \item The application developer defines an \gls{ml} model from scratch and trains it from a curated dataset. This approach is laborious in time and demands experience and knowledge of \gls{ml} methods, but the tradeoff is that they have full autonomy in the models they create.
-%   The application developer uses a pre-trained ML model (e.g. YOLO or XYZ). This approach removes the time taken to collect data, design and train the ML model; the developers, still need to know where to find these models, evaluate them, and then learn the frameworks within which they operate to use them effectively.
   \item The application developer downloads a pre-trained model (e.g., YOLO \citep{8100173} for computer vision, or GPT-2 \citep{Radford2019} for natural language processing) and `plugs' it into an existing \gls{ml} framework, such as Tensorflow \citep{Abadi:2016vn} or PyTorch \citep{NIPS2019_9015}. This approach removes the time taken to collect data, design and train the \gls{ml} model; the developers, still need to know where to find these models, evaluate them, and then learn the frameworks\footnote{Thus introducing a verbose list of \gls{ml} terminology to her developer vocabulary. See a list of 328 terms provided by Google here: \url{https://developers.google.com/machine-learning/glossary/}. Last accessed 7 December 2018.} within which they operate to use them effectively.
   \item The application developer uses a cloud-based service. It is fast to integrate into their applications, and the \glspl{api} offered abstract the technical know-how behind a web call.
 \end{enumerate}
@@ -32,9 +31,6 @@ While much research has investigated these first two perspectives (see \cref{ch:
 If so, how can the service providers improve their documentation to alleviate this?
 Do these data-driven services share similarities to the runtime behaviour of traditional cloud services?
 And if not, how best can the application developer integrate the data-driven service into their a procedural-driven application to produce \gls{ai}-first software?
-
-% A \citeyear{LoGiudice:2016wf} report by market research company Forrester captured such growth into four key areas \citep{LoGiudice:2016wf}
-
 
 \input{mainmatter/introduction/tables/characteristics-of-cloud}
 
@@ -69,7 +65,7 @@ We illustrate the slightly varied characteristics within this spectrum in \cref{
 \label{fig:introduction:cv-spectrum}
 \end{figure}
 
-These cloud AI-services are gaining traction within developer circles: we show an increasing trend of \glslong{so} posts mentioning intelligent computer vision services in \cref{fig:introduction:stackoverflow-trends}.\footnote{Query run on 12 October 2018 using StackExchange Data Explorer. Refer to \url{https://data.stackexchange.com/stackoverflow/query/910188} for full query.}
+These cloud \gls{ai}-services are gaining traction within developer circles: we show an increasing trend of \glslong{so} posts mentioning intelligent computer vision services in \cref{fig:introduction:stackoverflow-trends}.\footnote{Query run on 12 October 2018 using StackExchange Data Explorer. Refer to \url{https://data.stackexchange.com/stackoverflow/query/910188} for full query.}
 Academia provides varied nomenclature for these services, such as \textit{Cognitive Applications} and \textit{Machine Learning Services} \citep{Hwang:2017tr} or \textit{Machine Learning as a Service} \citep{Ribeiro:2015dz}. 
 For the context of this thesis, we will refer to such services under broader term of \textbf{\glspl{iws}},\footnote{This term is an extension inspired by the term `web service', as defined by the World Wide Web Consortium. See \url{https://bit.ly/2CQWJ2Z}, last accessed 19 July 2020.} and diagrammatically express their usage within \cref{fig:introduction:cloud-intelliegnce-service}.
 

@@ -10,8 +10,8 @@
 \renewcommand\thelinenumber{\color{red}\arabic{linenumber}}
 \linespread{1}
 \usepackage{etoolbox}
-\newcommand*{\missingreference}{\colorbox{yellow}{?REF?}}
-\newcommand*{\missingcitation}{\colorbox{red}{?CITE?}}
+\newcommand*{\missingreference}{\mbox{\colorbox{yellow}{?REF?}}}
+\newcommand*{\missingcitation}{\mbox{\colorbox{red}{?CITE?}}}
 \makeatletter
 
 \newcommand{\newcontent}[0]{
