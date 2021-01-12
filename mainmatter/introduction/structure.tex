@@ -96,16 +96,6 @@ We organise the thesis into four parts. \textbf{\Cref{part:preface}~(\textit{The
     Apr 2019 &
     \cref{ch:icwe2019} &
     \ref{rq:design} \\
-    
-    % ICSE(d)
-    \citep{Cummaudo:2020fse-demo}&
-    28\textsuperscript{th} Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering&
-    FSE(d)\tablefootnote{We abbreviate this with an added `d' (for the demonstrations track) to distinguish this paper from our full FSE 2020 paper.} &
-    A* &
-    Nov 2020&
-
-    \cref{ch:fse-demo2020} &    
-    \ref{rq:design} \\
      
     % FSE
     \citep{Cummaudo:2020fse}&
@@ -114,6 +104,15 @@ We organise the thesis into four parts. \textbf{\Cref{part:preface}~(\textit{The
     A*&
     Nov 2020 &
     \cref{ch:fse2020} &
+    \ref{rq:design} \\
+
+    % FSE(d)
+    \citep{Cummaudo:2020fse-demo}&
+    28\textsuperscript{th} Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering&
+    FSE(d)\tablefootnote{We abbreviate this with an added `d' (for the demonstrations track) to distinguish this paper from our full FSE 2020 paper.} &
+    A* &
+    Nov 2020&
+    \cref{ch:fse-demo2020} &    
     \ref{rq:design} \\
 
     \bottomrule
@@ -130,9 +129,9 @@ We organise the thesis into four parts. \textbf{\Cref{part:preface}~(\textit{The
 
 \subsubsection{\cref{ch:icwe2019}: Merging responses of multiple \glspl{cvs}} This chapter was presented at the \textbf{2019 International Conference on Web Engineering~(ICWE)}~\citep{Ohtake:2019vi}. Early exploration of \glspl{cvs} showed that multiple services use vastly different ontologies for the same input. As an initial strategy to improve the reliability of these services, we explored if merging multiple responses using WordNet \citep{WordNetMiller1995} and a novel label merging algorithm based on the proportional representation approach used in political voting could make any improvements. While this approach resulted in a modest improvement to reliability, it did not consider to the evolution issues or developer pain-points we later identified.
 
-\subsubsection{\cref{ch:fse-demo2020}: Developing a confidence thresholding tool} This chapter was presented at the demonstrations track of the \textbf{2020 Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)}~\citep{Cummaudo:2020fse-demo}. When integrating with a \gls{cvs}, developers need to select an appropriate confidence threshold suited to their use case and determine whether a decision should be made. An issue, however, is that these \glspl{cvs} are not calibrated to the specific problem-domain datasets and it is difficult for software developers to determine an appropriate confidence threshold on their problem domain. This tool presents a workflow and supporting tool for application developers to select decision thresholds suited to their domain that---unlike existing tooling---is designed to be used in pre-development, pre-release and production. This tooling forms part of a solution to \ref{rq:design} for developers to maintain robustness and reliability in their systems.
-
 \subsubsection{\cref{ch:fse2020}: Developing a \gls{cvs} integration architecture} This chapter was presented at the \textbf{2020 Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)}~\citep{Cummaudo:2020fse}. Based on the findings, we propose a set of new service error codes for describing the empirically observed error conditions of \gls{iws} based on our findings in \cref{ch:icsme2019}. To achieve this, we propose a proxy server intermediary that lies between a client application and a \gls{iws}; the proxy server tactic is designed to return these error codes when substantial evolution occurs against a benchmark dataset that represents the application domain context (similar to that proposed in \cref{ch:fse-demo2020}). A technical evaluation of our implementation of this architecture identifies 1,054 cases of substantial evolution in confidence values and 2,461 cases of evolution in the response label sets when 331 images were sent to a \gls{cvs}.
+
+\subsubsection{\cref{ch:fse-demo2020}: Developing a confidence thresholding tool} This chapter is an example implementation of the threshold tuner component discussed in \cref{ch:fse2020}, and was published under the tool demonstrations track of the \textbf{2020 Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)}~\citep{Cummaudo:2020fse-demo}. When integrating with a \gls{cvs}, developers need to select an appropriate confidence threshold suited to their use case and determine whether a decision should be made. An issue, however, is that these \glspl{cvs} are not calibrated to the specific problem-domain datasets and it is difficult for software developers to determine an appropriate confidence threshold on their problem domain. This tool presents a workflow and supporting tool for application developers to select decision thresholds suited to their domain that---unlike existing tooling---is designed to be used in pre-development, pre-release and production. This tooling forms part of a solution to \ref{rq:design} for developers to maintain robustness and reliability in their systems.
 
 \subsection{\Cref{part:postface}: Postface}
 
