@@ -17,7 +17,7 @@ Experiments show that our method outperforms both naive merge methods and tradit
 
 With the introduction of \glspl{iws} that make \gls{ml} more accessible to developers \citep{Ribeiro:2015dz,Hwang:2017tr}, we have seen a large growth of intelligent applications dependent on such services \citep{Mapillar97:online,FileShad33:online}.
 For example, consider the advances made in computer vision, where objects are localised within an image and labelled with associated categories.
-Cloud-based \glspl{cvs}---e.g., \citepweb{GoogleCloud:Home,Azure:Home,AWS:Home,IBM:Home,Clarifai:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home}---are a subset of \glspl{iws}. They utilise \gls{ml} techniques to achieve image recognition via a remote black-box approach, thereby reducing the overhead for application developers to understand how to implement intelligent systems from scratch. Furthermore, as the processing and training of the machine-learnt algorithms is offloaded to the cloud, developers simply send \glsac{rest}ful \glsac{api} requests to do the recognition. There are, however, inherit differences and drawbacks between traditional web services and \glspl{iws}, which we describe with the motivating scenario below.
+Cloud-based \glspl{cvs}---e.g., \citepweb{GoogleCloud:Home,Azure:Home,AWS:Home,IBM:Home,Clarifai:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home}---are a popular and mature subset of \glspl{iws}. They utilise \gls{ml} techniques to achieve image recognition via a remote black-box approach, thereby reducing the overhead for application developers to understand how to implement intelligent systems from scratch. Furthermore, as the processing and training of the machine-learnt algorithms is offloaded to the cloud, developers simply send \glsac{rest}ful \glsac{api} requests to do the recognition. There are, however, inherit differences and drawbacks between traditional web services and \glspl{iws}, which we describe with the motivating scenario below.
 
 \subsection{Motivating Scenario: Intelligent vs Traditional Web Services}
 
@@ -28,7 +28,7 @@ Based on his experiences using similar cloud services, Tom would expect consiste
 Tom's deterministic mindset results in three key differentials between a traditional web services and an \gls{iws}:
 \begin{enumerate}[label=\textbf{(\arabic*)}]
     \item \textbf{Given similar input, results differ between similar \glspl{iws}.}
-    When Tom interacts with the \glsac{api} of an \gls{iws}, he is not aware that each \glsac{api} provider trains their own, unique \gls{ml} model, both with disparate methods and datasets. These \glspl{iws} are, therefore, nondeterministic and data-driven; input images---even if they contain the same conceptual objects---often output different results. Contrast this to the substring method of traditional \glsacpl{api}; regardless of what programming language or string library is used, the same response is expected by developers.
+    When Tom interacts with the \glsac{api} of an \gls{iws}, he is not aware that each \glsac{api} provider trains their own, unique \gls{ml} model, both with disparate methods and datasets. These \glspl{iws} are, therefore, non-deterministic and data-driven; input images---even if they contain the same conceptual objects---often output different results. Contrast this to the substring method of traditional \glsacpl{api}; regardless of what programming language or string library is used, the same response is expected by developers.
     \item \textbf{Intelligent responses are not certain.}
     When Tom interprets the response object of an \gls{iws}, he finds that there is a `confidence' value or `score'. This is because the \gls{ml} models that power \glspl{iws} are inherently probabilistic and stochastic; any insight they produce is purely statistical and associational~\citep{Pearl:2018uv}. Unlike the substring example, where the rule-driven implementation provides certainty to the results, this is not guaranteed for \glspl{iws}.
     For example, a picture of a husky breed of dog is misclassified as a wolf. This could be due to adversarial examples \citep{Szegedy:2013vw} that `trick' the model into misclassifying images when they are fully decipherable to humans. It is well-studied that such adversarial examples exist in the real world unintentionally \citep{Kurakin:2016vw,Eykholt:2018vk,Pezzementi:2018tq}.
@@ -54,7 +54,7 @@ It normalises scores of different databases using a centralised sample database.
 Normalising scores makes it possible to merge search results into a single ranked list.
 However, search responses are disjoint, whereas they are not in the context of most \glspl{cvs}.
 
-In this paper, we introduce a novel method to merge responses of \glspl{cvs}, using image recognition \glsacpl{api} endpoints as our motivating example.
+In this paper, we introduce a novel method to merge responses of \glspl{cvs}, using image recognition \glsac{api} endpoints as our motivating example.
 \Cref{icwe2019:sec:merging} describes naive merging methods and requirements.
 \Cref{icwe2019:sec:graph-of-labels} gives insights into the structure of labels.
 \Cref{icwe2019:sec:algorithm} introduces our method of merging computer vision labels.
@@ -97,7 +97,7 @@ For instance, a \gls{cvs} receives a bowl of fruit as the input image and output
 \end{center}
 
 \noindent
-where the first item is the label and the second item is the score. Similarly, another computer vision \glsac{api} outputs the following for the same image:
+where the response gives a set of elements (two in this case) and the first item of that element is the label and the second item is the score. Similarly, another computer vision \glsac{api} outputs the following for the same image:
 
 \begin{center}
   \texttt{[[`apple', 0.7], [`cherry', 0.8]]}.  
