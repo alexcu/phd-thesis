@@ -19,7 +19,7 @@ gsed -i 's/url = {\([^}]\+\)}/howpublished = {{\[Online\] Available: \\url{\1}}}
 gsed -i 's/^abstract =.\+$//g' library.bib
 gsed -i '/^\s*$/d' library.bib
 gsed -i 's/annote = {\([^}]\+\)}/note = {{\1}}/g' library.bib
-gsed -i '1,3d' library.bib
+#gsed -i '1,3d' library.bib
 
 
 rm references.bib

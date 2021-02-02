@@ -43,7 +43,7 @@ As an example consider the predictions from two email spam classifiers shown in 
 
 The standard approach for tuning thresholds in classification problems involve making trade-offs between the number of false positives and false negatives using the receiver operating characteristic (ROC) curve. However, developers (i)~need to realise that this trade-off between false positives and false negatives is a data dependent optimisation process \citep{sculley2011detecting}, (ii)~often need to develop custom scripts and follow a trial-and-error based approach to determine a threshold, (iii)~must have appropriate statistical training and expertise, and (iv)~be aware that multi-label classification require more complex optimisation methods when setting label specific costs. However, current intelligent services do not sufficiently guide or support software engineers through the evaluation process, nor do they make this need clear in the documentation. 
 
-In this paper we present \textit{\bfseries Threshy}\footnote{Threshy is available for use at \url{\demogooglelink}}, a tool to assist developers in selecting decision thresholds when using intelligent services. The motivation for developing Threshy arose from our work across a set of industry projects, and is an implemented example of the threshold tuner component presented in our proposed architecture tactic~\citep{Cummaudo:2020fse} (see \cref{ch:fse2020}). While Threshy has been designed to specifically handle pre-trained classification \glsac{ml} models where the hyperparameters cannot be tuned, the overall conceptual design serves as inspiration for general model calibration.  Unlike existing tooling (see \cref{fse-demo2020:sec:related-work}), \textbf{Threshy serves as a means to up-skill and educate software engineers in selecting machine-learnt decision thresholds}, for example, on aspects such as confusion matrices. We re-iterate that the end-users of Threshy are software engineers and not data scientists---Threshy is \uline{not} designed for hyper-parameter tuning of models, but for threshold tuning to use intelligent web services more robustly where internal models are not exposed.
+In this paper we present \textit{\bfseries Threshy},\footnote{Threshy is available for use at \url{\demogooglelink}}  a tool to assist developers in selecting decision thresholds when using intelligent services. The motivation for developing Threshy arose from our work across a set of industry projects, and is an implemented example of the threshold tuner component presented in our proposed architecture tactic~\citep{Cummaudo:2020fse} (see \cref{ch:fse2020}). While Threshy has been designed to specifically handle pre-trained classification \glsac{ml} models where the hyperparameters cannot be tuned, the overall conceptual design serves as inspiration for general model calibration.  Unlike existing tooling (see \cref{fse-demo2020:sec:related-work}), \textbf{Threshy serves as a means to up-skill and educate software engineers in selecting machine-learnt decision thresholds}, for example, on aspects such as confusion matrices. We re-iterate that the end-users of Threshy are software engineers and not data scientists---Threshy is \uline{not} designed for hyper-parameter tuning of models, but for threshold tuning to use intelligent web services more robustly where internal models are not exposed.
 Threshy provides a visually interactive interface for developers to fine-tune thresholds and explore trade-offs of prediction hits/misses. This exposes the need for optimisation of thresholds, which is dependent on particular use cases.
 
 \begin{figure}
@@ -56,7 +56,7 @@ Threshy provides a visually interactive interface for developers to fine-tune th
 Threshy improves developer productivity through automation of the threshold selection process by leveraging an optimisation algorithm to propose thresholds. \cref{fse-demo2020:fig:usage-thresholding-monitoring} illustrates the two key aspects by which Threshy supports developer's application domain context. Developers input a representative dataset of their application data (a benchmark dataset) in addition to cost factors to Threshy. Threshy's output helps developers select appropriate thresholds while considering different cost factors and can be used to monitor the evolution of an \gls{iws}.
 This algorithm considers different cost factors providing developers with summary information so they can make more informed trade-offs. Developers also benefit from the workflow implemented in Threshy by providing a reproducible procedure for testing and tuning thresholds for any category of classification problem (binary, multi-class, and multi-label). Threshy has also been designed to work for different input data types including images, text and categorical values. The output, is a configuration file that can be integrated into client applications ensuring that the thresholds can be updated without code changes, and continuously monitored in a production setting. 
 
- This paper is structured as so: we provide a motivating example in \cref{fse-demo2020:sec:motivating-example}; we present an overview of Threshy in \cref{fse-demo2020:sec:threshy}, providing an overview of the architecture and implementation details and give a usage example; we offer a preliminary evaluation strategy of Threshy in \cref{fse-demo2020:sec:prelim-eval}; we give a background of some related work in the area within \cref{fse-demo2020:sec:related-work}; we present our conclusions, limitations and future avenues of this research in \cref{fse-demo2020:sec:conclusion}.
+ This paper is structured as so: we provide a motivating example in \cref{fse-demo2020:sec:motivating-example}; we present an overview of Threshy in \cref{fse-demo2020:sec:threshy}, providing an overview of the architecture and implementation details and give a usage example; we give a background of some related work in the area within \cref{fse-demo2020:sec:related-work}; we present our conclusions, limitations and future avenues of this research in \cref{fse-demo2020:sec:conclusion}.
 
 
 \section{Motivating Example}
@@ -87,7 +87,7 @@ This algorithm considers different cost factors providing developers with summar
 
 As a motivating example consider Nina, a fictitious developer, who has been employed by Lucy's Tomato Farm to automate the picking of tomatoes from their vines (when ripe) using computer vision and a harvesting robot. Lucy's Farm grow five types of tomatoes (roma, cherry, plum, green, and yellow tomatoes). Nina's robot---using an attached camera---will crawl and take a photo of each vine to assess it for harvesting.
 Nina's automated harvester needs to sort picked tomatoes into a respective container, and thus several business rules need to be encoded into the prediction logic to sort each tomato detected based on its \textit{ripeness} (ripe or not ripe) and \textit{type of tomato} (as above).
-Nina uses a two-stage pipeline consisting of a multi-class and a binary classification model. She has decided to evaluate the viability of cloud based intelligent services and use them if operationally effective.
+Nina uses a two-stage pipeline consisting of a multi-class and a binary classification model. She has decided to evaluate the viability of cloud-based intelligent services and use them if operationally effective.
 
 \cref{fse-demo2020:fig:tomatoes} illustrates an example of the pipeline as listed below:
 
@@ -100,12 +100,21 @@ Nina only has a minimal appreciation of the evaluation method to use for off-the
 
 To assist in developing Nina's pipeline, Lucy sampled a section of 1000 tomatoes by taking a photo of each tomato, manually labelling its type, and assessing whether the vine was  \texttt{`ripe'} or \texttt{`not\_ripe'}. Nina ran the labelled images through an \gls{iws}, with each image having a predicted type (multi-class) and ripeness (binary), with respective confidence values. 
 
-\begin{figure*}[t!]
+\afterpage{\begin{landscape}
+\begin{figure*}[h]
     \centering
     \includegraphics[width=\linewidth]{workflow}
     \caption[UI workflow of Threshy]{UI workflow for interacting with Threshy to optimise the thresholds for classification problem.}
     \label{fse-demo2020:fig:workflow}
 \end{figure*}
+\end{landscape}}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=.8\linewidth]{architecture.pdf}
+    \caption[Architecture of Threshy]{Architecture of Threshy.}
+    \label{fse-demo2020:fig:implementation}
+\end{figure}
 
 Nina combined the predictions, their respective confidence values, and Lucy's labelled ground truths into a CSV file which was then uploaded to Threshy. Nina asked Lucy the farmer to assist in setting relevant costs (from a business perspective) for correct predictions and false predictions. Threshy then recommended a choice of decision threshold which Nina then fine tuned while considering the performance and cost implications. 
 
@@ -140,13 +149,6 @@ Optimal machine-learnt decision boundaries depend on identifying the operating c
 Support tools for \gls{ml} frameworks generally fall into two categories. The first attempts to illuminate the `black box' by offering ways in which developers can better understand the internals of the model to improve its performance. For extensive analyses and surveys into this area, see \citep{Hohman2018VisualAI,Patel:2008:ISM:1357054.1357160}. However, a recent emphasis to probe only inputs and outputs of a model has been explored, exploring off-the-shelf models without  knowledge of its unknowns (see \cref{fse-demo2020:fig:example}) to reflect the nature of real-world development. Google's \textit{What-If Tool} \citep{DBLP:journals/corr/abs-1907-04135} for Tensorflow provides a means for data scientists to visualise, measure and assess model performance and fairness with various hypothetical scenarios and data features; similarly, Microsoft's \textit{Gamut} tool  \citep{hohman2019gamut} provides an interface to test hypotheticals on Generalized Additive Models, and a  \textit{ModelTracker} tool \citep{amershi2015modeltracker} collates summary statistics on sample data to enable visualisation of model behaviour and access to key performance metrics.
 
 However, these tools are focused toward pre-development model evaluation and not designed for software engineering workflows. Nor are they context-aware to the overall software system they are meant to target. They are also aimed at data scientists and model builders and do not consider consistent tooling that works across development, test, and production environments. They also do not provide synthesised output for using intelligent web services with predetermined thresholds. Further, certain tools are tied to specific \gls{ml} frameworks (e.g., What-If and Tensorflow). Our work, instead, attempts to bridge these gaps through a context-aware, structured workflow with an automated tool targeted to software developers; our tool is designed for software engineers to calibrate their thresholds and is used for \gls{iws} \glspl{api} in particular.
-
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=.8\linewidth]{architecture.pdf}
-    \caption[Architecture of Threshy]{Architecture of Threshy.}
-    \label{fse-demo2020:fig:implementation}
-\end{figure}
 
 \section{Conclusions \& Future Work}
 \label{fse-demo2020:sec:conclusion}
