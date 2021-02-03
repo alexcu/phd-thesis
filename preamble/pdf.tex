@@ -1,5 +1,21 @@
-% Switch to OpenBookmarks Fix table of contents encoded in PDF output
-\usepackage[open=true]{bookmark}
+% Make bookmarks open to fix ToC in PDF output
+% Bookmark extends hyperref, so don't need to explicitly import it
+\usepackage[
+  open=true
+  openlevel=1
+]{bookmark}
+% Required to properly anchor sections
+% https://tex.stackexchange.com/a/21765
+% To correctly anchor \chapter*, use the following order
+%   1. \cleardoublepage
+%   2. \pdfbookmark[1]{...}{<shorthandname>}
+%   3. \phantomsection
+%   4. \addcontentsline{toc}{chapter}{...}
+%   5. \chapter*{...}
+\providecommand\phantomsection{}
+% Fix for making appendixes link correctly in ToC PDF output
+% https://tex.stackexchange.com/a/224424
+\usepackage{appendix}
 
 % Create PDF in archival format - PDF/A (see https://www.deakin.edu.au/students/research/your-thesis-and-examinations/examination-procedures/hdr-examinations-faqs-for-students#Do_I_need_to_print_my_thesis-1996148)
 %\usepackage[a-3b]{pdfx}

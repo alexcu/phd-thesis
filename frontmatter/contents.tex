@@ -1,13 +1,18 @@
-\addcontentsline{toc}{chapter}{Contents}
+\cleardoublepage
+\renewcommand{\contentsname}{Table of Contents}
+\pdfbookmark[1]{\contentsname}{tableofcontents}
+\phantomsection
+\addcontentsline{toc}{chapter}{\contentsname}
 \tableofcontents
 
+\cleardoublepage
+\pdfbookmark[1]{List of Publications}{listofpublications}
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Publications}
 \chapter*{List of Publications}
-
 \vspace{-2em}
 Below lists publications arising from work completed in this PhD.
 \medskip
-
 \begin{enumerate}[leftmargin=0cm]\footnotesize
   \item \bibentry{Cummaudo:2020tse}
   \item \bibentry{Cummaudo:2020fse}
@@ -20,14 +25,27 @@ Below lists publications arising from work completed in this PhD.
   \item \bibentry{Graetsch:2021caise}
 \end{enumerate}
 
+\cleardoublepage
+\pdfbookmark[1]{List of Abbreviations}{listfoabbreviations}
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Abbreviations}
 \printacronyms
 
+\cleardoublepage
+\pdfbookmark[1]{List of Figures}{listoffigures}
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
+\cleardoublepage
 
+\cleardoublepage
+\pdfbookmark[1]{List of Tables}{listoftables}
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 
+\cleardoublepage
+\pdfbookmark[1]{List of Listings}{listoflistings}
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Listings}
 \lstlistoflistings

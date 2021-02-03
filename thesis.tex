@@ -37,17 +37,18 @@
 
 \begin{document}
 
+\bookmarksetup{depth=-1}
 \frontmatter
+\pdfbookmark[0]{Frontmatter}{frontmatter}
 
 \input{frontmatter/titlepage}\cleardoublepage
 \input{frontmatter/abstract}\cleardoublepage
 \input{frontmatter/declarations}\cleardoublepage
 \input{frontmatter/acknowledgements}\cleardoublepage
 \input{frontmatter/contents}\cleardoublepage
-
+	
+\bookmarksetup{depth=4}
 \mainmatter
-
-%\ifdefined\review\begin{linenumbers}\else\fi
 
 \part{Preface}\label{part:preface}
 \input{mainmatter/introduction}\cleardoublepage
@@ -64,19 +65,18 @@
 \input{mainmatter/publications/fse2020}\cleardoublepage
 \input{mainmatter/publications/fse-demo2020}\cleardoublepage
 
-
 \part{Postface}\label{part:postface}
 \input{mainmatter/conclusion}\cleardoublepage
-\input{mainmatter/references}
+\input{mainmatter/references}\cleardoublepage
 
-%\ifdefined\review\end{linenumbers}\else\fi
-
-\appendix
+\begin{appendices}
 
 \part{Appendices}\label{part:appendices}
 \input{appendix/additional-material}
 \input{appendix/tse-supplementary-materials}
 \input{appendix/authorship-statements}
 \input{appendix/ethics}
+
+\end{appendices}
 
 \end{document}
