@@ -127,7 +127,7 @@ We based our selection criteria on the prominence of the providers in industry (
 
 However, during the filtering stage (see \cref{icse2020:ssec:method:filtering}), we decided to focus on a subset of these services, computer vision, as these are one of the more mature and stable \gls{ml}/\gls{ai}-based services with widespread and increasing adoption in the developer community (see \cref{icse2020:fig:posts-trend}). We acknowledge other services beyond the four analysed provide similar capabilities~\citepweb{Pixlab:Home,Clarifai:Home,Cloudsight:Home,DeepAI:Home,Imagaa:Home,Talkwaler:Home} and only English-speaking services have been selected, excluding popular services from Asia (e.g.,~\citepweb{Megvii:Home,TupuTech:Home,YiTuTech:Home,SenseTime:Home,DeepGlint:Home})---see \cref{icse2020:sec:limitations}. For comprehensiveness, we explain below our initial attempts to extract \textit{all} \glspl{iws}. %
 
-\subsubsection{Defining a list of \glspl{iws}}
+\subsubsection[Defining a list of IWSs]{Defining a list of \glspl{iws}}\label{icse2020:list-of-iwss}
 As there exists no global `list' of \glspl{iws} to search on, we needed to derive a \textit{corpus of initial terms} to allow us to know \textit{what} to search for on the Stack Exchange Data Explorer (SEDE).\footnote{\url{http://data.stackexchange.com/stackoverflow}} We began by looking at different brand names of cloud services and their permutations (e.g., \uline{G}oogle \uline{C}loud \uline{S}ervices and GCS) as well as various \gls{ml}-related products (e.g., Google Cloud \gls{ml}). To do this, we performed extensive Google searches\footnote{This search was conducted on 17 January 2019}\def\footnotesearchdate{2} in addition to manually reviewing six `overview' pages of the relevant cloud platforms. We identified 91 initial \glspl{iws} to incorporate into our search terms.\footnote{For reproducibility, this is available at \url{http://bit.ly/2ZcwNJO}.}\def\footnotereproducability{3}
 
 \subsubsection{Manual search for relevant, related terms}
@@ -228,7 +228,7 @@ Despite all raters meeting to agree on a shared interpretation of the taxonomies
 We found~\citeauthor{Beyer:2018fm}'s high-level abstraction taxonomy (Taxonomy B) was able to classify \PctTaxBCategorised{} of posts.  \PctTaxACategorised{} posts were assigned exclusively under~\citeauthor{Aghajani:2019bo}'s documentation-specific taxonomy (Taxonomy A).
 We found that developers do not generally ask questions exclusive to documentation, and typically either pair documentation-related issues to their own code or context. The following two subsections further explain results from both Taxonomy A and B's perspective.
 
-\subsubsection{Results from~\citeauthor{Aghajani:2019bo}'s taxonomy}
+\subsubsection[Results from Aghajani's taxonomy]{Results from~\citeauthor{Aghajani:2019bo}'s taxonomy}
 
 %
 Results for~\citeauthor{Aghajani:2019bo}'s low-level documentation taxonomy (Taxonomy A), indicates that most discussion on \gls{so} does not directly relate to documentation about an \gls{iws}. We did not find any process-related (A-3) or tool-related (A-4) questions as, understandably, the developers who write the documentation of the \glspl{iws} would not be posting questions of such nature on \gls{so}.
@@ -273,6 +273,7 @@ A number of \textbf{review-related questions (B-4)} (\PctTaxBReview{}) seem to p
 %
 
 \subsection{Statistical Distribution Analysis}
+\label{icse2020:sec:statistical-distribution-analysis}
 
 We obtained the following results $\chi^2 = 131.86$, $\alpha = 0.05$, $p\ value = 2.2 \times 10^{-16}$ and $\phi_c=0.362$ from our distribution analysis with Taxonomy A to compare our study with that of~\citet{Aghajani:2019bo}. Comparing our study to~\citet{Beyer:2018fm} produced the following results $\chi^2~=~145.58$, $\alpha~=~0.05$, $p\ value~=~2.2 \times 10^{-16}$ and $\phi_c~=~0.252$. These results show that we are able to reject the null hypothesis that the distribution of posts using each taxonomy was the same as the comparison study. While there are limited guidelines for interpreting \(\phi_c\) when there is no prior information for effect size~\citep{Sun:2010ut},~\citeauthor{Sun:2010ut} suggests the following: $0.07\,\leq \phi_c\,\leq\,0.20$  indicates a \textit{small} effect, $0.21\,\leq \phi_c\,\leq\,0.35$ indicates a \textit{medium} effect, and $0.35 > \phi_c$ indicates a \textit{large} effect. Based on this criteria we obtained a \textit{large} effect size for the documentation-specific classification (Taxonomy A) and a \textit{medium} effect size for the generalised classification (Taxonomy B).
 
@@ -461,7 +462,7 @@ We only aligned posts to one category for each taxonomy and did not align these 
 While every effort was made to select posts from \gls{so} relevant to \glspl{cvs}, there are some cases where we may have missed some posts. This is especially due to the case where some developers mis-reference certain \glspl{iws} under different names (see \cref{icse2020:ssec:method:filtering:refining}).
 
 %
-Our \gls{solo} and Bloom's taxonomy analysis has only been investigated through the lenses of \glspl{iws}, and not in terms of conventional \glsacpl{api} (e.g., Andriod \glsacpl{api}). Therefore, we are not fully certain how these results found would compare to other types of \glsacpl{api}. %
+Our \gls{solo} and Bloom's taxonomy analysis has only been investigated through the lenses of \glspl{iws}, and not in terms of conventional \glsacpl{api} (e.g., Android \glsacpl{api}). Therefore, we are not fully certain how these results found would compare to other types of \glsacpl{api}. %
 %
 Two \textit{existing} \gls{so} classification taxonomies were used rather than developing our own. We wanted to see if previous \gls{so} taxonomies could be applied to \glspl{iws} before developing a new, specific taxonomy, and these taxonomies were applied based on our interpretation  (see \cref{icse2020:ssec:method:filtering:classification}) and may not necessarily reflect the interpretation of the original authors. Moreover, automated techniques such as topic modelling were not utilised as we found these produce descriptive classifications only (see \cref{icse2020:sec:related-work}). Hence, manual analysis was performed by humans to ensure categories could be aligned back to causal factors.
 %
