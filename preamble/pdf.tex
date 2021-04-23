@@ -1,9 +1,13 @@
 % Make bookmarks open to fix ToC in PDF output
 % Bookmark extends hyperref, so don't need to explicitly import it
 \usepackage[
-  open=true
+  open=true,
   openlevel=1
 ]{bookmark}
+
+% Hide hyperlinks
+\hypersetup{hidelinks}
+
 % Required to properly anchor sections
 % https://tex.stackexchange.com/a/21765
 % To correctly anchor \chapter*, use the following order
