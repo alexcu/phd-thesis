@@ -1,4 +1,6 @@
-\cleardoublepage
+%\def\authorsignature{/Users/Alex/Desktop/AC-Sig.pdf}
+
+\cleardoubleevenemptypage
 \pdfbookmark[1]{Candidate Declaration}{candidatedeclaration}
 \phantomsection
 \addcontentsline{toc}{chapter}{Candidate Declaration}
@@ -17,14 +19,17 @@ I certify that I am the student named below and that the information provided ab
 \noindent
 \hspace{\fill}
 \parbox[b]{0.4\linewidth}{
-  \hrulefill\\
   \raggedleft
+  \ifdefined\authorsignature{\includegraphics[width=0.7\linewidth]{\authorsignature}}\else\fi
+  
+  \vspace{-6mm}
+  \hrulefill\\
   \theauthor{}\\
   \footnotesize
   \thedate{}
 }
 
-\cleardoublepage
+\cleardoubleevenemptypage
 \pdfbookmark[1]{Access to Thesis}{accesstothesis}
 \phantomsection
 \addcontentsline{toc}{chapter}{Access to Thesis}
@@ -43,10 +48,13 @@ I certify that I am the student named below and that the information provided ab
 \noindent
 \hspace{\fill}
 \parbox[b]{0.4\linewidth}{
-  \hrulefill\\
   \raggedleft
+  \ifdefined\authorsignature{\includegraphics[width=0.7\linewidth]{\authorsignature}}\else\fi
+  
+  \vspace{-6mm}
+  \hrulefill\\
   \theauthor{}\\
   \footnotesize
   \thedate{}
 }
-\cleardoublepage
+\cleardoubleevenemptypage

@@ -11,7 +11,7 @@
 % Required to properly anchor sections
 % https://tex.stackexchange.com/a/21765
 % To correctly anchor \chapter*, use the following order
-%   1. \cleardoublepage
+%   1. \cleardoubleevenemptypage
 %   2. \pdfbookmark[1]{...}{<shorthandname>}
 %   3. \phantomsection
 %   4. \addcontentsline{toc}{chapter}{...}
@@ -49,3 +49,18 @@
  \usepackage{tikz}
  \newcommand{\circled}[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+            
+% If Chapter/Parts end on a left-page, ensure a blank page is
+% added between the previous and next part/chapter
+\usepackage{ifoddpage}
+\newcommand\cleardoubleevenemptypage{%
+  \checkoddpage
+  \ifoddpage
+  	\cleardoublepage
+  \else
+  	\cleardoublepage
+  	\thispagestyle{empty}
+  	\null
+  	\cleardoublepage
+  \fi
+}
